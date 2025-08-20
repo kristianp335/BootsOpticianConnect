@@ -305,9 +305,14 @@
         const li = document.createElement('li');
         li.className = 'boots-menu-item';
         
+        // Get configuration to access site prefix
+        const config = getFragmentConfiguration();
+        const sitePrefix = config.sitePrefix || '';
+        
         // Handle both API and fallback structure
         const itemName = item.name || item.title || '';
-        const itemUrl = item.link || item.url || '#';
+        const baseUrl = item.link || item.url || '#';
+        const itemUrl = baseUrl === '#' ? baseUrl : sitePrefix + baseUrl;
         const hasChildren = (item.children && item.children.length > 0) || 
                            (item.navigationMenuItems && item.navigationMenuItems.length > 0);
         
@@ -340,7 +345,9 @@
                 childLi.className = 'boots-submenu-item';
                 
                 const childLink = document.createElement('a');
-                childLink.href = child.link || child.url || '#';
+                const childBaseUrl = child.link || child.url || '#';
+                const childUrl = childBaseUrl === '#' ? childBaseUrl : sitePrefix + childBaseUrl;
+                childLink.href = childUrl;
                 childLink.className = 'boots-submenu-link';
                 childLink.textContent = child.name || child.title || '';
                 
