@@ -838,7 +838,7 @@ body.has-edit-mode-menu #wrapper .boots-edit-mode-static::before {
     outline: none;
 }
 
-#wrapper .boots-search-content {
+#wrapper .search-content {
     padding: 60px;
     flex: 1;
     overflow-y: auto;
@@ -992,7 +992,7 @@ body.has-edit-mode-menu #wrapper .boots-dropzone-wrapper {
     outline: none;
 }
 
-#wrapper .boots-login-content {
+#wrapper .login-content {
     padding: 20px;
 }
 
@@ -1127,11 +1127,11 @@ body.has-edit-mode-menu #wrapper .boots-dropzone-wrapper {
         padding: var(--boots-spacing-md);
     }
     
-    #wrapper .boots-search-content {
+    #wrapper .search-content {
         padding: 30px;
     }
     
-    #wrapper .boots-login-content {
+    #wrapper .login-content {
         padding: 15px;
     }
     

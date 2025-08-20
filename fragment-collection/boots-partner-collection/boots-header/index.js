@@ -24,7 +24,8 @@
     ready(initializeHeader);
     
     function initializeHeader() {
-        console.log('🔧 Boots Header Fragment initializing');
+        console.log('🔧 Boots Header Fragment initializing - DEBUG MODE');
+        console.log('📍 fragmentElement:', fragmentElement);
         
         // Get configuration values
         const config = getFragmentConfiguration();
@@ -56,6 +57,7 @@
         
         // Initialize navigation from API
         console.log('📡 Loading navigation from Liferay API...');
+        console.log('🔍 Checking menu list element:', document.querySelector('#boots-menu-list'));
         loadNavigationMenu();
         
         initializeMobileMenu();
@@ -223,6 +225,7 @@
      */
     function loadFallbackNavigation() {
         console.log('📋 Loading Boots Partner Portal fallback navigation');
+        console.log('🔍 Menu list element check:', fragmentElement ? fragmentElement.querySelector('#boots-menu-list') : 'fragmentElement not found');
         const fallbackNav = [
             {
                 name: 'Dashboard',
