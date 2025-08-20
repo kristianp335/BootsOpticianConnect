@@ -438,14 +438,18 @@
     padding: 0;
     margin: 0;
     flex-grow: 1;
+    display: block;
+    visibility: visible;
 }
 
 #wrapper .boots-menu-item {
     margin-bottom: var(--boots-spacing-xs);
+    display: list-item;
+    visibility: visible;
 }
 
 #wrapper .boots-menu-link {
-    display: flex;
+    display: flex !important;
     align-items: center;
     gap: var(--boots-spacing-md);
     padding: var(--boots-spacing-md);
@@ -454,6 +458,8 @@
     border-radius: var(--boots-border-radius);
     transition: var(--boots-transition);
     font-weight: var(--boots-font-weight-normal);
+    visibility: visible !important;
+    opacity: 1 !important;
 }
 
 #wrapper .boots-menu-link:hover {
