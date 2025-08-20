@@ -908,7 +908,7 @@ body.has-edit-mode-menu #wrapper .boots-dropzone-wrapper {
 }
 
 #wrapper .boots-login-content {
-    padding: var(--boots-spacing-xl);
+    padding: calc(var(--boots-spacing-xl) + 1.25rem);
 }
 
 /* =================================================================================
