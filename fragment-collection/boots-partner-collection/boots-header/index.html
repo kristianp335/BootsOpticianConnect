@@ -103,64 +103,28 @@
                     [/#if]
                     
                     [#if configuration.showUserProfile!true]
-                    <!-- User Profile / Login -->
-                    <div class="boots-user-profile">
-                        [#if themeDisplay.isSignedIn()]
-                        <!-- Authenticated User Menu -->
-                        <button class="boots-profile-btn boots-focus-visible" aria-label="User menu" aria-expanded="false">
-                            <div class="boots-avatar">
-                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                    <path d="M10 2C11.1 2 12 2.9 12 4S11.1 6 10 6 8 5.1 8 4 8.9 2 10 2ZM10 16C7.3 16 5 13.7 5 11C5 9.9 5.9 9 7 9H13C14.1 9 15 9.9 15 11C15 13.7 12.7 16 10 16Z" fill="currentColor"/>
-                                </svg>
-                            </div>
-                            <span class="boots-profile-name">${user.fullName}</span>
-                            <svg class="boots-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </button>
-                        [#else]
-                        <!-- Login Button for Guest Users -->
-                        <button class="boots-login-btn boots-focus-visible" id="boots-login-btn" aria-label="Sign in">
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                <path d="M14 6H3C2.4 6 2 6.4 2 7V17C2 17.6 2.4 18 3 18H14C14.6 18 15 17.6 15 17V7C15 6.4 14.6 6 14 6Z" stroke="currentColor" stroke-width="2"/>
-                                <path d="M5 6V4C5 2.9 5.9 2 7 2H10C11.1 2 12 2.9 12 4V6" stroke="currentColor" stroke-width="2"/>
-                            </svg>
-                            Sign In
-                        </button>
-                        [/#if]
-                        
-                        <!-- Profile Dropdown -->
-                        <div class="boots-profile-dropdown">
-                            <div class="boots-profile-info">
-                                <div class="boots-profile-details">
-                                    <h4 data-lfr-editable-id="user-name" data-lfr-editable-type="text">John Smith</h4>
-                                    <p data-lfr-editable-id="user-role" data-lfr-editable-type="text">Senior Optician</p>
-                                </div>
-                            </div>
-                            <div class="boots-profile-menu">
-                                <a href="/profile" class="boots-profile-link">
-                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                        <path d="M8 2C9.1 2 10 2.9 10 4S9.1 6 8 6 6 5.1 6 4 6.9 2 8 2ZM8 14C5.8 14 4 12.2 4 10C4 9.4 4.4 9 5 9H11C11.6 9 12 9.4 12 10C12 12.2 10.2 14 8 14Z" fill="currentColor"/>
-                                    </svg>
-                                    My Profile
-                                </a>
-                                <a href="/settings" class="boots-profile-link">
-                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                        <path d="M8 5C6.3 5 5 6.3 5 8S6.3 11 8 11 11 9.7 11 8 9.7 5 8 5ZM8 1L9.2 3.8L12 4L9.2 4.2L8 7L6.8 4.2L4 4L6.8 3.8L8 1ZM14 8C14 8.4 13.6 8.8 13.2 8.8L11.4 9.2C11.3 9.5 11.1 9.8 11 10L11.4 11.8C11.5 12.2 11.3 12.6 10.9 12.7L9.1 13.3C8.7 13.4 8.3 13.2 8.2 12.8L7.8 11C7.5 11 7.2 11 7 11L6.6 12.8C6.5 13.2 6.1 13.4 5.7 13.3L3.9 12.7C3.5 12.6 3.3 12.2 3.4 11.8L3.8 10C3.7 9.8 3.5 9.5 3.4 9.2L1.6 8.8C1.2 8.8 0.8 8.4 0.8 8C0.8 7.6 1.2 7.2 1.6 7.2L3.4 6.8C3.5 6.5 3.7 6.2 3.8 6L3.4 4.2C3.3 3.8 3.5 3.4 3.9 3.3L5.7 2.7C6.1 2.6 6.5 2.8 6.6 3.2L7 5C7.3 5 7.6 5 7.8 5L8.2 3.2C8.3 2.8 8.7 2.6 9.1 2.7L10.9 3.3C11.3 3.4 11.5 3.8 11.4 4.2L11 6C11.1 6.2 11.3 6.5 11.4 6.8L13.2 7.2C13.6 7.2 14 7.6 14 8Z" fill="currentColor"/>
-                                    </svg>
-                                    Settings
-                                </a>
-                                <div class="boots-profile-divider"></div>
-                                <a href="/logout" class="boots-profile-link">
-                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                        <path d="M6 14H3C2.4 14 2 13.6 2 13V3C2 2.4 2.4 2 3 2H6M11 11L14 8L11 5M14 8H6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
-                                    Sign Out
-                                </a>
-                            </div>
+                    <!-- Login/User Button -->
+                    [#if themeDisplay.isSignedIn()]
+                        <div class="boots-user-profile-widget">
+                            [@liferay.user_personal_bar /]
                         </div>
-                    </div>
+                    [#else]
+                        <button class="boots-header-action-btn boots-login-btn" id="boots-login-btn" aria-label="Sign in">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" stroke="currentColor" stroke-width="2"/>
+                                <polyline points="10,17 15,12 10,7" stroke="currentColor" stroke-width="2"/>
+                                <line x1="15" y1="12" x2="3" y2="12" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                            <span>Sign In</span>
+                        </button>
                     [/#if]
+                    [/#if]
+                    
+                    <!-- Language Selector Dropzone -->
+                    <div class="boots-language-selector-dropzone">
+                        <lfr-drop-zone data-lfr-drop-zone-id="language-selector">
+                        </lfr-drop-zone>
+                    </div>
                 </div>
             </div>
         </div>
@@ -168,54 +132,29 @@
     
     <!-- Search Modal -->
     [#if configuration.showSearch!true]
-    <div class="boots-search-overlay" id="boots-search-overlay" role="dialog" aria-modal="true" aria-labelledby="search-modal-title" style="display: none;">
-        <div class="boots-search-backdrop"></div>
+    <div id="boots-search-overlay" class="boots-search-overlay" style="display: none;">
         <div class="boots-search-modal">
-            <div class="boots-search-header">
-                <h2 id="search-modal-title" data-lfr-editable-id="search-modal-title" data-lfr-editable-type="text">Search Portal</h2>
-                <button class="boots-search-close" aria-label="Close search">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </button>
+            <div class="boots-modal-header">
+                <h3 class="boots-modal-title" data-lfr-editable-id="search-title" data-lfr-editable-type="text">Search Partner Portal</h3>
+                <button id="boots-close-search" class="boots-modal-close" aria-label="Close search">&times;</button>
             </div>
-            <div class="boots-search-content">
-                <!-- Embedded Liferay Search Portlet -->
-                <div class="boots-search-dropzone">
-                    <div id="dropzone-search-portlet" class="boots-dropzone-container">
-                        <!-- Search portlets will be placed here in edit mode -->
-                        <div class="boots-search-fallback">
-                            [@liferay_portlet["runtime"] portletName="com_liferay_portal_search_web_search_bar_portlet_SearchBarPortlet" /]
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Search Suggestions Dropzone -->
-                <div class="boots-search-suggestions-dropzone">
-                    <div id="dropzone-search-suggestions" class="boots-dropzone-container">
-                        <!-- Search result widgets can be placed here -->
-                    </div>
-                </div>
+            <div class="boots-modal-body boots-search-content">
+                <lfr-drop-zone data-lfr-drop-zone-id="search">
+                </lfr-drop-zone>
             </div>
         </div>
     </div>
     [/#if]
     
     <!-- Login Modal -->
-    [#if configuration.showUserProfile!true && !themeDisplay.isSignedIn()]
-    <div class="boots-login-overlay" id="boots-login-overlay" role="dialog" aria-modal="true" aria-labelledby="login-modal-title" style="display: none;">
-        <div class="boots-login-backdrop"></div>
+    [#if !themeDisplay.isSignedIn()]
+    <div id="boots-login-overlay" class="boots-login-overlay" style="display: none;">
         <div class="boots-login-modal">
-            <div class="boots-login-header">
-                <h2 id="login-modal-title" data-lfr-editable-id="login-modal-title" data-lfr-editable-type="text">Sign In to Partner Portal</h2>
-                <button class="boots-login-close" aria-label="Close login">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </button>
+            <div class="boots-modal-header">
+                <h3 class="boots-modal-title" data-lfr-editable-id="login-title" data-lfr-editable-type="text">Sign In to Partner Portal</h3>
+                <button id="boots-close-login" class="boots-modal-close" aria-label="Close login">&times;</button>
             </div>
-            <div class="boots-login-content">
-                <!-- Embedded Liferay Login Portlet -->
+            <div class="boots-modal-body boots-login-content">
                 [@liferay_portlet["runtime"] portletName="com_liferay_login_web_portlet_LoginPortlet" /]
             </div>
         </div>

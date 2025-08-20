@@ -141,10 +141,9 @@
      * Search modal functionality
      */
     function initializeSearchModal() {
-        const searchBtn = fragmentElement.querySelector('#boots-search-btn');
+        const searchBtn = fragmentElement.querySelector('.boots-search-btn');
         const searchOverlay = fragmentElement.querySelector('#boots-search-overlay');
-        const searchClose = fragmentElement.querySelector('.boots-search-close');
-        const searchBackdrop = fragmentElement.querySelector('.boots-search-backdrop');
+        const searchClose = fragmentElement.querySelector('#boots-close-search');
         
         if (!searchBtn || !searchOverlay) return;
         
@@ -153,11 +152,11 @@
             searchOverlay.setAttribute('aria-hidden', 'false');
             document.body.style.overflow = 'hidden';
             
-            // Focus on search input if available
+            // Focus on first input if available
             setTimeout(() => {
-                const searchInput = searchOverlay.querySelector('input[type="search"], input[type="text"]');
-                if (searchInput) {
-                    searchInput.focus();
+                const firstInput = searchOverlay.querySelector('input');
+                if (firstInput) {
+                    firstInput.focus();
                 }
             }, 100);
         }
@@ -166,7 +165,7 @@
             searchOverlay.style.display = 'none';
             searchOverlay.setAttribute('aria-hidden', 'true');
             document.body.style.overflow = '';
-            searchBtn.focus();
+            if (searchBtn) searchBtn.focus();
         }
         
         // Search button click
@@ -183,14 +182,12 @@
             });
         }
         
-        // Backdrop click
-        if (searchBackdrop) {
-            searchBackdrop.addEventListener('click', function(e) {
-                if (e.target === searchBackdrop) {
-                    closeSearchModal();
-                }
-            });
-        }
+        // Click outside modal to close
+        searchOverlay.addEventListener('click', function(e) {
+            if (e.target === searchOverlay) {
+                closeSearchModal();
+            }
+        });
         
         // Escape key
         document.addEventListener('keydown', function(e) {
@@ -206,8 +203,7 @@
     function initializeLoginModal() {
         const loginBtn = fragmentElement.querySelector('#boots-login-btn');
         const loginOverlay = fragmentElement.querySelector('#boots-login-overlay');
-        const loginClose = fragmentElement.querySelector('.boots-login-close');
-        const loginBackdrop = fragmentElement.querySelector('.boots-login-backdrop');
+        const loginClose = fragmentElement.querySelector('#boots-close-login');
         
         if (!loginBtn || !loginOverlay) return;
         
@@ -229,7 +225,7 @@
             loginOverlay.style.display = 'none';
             loginOverlay.setAttribute('aria-hidden', 'true');
             document.body.style.overflow = '';
-            loginBtn.focus();
+            if (loginBtn) loginBtn.focus();
         }
         
         // Login button click
@@ -246,14 +242,12 @@
             });
         }
         
-        // Backdrop click
-        if (loginBackdrop) {
-            loginBackdrop.addEventListener('click', function(e) {
-                if (e.target === loginBackdrop) {
-                    closeLoginModal();
-                }
-            });
-        }
+        // Click outside modal to close
+        loginOverlay.addEventListener('click', function(e) {
+            if (e.target === loginOverlay) {
+                closeLoginModal();
+            }
+        });
         
         // Escape key
         document.addEventListener('keydown', function(e) {
@@ -268,7 +262,7 @@
      */
     function initializeDropzones() {
         // Language selector dropzone
-        const languageDropzone = document.querySelector('#dropzone-language-selector');
+        const languageDropzone = fragmentElement.querySelector('[data-lfr-drop-zone-id="language-selector"]');
         
         if (languageDropzone) {
             const observer = new MutationObserver(function(mutations) {
@@ -306,14 +300,10 @@
             }
         }
         
-        // Search dropzone synchronization
-        const searchDropzone = document.querySelector('#dropzone-search-portlet');
+        // Search dropzone - just ensure it's visible in edit mode
+        const searchDropzone = fragmentElement.querySelector('[data-lfr-drop-zone-id="search"]');
         if (searchDropzone) {
-            const searchContent = fragmentElement.querySelector('.boots-search-fallback');
-            if (searchContent && searchDropzone.innerHTML.trim() !== '') {
-                // Copy dropzone content to search modal if available
-                searchContent.innerHTML = searchDropzone.innerHTML;
-            }
+            // No synchronization needed - Liferay handles dropzone content
         }
     }
     
@@ -342,30 +332,11 @@
     }
     
     /**
-     * User profile dropdown functionality
+     * User profile - using Liferay user personal bar
      */
     function initializeUserProfile() {
-        const profileBtn = fragmentElement.querySelector('.boots-profile-btn');
-        const profileDropdown = fragmentElement.querySelector('.boots-profile-dropdown');
-        
-        if (!profileBtn || !profileDropdown) return;
-        
-        profileBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            
-            const isExpanded = this.getAttribute('aria-expanded') === 'true';
-            this.setAttribute('aria-expanded', !isExpanded);
-            profileDropdown.classList.toggle('show');
-        });
-        
-        // Close dropdown when clicking outside
-        document.addEventListener('click', function(e) {
-            if (!profileBtn.contains(e.target) && !profileDropdown.contains(e.target)) {
-                profileDropdown.classList.remove('show');
-                profileBtn.setAttribute('aria-expanded', 'false');
-            }
-        });
+        // User personal bar is handled by Liferay - no custom JavaScript needed
+        // [@liferay.user_personal_bar /] handles all user profile functionality
     }
     
     /**
@@ -385,7 +356,7 @@
         });
         
         // Add keyboard navigation for action buttons
-        const actionButtons = fragmentElement.querySelectorAll('.boots-search-btn, .boots-login-btn, .boots-notification-btn, .boots-profile-btn');
+        const actionButtons = fragmentElement.querySelectorAll('.boots-search-btn, .boots-login-btn, .boots-notification-btn');
         
         actionButtons.forEach(function(button) {
             button.addEventListener('keydown', function(e) {
