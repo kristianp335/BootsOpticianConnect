@@ -210,15 +210,13 @@
         
         // Skip API call if no valid menu ID is provided
         if (!menuId || menuId === 'primary-menu' || menuId === 'undefined' || menuId === undefined || typeof menuId !== 'string') {
-            console.log('⚠️ No valid menu ID provided, loading fallback navigation');
-            loadFallbackNavigation();
+            console.log('⚠️ No valid menu ID provided, navigation will remain empty');
             return;
         }
         
         // Check if authentication token is available
         if (typeof Liferay === 'undefined' || !Liferay.authToken) {
-            console.log('⚠️ Liferay auth token not available, loading fallback navigation');
-            loadFallbackNavigation();
+            console.log('⚠️ Liferay auth token not available, navigation will remain empty');
             return;
         }
         
@@ -262,44 +260,16 @@
                 if (navItems.length > 0) {
                     renderNavigationToSlidingMenu(navItems);
                 } else {
-                    console.warn('⚠️ No navigation items found in API response');
+                    console.warn('⚠️ No navigation items found in API response, navigation will remain empty');
                 }
             })
             .catch(error => {
                 console.error('❌ Error loading navigation menu:', error);
-                console.log('🔄 Loading fallback navigation');
-                loadFallbackNavigation();
+                console.log('Navigation will remain empty due to API error');
             });
     }
     
-    /**
-     * Load fallback navigation when API is unavailable
-     */
-    function loadFallbackNavigation() {
-        console.log('📋 Loading Boots Partner Portal fallback navigation');
-        console.log('🔍 Menu list element check:', fragmentElement ? fragmentElement.querySelector('#boots-menu-list') : 'fragmentElement not found');
-        // Provide a comprehensive fallback navigation using API format
-        const fallbackNav = [
-            {
-                name: 'Dashboard',
-                link: '/dashboard'
-            },
-            {
-                name: 'Training & Development',
-                link: '/training'
-            },
-            {
-                name: 'Case Management',
-                link: '/cases'
-            },
-            {
-                name: 'Resources & Support',
-                link: '/resources'
-            }
-        ];
-        
-        renderNavigationToSlidingMenu(fallbackNav);
-    }
+
     
     /**
      * Render navigation to the left sliding menu
