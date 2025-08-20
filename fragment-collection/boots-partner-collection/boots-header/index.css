@@ -672,6 +672,23 @@ body.has-edit-mode-menu #wrapper .boots-language-selector-dropzone:empty::after 
     padding: 2rem;
 }
 
+/* Edit Mode: Display search modal statically below header */
+[data-editor-enabled="true"] #wrapper .boots-search-overlay.boots-edit-mode-static,
+.is-edit-mode #wrapper .boots-search-overlay.boots-edit-mode-static,
+body.has-edit-mode-menu #wrapper .boots-search-overlay.boots-edit-mode-static {
+    display: block !important;
+    position: static;
+    width: auto;
+    height: auto;
+    background: none;
+    backdrop-filter: none;
+    z-index: auto;
+    padding: var(--boots-spacing-lg);
+    border-top: 1px solid var(--gray-200, #f1f2f5);
+    margin-top: var(--boots-spacing-sm);
+    background: var(--gray-50, #f8f9fa);
+}
+
 /* Active modal state */
 #wrapper .boots-search-overlay.active {
     display: flex !important;
@@ -698,6 +715,42 @@ body.has-edit-mode-menu #wrapper .boots-language-selector-dropzone:empty::after 
     overflow: hidden;
     display: flex;
     flex-direction: column;
+}
+
+/* Edit Mode: Style search modal as static dropzone */
+[data-editor-enabled="true"] #wrapper .boots-edit-mode-static .boots-search-modal,
+.is-edit-mode #wrapper .boots-edit-mode-static .boots-search-modal,
+body.has-edit-mode-menu #wrapper .boots-edit-mode-static .boots-search-modal {
+    max-width: 1200px;
+    margin: 0 auto;
+    box-shadow: none;
+    animation: none;
+    max-height: none;
+    border: 2px dashed var(--gray-400, #ced4da);
+    border-radius: var(--boots-border-radius-lg);
+    background: var(--boots-white);
+}
+
+/* Edit Mode: Hide modal close button */
+[data-editor-enabled="true"] #wrapper .boots-edit-mode-static .boots-modal-close,
+.is-edit-mode #wrapper .boots-edit-mode-static .boots-modal-close,
+body.has-edit-mode-menu #wrapper .boots-edit-mode-static .boots-modal-close {
+    display: none;
+}
+
+/* Edit Mode: Add label above search modal */
+[data-editor-enabled="true"] #wrapper .boots-edit-mode-static::before,
+.is-edit-mode #wrapper .boots-edit-mode-static::before,
+body.has-edit-mode-menu #wrapper .boots-edit-mode-static::before {
+    content: "Search Functionality";
+    display: block;
+    color: var(--boots-secondary);
+    font-size: var(--boots-font-size-sm);
+    font-weight: var(--boots-font-weight-semi-bold);
+    margin-bottom: var(--boots-spacing-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding-left: var(--boots-spacing-lg);
 }
 
 @keyframes slideInDown {

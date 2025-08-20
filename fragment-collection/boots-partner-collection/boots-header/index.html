@@ -82,13 +82,6 @@
                     </lfr-drop-zone>
                 </div>
             </div>
-            <div class="boots-dropzone-section">
-                <h4 class="boots-dropzone-label">Search Functionality</h4>
-                <div class="boots-dropzone-wrapper">
-                    <lfr-drop-zone data-lfr-drop-zone-id="search-modal-content">
-                    </lfr-drop-zone>
-                </div>
-            </div>
         </div>
         
         <!-- Left Sliding Menu -->
@@ -114,7 +107,7 @@
     
     <!-- Search Modal -->
     [#if configuration.showSearch!true]
-    <div id="boots-search-overlay" class="boots-search-overlay" style="display: none;">
+    <div id="boots-search-overlay" class="boots-search-overlay boots-edit-mode-static" style="display: none;">
         <div class="boots-search-modal">
             <div class="boots-modal-header">
                 <h3 class="boots-modal-title" data-lfr-editable-id="search-title" data-lfr-editable-type="text">Search Partner Portal</h3>

@@ -535,6 +535,13 @@
             searchBtn.addEventListener('click', function(e) {
                 e.preventDefault();
                 console.log('🔍 Opening search modal');
+                
+                // Prevent opening modal in edit mode
+                if (isInEditMode()) {
+                    console.log('📝 Search modal disabled in edit mode');
+                    return;
+                }
+                
                 searchOverlay.style.display = 'flex';
                 searchOverlay.classList.add('active');
                 document.body.style.overflow = 'hidden';
