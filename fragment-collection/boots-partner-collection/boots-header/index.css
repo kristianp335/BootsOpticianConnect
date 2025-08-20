@@ -1275,13 +1275,17 @@ body.has-edit-mode-menu #wrapper .boots-edit-mode-only {
     margin-top: var(--boots-spacing-sm);
 }
 
-#wrapper .boots-search-dropzones {
+#wrapper .boots-header-dropzones {
     max-width: 1200px;
     margin: 0 auto;
 }
 
-#wrapper .boots-search-dropzone {
+#wrapper .boots-dropzone-section {
     margin-bottom: var(--boots-spacing-lg);
+}
+
+#wrapper .boots-dropzone-section:last-child {
+    margin-bottom: 0;
 }
 
 #wrapper .boots-dropzone-label {

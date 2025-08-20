@@ -73,12 +73,19 @@
             </div>
         </div>
         
-        <!-- Search Dropzone (Edit Mode Only) -->
-        <div class="boots-search-dropzones boots-edit-mode-only">
-            <div class="boots-search-dropzone">
+        <!-- Header Dropzones (Edit Mode Only) -->
+        <div class="boots-header-dropzones boots-edit-mode-only">
+            <div class="boots-dropzone-section">
+                <h4 class="boots-dropzone-label">Language Selector</h4>
+                <div class="boots-dropzone-wrapper">
+                    <lfr-drop-zone data-lfr-drop-zone-id="language-selector">
+                    </lfr-drop-zone>
+                </div>
+            </div>
+            <div class="boots-dropzone-section">
                 <h4 class="boots-dropzone-label">Search Functionality</h4>
                 <div class="boots-dropzone-wrapper">
-                    <lfr-drop-zone data-lfr-drop-zone-id="search-widget">
+                    <lfr-drop-zone data-lfr-drop-zone-id="search-modal-content">
                     </lfr-drop-zone>
                 </div>
             </div>
@@ -114,7 +121,7 @@
                 <button id="boots-close-search" class="boots-modal-close" aria-label="Close search">&times;</button>
             </div>
             <div class="boots-modal-body search-content">
-                <lfr-drop-zone data-lfr-drop-zone-id="search-widget">
+                <lfr-drop-zone data-lfr-drop-zone-id="search-modal-content">
                 </lfr-drop-zone>
             </div>
         </div>

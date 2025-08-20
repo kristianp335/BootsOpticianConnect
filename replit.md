@@ -49,3 +49,8 @@ This project delivers a comprehensive Liferay fragment collection to recreate th
 - **Liferay Login Portlet** (`com_liferay_login_web_portlet_LoginPortlet`): Embedded in modal overlays.
 - **Liferay Search Portlet**: Integrated into search modal functionality.
 - **Browser APIs**: Intersection Observer, Fetch API, Local Storage for enhanced functionality.
+
+## Recent Changes
+
+### August 20, 2025
+- **DROPZONE UNIQUE ID FIX**: Resolved Liferay upload error "You must define a unique ID for each drop zone" by creating separate unique dropzone IDs - `language-selector` for header functionality and `search-modal-content` for search modal content, eliminating duplicate ID conflicts and ensuring successful fragment deployment.
