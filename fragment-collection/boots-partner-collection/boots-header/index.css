@@ -807,7 +807,7 @@ body.has-edit-mode-menu #wrapper .boots-edit-mode-static::before {
 }
 
 #wrapper .boots-search-content {
-    padding: var(--boots-spacing-lg);
+    padding: 60px;
     flex: 1;
     overflow-y: auto;
 }
