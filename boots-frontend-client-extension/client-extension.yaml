@@ -1,15 +1,13 @@
 assemble:
-    - from: assets
-      into: static
-name: Boots Partner Portal Frontend Client Extension
-type: globalCSS
+  - from: assets
+    into: static
 
 boots-partner-portal-global-css:
-    name: Boots Partner Portal Global CSS
-    type: globalCSS
-    url: global.css
+  name: Boots Partner Portal Global CSS
+  type: globalCSS
+  url: global.css
 
 boots-partner-portal-global-js:
-    name: Boots Partner Portal Global JS
-    type: globalJS
-    url: global.js
+  name: Boots Partner Portal Global JS
+  type: globalJS
+  url: global.js
