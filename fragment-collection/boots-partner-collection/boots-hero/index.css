@@ -67,15 +67,15 @@
 }
 
 #wrapper .boots-hero-overlay-light .boots-hero-overlay {
-    background: rgba(0, 0, 0, 0.3);
-}
-
-#wrapper .boots-hero-overlay-medium .boots-hero-overlay {
     background: rgba(0, 0, 0, 0.5);
 }
 
-#wrapper .boots-hero-overlay-dark .boots-hero-overlay {
+#wrapper .boots-hero-overlay-medium .boots-hero-overlay {
     background: rgba(0, 0, 0, 0.7);
+}
+
+#wrapper .boots-hero-overlay-dark .boots-hero-overlay {
+    background: rgba(0, 0, 0, 0.85);
 }
 
 /* Hero Content */
@@ -86,6 +86,10 @@
     width: 100%;
     padding: var(--boots-spacing-xl) var(--boots-spacing-lg);
     animation: heroFadeInUp 1s ease-out;
+    /* Add subtle backdrop for better text contrast */
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    backdrop-filter: blur(2px);
 }
 
 @keyframes heroFadeInUp {
@@ -119,7 +123,7 @@
     line-height: 1.1;
     margin: 0 0 var(--boots-spacing-lg) 0;
     color: var(--boots-white);
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.8), 0 1px 3px rgba(0, 0, 0, 0.9);
 }
 
 #wrapper .boots-hero-subtitle {
@@ -127,8 +131,8 @@
     font-weight: var(--boots-font-weight-normal);
     line-height: 1.6;
     margin: 0 0 var(--boots-spacing-xl) 0;
-    color: rgba(255, 255, 255, 0.95);
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    color: rgba(255, 255, 255, 0.98);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7), 0 1px 2px rgba(0, 0, 0, 0.8);
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
@@ -196,10 +200,11 @@
 }
 
 #wrapper .boots-hero-btn-secondary {
-    background: transparent;
+    background: rgba(255, 255, 255, 0.15);
     color: var(--boots-white);
     border-color: var(--boots-white);
     backdrop-filter: blur(10px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 #wrapper .boots-hero-btn-secondary:hover,
