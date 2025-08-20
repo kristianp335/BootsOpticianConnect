@@ -8,8 +8,10 @@
     
     // Initialize hero functionality when DOM is ready
     function initializeHero() {
-        const heroSection = fragmentElement.querySelector('.boots-hero');
-        const scrollIndicator = fragmentElement.querySelector('.boots-hero-scroll-indicator');
+        // Use fragmentElement if available (in Liferay), otherwise use document
+        const container = (typeof fragmentElement !== 'undefined') ? fragmentElement : document;
+        const heroSection = container.querySelector('.boots-hero');
+        const scrollIndicator = container.querySelector('.boots-hero-scroll-indicator');
         
         if (!heroSection) {
             console.log('Boots Hero: Hero section not found');
@@ -30,7 +32,7 @@
         }
         
         // Parallax effect for hero background (optional enhancement)
-        const heroBackground = fragmentElement.querySelector('.boots-hero-background');
+        const heroBackground = container.querySelector('.boots-hero-background');
         if (heroBackground && window.innerWidth > 768) {
             window.addEventListener('scroll', function() {
                 const scrolled = window.pageYOffset;
@@ -66,7 +68,7 @@
         }
         
         // Keyboard accessibility for buttons
-        const heroButtons = fragmentElement.querySelectorAll('.boots-hero-btn');
+        const heroButtons = container.querySelectorAll('.boots-hero-btn');
         heroButtons.forEach(function(button) {
             button.addEventListener('keydown', function(e) {
                 if (e.key === 'Enter' || e.key === ' ') {
