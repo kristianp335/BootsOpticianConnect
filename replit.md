@@ -12,6 +12,7 @@ This project delivers a comprehensive Liferay fragment collection to recreate Bo
 - Ensure all fragments are properly editable via Liferay's inline editing system
 - Work independently for extended periods without constant check-ins
 - Document all architectural decisions and changes with dates
+- **CRITICAL**: Always verify ZIP packaging correctness - check that updated code is actually included in generated ZIPs before considering deployment ready
 
 ## Project Architecture
 
@@ -153,3 +154,4 @@ This project delivers a comprehensive Liferay fragment collection to recreate Bo
 - **NAVIGATION API INTEGRATION**: Implemented full navigation API functionality from JM header pattern - fetches navigation from Liferay API, renders desktop and mobile navigation, handles dropdowns, includes fallback navigation for Boots portal content (August 20, 2025)
 - **REMOVED CONFIGURATIONS**: Removed company name and notifications configurations and functionality per user request - header now focuses on core navigation and user authentication (August 20, 2025)
 - **BOOTS NAVIGATION STRUCTURE**: Updated navigation to use proper desktop nav and mobile nav containers populated by JavaScript from API, with Boots-specific fallback navigation (Dashboard, Training, Case Management, Resources, Support) (August 20, 2025)
+- **ZIP PACKAGING VERIFICATION**: Added mandatory ZIP content verification process to ensure all code updates are correctly packaged in deployment files - prevents deployment issues from outdated ZIP contents (August 20, 2025)
