@@ -255,46 +255,23 @@
     function loadFallbackNavigation() {
         console.log('📋 Loading Boots Partner Portal fallback navigation');
         console.log('🔍 Menu list element check:', fragmentElement ? fragmentElement.querySelector('#boots-menu-list') : 'fragmentElement not found');
+        // Provide a comprehensive fallback navigation using API format
         const fallbackNav = [
             {
                 name: 'Dashboard',
-                url: '/dashboard',
-                children: [
-                    { name: 'Performance Overview', url: '/dashboard/performance' },
-                    { name: 'Analytics', url: '/dashboard/analytics' },
-                    { name: 'Quick Actions', url: '/dashboard/actions' }
-                ]
+                link: '/dashboard'
             },
             {
                 name: 'Training & Development',
-                url: '/training',
-                children: [
-                    { name: 'Current Courses', url: '/training/courses' },
-                    { name: 'Certifications', url: '/training/certifications' },
-                    { name: 'Progress Tracking', url: '/training/progress' }
-                ]
+                link: '/training'
             },
             {
                 name: 'Case Management',
-                url: '/cases',
-                children: [
-                    { name: 'Active Cases', url: '/cases/active' },
-                    { name: 'Case History', url: '/cases/history' },
-                    { name: 'New Case', url: '/cases/new' }
-                ]
+                link: '/cases'
             },
             {
-                name: 'Resources',
-                url: '/resources',
-                children: [
-                    { name: 'Product Information', url: '/resources/products' },
-                    { name: 'Marketing Materials', url: '/resources/marketing' },
-                    { name: 'Technical Guides', url: '/resources/guides' }
-                ]
-            },
-            {
-                name: 'Support',
-                url: '/support'
+                name: 'Resources & Support',
+                link: '/resources'
             }
         ];
         
