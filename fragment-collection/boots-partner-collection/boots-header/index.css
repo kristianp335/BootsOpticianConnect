@@ -1293,6 +1293,11 @@ html body #wrapper .boots-menu-list {
     transition: all 0.3s ease;
 }
 
+/* Liferay Personal Menu Dropdown Override */
+.dropdown-menu-personal-menu {
+    z-index: 9999 !important;
+}
+
 #wrapper .boots-overlay.active {
     opacity: 1;
     visibility: visible;
