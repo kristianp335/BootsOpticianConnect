@@ -1161,8 +1161,8 @@ body #wrapper .boots-sliding-menu,
 html body #wrapper .boots-sliding-menu {
     position: fixed !important;
     top: 0 !important;
-    left: -320px !important; /* Hidden by default */
-    width: 320px !important;
+    left: -240px !important; /* Hidden by default - reduced width */
+    width: 240px !important; /* Reduced from 320px to 240px */
     height: 100vh !important;
     background: var(--boots-white) !important;
     border-right: 1px solid var(--gray-300, #dddfe2) !important;
@@ -1286,7 +1286,7 @@ html body #wrapper .boots-menu-list {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
-    z-index: 1030;
+    z-index: 99998;
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
@@ -1297,27 +1297,29 @@ html body #wrapper .boots-menu-list {
     visibility: visible;
 }
 
-/* Main content shift when menu is open */
+/* Main content shift when menu is open - no shift to prevent white space */
 #wrapper.menu-open {
-    transform: translateX(240px);
-    transition: transform 0.3s ease;
-    overflow: hidden;
+    transform: none !important;
+    transition: none !important;
+    overflow: visible !important;
 }
 
 /* Mobile sliding menu adjustments */
 @media (max-width: 768px) {
-    #wrapper .boots-sliding-menu {
-        width: 280px;
-        left: -280px;
+    body #wrapper .boots-sliding-menu,
+    html body #wrapper .boots-sliding-menu {
+        width: 220px !important;
+        left: -220px !important;
     }
     
-    #wrapper .boots-sliding-menu.active {
-        left: 0;
+    body #wrapper .boots-sliding-menu.active,
+    html body #wrapper .boots-sliding-menu.active {
+        left: 0 !important;
     }
     
     #wrapper.menu-open {
-        transform: translateX(220px);
-        overflow: hidden;
+        transform: none !important;
+        overflow: visible !important;
     }
     
     #wrapper .boots-header-actions {
