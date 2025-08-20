@@ -211,7 +211,36 @@
             })
             .then(data => {
                 console.log('📋 Navigation data received:', data);
-                renderNavigationToSlidingMenu(data.navigationMenuItems || []);
+                console.log('📄 Full API response structure:', JSON.stringify(data, null, 2));
+                
+                // Extract navigation items from API response - handle multiple possible structures
+                let navItems = [];
+                
+                if (data.navigationMenuItems && Array.isArray(data.navigationMenuItems)) {
+                    navItems = data.navigationMenuItems;
+                    console.log('✅ Using data.navigationMenuItems:', navItems.length);
+                } else if (data.items && Array.isArray(data.items)) {
+                    navItems = data.items;
+                    console.log('✅ Using data.items:', navItems.length);
+                } else if (Array.isArray(data)) {
+                    navItems = data;
+                    console.log('✅ Using data as array:', navItems.length);
+                } else {
+                    console.warn('❌ Could not extract navigation items from API response');
+                    console.warn('Available keys:', Object.keys(data));
+                }
+                
+                console.log('🎯 Final extracted navigation items:', navItems.length, 'items');
+                navItems.forEach((item, index) => {
+                    console.log(`📋 Item ${index + 1}:`, item.name || item.title || item.label || 'NO NAME', '| URL:', item.link || item.url || item.href || 'NO URL');
+                });
+                
+                if (navItems.length > 0) {
+                    renderNavigationToSlidingMenu(navItems);
+                } else {
+                    console.warn('⚠️ No navigation items found, loading fallback');
+                    loadFallbackNavigation();
+                }
             })
             .catch(error => {
                 console.error('❌ Error loading navigation menu:', error);
