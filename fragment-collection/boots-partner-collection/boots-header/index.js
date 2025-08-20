@@ -315,6 +315,14 @@
         }
         
         console.log('✅ Found menu list element:', menuList);
+        console.log('📍 Menu list parent:', menuList.parentElement);
+        console.log('📍 Menu list innerHTML before clear:', menuList.innerHTML);
+        
+        // Verify we have the right element by checking its properties
+        if (menuList.id !== 'boots-menu-list' || !menuList.classList.contains('boots-menu-list')) {
+            console.error('❌ Element found but wrong properties. ID:', menuList.id, 'Classes:', Array.from(menuList.classList));
+            return;
+        }
         
         // Clear existing navigation
         menuList.innerHTML = '';
@@ -326,9 +334,23 @@
             const menuItem = createSlidingMenuItemFromAPI(item);
             if (menuItem) {
                 console.log(`✅ Menu item created successfully:`, menuItem.outerHTML.substring(0, 100));
-                menuList.appendChild(menuItem);
-                itemsAdded++;
-                console.log(`📌 Item ${index + 1} appended. Menu now has ${menuList.children.length} children`);
+                
+                // Try multiple append strategies to ensure it sticks
+                try {
+                    menuList.appendChild(menuItem);
+                    itemsAdded++;
+                    console.log(`📌 Item ${index + 1} appended. Menu now has ${menuList.children.length} children`);
+                    
+                    // Verify the element was actually added
+                    const addedElement = menuList.querySelector(`li:nth-child(${itemsAdded})`);
+                    if (addedElement) {
+                        console.log(`✅ Verified item ${index + 1} is in DOM:`, addedElement.textContent);
+                    } else {
+                        console.error(`❌ Item ${index + 1} not found in DOM after append`);
+                    }
+                } catch (error) {
+                    console.error(`❌ Error appending item ${index + 1}:`, error);
+                }
             } else {
                 console.error(`❌ Failed to create menu item for:`, item);
             }
