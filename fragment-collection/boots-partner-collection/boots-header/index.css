@@ -117,8 +117,9 @@
 
 /* Partner Name */
 #wrapper .boots-partner-name {
-    flex-grow: 1;
+    flex: 1; /* Take available space but allow actions to be pushed right */
     margin-left: var(--boots-spacing-lg);
+    min-width: 0; /* Allow text truncation */
 }
 
 #wrapper .boots-partner-name span {
@@ -132,6 +133,8 @@
     display: flex;
     align-items: center;
     gap: var(--boots-spacing-md);
+    margin-left: auto; /* Push to right side */
+    flex-shrink: 0; /* Prevent shrinking */
 }
 
 /* Notifications */
@@ -1035,6 +1038,148 @@ body.has-edit-mode-menu #wrapper .boots-dropzone-wrapper {
     #wrapper .boots-search-header h2,
     #wrapper .boots-login-header h2 {
         font-size: var(--boots-font-size-base);
+    }
+}
+
+/* =================================================================================
+   LEFT SLIDING MENU STYLES
+   Main sliding navigation menu that slides in from left
+   ================================================================================= */
+
+/* Left Sliding Menu */
+#wrapper .boots-sliding-menu {
+    position: fixed;
+    top: 0;
+    left: -320px; /* Hidden by default */
+    width: 320px;
+    height: 100vh;
+    background: var(--boots-white);
+    border-right: 1px solid var(--gray-300, #dddfe2);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    z-index: 1040;
+    transition: left 0.3s ease;
+    overflow-y: auto;
+}
+
+#wrapper .boots-sliding-menu.active {
+    left: 0;
+}
+
+#wrapper .boots-menu-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--boots-spacing-lg) var(--boots-spacing-lg);
+    border-bottom: 1px solid var(--gray-200, #f1f2f5);
+    background: var(--boots-primary);
+    color: var(--boots-white);
+}
+
+#wrapper .boots-menu-title {
+    margin: 0;
+    font-size: var(--boots-font-size-lg);
+    font-weight: var(--boots-font-weight-bold);
+    color: var(--boots-white);
+}
+
+#wrapper .boots-menu-close {
+    background: transparent;
+    border: none;
+    color: var(--boots-white);
+    cursor: pointer;
+    padding: var(--boots-spacing-xs);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--boots-border-radius);
+    transition: var(--boots-transition);
+}
+
+#wrapper .boots-menu-close:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+#wrapper .boots-menu-nav {
+    padding: var(--boots-spacing-lg) 0;
+}
+
+#wrapper .boots-menu-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#wrapper .boots-menu-item {
+    border-bottom: 1px solid var(--gray-100, #f7f8f9);
+}
+
+#wrapper .boots-menu-link {
+    display: flex;
+    align-items: center;
+    gap: var(--boots-spacing-sm);
+    padding: var(--boots-spacing-md) var(--boots-spacing-lg);
+    color: var(--boots-dark);
+    text-decoration: none;
+    font-weight: var(--boots-font-weight-medium);
+    transition: var(--boots-transition);
+}
+
+#wrapper .boots-menu-link:hover {
+    background: var(--gray-100, #f7f8f9);
+    color: var(--boots-primary);
+}
+
+/* Menu Overlay */
+#wrapper .boots-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1030;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+#wrapper .boots-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Main content shift when menu is open */
+#wrapper.menu-open {
+    transform: translateX(320px);
+    transition: transform 0.3s ease;
+}
+
+/* Mobile sliding menu adjustments */
+@media (max-width: 768px) {
+    #wrapper .boots-sliding-menu {
+        width: 280px;
+        left: -280px;
+    }
+    
+    #wrapper .boots-sliding-menu.active {
+        left: 0;
+    }
+    
+    #wrapper.menu-open {
+        transform: translateX(280px);
+    }
+    
+    #wrapper .boots-header-actions {
+        gap: var(--boots-spacing-xs);
+    }
+    
+    #wrapper .boots-search-btn {
+        width: 36px;
+        height: 36px;
+    }
+    
+    #wrapper .boots-header-action-btn span {
+        display: none;
     }
 }
 

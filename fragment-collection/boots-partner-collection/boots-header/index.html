@@ -30,12 +30,10 @@
                     >
                 </div>
                 
-                <!-- Main Navigation -->
-                <nav class="boots-nav" role="navigation" aria-label="Main navigation">
-                    <ul class="boots-nav-list" id="boots-main-nav">
-                        <!-- Navigation will be populated by JavaScript -->
-                    </ul>
-                </nav>
+                <!-- Partner Name (replaces main nav in header) -->
+                <div class="boots-partner-name">
+                    <span data-lfr-editable-id="partner-name" data-lfr-editable-type="text">Partner Portal</span>
+                </div>
                 
                 <!-- Header Actions -->
                 <div class="boots-header-actions">
@@ -89,19 +87,25 @@
             </div>
         </div>
         
-        <!-- Mobile Navigation -->
-        <div class="boots-mobile-nav" id="boots-mobile-nav">
-            <ul class="boots-mobile-nav-list">
-                <!-- Mobile navigation will be populated by JavaScript -->
-            </ul>
-            <div class="boots-mobile-nav-actions">
-                [#if !themeDisplay.isSignedIn()]
-                    <button class="boots-btn boots-mobile-login-btn">Sign In</button>
-                [#else]
-                    <a href="/c/portal/logout" class="boots-btn boots-btn-secondary">Sign Out</a>
-                [/#if]
+        <!-- Left Sliding Menu -->
+        <div class="boots-sliding-menu" id="boots-sliding-menu" aria-hidden="true">
+            <div class="boots-menu-header">
+                <h2 class="boots-menu-title" data-lfr-editable-id="menu-title" data-lfr-editable-type="text">Navigation</h2>
+                <button class="boots-menu-close" id="boots-menu-close" aria-label="Close navigation menu">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
             </div>
+            <nav class="boots-menu-nav" role="navigation" aria-label="Main navigation">
+                <ul class="boots-menu-list" id="boots-menu-list">
+                    <!-- Navigation will be populated by JavaScript -->
+                </ul>
+            </nav>
         </div>
+        
+        <!-- Menu Overlay -->
+        <div class="boots-overlay" id="boots-overlay"></div>
     </header>
     
     <!-- Search Modal -->

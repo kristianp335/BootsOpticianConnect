@@ -275,9 +275,9 @@
     function renderNavigationToSlidingMenu(navigationItems) {
         console.log('🎨 Rendering navigation to sliding menu with', navigationItems.length, 'items');
         
-        const menuList = fragmentElement.querySelector('.boots-menu-list');
+        const menuList = fragmentElement.querySelector('#boots-menu-list');
         if (!menuList) {
-            console.error('❌ Could not find .boots-menu-list element');
+            console.error('❌ Could not find #boots-menu-list element');
             return;
         }
         
@@ -418,9 +418,10 @@
     function initializeMobileMenu() {
         console.log('📱 Initializing mobile menu');
         
-        const menuToggle = fragmentElement.querySelector('.boots-menu-toggle');
-        const menuClose = fragmentElement.querySelector('.boots-menu-close');
-        const slidingMenu = fragmentElement.querySelector('.boots-sliding-menu');
+        const menuToggle = fragmentElement.querySelector('#boots-menu-toggle');
+        const menuClose = fragmentElement.querySelector('#boots-menu-close');
+        const slidingMenu = fragmentElement.querySelector('#boots-sliding-menu');
+        const overlay = fragmentElement.querySelector('#boots-overlay');
         const mainContent = document.querySelector('#wrapper');
         
         if (!menuToggle || !slidingMenu) {
@@ -436,6 +437,11 @@
             slidingMenu.classList.add('active');
             slidingMenu.setAttribute('aria-hidden', 'false');
             menuToggle.setAttribute('aria-expanded', 'true');
+            menuToggle.classList.add('active');
+            
+            if (overlay) {
+                overlay.classList.add('active');
+            }
             
             if (mainContent) {
                 mainContent.classList.add('menu-open');
@@ -456,6 +462,11 @@
             slidingMenu.classList.remove('active');
             slidingMenu.setAttribute('aria-hidden', 'true');
             menuToggle.setAttribute('aria-expanded', 'false');
+            menuToggle.classList.remove('active');
+            
+            if (overlay) {
+                overlay.classList.remove('active');
+            }
             
             if (mainContent) {
                 mainContent.classList.remove('menu-open');
@@ -481,6 +492,13 @@
             menuClose.addEventListener('click', function(e) {
                 e.preventDefault();
                 e.stopPropagation();
+                closeMenu();
+            });
+        }
+        
+        // Overlay click
+        if (overlay) {
+            overlay.addEventListener('click', function() {
                 closeMenu();
             });
         }
