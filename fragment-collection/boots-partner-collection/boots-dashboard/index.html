@@ -76,7 +76,7 @@
             </div>
             
             <!-- Training Progress Card -->
-            [#if showTrainingProgress]
+            [#if configuration.showTrainingProgress!true]
             <div class="boots-metric-card boots-card">
                 <div class="boots-card-header">
                     <div class="boots-metric-icon boots-metric-training">
@@ -102,7 +102,7 @@
         <!-- Main Dashboard Content -->
         <div class="boots-dashboard-content">
             <div class="boots-dashboard-main">
-                [#if showPerformanceCharts]
+                [#if configuration.showPerformanceCharts!true]
                 <!-- Performance Charts -->
                 <div class="boots-dashboard-section">
                     <div class="boots-section-header">
@@ -196,7 +196,7 @@
             
             <!-- Dashboard Sidebar -->
             <div class="boots-dashboard-sidebar">
-                [#if showActionItems]
+                [#if configuration.showActionItems!true]
                 <!-- My Action Items -->
                 <div class="boots-dashboard-widget boots-card">
                     <div class="boots-card-header">

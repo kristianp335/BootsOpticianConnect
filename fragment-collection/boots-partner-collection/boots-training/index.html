@@ -116,7 +116,7 @@
                 </div>
             </div>
             
-            [#if showProgressChart]
+            [#if configuration.showProgressChart!true]
             <!-- Progress Chart -->
             <div class="boots-chart-section boots-card">
                 <div class="boots-card-header">
@@ -151,7 +151,7 @@
                         </div>
                     </div>
                     
-                    <div class="boots-modules-grid [#if trainingLayout == 'compact']boots-modules-compact[#elseif trainingLayout == 'detailed']boots-modules-detailed[#else]boots-modules-standard[/#if]">
+                    <div class="boots-modules-grid [#if configuration.trainingLayout == 'compact']boots-modules-compact[#elseif configuration.trainingLayout == 'detailed']boots-modules-detailed[#else]boots-modules-standard[/#if]">
                         <!-- Module 1: Eye Exam Techniques -->
                         <div class="boots-module-card boots-card" data-status="in-progress required">
                             <div class="boots-module-image">

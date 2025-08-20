@@ -86,7 +86,7 @@
                 </ul>
             </div>
             
-            [#if showNewsletterSignup]
+            [#if configuration.showNewsletterSignup!true]
             <!-- Newsletter Signup -->
             <div class="boots-footer-section boots-newsletter-section">
                 <h4 data-lfr-editable-id="newsletter-title" data-lfr-editable-type="text">Stay Updated</h4>
@@ -147,7 +147,7 @@
         </div>
     </div>
     
-    [#if showBackToTop]
+    [#if configuration.showBackToTop!true]
     <!-- Back to Top Button -->
     <button class="boots-back-to-top" id="boots-back-to-top" aria-label="Back to top">
         <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
