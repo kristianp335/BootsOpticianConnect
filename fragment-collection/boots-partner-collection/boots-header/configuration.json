@@ -18,6 +18,13 @@
           "defaultValue": true
         },
         {
+          "name": "showNavigation",
+          "label": "Show Navigation Menu",
+          "description": "Display the navigation menu toggle button and sliding menu",
+          "type": "checkbox",
+          "defaultValue": true
+        },
+        {
           "name": "headerStyle",
           "label": "Header Style",
           "description": "Choose header background style",

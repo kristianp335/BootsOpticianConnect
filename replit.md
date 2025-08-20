@@ -54,3 +54,4 @@ This project delivers a comprehensive Liferay fragment collection to recreate th
 
 ### August 20, 2025
 - **DROPZONE UNIQUE ID FIX**: Resolved Liferay upload error "You must define a unique ID for each drop zone" by creating separate unique dropzone IDs - `language-selector` for header functionality and `search-modal-content` for search modal content, eliminating duplicate ID conflicts and ensuring successful fragment deployment.
+- **NAVIGATION TOGGLE CONFIGURATION**: Added `showNavigation` configuration option to header fragment, allowing users to show/hide the entire navigation menu system (toggle button, sliding menu, and overlay). Defaults to true for backward compatibility, follows same pattern as existing search and user profile configurations.

@@ -2,6 +2,7 @@
     <header class="boots-header [#if configuration.headerStyle == "primary"]boots-header-primary[/#if]">
         <div class="boots-container">
             <div class="boots-header-content">
+                [#if configuration.showNavigation!true]
                 <!-- Left Sliding Menu Toggle -->
                 <button 
                     class="boots-menu-toggle boots-focus-visible" 
@@ -17,6 +18,7 @@
                     </span>
                     <span class="boots-sr-only">Menu</span>
                 </button>
+                [/#if]
                 
                 <!-- Boots Logo -->
                 <div class="boots-header-logo">
@@ -75,6 +77,7 @@
         
 
         
+        [#if configuration.showNavigation!true]
         <!-- Left Sliding Menu -->
         <div class="boots-sliding-menu" id="boots-sliding-menu" aria-hidden="true">
             <div class="boots-menu-header">
@@ -94,6 +97,7 @@
         
         <!-- Menu Overlay -->
         <div class="boots-overlay" id="boots-overlay"></div>
+        [/#if]
     </header>
     
     <!-- Search Modal -->

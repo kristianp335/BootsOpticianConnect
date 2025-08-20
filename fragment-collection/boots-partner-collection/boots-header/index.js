@@ -130,6 +130,9 @@
         const searchBtn = fragmentElement.querySelector('.boots-search-btn');
         const userProfileWidget = fragmentElement.querySelector('.boots-user-profile-widget');
         const loginBtn = fragmentElement.querySelector('.boots-login-btn');
+        const menuToggle = fragmentElement.querySelector('.boots-menu-toggle');
+        const slidingMenu = fragmentElement.querySelector('.boots-sliding-menu');
+        const overlay = fragmentElement.querySelector('.boots-overlay');
         
         // Show/hide search button
         if (searchBtn) {
@@ -137,6 +140,19 @@
             searchBtn.style.display = showSearch ? 'flex' : 'none';
             console.log('🔍 Search button visibility:', showSearch);
         }
+        
+        // Show/hide navigation menu components
+        const showNavigation = config.showNavigation !== false; // default to true
+        if (menuToggle) {
+            menuToggle.style.display = showNavigation ? 'flex' : 'none';
+        }
+        if (slidingMenu) {
+            slidingMenu.style.display = showNavigation ? 'block' : 'none';
+        }
+        if (overlay) {
+            overlay.style.display = showNavigation ? 'block' : 'none';
+        }
+        console.log('🧭 Navigation menu visibility:', showNavigation);
         
         // Show/hide user menu components
         const showUserProfile = config.showUserProfile !== false; // default to true
