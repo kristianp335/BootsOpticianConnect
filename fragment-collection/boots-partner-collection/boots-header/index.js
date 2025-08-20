@@ -315,24 +315,43 @@
         menuList.innerHTML = '';
         
         // Render each navigation item
-        navigationItems.forEach(item => {
+        let itemsAdded = 0;
+        navigationItems.forEach((item, index) => {
+            console.log(`🔧 Creating menu item ${index + 1}:`, item.name || item.title);
             const menuItem = createSlidingMenuItemFromAPI(item);
             if (menuItem) {
+                console.log(`✅ Menu item created successfully:`, menuItem.outerHTML.substring(0, 100));
                 menuList.appendChild(menuItem);
+                itemsAdded++;
+                console.log(`📌 Item ${index + 1} appended. Menu now has ${menuList.children.length} children`);
+            } else {
+                console.error(`❌ Failed to create menu item for:`, item);
             }
         });
+        
+        // Force a DOM update and verify
+        menuList.style.opacity = '0.99';
+        setTimeout(() => {
+            menuList.style.opacity = '1';
+        }, 10);
         
         // Initialize submenu functionality
         initializeSubmenus();
         
-        console.log('✅ Navigation rendered successfully to sliding menu');
-        console.log('📋 Final menu HTML:', menuList.innerHTML.substring(0, 200) + '...');
+        console.log(`✅ Navigation rendered successfully to sliding menu: ${itemsAdded} items added`);
+        console.log('📋 Final menu children count:', menuList.children.length);
+        console.log('📋 Final menu HTML:', menuList.innerHTML.length > 0 ? menuList.innerHTML.substring(0, 300) + '...' : 'EMPTY!');
     }
     
     /**
      * Create sliding menu item from API data
      */
     function createSlidingMenuItemFromAPI(item) {
+        if (!item || (!item.name && !item.title)) {
+            console.warn('❌ Invalid menu item data:', item);
+            return null;
+        }
+        
         const li = document.createElement('li');
         li.className = 'boots-menu-item';
         
