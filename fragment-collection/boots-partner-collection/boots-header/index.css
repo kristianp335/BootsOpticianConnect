@@ -1127,9 +1127,12 @@ body.has-edit-mode-menu #wrapper .boots-dropzone-wrapper {
         padding: var(--boots-spacing-md);
     }
     
-    #wrapper .boots-search-content,
+    #wrapper .boots-search-content {
+        padding: 30px;
+    }
+    
     #wrapper .boots-login-content {
-        padding: var(--boots-spacing-md);
+        padding: 15px;
     }
     
     #wrapper .boots-search-header h2,
