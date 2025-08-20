@@ -620,6 +620,38 @@
     box-shadow: 0 4px 8px rgba(24, 66, 144, 0.2);
 }
 
+/* Account Selector Dropzone */
+#wrapper .boots-account-selector-dropzone {
+    display: none;
+    margin: 0 var(--boots-spacing-sm);
+}
+
+#wrapper .boots-account-selector-dropzone.has-content {
+    display: block;
+}
+
+/* Edit mode visibility for account selector dropzone */
+[data-editor-enabled="true"] #wrapper .boots-account-selector-dropzone,
+.is-edit-mode #wrapper .boots-account-selector-dropzone,
+body.has-edit-mode-menu #wrapper .boots-account-selector-dropzone {
+    display: block !important;
+    border: 2px dashed var(--boots-primary);
+    border-radius: var(--boots-border-radius);
+    padding: var(--boots-spacing-sm);
+    background: rgba(24, 66, 144, 0.05);
+}
+
+[data-editor-enabled="true"] #wrapper .boots-account-selector-dropzone:empty::after,
+.is-edit-mode #wrapper .boots-account-selector-dropzone:empty::after,
+body.has-edit-mode-menu #wrapper .boots-account-selector-dropzone:empty::after {
+    content: "Add Account Selector Widget";
+    color: var(--text-color-secondary, #6c757d);
+    font-size: 0.75rem;
+    font-style: italic;
+    text-align: center;
+    display: block;
+}
+
 /* Language Selector Dropzone */
 #wrapper .boots-language-selector-dropzone {
     display: none;

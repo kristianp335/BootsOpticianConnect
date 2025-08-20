@@ -36,6 +36,14 @@
                 
                 <!-- Header Actions -->
                 <div class="boots-header-actions">
+                    [#if configuration.showAccountSelector!true]
+                    <!-- Account Selector Dropzone -->
+                    <div class="boots-account-selector-dropzone">
+                        <lfr-drop-zone data-lfr-drop-zone-id="account-selector">
+                        </lfr-drop-zone>
+                    </div>
+                    [/#if]
+                    
                     [#if configuration.showSearch!true]
                     <!-- Search Button -->
                     <button class="boots-search-btn boots-focus-visible" id="boots-search-btn" aria-label="Open search">

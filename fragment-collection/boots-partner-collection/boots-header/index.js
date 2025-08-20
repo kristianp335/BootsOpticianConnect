@@ -133,6 +133,14 @@
         const menuToggle = fragmentElement.querySelector('.boots-menu-toggle');
         const slidingMenu = fragmentElement.querySelector('.boots-sliding-menu');
         const overlay = fragmentElement.querySelector('.boots-overlay');
+        const accountSelectorDropzone = fragmentElement.querySelector('.boots-account-selector-dropzone');
+        
+        // Show/hide account selector dropzone
+        if (accountSelectorDropzone) {
+            const showAccountSelector = config.showAccountSelector !== false; // default to true
+            accountSelectorDropzone.style.display = showAccountSelector ? 'block' : 'none';
+            console.log('🏢 Account selector visibility:', showAccountSelector);
+        }
         
         // Show/hide search button
         if (searchBtn) {

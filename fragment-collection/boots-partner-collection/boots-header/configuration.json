@@ -25,6 +25,13 @@
           "defaultValue": true
         },
         {
+          "name": "showAccountSelector",
+          "label": "Show Account Selector",
+          "description": "Display account selector dropdown widget in header",
+          "type": "checkbox",
+          "defaultValue": true
+        },
+        {
           "name": "headerStyle",
           "label": "Header Style",
           "description": "Choose header background style",
