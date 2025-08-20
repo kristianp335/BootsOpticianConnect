@@ -17,11 +17,11 @@
      * Initialize all header functionality with delay to ensure DOM is ready
      */
     setTimeout(function() {
+        initializeNavigation();
         initializeMenuToggle();
         initializeSearchModal();
         initializeLoginModal();
         initializeDropzones();
-        initializeNotifications();
         initializeUserProfile();
         initializeKeyboardNavigation();
     }, 100);
@@ -308,26 +308,348 @@
     }
     
     /**
-     * Notifications dropdown functionality
+     * Get fragment configuration safely
      */
-    function initializeNotifications() {
-        const notificationBtn = fragmentElement.querySelector('.boots-notification-btn');
-        const notificationDropdown = fragmentElement.querySelector('.boots-notifications-dropdown');
+    function getFragmentConfiguration() {
+        try {
+            return (typeof configuration !== 'undefined') ? configuration : {};
+        } catch (error) {
+            return {};
+        }
+    }
+    
+    /**
+     * Check if we're in edit mode - more specific detection
+     */
+    function isInEditMode() {
+        return document.querySelector('[data-editor-enabled="true"]') ||
+               document.querySelector('.is-edit-mode') ||
+               document.querySelector('body.has-edit-mode-menu') ||
+               (typeof Liferay !== 'undefined' && Liferay.Layout && 
+                typeof Liferay.Layout.layoutInfo !== 'undefined' && 
+                Liferay.Layout.layoutInfo.freeformMode);
+    }
+    
+    /**
+     * Initialize navigation from Liferay API or fallback
+     */
+    function initializeNavigation() {
+        if (isInEditMode()) {
+            // Show sample navigation in edit mode
+            const sampleNav = getSampleNavigation();
+            renderNavigationFromAPI(sampleNav);
+        } else {
+            // Load from API in live mode
+            loadNavigationMenu();
+        }
+    }
+    
+    /**
+     * Load navigation menu from Liferay API
+     */
+    function loadNavigationMenu() {
+        const config = getFragmentConfiguration();
+        const menuId = config.navigationMenuId;
         
-        if (!notificationBtn || !notificationDropdown) return;
+        // Skip API call if no valid menu ID is provided
+        if (!menuId || menuId === 'primary-menu' || menuId === 'undefined' || menuId === undefined || typeof menuId !== 'string') {
+            loadFallbackNavigation();
+            return;
+        }
         
-        notificationBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            
-            notificationDropdown.classList.toggle('show');
+        // Check if authentication token is available
+        if (typeof Liferay === 'undefined' || !Liferay.authToken) {
+            loadFallbackNavigation();
+            return;
+        }
+        
+        const apiUrl = `/o/headless-delivery/v1.0/navigation-menus/${menuId}?nestedFields=true&p_auth=${Liferay.authToken}`;
+        
+        fetch(apiUrl)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                renderNavigationFromAPI(data.navigationMenuItems || []);
+            })
+            .catch(error => {
+                // Error loading navigation menu
+                loadFallbackNavigation();
+            });
+    }
+    
+    /**
+     * Load fallback navigation when API is unavailable
+     */
+    function loadFallbackNavigation() {
+        const fallbackNav = [
+            {
+                name: 'Dashboard',
+                url: '/dashboard',
+                children: [
+                    { name: 'Overview', url: '/dashboard/overview' },
+                    { name: 'Analytics', url: '/dashboard/analytics' },
+                    { name: 'Reports', url: '/dashboard/reports' }
+                ]
+            },
+            {
+                name: 'Training',
+                url: '/training',
+                children: [
+                    { name: 'Available Courses', url: '/training/courses' },
+                    { name: 'My Progress', url: '/training/progress' },
+                    { name: 'Certifications', url: '/training/certifications' }
+                ]
+            },
+            {
+                name: 'Case Management',
+                url: '/cases',
+                children: [
+                    { name: 'Active Cases', url: '/cases/active' },
+                    { name: 'Case History', url: '/cases/history' },
+                    { name: 'Create New', url: '/cases/new' }
+                ]
+            },
+            {
+                name: 'Resources',
+                url: '/resources'
+            },
+            {
+                name: 'Support',
+                url: '/support'
+            }
+        ];
+        
+        renderNavigationFromAPI(fallbackNav);
+    }
+    
+    /**
+     * Get sample navigation for edit mode
+     */
+    function getSampleNavigation() {
+        return [
+            { name: 'Dashboard', url: '/dashboard' },
+            { name: 'Training', url: '/training' },
+            { name: 'Case Management', url: '/cases' },
+            { name: 'Resources', url: '/resources' },
+            { name: 'Support', url: '/support' }
+        ];
+    }
+    
+    /**
+     * Get the site base path from configuration or fallback to ThemeDisplay
+     */
+    function getSiteBasePath() {
+        const config = getFragmentConfiguration();
+        
+        // Use configured site prefix if available
+        if (config.sitePrefix && config.sitePrefix.trim()) {
+            const prefix = config.sitePrefix.trim();
+            // Ensure it starts with / and ends with /
+            return prefix.startsWith('/') ? 
+                (prefix.endsWith('/') ? prefix : prefix + '/') : 
+                ('/' + (prefix.endsWith('/') ? prefix : prefix + '/'));
+        }
+        
+        // Fallback to ThemeDisplay method (deprecated but still functional)
+        try {
+            const relativeURL = Liferay.ThemeDisplay.getRelativeURL();
+            // Extract everything up to the last slash: /web/boots-partners/home -> /web/boots-partners/
+            const lastSlashIndex = relativeURL.lastIndexOf('/');
+            return relativeURL.substring(0, lastSlashIndex + 1);
+        } catch (error) {
+            return '/web/guest/'; // Final fallback for guest site
+        }
+    }
+    
+    /**
+     * Build complete page URL with site context
+     */
+    function buildPageURL(pagePath) {
+        if (!pagePath || pagePath === '#') return '#';
+        
+        // If it's already a complete URL, return as-is
+        if (pagePath.startsWith('/web/') || pagePath.startsWith('http')) {
+            return pagePath;
+        }
+        
+        // Remove leading slash if present, we'll add it with site base path
+        const cleanPath = pagePath.startsWith('/') ? pagePath.substring(1) : pagePath;
+        const siteBasePath = getSiteBasePath();
+        
+        return `${siteBasePath}${cleanPath}`;
+    }
+    
+    /**
+     * Render navigation menu in both desktop and mobile containers using API data
+     */
+    function renderNavigationFromAPI(menuItems) {
+        const desktopNav = fragmentElement.querySelector('#boots-main-nav');
+        const mobileNav = fragmentElement.querySelector('.boots-mobile-nav-list');
+        
+        if (!desktopNav || !mobileNav) {
+            return;
+        }
+        
+        // Clear existing content
+        desktopNav.innerHTML = '';
+        mobileNav.innerHTML = '';
+        
+        // Render desktop navigation
+        menuItems.forEach(item => {
+            const navItem = createNavItemFromAPI(item, false);
+            desktopNav.appendChild(navItem);
         });
         
-        // Close dropdown when clicking outside
-        document.addEventListener('click', function(e) {
-            if (!notificationBtn.contains(e.target) && !notificationDropdown.contains(e.target)) {
-                notificationDropdown.classList.remove('show');
+        // Render mobile navigation
+        menuItems.forEach(item => {
+            const mobileItem = createNavItemFromAPI(item, true);
+            mobileNav.appendChild(mobileItem);
+        });
+        
+        // Initialize dropdowns after rendering
+        setTimeout(() => {
+            initializeDropdowns();
+        }, 100);
+    }
+    
+    /**
+     * Create navigation item element from API data
+     */
+    function createNavItemFromAPI(item, isMobile) {
+        // Check for navigationMenuItems (API response) or children (fallback)
+        const children = item.navigationMenuItems || item.children || [];
+        const hasChildren = children.length > 0;
+        
+        const listItem = document.createElement('li');
+        listItem.className = isMobile ? 'boots-mobile-nav-item' : 'boots-nav-item';
+        
+        if (hasChildren) {
+            listItem.classList.add('has-dropdown');
+            if (!isMobile) {
+                listItem.classList.add('boots-has-dropdown');
             }
+        }
+        
+        // Create main link
+        const link = document.createElement('a');
+        const originalUrl = item.link || item.url || '#';
+        const builtUrl = buildPageURL(originalUrl);
+
+        link.href = builtUrl;
+        link.textContent = item.name || item.title;
+        link.className = isMobile ? 'boots-mobile-nav-link' : 'boots-nav-link';
+        
+        if (item.external) {
+            link.target = '_blank';
+            link.rel = 'noopener';
+        }
+        
+        // Add dropdown arrow for desktop items with children
+        if (hasChildren && !isMobile) {
+            link.setAttribute('aria-expanded', 'false');
+            link.setAttribute('aria-haspopup', 'true');
+            
+            const arrow = document.createElement('span');
+            arrow.className = 'boots-nav-arrow';
+            arrow.innerHTML = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2"/></svg>';
+            link.appendChild(arrow);
+        }
+        
+        listItem.appendChild(link);
+        
+        // Add dropdown menu for desktop or submenu for mobile
+        if (hasChildren) {
+            if (isMobile) {
+                const dropdown = document.createElement('div');
+                dropdown.className = 'boots-mobile-dropdown-menu';
+                
+                children.forEach(child => {
+                    const childLink = document.createElement('a');
+                    childLink.href = buildPageURL(child.link || child.url || '#');
+                    childLink.textContent = child.name || child.title;
+                    childLink.className = 'boots-mobile-dropdown-item';
+                    
+                    if (child.external) {
+                        childLink.target = '_blank';
+                        childLink.rel = 'noopener';
+                    }
+                    
+                    dropdown.appendChild(childLink);
+                });
+                
+                listItem.appendChild(dropdown);
+            } else {
+                // Desktop dropdown
+                const dropdown = document.createElement('div');
+                dropdown.className = 'boots-dropdown-menu';
+                
+                children.forEach(child => {
+                    const childLink = document.createElement('a');
+                    childLink.href = buildPageURL(child.link || child.url || '#');
+                    childLink.textContent = child.name || child.title;
+                    childLink.className = 'boots-dropdown-item';
+                    
+                    if (child.external) {
+                        childLink.target = '_blank';
+                        childLink.rel = 'noopener';
+                    }
+                    
+                    dropdown.appendChild(childLink);
+                });
+                
+                listItem.appendChild(dropdown);
+            }
+        }
+        
+        return listItem;
+    }
+    
+    /**
+     * Initialize dropdown functionality for navigation menus
+     */
+    function initializeDropdowns() {
+        const dropdownItems = fragmentElement.querySelectorAll('.boots-nav-item.has-dropdown');
+        
+        dropdownItems.forEach(item => {
+            const link = item.querySelector('.boots-nav-link');
+            const dropdown = item.querySelector('.boots-dropdown-menu');
+            
+            if (!link || !dropdown) return;
+            
+            // Hover to show
+            item.addEventListener('mouseenter', () => {
+                dropdown.style.display = 'block';
+                link.setAttribute('aria-expanded', 'true');
+            });
+            
+            // Hover to hide
+            item.addEventListener('mouseleave', () => {
+                dropdown.style.display = 'none';
+                link.setAttribute('aria-expanded', 'false');
+            });
+            
+            // Click to toggle
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const isVisible = dropdown.style.display === 'block';
+                dropdown.style.display = isVisible ? 'none' : 'block';
+                link.setAttribute('aria-expanded', isVisible ? 'false' : 'true');
+            });
+            
+            // Keyboard navigation
+            link.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowDown') {
+                    e.preventDefault();
+                    dropdown.style.display = 'block';
+                    link.setAttribute('aria-expanded', 'true');
+                    const firstItem = dropdown.querySelector('.boots-dropdown-item');
+                    if (firstItem) firstItem.focus();
+                }
+            });
         });
     }
     
@@ -356,7 +678,7 @@
         });
         
         // Add keyboard navigation for action buttons
-        const actionButtons = fragmentElement.querySelectorAll('.boots-search-btn, .boots-login-btn, .boots-notification-btn');
+        const actionButtons = fragmentElement.querySelectorAll('.boots-search-btn, .boots-login-btn');
         
         actionButtons.forEach(function(button) {
             button.addEventListener('keydown', function(e) {

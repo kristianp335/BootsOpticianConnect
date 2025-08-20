@@ -30,12 +30,12 @@
                     >
                 </div>
                 
-                <!-- Partner Company Name -->
-                <div class="boots-partner-name">
-                    <span data-lfr-editable-id="partner-name" data-lfr-editable-type="text">
-                        ${configuration.companyName}
-                    </span>
-                </div>
+                <!-- Main Navigation -->
+                <nav class="boots-nav" role="navigation" aria-label="Main navigation">
+                    <ul class="boots-nav-list" id="boots-main-nav">
+                        <!-- Navigation will be populated by JavaScript -->
+                    </ul>
+                </nav>
                 
                 <!-- Header Actions -->
                 <div class="boots-header-actions">
@@ -51,56 +51,11 @@
                     
                     <!-- Language Selector Dropzone -->
                     <div class="boots-language-selector-dropzone">
-                        <div id="dropzone-language-selector" class="boots-dropzone-container">
-                            <!-- Language selector widgets will be placed here in edit mode -->
-                        </div>
+                        <lfr-drop-zone data-lfr-drop-zone-id="language-selector">
+                        </lfr-drop-zone>
                     </div>
                     
-                    [#if configuration.showNotifications!true]
-                    <!-- Notifications -->
-                    <div class="boots-notifications">
-                        <button class="boots-notification-btn boots-focus-visible" aria-label="Notifications">
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                <path d="M10 2C7.8 2 6 3.8 6 6V9L4 11H16L14 9V6C14 3.8 12.2 2 10 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M12 15C12 16.1 11.1 17 10 17S8 16.1 8 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                            <span class="boots-notification-badge">3</span>
-                        </button>
-                        
-                        <!-- Notifications Dropdown -->
-                        <div class="boots-notifications-dropdown">
-                            <div class="boots-notifications-header">
-                                <h4>Notifications</h4>
-                            </div>
-                            <div class="boots-notifications-list">
-                                <div class="boots-notification-item">
-                                    <div class="boots-notification-content">
-                                        <h5>Training Module Due</h5>
-                                        <p>Complete your quarterly compliance training by Friday</p>
-                                        <small>2 hours ago</small>
-                                    </div>
-                                </div>
-                                <div class="boots-notification-item">
-                                    <div class="boots-notification-content">
-                                        <h5>New Case Assigned</h5>
-                                        <p>Customer query regarding prescription glasses</p>
-                                        <small>4 hours ago</small>
-                                    </div>
-                                </div>
-                                <div class="boots-notification-item">
-                                    <div class="boots-notification-content">
-                                        <h5>Performance Report Available</h5>
-                                        <p>Your monthly performance summary is ready</p>
-                                        <small>1 day ago</small>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="boots-notifications-footer">
-                                <a href="/notifications" class="boots-btn boots-btn-outline">View All</a>
-                            </div>
-                        </div>
-                    </div>
-                    [/#if]
+
                     
                     [#if configuration.showUserProfile!true]
                     <!-- Login/User Button -->
@@ -119,13 +74,21 @@
                         </button>
                     [/#if]
                     [/#if]
-                    
-                    <!-- Language Selector Dropzone -->
-                    <div class="boots-language-selector-dropzone">
-                        <lfr-drop-zone data-lfr-drop-zone-id="language-selector">
-                        </lfr-drop-zone>
-                    </div>
                 </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div class="boots-mobile-nav" id="boots-mobile-nav">
+            <ul class="boots-mobile-nav-list">
+                <!-- Mobile navigation will be populated by JavaScript -->
+            </ul>
+            <div class="boots-mobile-nav-actions">
+                [#if !themeDisplay.isSignedIn()]
+                    <button class="boots-btn boots-mobile-login-btn">Sign In</button>
+                [#else]
+                    <a href="/c/portal/logout" class="boots-btn boots-btn-secondary">Sign Out</a>
+                [/#if]
             </div>
         </div>
     </header>
