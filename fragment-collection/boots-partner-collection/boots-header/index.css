@@ -1157,29 +1157,35 @@ body.has-edit-mode-menu #wrapper .boots-dropzone-wrapper {
    ================================================================================= */
 
 /* Left Sliding Menu */
-#wrapper .boots-sliding-menu {
-    position: fixed;
-    top: 0;
-    left: -320px; /* Hidden by default */
-    width: 320px;
-    height: 100vh;
-    background: var(--boots-white);
-    border-right: 1px solid var(--gray-300, #dddfe2);
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    z-index: 9999;
-    transition: left 0.3s ease;
-    overflow-y: auto;
-    pointer-events: auto;
-    display: block;
-    visibility: visible;
+body #wrapper .boots-sliding-menu,
+html body #wrapper .boots-sliding-menu {
+    position: fixed !important;
+    top: 0 !important;
+    left: -320px !important; /* Hidden by default */
+    width: 320px !important;
+    height: 100vh !important;
+    background: var(--boots-white) !important;
+    border-right: 1px solid var(--gray-300, #dddfe2) !important;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1) !important;
+    z-index: 99999 !important;
+    transition: left 0.3s ease !important;
+    overflow-y: auto !important;
+    pointer-events: auto !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    transform: none !important;
 }
 
-#wrapper .boots-sliding-menu.active {
-    left: 0;
+body #wrapper .boots-sliding-menu.active,
+html body #wrapper .boots-sliding-menu.active {
+    left: 0 !important;
     display: block !important;
     visibility: visible !important;
     pointer-events: auto !important;
-    z-index: 9999 !important;
+    z-index: 99999 !important;
+    opacity: 1 !important;
+    transform: none !important;
 }
 
 #wrapper .boots-menu-header {
@@ -1216,24 +1222,30 @@ body.has-edit-mode-menu #wrapper .boots-dropzone-wrapper {
     background: rgba(255, 255, 255, 0.1);
 }
 
-#wrapper .boots-menu-nav {
-    padding: var(--boots-spacing-lg) 0;
+body #wrapper .boots-menu-nav,
+html body #wrapper .boots-menu-nav {
+    padding: var(--boots-spacing-lg) 0 !important;
     display: block !important;
     visibility: visible !important;
     pointer-events: auto !important;
     position: relative !important;
-    z-index: 10000 !important;
+    z-index: 100000 !important;
+    opacity: 1 !important;
+    transform: none !important;
 }
 
-#wrapper .boots-menu-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+body #wrapper .boots-menu-list,
+html body #wrapper .boots-menu-list {
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
     display: block !important;
     visibility: visible !important;
     pointer-events: auto !important;
     position: relative !important;
-    z-index: 10001 !important;
+    z-index: 100001 !important;
+    opacity: 1 !important;
+    transform: none !important;
 }
 
 #wrapper .boots-menu-item {
