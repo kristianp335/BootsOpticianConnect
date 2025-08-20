@@ -93,17 +93,23 @@
         </div>
     </header>
     
-    <!-- Search Modal -->
+    <!-- Search Modal - Always rendered but controlled by JavaScript -->
     [#if configuration.showSearch!true]
-    <div id="boots-search-overlay" class="boots-search-overlay" style="display: none;">
+    <div id="boots-search-overlay" class="boots-search-overlay">
         <div class="boots-search-modal">
             <div class="boots-modal-header">
                 <h3 class="boots-modal-title" data-lfr-editable-id="search-title" data-lfr-editable-type="text">Search Partner Portal</h3>
-                <button id="boots-close-search" class="boots-modal-close" aria-label="Close search">&times;</button>
+                <button id="boots-close-search" class="boots-modal-close" aria-label="Close search">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
             </div>
             <div class="boots-modal-body boots-search-content">
-                <lfr-drop-zone data-lfr-drop-zone-id="search">
-                </lfr-drop-zone>
+                <div class="boots-dropzone-wrapper">
+                    <lfr-drop-zone data-lfr-drop-zone-id="search">
+                    </lfr-drop-zone>
+                </div>
             </div>
         </div>
     </div>
@@ -111,11 +117,15 @@
     
     <!-- Login Modal -->
     [#if !themeDisplay.isSignedIn()]
-    <div id="boots-login-overlay" class="boots-login-overlay" style="display: none;">
+    <div id="boots-login-overlay" class="boots-login-overlay">
         <div class="boots-login-modal">
             <div class="boots-modal-header">
                 <h3 class="boots-modal-title" data-lfr-editable-id="login-title" data-lfr-editable-type="text">Sign In to Partner Portal</h3>
-                <button id="boots-close-login" class="boots-modal-close" aria-label="Close login">&times;</button>
+                <button id="boots-close-login" class="boots-modal-close" aria-label="Close login">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
             </div>
             <div class="boots-modal-body boots-login-content">
                 [@liferay_portlet["runtime"] portletName="com_liferay_login_web_portlet_LoginPortlet" /]

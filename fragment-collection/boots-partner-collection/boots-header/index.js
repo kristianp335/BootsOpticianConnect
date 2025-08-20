@@ -148,7 +148,7 @@
         if (!searchBtn || !searchOverlay) return;
         
         function openSearchModal() {
-            searchOverlay.style.display = 'flex';
+            searchOverlay.classList.add('active');
             searchOverlay.setAttribute('aria-hidden', 'false');
             document.body.style.overflow = 'hidden';
             
@@ -162,7 +162,7 @@
         }
         
         function closeSearchModal() {
-            searchOverlay.style.display = 'none';
+            searchOverlay.classList.remove('active');
             searchOverlay.setAttribute('aria-hidden', 'true');
             document.body.style.overflow = '';
             if (searchBtn) searchBtn.focus();
@@ -191,10 +191,15 @@
         
         // Escape key
         document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && searchOverlay.style.display === 'flex') {
+            if (e.key === 'Escape' && searchOverlay.classList.contains('active')) {
                 closeSearchModal();
             }
         });
+        
+        // Show modal in edit mode for dropzone access
+        if (isInEditMode()) {
+            searchOverlay.classList.add('edit-mode-visible');
+        }
     }
     
     /**
@@ -484,36 +489,167 @@
     }
     
     /**
-     * Render navigation menu in both desktop and mobile containers using API data
+     * Render navigation menu in sliding menu using API data
      */
     function renderNavigationFromAPI(menuItems) {
-        const desktopNav = fragmentElement.querySelector('#boots-main-nav');
+        const slidingMenuList = fragmentElement.querySelector('.boots-menu-list');
         const mobileNav = fragmentElement.querySelector('.boots-mobile-nav-list');
         
-        if (!desktopNav || !mobileNav) {
+        if (!slidingMenuList) {
             return;
         }
         
-        // Clear existing content
-        desktopNav.innerHTML = '';
-        mobileNav.innerHTML = '';
+        // Clear existing navigation items (keep static content)
+        const existingNavItems = slidingMenuList.querySelectorAll('.boots-menu-item');
+        existingNavItems.forEach(item => item.remove());
         
-        // Render desktop navigation
+        // Render sliding menu navigation
         menuItems.forEach(item => {
-            const navItem = createNavItemFromAPI(item, false);
-            desktopNav.appendChild(navItem);
+            const menuItem = createSlidingMenuItemFromAPI(item);
+            slidingMenuList.appendChild(menuItem);
         });
         
-        // Render mobile navigation
-        menuItems.forEach(item => {
-            const mobileItem = createNavItemFromAPI(item, true);
-            mobileNav.appendChild(mobileItem);
-        });
+        // Render mobile navigation if container exists
+        if (mobileNav) {
+            mobileNav.innerHTML = '';
+            menuItems.forEach(item => {
+                const mobileItem = createNavItemFromAPI(item, true);
+                mobileNav.appendChild(mobileItem);
+            });
+        }
         
-        // Initialize dropdowns after rendering
+        // Initialize sliding menu interactions
         setTimeout(() => {
-            initializeDropdowns();
+            initializeSlidingMenuItems();
         }, 100);
+    }
+    
+    /**
+     * Create sliding menu item from API data
+     */
+    function createSlidingMenuItemFromAPI(item) {
+        const children = item.navigationMenuItems || item.children || [];
+        const hasChildren = children.length > 0;
+        
+        const listItem = document.createElement('li');
+        listItem.className = 'boots-menu-item';
+        
+        if (hasChildren) {
+            listItem.classList.add('has-submenu');
+        }
+        
+        // Create main link with icon
+        const link = document.createElement('a');
+        const originalUrl = item.link || item.url || '#';
+        const builtUrl = buildPageURL(originalUrl);
+
+        link.href = builtUrl;
+        link.className = 'boots-menu-link';
+        
+        // Add appropriate icon based on name
+        const iconSvg = getMenuIcon(item.name || item.title);
+        link.innerHTML = `${iconSvg} ${item.name || item.title}`;
+        
+        if (item.external) {
+            link.target = '_blank';
+            link.rel = 'noopener';
+        }
+        
+        listItem.appendChild(link);
+        
+        // Add submenu if has children
+        if (hasChildren) {
+            const submenu = document.createElement('ul');
+            submenu.className = 'boots-submenu';
+            
+            children.forEach(child => {
+                const childItem = document.createElement('li');
+                childItem.className = 'boots-submenu-item';
+                
+                const childLink = document.createElement('a');
+                childLink.href = buildPageURL(child.link || child.url || '#');
+                childLink.textContent = child.name || child.title;
+                childLink.className = 'boots-submenu-link';
+                
+                if (child.external) {
+                    childLink.target = '_blank';
+                    childLink.rel = 'noopener';
+                }
+                
+                childItem.appendChild(childLink);
+                submenu.appendChild(childItem);
+            });
+            
+            listItem.appendChild(submenu);
+        }
+        
+        return listItem;
+    }
+    
+    /**
+     * Get appropriate icon for menu item
+     */
+    function getMenuIcon(itemName) {
+        const name = (itemName || '').toLowerCase();
+        
+        if (name.includes('dashboard')) {
+            return '<svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M2 10C2 10 5 4 10 4S18 10 18 10S15 16 10 16S2 10 2 10Z" stroke="currentColor" stroke-width="2"/><circle cx="10" cy="10" r="3" stroke="currentColor" stroke-width="2"/></svg>';
+        } else if (name.includes('training')) {
+            return '<svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M2 3H6C7.1 3 8.1 3.4 8.8 4.1L10 5.3C10.7 6 11.7 6.4 12.8 6.4H18V15C18 16.1 17.1 17 16 17H4C2.9 17 2 16.1 2 15V3Z" stroke="currentColor" stroke-width="2"/></svg>';
+        } else if (name.includes('case')) {
+            return '<svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="3" width="16" height="14" rx="2" stroke="currentColor" stroke-width="2"/><path d="M8 7V5C8 3.9 8.9 3 10 3S12 3.9 12 5V7" stroke="currentColor" stroke-width="2"/></svg>';
+        } else if (name.includes('resource')) {
+            return '<svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M14 2H6C4.9 2 4 2.9 4 4V16C4 17.1 4.9 18 6 18H14C15.1 18 16 17.1 16 16V4C16 2.9 15.1 2 14 2Z" stroke="currentColor" stroke-width="2"/><path d="M7 6H13M7 10H13M7 14H10" stroke="currentColor" stroke-width="2"/></svg>';
+        } else if (name.includes('support')) {
+            return '<svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="2"/><path d="M10 6V10L13 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
+        } else {
+            return '<svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="3" stroke="currentColor" stroke-width="2"/><path d="M10 1V4M10 16V19M4.22 4.22L6.34 6.34M13.66 13.66L15.78 15.78M1 10H4M16 10H19M4.22 15.78L6.34 13.66M13.66 6.34L15.78 4.22" stroke="currentColor" stroke-width="2"/></svg>';
+        }
+    }
+    
+    /**
+     * Initialize sliding menu item interactions
+     */
+    function initializeSlidingMenuItems() {
+        const menuItems = fragmentElement.querySelectorAll('.boots-menu-item.has-submenu');
+        
+        menuItems.forEach(item => {
+            const link = item.querySelector('.boots-menu-link');
+            const submenu = item.querySelector('.boots-submenu');
+            
+            if (!link || !submenu) return;
+            
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                // Toggle submenu
+                const isOpen = item.classList.contains('open');
+                
+                // Close all other submenus
+                menuItems.forEach(otherItem => {
+                    otherItem.classList.remove('open');
+                });
+                
+                // Toggle current submenu
+                if (!isOpen) {
+                    item.classList.add('open');
+                }
+            });
+        });
+        
+        // Close submenu when clicking submenu link
+        const submenuLinks = fragmentElement.querySelectorAll('.boots-submenu-link');
+        submenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                // Close menu on mobile after navigation
+                if (window.innerWidth <= 768) {
+                    setTimeout(() => {
+                        const slidingMenu = fragmentElement.querySelector('.boots-sliding-menu');
+                        if (slidingMenu) slidingMenu.classList.remove('active');
+                    }, 300);
+                }
+            });
+        });
     }
     
     /**

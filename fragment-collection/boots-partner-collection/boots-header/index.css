@@ -679,6 +679,25 @@ body.has-edit-mode-menu #wrapper .boots-language-selector-dropzone:empty::after 
     justify-content: center;
     padding-top: 10vh;
     padding: 2rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+/* Active modal state */
+#wrapper .boots-search-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Edit mode visibility - always visible for dropzone access */
+[data-editor-enabled="true"] #wrapper .boots-search-overlay,
+.is-edit-mode #wrapper .boots-search-overlay,
+body.has-edit-mode-menu #wrapper .boots-search-overlay,
+#wrapper .boots-search-overlay.edit-mode-visible {
+    opacity: 0.9;
+    visibility: visible;
+    pointer-events: auto;
 }
 
 #wrapper .boots-search-backdrop {
@@ -724,6 +743,7 @@ body.has-edit-mode-menu #wrapper .boots-language-selector-dropzone:empty::after 
     background: var(--gray-50, #f8f9fa);
 }
 
+#wrapper .boots-modal-header h3,
 #wrapper .boots-search-header h2 {
     margin: 0;
     font-size: var(--boots-font-size-lg);
@@ -731,6 +751,7 @@ body.has-edit-mode-menu #wrapper .boots-language-selector-dropzone:empty::after 
     color: var(--boots-dark);
 }
 
+#wrapper .boots-modal-close,
 #wrapper .boots-search-close {
     display: flex;
     align-items: center;
@@ -746,6 +767,8 @@ body.has-edit-mode-menu #wrapper .boots-language-selector-dropzone:empty::after 
     transition: var(--boots-transition);
 }
 
+#wrapper .boots-modal-close:hover,
+#wrapper .boots-modal-close:focus,
 #wrapper .boots-search-close:hover,
 #wrapper .boots-search-close:focus {
     background: var(--gray-200, #f1f2f5);
@@ -757,6 +780,34 @@ body.has-edit-mode-menu #wrapper .boots-language-selector-dropzone:empty::after 
     padding: var(--boots-spacing-lg);
     flex: 1;
     overflow-y: auto;
+}
+
+/* Dropzone wrapper styling */
+#wrapper .boots-dropzone-wrapper {
+    min-height: 50px;
+    border: 2px dashed var(--gray-300, #dee2e6);
+    border-radius: var(--boots-border-radius);
+    padding: var(--boots-spacing-md);
+    background: var(--gray-50, #f8f9fa);
+    transition: var(--boots-transition);
+}
+
+/* Edit mode dropzone styling */
+[data-editor-enabled="true"] #wrapper .boots-dropzone-wrapper,
+.is-edit-mode #wrapper .boots-dropzone-wrapper,
+body.has-edit-mode-menu #wrapper .boots-dropzone-wrapper {
+    border-color: var(--boots-primary);
+    background: rgba(24, 66, 144, 0.05);
+}
+
+#wrapper .boots-dropzone-wrapper:empty::after {
+    content: "Drop Search Widget Here";
+    color: var(--text-color-secondary, #6c757d);
+    font-size: 0.875rem;
+    font-style: italic;
+    text-align: center;
+    display: block;
+    padding: var(--boots-spacing-sm);
 }
 
 #wrapper .boots-search-dropzone {
@@ -777,6 +828,15 @@ body.has-edit-mode-menu #wrapper .boots-language-selector-dropzone:empty::after 
     align-items: center;
     justify-content: center;
     padding: 2rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+/* Active login modal state */
+#wrapper .boots-login-overlay.active {
+    opacity: 1;
+    visibility: visible;
 }
 
 #wrapper .boots-login-backdrop {
@@ -995,4 +1055,63 @@ body.has-edit-mode-menu #wrapper .boots-language-selector-dropzone:empty::after 
     #wrapper .boots-login-header h2 {
         font-size: var(--boots-font-size-base);
     }
+}
+
+/* =================================================================================
+   SLIDING MENU SUBMENU STYLES
+   Navigation API Integration - Submenu functionality for left sliding menu
+   ================================================================================= */
+
+#wrapper .boots-menu-item.has-submenu > .boots-menu-link::after {
+    content: "";
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-left: 5px solid currentColor;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    margin-left: auto;
+    transition: transform 0.3s ease;
+}
+
+#wrapper .boots-menu-item.has-submenu.open > .boots-menu-link::after {
+    transform: rotate(90deg);
+}
+
+#wrapper .boots-submenu {
+    max-height: 0;
+    overflow: hidden;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    transition: max-height 0.3s ease;
+}
+
+#wrapper .boots-menu-item.has-submenu.open .boots-submenu {
+    max-height: 300px;
+    padding-top: var(--boots-spacing-sm);
+}
+
+#wrapper .boots-submenu-item {
+    margin: 0;
+}
+
+#wrapper .boots-submenu-link {
+    display: block;
+    padding: var(--boots-spacing-sm) var(--boots-spacing-lg);
+    padding-left: calc(var(--boots-spacing-xl) + 20px);
+    color: var(--boots-text-muted);
+    text-decoration: none;
+    font-size: var(--boots-font-size-sm);
+    border-radius: var(--boots-border-radius);
+    margin: var(--boots-spacing-xs) var(--boots-spacing-sm);
+    transition: var(--boots-transition);
+}
+
+#wrapper .boots-submenu-link:hover,
+#wrapper .boots-submenu-link:focus {
+    background: rgba(24, 66, 144, 0.1);
+    color: var(--boots-primary);
+    text-decoration: none;
+    outline: none;
 }
