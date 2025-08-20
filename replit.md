@@ -47,6 +47,70 @@ This project delivers a comprehensive Liferay fragment collection to recreate Bo
 - Mobile-responsive behavior with appropriate breakpoints
 - Click outside or close button closes the menu
 
+## Critical Liferay Implementation Guidelines (From Project Documentation)
+
+### Fragment Structure Requirements
+- **Johnson Matthey Pattern**: Use separate fragment.json (metadata) and configuration.json (schema) files
+- **Required Files**: fragment.json, configuration.json, index.html, index.css, index.js, thumbnail.png
+- **Fragment Entry Keys**: Use consistent naming like "boots-header", "boots-dashboard"
+- **Configuration Schema**: Use "label" and "value" structure for validValues in select fields
+
+### CSS Scoping Rules (CRITICAL)
+- **ALL CSS must be scoped under `#wrapper`** to prevent Liferay admin interface conflicts
+- **Global CSS**: Every selector in client extension must use `#wrapper` prefix
+- **Fragment CSS**: Every selector in fragment CSS files must use `#wrapper` prefix
+- **Pattern**: Before: `.brand-btn { ... }` → After: `#wrapper .brand-btn { ... }`
+
+### JavaScript Scoping Rules (CRITICAL)
+- **Use `fragmentElement` variable** provided by Liferay - NEVER use `document.querySelector`
+- **Fragment-only scope**: All DOM queries must use `fragmentElement.querySelector()`
+- **Event listeners**: Scope all events to elements within the fragment
+- **Timing**: Use setTimeout delays to ensure DOM elements exist before initialization
+
+### Fragment Image Editing Requirements
+- **All images must be editable** using Liferay's inline editing system
+- **Required attributes**:
+  ```html
+  <img src="placeholder.jpg" alt="Description" 
+       data-lfr-editable-id="img1" 
+       data-lfr-editable-type="image">
+  ```
+
+### Modal Implementation Requirements
+- **Embedded Portlets**: Use FreeMarker `[@liferay_portlet["runtime"] portletName="PORTLET_NAME" /]`
+- **Login Status Check**: Use `themeDisplay.isSignedIn()` for conditional content
+- **CSS Overrides**: Use `!important` declarations to override Liferay portlet styles
+- **Background Scroll**: Prevent body scrolling when modal is open
+
+### Navigation API Handling
+- **Support Both Structures**: Handle `navigationMenuItems` (API) and `children` (fallback)
+- **Property Mapping**: Support both `item.link || item.url` and `item.name || item.title`
+- **Dropdown Behavior**: Hover to show, click to toggle, keyboard navigation
+
+### Edit Mode Detection
+- **Multiple Selectors**: Use all three methods for maximum compatibility
+  ```css
+  [data-editor-enabled="true"],
+  .is-edit-mode .element,
+  body.has-edit-mode-menu .element
+  ```
+
+### Performance Optimization Rules
+- **Inline SVG**: Use inline SVG instead of external files for zero network requests
+- **CSS Containment**: Apply `contain: layout style paint` for render isolation
+- **Animation Limits**: Only simple fade-in animations, avoid complex transforms
+- **LCP Optimization**: Inline critical CSS, use eager loading for hero images
+
+### Z-Index Conservative Approach
+- **Fragment modals**: Use z-index 1050 (Bootstrap standard)
+- **Dropdown suggestions**: Use z-index 1060
+- **Never override** Liferay's admin interface z-index hierarchy
+
+### FreeMarker Template Syntax
+- **Brackets**: Use `[#` instead of `<#` for conditionals
+- **Configuration Access**: Use `configuration.variableName` syntax
+- **Conditionals**: `[#if condition]content[/#if]` structure
+
 ## Recent Changes
 - Project initialization (August 20, 2025)
 - Analyzed screenshots and requirements for Boots portal design
@@ -54,3 +118,4 @@ This project delivers a comprehensive Liferay fragment collection to recreate Bo
 - Planned dual client extension + fragment collection architecture
 - Changed client extension from themeCSS to globalCSS type per user request (August 20, 2025)
 - Updated fragment structure to match Johnson Matthey pattern with separate configuration.json files (August 20, 2025)
+- **CRITICAL**: Integrated comprehensive Liferay implementation guidelines from uploaded documentation to prevent structural mistakes (August 20, 2025)
