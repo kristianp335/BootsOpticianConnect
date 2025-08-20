@@ -14,7 +14,7 @@ This project delivers a comprehensive Liferay fragment collection to recreate Bo
 ## Project Architecture
 
 ### Dual-Deployment Strategy
-- **Client Extension**: Global CSS and JavaScript for site-wide functionality
+- **Client Extension**: Global CSS and JavaScript client extensions for site-wide functionality (globalCSS + globalJS)
 - **Fragment Collection**: Individual UI components for dashboard features
 
 ### Key Architectural Decisions
@@ -52,3 +52,4 @@ This project delivers a comprehensive Liferay fragment collection to recreate Bo
 - Analyzed screenshots and requirements for Boots portal design
 - Confirmed Liferay Classic theme token usage for brand consistency
 - Planned dual client extension + fragment collection architecture
+- Changed client extension from themeCSS to globalCSS type per user request (August 20, 2025)
