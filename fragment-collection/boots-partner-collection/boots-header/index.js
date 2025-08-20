@@ -57,7 +57,7 @@
         
         // Initialize navigation from API
         console.log('📡 Loading navigation from Liferay API...');
-        console.log('🔍 Checking menu list element:', document.querySelector('#boots-menu-list'));
+        console.log('🔍 Checking menu list element:', fragmentElement.querySelector('#boots-menu-list'));
         loadNavigationMenu();
         
         initializeMobileMenu();
@@ -304,9 +304,12 @@
         
         const menuList = fragmentElement.querySelector('#boots-menu-list');
         if (!menuList) {
-            console.error('❌ Could not find #boots-menu-list element');
+            console.error('❌ Could not find #boots-menu-list element in fragmentElement:', fragmentElement);
+            console.error('❌ Available elements in fragment:', fragmentElement ? Array.from(fragmentElement.querySelectorAll('[id]')).map(el => el.id) : 'none');
             return;
         }
+        
+        console.log('✅ Found menu list element:', menuList);
         
         // Clear existing navigation
         menuList.innerHTML = '';
@@ -323,6 +326,7 @@
         initializeSubmenus();
         
         console.log('✅ Navigation rendered successfully to sliding menu');
+        console.log('📋 Final menu HTML:', menuList.innerHTML.substring(0, 200) + '...');
     }
     
     /**
