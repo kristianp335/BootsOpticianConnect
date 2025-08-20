@@ -11,6 +11,82 @@
         return;
     }
     
+    /**
+     * Render navigation to the left sliding menu
+     * DEFINED FIRST TO PREVENT REFERENCE ERRORS
+     */
+    function renderNavigationToSlidingMenu(navigationItems) {
+        console.log('🎨 Rendering navigation to sliding menu with', navigationItems.length, 'items');
+        
+        const menuList = fragmentElement.querySelector('#boots-menu-list');
+        if (!menuList) {
+            console.error('❌ Could not find #boots-menu-list element in fragmentElement:', fragmentElement);
+            console.error('❌ Available elements in fragment:', fragmentElement ? Array.from(fragmentElement.querySelectorAll('[id]')).map(el => el.id) : 'none');
+            return;
+        }
+        
+        console.log('✅ Found menu list element:', menuList);
+        console.log('📍 Menu list parent:', menuList.parentElement);
+        console.log('📍 Menu list innerHTML before clear:', menuList.innerHTML);
+        
+        // Verify we have the right element by checking its properties
+        if (menuList.id !== 'boots-menu-list' || !menuList.classList.contains('boots-menu-list')) {
+            console.error('❌ Element found but wrong properties. ID:', menuList.id, 'Classes:', Array.from(menuList.classList));
+            return;
+        }
+        
+        // Build HTML string instead of using appendChild
+        console.log('🔧 Building navigation HTML directly');
+        let menuHTML = '';
+        
+        navigationItems.forEach((item, index) => {
+            console.log(`🔧 Creating menu item ${index + 1}:`, item.name || item.title);
+            
+            // Get configuration to access site prefix
+            const config = getFragmentConfiguration();
+            const sitePrefix = config.sitePrefix || '';
+            
+            // Handle API data structure
+            const itemName = item.name || item.title || '';
+            const baseUrl = item.link || item.url || '#';
+            const itemUrl = baseUrl === '#' ? baseUrl : sitePrefix + baseUrl;
+            
+            // Add icon based on item name
+            const icon = getMenuIcon(itemName);
+            const iconHTML = icon ? icon + ' ' : '';
+            
+            // Build menu item HTML directly
+            const menuItemHTML = `
+                <li class="boots-menu-item">
+                    <a href="${itemUrl}" class="boots-menu-link">
+                        ${iconHTML}${itemName}
+                    </a>
+                </li>
+            `;
+            
+            menuHTML += menuItemHTML;
+            console.log(`✅ Added item ${index + 1} to HTML: ${itemName}`);
+        });
+        
+        // Set innerHTML directly - this should force the DOM update
+        console.log('📝 Setting menuList innerHTML directly');
+        menuList.innerHTML = menuHTML;
+        
+        console.log(`✅ Set innerHTML with ${navigationItems.length} items`);
+        console.log('📍 Verifying innerHTML update:', menuList.innerHTML.length > 50 ? 'SUCCESS' : 'FAILED');
+        
+        // Force a DOM update and verify
+        menuList.style.opacity = '0.99';
+        setTimeout(() => {
+            menuList.style.opacity = '1';
+        }, 10);
+        
+        // Initialize submenu functionality
+        initializeSubmenus();
+        
+        console.log('🎯 Navigation rendering completed successfully');
+    }
+    
     // Initialize on DOM ready and SPA navigation events
     function ready(fn) {
         if (document.readyState === 'loading') {
@@ -267,86 +343,6 @@
                 console.error('❌ Error loading navigation menu:', error);
                 console.log('Navigation will remain empty due to API error');
             });
-    }
-    
-
-    
-    /**
-     * Render navigation to the left sliding menu
-     * MOVED TO TOP TO PREVENT REFERENCE ERRORS
-     */
-    function renderNavigationToSlidingMenu(navigationItems) {
-        console.log('🎨 Rendering navigation to sliding menu with', navigationItems.length, 'items');
-        
-        const menuList = fragmentElement.querySelector('#boots-menu-list');
-        if (!menuList) {
-            console.error('❌ Could not find #boots-menu-list element in fragmentElement:', fragmentElement);
-            console.error('❌ Available elements in fragment:', fragmentElement ? Array.from(fragmentElement.querySelectorAll('[id]')).map(el => el.id) : 'none');
-            return;
-        }
-        
-        console.log('✅ Found menu list element:', menuList);
-        console.log('📍 Menu list parent:', menuList.parentElement);
-        console.log('📍 Menu list innerHTML before clear:', menuList.innerHTML);
-        
-        // Verify we have the right element by checking its properties
-        if (menuList.id !== 'boots-menu-list' || !menuList.classList.contains('boots-menu-list')) {
-            console.error('❌ Element found but wrong properties. ID:', menuList.id, 'Classes:', Array.from(menuList.classList));
-            return;
-        }
-        
-        // Build HTML string instead of using appendChild
-        console.log('🔧 Building navigation HTML directly');
-        let menuHTML = '';
-        
-        navigationItems.forEach((item, index) => {
-            console.log(`🔧 Creating menu item ${index + 1}:`, item.name || item.title);
-            
-            // Get configuration to access site prefix
-            const config = getFragmentConfiguration();
-            const sitePrefix = config.sitePrefix || '';
-            
-            // Handle API data structure
-            const itemName = item.name || item.title || '';
-            const baseUrl = item.link || item.url || '#';
-            const itemUrl = baseUrl === '#' ? baseUrl : sitePrefix + baseUrl;
-            
-            // Add icon based on item name
-            const icon = getMenuIcon(itemName);
-            const iconHTML = icon ? icon + ' ' : '';
-            
-            // Build menu item HTML directly
-            const menuItemHTML = `
-                <li class="boots-menu-item">
-                    <a href="${itemUrl}" class="boots-menu-link">
-                        ${iconHTML}${itemName}
-                    </a>
-                </li>
-            `;
-            
-            menuHTML += menuItemHTML;
-            console.log(`✅ Added item ${index + 1} to HTML: ${itemName}`);
-        });
-        
-        // Set innerHTML directly - this should force the DOM update
-        console.log('📝 Setting menuList innerHTML directly');
-        menuList.innerHTML = menuHTML;
-        
-        console.log(`✅ Set innerHTML with ${navigationItems.length} items`);
-        console.log('📍 Verifying innerHTML update:', menuList.innerHTML.length > 50 ? 'SUCCESS' : 'FAILED');
-        
-        // Force a DOM update and verify
-        menuList.style.opacity = '0.99';
-        setTimeout(() => {
-            menuList.style.opacity = '1';
-        }, 10);
-        
-        // Initialize submenu functionality
-        initializeSubmenus();
-        
-        console.log(`✅ Navigation rendered successfully to sliding menu: ${itemsAdded} items added`);
-        console.log('📋 Final menu children count:', menuList.children.length);
-        console.log('📋 Final menu HTML:', menuList.innerHTML.length > 0 ? menuList.innerHTML.substring(0, 300) + '...' : 'EMPTY!');
     }
     
     /**
