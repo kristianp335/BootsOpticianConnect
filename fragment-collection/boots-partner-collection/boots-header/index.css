@@ -378,10 +378,14 @@
     transform: translateX(-100%);
     transition: transform 0.3s ease-in-out;
     overflow-y: auto;
+    display: block !important;
+    visibility: visible !important;
 }
 
 #wrapper .boots-sliding-menu.show {
     transform: translateX(0);
+    display: block !important;
+    visibility: visible !important;
 }
 
 /* Menu Header */
@@ -1169,6 +1173,8 @@ body.has-edit-mode-menu #wrapper .boots-dropzone-wrapper {
 
 #wrapper .boots-sliding-menu.active {
     left: 0;
+    display: block !important;
+    visibility: visible !important;
 }
 
 #wrapper .boots-menu-header {
