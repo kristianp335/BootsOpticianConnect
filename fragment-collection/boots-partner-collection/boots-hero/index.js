@@ -78,6 +78,22 @@
             });
         });
         
+        // Handle image loading fallback
+        const heroImages = container.querySelectorAll('.boots-hero-image');
+        heroImages.forEach(function(img) {
+            img.addEventListener('error', function() {
+                // Hide failed image to show CSS background
+                this.style.opacity = '0';
+                console.log('Boots Hero: Image failed to load, showing CSS background fallback');
+            });
+            
+            img.addEventListener('load', function() {
+                // Ensure image is visible when loaded successfully
+                this.style.opacity = '1';
+                console.log('Boots Hero: Image loaded successfully');
+            });
+        });
+        
         console.log('Boots Hero: Fragment initialized successfully');
     }
     
