@@ -324,37 +324,45 @@
             return;
         }
         
-        // Clear existing navigation
-        menuList.innerHTML = '';
+        // Build HTML string instead of using appendChild
+        console.log('🔧 Building navigation HTML directly');
+        let menuHTML = '';
         
-        // Render each navigation item
-        let itemsAdded = 0;
         navigationItems.forEach((item, index) => {
             console.log(`🔧 Creating menu item ${index + 1}:`, item.name || item.title);
-            const menuItem = createSlidingMenuItemFromAPI(item);
-            if (menuItem) {
-                console.log(`✅ Menu item created successfully:`, menuItem.outerHTML.substring(0, 100));
-                
-                // Try multiple append strategies to ensure it sticks
-                try {
-                    menuList.appendChild(menuItem);
-                    itemsAdded++;
-                    console.log(`📌 Item ${index + 1} appended. Menu now has ${menuList.children.length} children`);
-                    
-                    // Verify the element was actually added
-                    const addedElement = menuList.querySelector(`li:nth-child(${itemsAdded})`);
-                    if (addedElement) {
-                        console.log(`✅ Verified item ${index + 1} is in DOM:`, addedElement.textContent);
-                    } else {
-                        console.error(`❌ Item ${index + 1} not found in DOM after append`);
-                    }
-                } catch (error) {
-                    console.error(`❌ Error appending item ${index + 1}:`, error);
-                }
-            } else {
-                console.error(`❌ Failed to create menu item for:`, item);
-            }
+            
+            // Get configuration to access site prefix
+            const config = getFragmentConfiguration();
+            const sitePrefix = config.sitePrefix || '';
+            
+            // Handle API data structure
+            const itemName = item.name || item.title || '';
+            const baseUrl = item.link || item.url || '#';
+            const itemUrl = baseUrl === '#' ? baseUrl : sitePrefix + baseUrl;
+            
+            // Add icon based on item name
+            const icon = getMenuIcon(itemName);
+            const iconHTML = icon ? icon + ' ' : '';
+            
+            // Build menu item HTML directly
+            const menuItemHTML = `
+                <li class="boots-menu-item">
+                    <a href="${itemUrl}" class="boots-menu-link">
+                        ${iconHTML}${itemName}
+                    </a>
+                </li>
+            `;
+            
+            menuHTML += menuItemHTML;
+            console.log(`✅ Added item ${index + 1} to HTML: ${itemName}`);
         });
+        
+        // Set innerHTML directly - this should force the DOM update
+        console.log('📝 Setting menuList innerHTML directly');
+        menuList.innerHTML = menuHTML;
+        
+        console.log(`✅ Set innerHTML with ${navigationItems.length} items`);
+        console.log('📍 Verifying innerHTML update:', menuList.innerHTML.length > 50 ? 'SUCCESS' : 'FAILED');
         
         // Force a DOM update and verify
         menuList.style.opacity = '0.99';
