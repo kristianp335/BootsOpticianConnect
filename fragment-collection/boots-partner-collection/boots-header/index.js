@@ -66,6 +66,30 @@
         console.log('✅ Boots Header Fragment initialized in live mode');
     }
     
+    /**
+     * Get sample navigation for edit mode
+     */
+    function getSampleNavigation() {
+        return [
+            {
+                name: 'Dashboard',
+                url: '/dashboard',
+                children: [
+                    { name: 'Performance Overview', url: '/dashboard/performance' },
+                    { name: 'Analytics', url: '/dashboard/analytics' }
+                ]
+            },
+            {
+                name: 'Training',
+                url: '/training'
+            },
+            {
+                name: 'Cases',
+                url: '/cases'
+            }
+        ];
+    }
+    
     function isInEditMode() {
         const body = document.body;
         
@@ -278,31 +302,8 @@
     }
     
     /**
-     * Get sample navigation for edit mode
-     */
-    function getSampleNavigation() {
-        return [
-            {
-                name: 'Dashboard',
-                url: '/dashboard',
-                children: [
-                    { name: 'Performance Overview', url: '/dashboard/performance' },
-                    { name: 'Analytics', url: '/dashboard/analytics' }
-                ]
-            },
-            {
-                name: 'Training',
-                url: '/training'
-            },
-            {
-                name: 'Cases',
-                url: '/cases'
-            }
-        ];
-    }
-    
-    /**
      * Render navigation to the left sliding menu
+     * MOVED TO TOP TO PREVENT REFERENCE ERRORS
      */
     function renderNavigationToSlidingMenu(navigationItems) {
         console.log('🎨 Rendering navigation to sliding menu with', navigationItems.length, 'items');
