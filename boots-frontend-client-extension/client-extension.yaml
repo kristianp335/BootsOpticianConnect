@@ -1,0 +1,16 @@
+assemble:
+    - from: assets
+      into: static
+name: Boots Partner Portal Frontend Client Extension
+type: themeCSS
+
+boots-partner-portal-theme-css:
+    clayURL: css/clay.css
+    mainURL: css/main.css
+    name: Boots Partner Portal Theme CSS
+    type: themeCSS
+
+boots-partner-portal-global-js:
+    name: Boots Partner Portal Global JS
+    type: globalJS
+    url: js/global.js

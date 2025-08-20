@@ -1,0 +1,49 @@
+{
+    "configurationSchema": {
+        "fieldSets": [
+            {
+                "fields": [
+                    {
+                        "name": "showUserProfile",
+                        "label": "Show User Profile",
+                        "description": "Display user profile dropdown in header",
+                        "type": "checkbox",
+                        "defaultValue": true
+                    },
+                    {
+                        "name": "showNotifications",
+                        "label": "Show Notifications",
+                        "description": "Display notifications bell icon",
+                        "type": "checkbox",
+                        "defaultValue": true
+                    },
+                    {
+                        "name": "headerStyle",
+                        "label": "Header Style",
+                        "description": "Choose header background style",
+                        "type": "select",
+                        "defaultValue": "white",
+                        "typeOptions": {
+                            "validValues": [
+                                {"value": "white", "label": "White Background"},
+                                {"value": "primary", "label": "Primary Blue Background"}
+                            ]
+                        }
+                    },
+                    {
+                        "name": "companyName",
+                        "label": "Company Name",
+                        "description": "Partner company name for personalization",
+                        "type": "text",
+                        "defaultValue": "Your Optician Practice"
+                    }
+                ]
+            }
+        ]
+    },
+    "cssPath": "index.css",
+    "htmlPath": "index.html",
+    "jsPath": "index.js",
+    "name": "Boots Header",
+    "type": "component"
+}

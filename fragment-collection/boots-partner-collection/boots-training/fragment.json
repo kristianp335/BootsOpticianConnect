@@ -1,0 +1,58 @@
+{
+    "configurationSchema": {
+        "fieldSets": [
+            {
+                "fields": [
+                    {
+                        "name": "showProgressChart",
+                        "label": "Show Progress Chart",
+                        "description": "Display training progress visualization",
+                        "type": "checkbox",
+                        "defaultValue": true
+                    },
+                    {
+                        "name": "showCertifications",
+                        "label": "Show Certifications",
+                        "description": "Display certification status section",
+                        "type": "checkbox",
+                        "defaultValue": true
+                    },
+                    {
+                        "name": "trainingLayout",
+                        "label": "Training Layout",
+                        "description": "Choose training module layout",
+                        "type": "select",
+                        "defaultValue": "standard",
+                        "typeOptions": {
+                            "validValues": [
+                                {"value": "standard", "label": "Standard Layout"},
+                                {"value": "compact", "label": "Compact Layout"},
+                                {"value": "detailed", "label": "Detailed Layout"}
+                            ]
+                        }
+                    },
+                    {
+                        "name": "moduleFilter",
+                        "label": "Module Filter",
+                        "description": "Filter training modules by status",
+                        "type": "select",
+                        "defaultValue": "all",
+                        "typeOptions": {
+                            "validValues": [
+                                {"value": "all", "label": "All Modules"},
+                                {"value": "required", "label": "Required Only"},
+                                {"value": "optional", "label": "Optional Only"},
+                                {"value": "completed", "label": "Completed Only"}
+                            ]
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    "cssPath": "index.css",
+    "htmlPath": "index.html",
+    "jsPath": "index.js",
+    "name": "Boots Training",
+    "type": "component"
+}

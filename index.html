@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boots Partner Portal - Dashboard</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48c3R5bGU+LmJ7ZmlsbDojMTg0MjkwO2ZvbnQtZmFtaWx5OidDb3VyaWVyIE5ldycsbW9ub3NwYWNlO2ZvbnQtc2l6ZToxNnB4O2ZvbnQtd2VpZ2h0OmJvbGQ7fTwvc3R5bGU+PC9kZWZzPjx0ZXh0IHg9IjQiIHk9IjIyIiBjbGFzcz0iYiI+Qm9vdHM8L3RleHQ+PC9zdmc+">
+    
+    <!-- Chart.js for analytics -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <!-- Client Extension CSS -->
+    <link rel="stylesheet" href="boots-frontend-client-extension/assets/global.css">
+    
+    <!-- Fragment CSS Files -->
+    <link rel="stylesheet" href="fragment-collection/boots-partner-collection/boots-header/index.css">
+    <link rel="stylesheet" href="fragment-collection/boots-partner-collection/boots-dashboard/index.css">
+    <link rel="stylesheet" href="fragment-collection/boots-partner-collection/boots-training/index.css">
+    <link rel="stylesheet" href="fragment-collection/boots-partner-collection/boots-case-management/index.css">
+    <link rel="stylesheet" href="fragment-collection/boots-partner-collection/boots-footer/index.css">
+    
+    <style>
+        /* Ensure page layout works properly */
+        html, body {
+            margin: 0;
+            padding: 0;
+            font-family: var(--boots-font-family);
+            line-height: 1.6;
+            color: var(--boots-dark);
+            background: var(--boots-light);
+        }
+        
+        /* Main layout container */
+        #wrapper {
+            min-height: 100vh;
+            transition: margin-left 0.3s ease;
+        }
+        
+        /* Content spacing */
+        .main-content {
+            padding: 0;
+        }
+        
+        /* Section spacing */
+        .portal-section {
+            margin-bottom: var(--boots-spacing-xl);
+        }
+        
+        /* Demo notice */
+        .demo-notice {
+            background: linear-gradient(135deg, #2563eb, #184290);
+            color: white;
+            padding: var(--boots-spacing-md);
+            text-align: center;
+            font-size: var(--boots-font-size-sm);
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+        
+        .demo-notice strong {
+            font-weight: var(--boots-font-weight-bold);
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <!-- Demo Notice -->
+        <div class="demo-notice">
+            <strong>Boots Partner Portal</strong> - Liferay Fragment Collection Demo | All interactive features available
+        </div>
+        
+        <!-- Header Fragment -->
+        <div class="portal-section">
+            <header class="boots-header-fragment">
+                <div class="boots-container">
+                    <div class="boots-header-content">
+                        <!-- Logo and Brand -->
+                        <div class="boots-header-brand">
+                            <button class="boots-menu-toggle" id="boots-menu-toggle" aria-label="Toggle navigation menu">
+                                <span class="boots-hamburger">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </span>
+                            </button>
+                            <a href="#" class="boots-logo">
+                                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQwIiBoZWlnaHQ9IjQ4IiB2aWV3Qm94PSIwIDAgMTQwIDQ4IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxkZWZzPjxzdHlsZT4uYntmaWxsOiMxODQyOTA7Zm9udC1mYW1pbHk6J0NvdXJpZXIgTmV3Jyxtb25vc3BhY2U7Zm9udC1zaXplOjI0cHg7Zm9udC13ZWlnaHQ6Ym9sZDt9PC9zdHlsZT48L2RlZnM+PHRleHQgeD0iMTAiIHk9IjMwIiBjbGFzcz0iYiI+Qm9vdHMgUGFydG5lcjwvdGV4dD48L3N2Zz4=" alt="Boots Partner Portal" width="140" height="48">
+                            </a>
+                        </div>
+                        
+                        <!-- Header Actions -->
+                        <div class="boots-header-actions">
+                            <!-- Search -->
+                            <button class="boots-header-icon" id="boots-header-search" aria-label="Search">
+                                <i class="bi bi-search"></i>
+                            </button>
+                            
+                            <!-- Notifications -->
+                            <div class="boots-header-notification">
+                                <button class="boots-header-icon" id="boots-notification-toggle" aria-label="Notifications">
+                                    <i class="bi bi-bell"></i>
+                                    <span class="boots-notification-badge">3</span>
+                                </button>
+                                
+                                <!-- Notification Dropdown -->
+                                <div class="boots-notification-dropdown" id="boots-notification-dropdown">
+                                    <div class="boots-notification-header">
+                                        <h4>Notifications</h4>
+                                        <span class="boots-notification-count">3 new</span>
+                                    </div>
+                                    <div class="boots-notification-list">
+                                        <div class="boots-notification-item unread">
+                                            <div class="boots-notification-content">
+                                                <h5>Training Reminder</h5>
+                                                <p>Contact Lens Safety module due tomorrow</p>
+                                                <span class="boots-notification-time">2 hours ago</span>
+                                            </div>
+                                        </div>
+                                        <div class="boots-notification-item unread">
+                                            <div class="boots-notification-content">
+                                                <h5>New Case Assigned</h5>
+                                                <p>Prescription inquiry case #CS-2025-001</p>
+                                                <span class="boots-notification-time">4 hours ago</span>
+                                            </div>
+                                        </div>
+                                        <div class="boots-notification-item unread">
+                                            <div class="boots-notification-content">
+                                                <h5>Monthly Report Available</h5>
+                                                <p>January performance report ready</p>
+                                                <span class="boots-notification-time">1 day ago</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="boots-notification-footer">
+                                        <a href="#" class="boots-btn boots-btn-sm boots-btn-outline">View All</a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- User Profile -->
+                            <div class="boots-header-profile">
+                                <button class="boots-profile-toggle" id="boots-profile-toggle" aria-label="User menu">
+                                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSIyMCIgY3k9IjIwIiByPSIyMCIgZmlsbD0iIzE4NDI5MCIvPjx0ZXh0IHg9IjIwIiB5PSIyNiIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE2IiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkpTPC90ZXh0Pjwvc3ZnPg==" alt="Profile" class="boots-profile-avatar">
+                                    <span class="boots-profile-name">Jane Smith</span>
+                                    <i class="bi bi-chevron-down"></i>
+                                </button>
+                                
+                                <!-- Profile Dropdown -->
+                                <div class="boots-profile-dropdown" id="boots-profile-dropdown">
+                                    <div class="boots-profile-info">
+                                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSIyMCIgY3k9IjIwIiByPSIyMCIgZmlsbD0iIzE4NDI5MCIvPjx0ZXh0IHg9IjIwIiB5PSIyNiIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE2IiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkpTPC90ZXh0Pjwvc3ZnPg==" alt="Profile">
+                                        <div>
+                                            <h4>Jane Smith</h4>
+                                            <p>Senior Optician</p>
+                                            <span class="boots-partner-location">Boots Manchester Central</span>
+                                        </div>
+                                    </div>
+                                    <div class="boots-profile-menu">
+                                        <a href="#" class="boots-profile-link">
+                                            <i class="bi bi-person"></i>
+                                            <span>My Profile</span>
+                                        </a>
+                                        <a href="#" class="boots-profile-link">
+                                            <i class="bi bi-gear"></i>
+                                            <span>Settings</span>
+                                        </a>
+                                        <a href="#" class="boots-profile-link">
+                                            <i class="bi bi-question-circle"></i>
+                                            <span>Help & Support</span>
+                                        </a>
+                                        <hr class="boots-dropdown-divider">
+                                        <a href="#" class="boots-profile-link">
+                                            <i class="bi bi-box-arrow-right"></i>
+                                            <span>Sign Out</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            
+            <!-- Left Sliding Navigation -->
+            <nav class="boots-nav-menu" id="boots-nav-menu">
+                <div class="boots-nav-content">
+                    <div class="boots-nav-header">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiB2aWV3Qm94PSIwIDAgMTIwIDQwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxkZWZzPjxzdHlsZT4uYntmaWxsOiNmZmY7Zm9udC1mYW1pbHk6J0NvdXJpZXIgTmV3Jyxtb25vc3BhY2U7Zm9udC1zaXplOjE4cHg7Zm9udC13ZWlnaHQ6Ym9sZDt9PC9zdHlsZT48L2RlZnM+PHRleHQgeD0iMTAiIHk9IjI2IiBjbGFzcz0iYiI+Qm9vdHM8L3RleHQ+PC9zdmc+" alt="Boots" width="120" height="40">
+                        <button class="boots-nav-close" id="boots-nav-close" aria-label="Close menu">
+                            <i class="bi bi-x-lg"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="boots-nav-menu-items">
+                        <a href="#dashboard" class="boots-nav-item active">
+                            <i class="bi bi-speedometer2"></i>
+                            <span>Dashboard</span>
+                        </a>
+                        <a href="#training" class="boots-nav-item">
+                            <i class="bi bi-mortarboard"></i>
+                            <span>Training & Development</span>
+                        </a>
+                        <a href="#cases" class="boots-nav-item">
+                            <i class="bi bi-folder"></i>
+                            <span>Case Management</span>
+                        </a>
+                        <a href="#performance" class="boots-nav-item">
+                            <i class="bi bi-graph-up"></i>
+                            <span>Performance Analytics</span>
+                        </a>
+                        <a href="#resources" class="boots-nav-item">
+                            <i class="bi bi-collection"></i>
+                            <span>Partner Resources</span>
+                        </a>
+                        <a href="#inventory" class="boots-nav-item">
+                            <i class="bi bi-box-seam"></i>
+                            <span>Inventory Management</span>
+                        </a>
+                        <a href="#customers" class="boots-nav-item">
+                            <i class="bi bi-people"></i>
+                            <span>Customer Database</span>
+                        </a>
+                        <a href="#reports" class="boots-nav-item">
+                            <i class="bi bi-file-earmark-text"></i>
+                            <span>Reports & Analytics</span>
+                        </a>
+                        <a href="#settings" class="boots-nav-item">
+                            <i class="bi bi-gear"></i>
+                            <span>Settings</span>
+                        </a>
+                    </div>
+                    
+                    <div class="boots-nav-footer">
+                        <div class="boots-nav-user">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSIyMCIgY3k9IjIwIiByPSIyMCIgZmlsbD0iIzE4NDI5MCIvPjx0ZXh0IHg9IjIwIiB5PSIyNiIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE2IiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkpTPC90ZXh0Pjwvc3ZnPg==" alt="Profile">
+                            <div class="boots-nav-user-info">
+                                <span class="boots-nav-user-name">Jane Smith</span>
+                                <span class="boots-nav-user-role">Senior Optician</span>
+                            </div>
+                        </div>
+                        <a href="#" class="boots-nav-logout">
+                            <i class="bi bi-box-arrow-right"></i>
+                            <span>Sign Out</span>
+                        </a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Dashboard Section -->
+            <section id="dashboard" class="portal-section">
+                <div class="boots-dashboard-fragment">
+                    <div class="boots-container">
+                        <!-- Dashboard Header -->
+                        <div class="boots-dashboard-header">
+                            <div class="boots-dashboard-title">
+                                <h1>Partner Dashboard</h1>
+                                <p>Welcome back, Jane! Here's your practice overview for today.</p>
+                            </div>
+                            <div class="boots-dashboard-actions">
+                                <button class="boots-btn boots-btn-primary">
+                                    <i class="bi bi-plus-circle"></i>
+                                    Quick Actions
+                                </button>
+                                <button class="boots-btn boots-btn-outline">
+                                    <i class="bi bi-download"></i>
+                                    Export Report
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Metrics Row -->
+                        <div class="boots-metrics-row">
+                            <div class="boots-metric-card boots-metric-primary">
+                                <div class="boots-metric-icon">
+                                    <i class="bi bi-currency-pound"></i>
+                                </div>
+                                <div class="boots-metric-content">
+                                    <div class="boots-metric-value">
+                                        <span data-counter data-target="18250">0</span>
+                                    </div>
+                                    <div class="boots-metric-label">Monthly Revenue</div>
+                                    <div class="boots-metric-change boots-positive">
+                                        <i class="bi bi-arrow-up"></i>
+                                        <span>+12.5%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="boots-metric-card boots-metric-success">
+                                <div class="boots-metric-icon">
+                                    <i class="bi bi-calendar-check"></i>
+                                </div>
+                                <div class="boots-metric-content">
+                                    <div class="boots-metric-value">
+                                        <span data-counter data-target="142">0</span>
+                                    </div>
+                                    <div class="boots-metric-label">Appointments This Week</div>
+                                    <div class="boots-metric-change boots-positive">
+                                        <i class="bi bi-arrow-up"></i>
+                                        <span>+8.2%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="boots-metric-card boots-metric-info">
+                                <div class="boots-metric-icon">
+                                    <i class="bi bi-star"></i>
+                                </div>
+                                <div class="boots-metric-content">
+                                    <div class="boots-metric-value">
+                                        <span data-counter data-target="47" data-suffix=".8">0</span>
+                                    </div>
+                                    <div class="boots-metric-label">Customer Satisfaction</div>
+                                    <div class="boots-metric-change boots-positive">
+                                        <i class="bi bi-arrow-up"></i>
+                                        <span>+0.3</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="boots-metric-card boots-metric-warning">
+                                <div class="boots-metric-icon">
+                                    <i class="bi bi-clock"></i>
+                                </div>
+                                <div class="boots-metric-content">
+                                    <div class="boots-metric-value">
+                                        <span data-counter data-target="23">0</span>
+                                        <span>m</span>
+                                    </div>
+                                    <div class="boots-metric-label">Avg. Wait Time</div>
+                                    <div class="boots-metric-change boots-negative">
+                                        <i class="bi bi-arrow-down"></i>
+                                        <span>-2.1m</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Dashboard Content Grid -->
+                        <div class="boots-dashboard-grid">
+                            <!-- Revenue Chart -->
+                            <div class="boots-dashboard-card boots-chart-card">
+                                <div class="boots-card-header">
+                                    <h3>Revenue Trends</h3>
+                                    <div class="boots-chart-controls">
+                                        <button class="boots-chart-period active" data-period="7d">7D</button>
+                                        <button class="boots-chart-period" data-period="1m">1M</button>
+                                        <button class="boots-chart-period" data-period="3m">3M</button>
+                                        <button class="boots-chart-period" data-period="1y">1Y</button>
+                                    </div>
+                                </div>
+                                <div class="boots-card-body">
+                                    <canvas id="revenueChart" width="400" height="300"></canvas>
+                                </div>
+                            </div>
+                            
+                            <!-- Appointment Analytics -->
+                            <div class="boots-dashboard-card boots-chart-card">
+                                <div class="boots-card-header">
+                                    <h3>Appointment Analytics</h3>
+                                    <button class="boots-btn boots-btn-sm boots-btn-outline">View Details</button>
+                                </div>
+                                <div class="boots-card-body">
+                                    <canvas id="appointmentChart" width="400" height="300"></canvas>
+                                </div>
+                            </div>
+                            
+                            <!-- Quick Actions -->
+                            <div class="boots-dashboard-card">
+                                <div class="boots-card-header">
+                                    <h3>Quick Actions</h3>
+                                </div>
+                                <div class="boots-card-body">
+                                    <div class="boots-quick-actions">
+                                        <a href="#" class="boots-quick-action">
+                                            <div class="boots-action-icon">
+                                                <i class="bi bi-calendar-plus"></i>
+                                            </div>
+                                            <span>Book Appointment</span>
+                                        </a>
+                                        <a href="#" class="boots-quick-action">
+                                            <div class="boots-action-icon">
+                                                <i class="bi bi-file-plus"></i>
+                                            </div>
+                                            <span>New Case</span>
+                                        </a>
+                                        <a href="#" class="boots-quick-action">
+                                            <div class="boots-action-icon">
+                                                <i class="bi bi-person-plus"></i>
+                                            </div>
+                                            <span>Add Customer</span>
+                                        </a>
+                                        <a href="#" class="boots-quick-action">
+                                            <div class="boots-action-icon">
+                                                <i class="bi bi-prescription2"></i>
+                                            </div>
+                                            <span>Prescription Check</span>
+                                        </a>
+                                        <a href="#" class="boots-quick-action">
+                                            <div class="boots-action-icon">
+                                                <i class="bi bi-box-seam"></i>
+                                            </div>
+                                            <span>Inventory Check</span>
+                                        </a>
+                                        <a href="#" class="boots-quick-action">
+                                            <div class="boots-action-icon">
+                                                <i class="bi bi-graph-up"></i>
+                                            </div>
+                                            <span>View Reports</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Recent Activity -->
+                            <div class="boots-dashboard-card">
+                                <div class="boots-card-header">
+                                    <h3>Recent Activity</h3>
+                                    <a href="#" class="boots-view-all">View All</a>
+                                </div>
+                                <div class="boots-card-body">
+                                    <div class="boots-activity-feed">
+                                        <div class="boots-activity-item">
+                                            <div class="boots-activity-avatar">
+                                                <i class="bi bi-calendar-check"></i>
+                                            </div>
+                                            <div class="boots-activity-content">
+                                                <p><strong>Appointment completed</strong> with Sarah Johnson</p>
+                                                <span class="boots-activity-time">2 hours ago</span>
+                                            </div>
+                                        </div>
+                                        <div class="boots-activity-item">
+                                            <div class="boots-activity-avatar">
+                                                <i class="bi bi-file-plus"></i>
+                                            </div>
+                                            <div class="boots-activity-content">
+                                                <p><strong>New case created</strong> - Prescription inquiry</p>
+                                                <span class="boots-activity-time">4 hours ago</span>
+                                            </div>
+                                        </div>
+                                        <div class="boots-activity-item">
+                                            <div class="boots-activity-avatar">
+                                                <i class="bi bi-mortarboard"></i>
+                                            </div>
+                                            <div class="boots-activity-content">
+                                                <p><strong>Training module completed</strong> - Contact Lens Fitting</p>
+                                                <span class="boots-activity-time">1 day ago</span>
+                                            </div>
+                                        </div>
+                                        <div class="boots-activity-item">
+                                            <div class="boots-activity-avatar">
+                                                <i class="bi bi-star"></i>
+                                            </div>
+                                            <div class="boots-activity-content">
+                                                <p><strong>5-star review received</strong> from Michael Brown</p>
+                                                <span class="boots-activity-time">2 days ago</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Announcements -->
+                            <div class="boots-dashboard-card">
+                                <div class="boots-card-header">
+                                    <h3>Important Announcements</h3>
+                                    <span class="boots-notification-indicator">2</span>
+                                </div>
+                                <div class="boots-card-body">
+                                    <div class="boots-announcements">
+                                        <div class="boots-announcement-item boots-announcement-info">
+                                            <div class="boots-announcement-indicator"></div>
+                                            <div class="boots-announcement-content">
+                                                <h4>New Training Module Available</h4>
+                                                <p>Advanced Contact Lens Fitting techniques now available in your training portal.</p>
+                                                <span class="boots-announcement-date">Posted 1 day ago</span>
+                                            </div>
+                                        </div>
+                                        <div class="boots-announcement-item boots-announcement-warning">
+                                            <div class="boots-announcement-indicator"></div>
+                                            <div class="boots-announcement-content">
+                                                <h4>System Maintenance Scheduled</h4>
+                                                <p>Planned maintenance window: Sunday 2AM - 4AM GMT. Services may be temporarily unavailable.</p>
+                                                <span class="boots-announcement-date">Posted 2 days ago</span>
+                                            </div>
+                                        </div>
+                                        <div class="boots-announcement-item boots-announcement-success">
+                                            <div class="boots-announcement-indicator"></div>
+                                            <div class="boots-announcement-content">
+                                                <h4>Performance Recognition</h4>
+                                                <p>Congratulations on achieving 98% customer satisfaction this month!</p>
+                                                <span class="boots-announcement-date">Posted 3 days ago</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Training Section -->
+            <section id="training" class="portal-section" style="display: none;">
+                <!-- Training content will be loaded here via navigation -->
+                <div class="boots-training-placeholder">
+                    <div class="boots-container">
+                        <h2>Training & Development</h2>
+                        <p>Training modules and progress tracking interface would be displayed here.</p>
+                        <p>Click the navigation menu to see the dashboard overview with all features.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Case Management Section -->
+            <section id="cases" class="portal-section" style="display: none;">
+                <!-- Case management content will be loaded here via navigation -->
+                <div class="boots-case-placeholder">
+                    <div class="boots-container">
+                        <h2>Case Management</h2>
+                        <p>Customer support case management system would be displayed here.</p>
+                        <p>Click the navigation menu to see the dashboard overview with all features.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <!-- Footer Fragment -->
+        <footer class="boots-footer-fragment boots-footer-dark">
+            <div class="boots-container">
+                <!-- Footer Main Content -->
+                <div class="boots-footer-main">
+                    <!-- Partner Information -->
+                    <div class="boots-footer-section">
+                        <div class="boots-footer-brand">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiB2aWV3Qm94PSIwIDAgMTIwIDQwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxkZWZzPjxzdHlsZT4uYntmaWxsOiNmZmY7Zm9udC1mYW1pbHk6J0NvdXJpZXIgTmV3Jyxtb25vc3BhY2U7Zm9udC1zaXplOjI0cHg7Zm9udC13ZWlnaHQ6Ym9sZDt9PC9zdHlsZT48L2RlZnM+PHRleHQgeD0iMTAiIHk9IjI4IiBjbGFzcz0iYiI+Qm9vdHM8L3RleHQ+PC9zdmc+" alt="Boots Partner Portal" width="120" height="40">
+                        </div>
+                        <div class="boots-partner-info">
+                            <h4>Manchester Central Opticians</h4>
+                            <p>Professional optician services with the trusted quality and expertise of Boots. Your vision is our priority.</p>
+                        </div>
+                        
+                        <div class="boots-social-media">
+                            <h5>Connect With Us</h5>
+                            <div class="boots-social-links">
+                                <a href="https://facebook.com" class="boots-social-link" aria-label="Facebook">
+                                    <i class="bi bi-facebook"></i>
+                                </a>
+                                <a href="https://twitter.com" class="boots-social-link" aria-label="Twitter">
+                                    <i class="bi bi-twitter"></i>
+                                </a>
+                                <a href="https://linkedin.com" class="boots-social-link" aria-label="LinkedIn">
+                                    <i class="bi bi-linkedin"></i>
+                                </a>
+                                <a href="https://instagram.com" class="boots-social-link" aria-label="Instagram">
+                                    <i class="bi bi-instagram"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Quick Links -->
+                    <div class="boots-footer-section">
+                        <h4>Quick Links</h4>
+                        <ul class="boots-footer-links">
+                            <li><a href="#dashboard">Dashboard</a></li>
+                            <li><a href="#training">Training & Development</a></li>
+                            <li><a href="#cases">Case Management</a></li>
+                            <li><a href="#performance">Performance Reports</a></li>
+                            <li><a href="#resources">Resources</a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Support -->
+                    <div class="boots-footer-section">
+                        <h4>Support</h4>
+                        <ul class="boots-footer-links">
+                            <li><a href="#">Help Center</a></li>
+                            <li><a href="#">Contact Support</a></li>
+                            <li><a href="#">User Guides</a></li>
+                            <li><a href="#">System Status</a></li>
+                            <li><a href="#">Submit Feedback</a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Partner Resources -->
+                    <div class="boots-footer-section">
+                        <h4>Partner Resources</h4>
+                        <ul class="boots-footer-links">
+                            <li><a href="#">Partner Agreement</a></li>
+                            <li><a href="#">Marketing Materials</a></li>
+                            <li><a href="#">Product Updates</a></li>
+                            <li><a href="#">Compliance Hub</a></li>
+                            <li><a href="#">Best Practices</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Footer Bottom -->
+                <div class="boots-footer-bottom">
+                    <div class="boots-footer-copyright">
+                        <p>&copy; 2025 Boots UK Limited. All rights reserved. Partner Portal powered by Manchester Central Opticians.</p>
+                    </div>
+                    <div class="boots-footer-legal">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                        <a href="#">Cookie Settings</a>
+                        <a href="#">Accessibility</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Back to Top Button -->
+            <button class="boots-back-to-top" id="boots-back-to-top" aria-label="Back to top">
+                <i class="bi bi-arrow-up"></i>
+            </button>
+        </footer>
+    </div>
+    
+    <!-- Client Extension JavaScript -->
+    <script src="boots-frontend-client-extension/assets/global.js"></script>
+    
+    <!-- Portal JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize counters
+            initializeCounters();
+            
+            // Initialize charts
+            initializeCharts();
+            
+            // Initialize navigation
+            initializeNavigation();
+            
+            // Initialize interactive elements
+            initializeInteractiveElements();
+        });
+        
+        function initializeCounters() {
+            const counters = document.querySelectorAll('[data-counter]');
+            const observerOptions = {
+                threshold: 0.5,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        const counter = entry.target;
+                        const target = parseInt(counter.dataset.target);
+                        const suffix = counter.dataset.suffix || '';
+                        animateCounter(counter, 0, target, suffix);
+                        observer.unobserve(counter);
+                    }
+                });
+            }, observerOptions);
+            
+            counters.forEach(counter => observer.observe(counter));
+        }
+        
+        function animateCounter(element, start, end, suffix = '', duration = 2000) {
+            let current = start;
+            const increment = (end - start) / (duration / 16);
+            const timer = setInterval(function() {
+                current += increment;
+                if (current >= end) {
+                    element.textContent = Math.round(end) + suffix;
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.round(current) + suffix;
+                }
+            }, 16);
+        }
+        
+        function initializeCharts() {
+            // Revenue Chart
+            const revenueCtx = document.getElementById('revenueChart');
+            if (revenueCtx) {
+                new Chart(revenueCtx, {
+                    type: 'line',
+                    data: {
+                        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                        datasets: [{
+                            label: 'Revenue (£)',
+                            data: [2400, 2800, 3200, 2900, 3100, 3400, 2750],
+                            borderColor: '#184290',
+                            backgroundColor: 'rgba(24, 66, 144, 0.1)',
+                            borderWidth: 3,
+                            fill: true,
+                            tension: 0.4
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                display: false
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                grid: {
+                                    color: 'rgba(0,0,0,0.1)'
+                                }
+                            },
+                            x: {
+                                grid: {
+                                    display: false
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+            
+            // Appointment Chart
+            const appointmentCtx = document.getElementById('appointmentChart');
+            if (appointmentCtx) {
+                new Chart(appointmentCtx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Eye Tests', 'Contact Lens', 'Frame Fitting', 'Follow-up'],
+                        datasets: [{
+                            data: [45, 25, 20, 10],
+                            backgroundColor: [
+                                '#184290',
+                                '#2563eb',
+                                '#60a5fa',
+                                '#93c5fd'
+                            ],
+                            borderWidth: 0
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                position: 'bottom',
+                                labels: {
+                                    padding: 20,
+                                    usePointStyle: true
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+        }
+        
+        function initializeNavigation() {
+            // Navigation links
+            const navLinks = document.querySelectorAll('.boots-nav-item');
+            const sections = document.querySelectorAll('.portal-section');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Remove active class from all links
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    
+                    // Add active class to clicked link
+                    this.classList.add('active');
+                    
+                    // Show corresponding section
+                    const targetId = this.getAttribute('href').substring(1);
+                    sections.forEach(section => {
+                        if (section.id === targetId) {
+                            section.style.display = 'block';
+                        } else {
+                            section.style.display = 'none';
+                        }
+                    });
+                    
+                    // Close navigation menu on mobile
+                    document.getElementById('boots-nav-menu').classList.remove('open');
+                    document.getElementById('wrapper').classList.remove('nav-open');
+                });
+            });
+        }
+        
+        function initializeInteractiveElements() {
+            // Chart period buttons
+            const periodButtons = document.querySelectorAll('.boots-chart-period');
+            periodButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    periodButtons.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+            
+            // Back to top button
+            const backToTop = document.getElementById('boots-back-to-top');
+            if (backToTop) {
+                window.addEventListener('scroll', function() {
+                    if (window.pageYOffset > 300) {
+                        backToTop.classList.add('show');
+                    } else {
+                        backToTop.classList.remove('show');
+                    }
+                });
+                
+                backToTop.addEventListener('click', function() {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+        }
+    </script>
+</body>
+</html>
