@@ -722,25 +722,24 @@ body.has-edit-mode-menu #wrapper .boots-language-selector-dropzone:empty::after 
     }
 }
 
-#wrapper .boots-search-header {
+#wrapper .boots-modal-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: var(--boots-spacing-lg);
+    padding: var(--boots-spacing-lg) var(--boots-spacing-xl);
     border-bottom: 1px solid var(--gray-200, #f1f2f5);
-    background: var(--gray-50, #f8f9fa);
+    background: var(--boots-primary);
+    color: var(--boots-white);
 }
 
-#wrapper .boots-modal-header h3,
-#wrapper .boots-search-header h2 {
+#wrapper .boots-modal-title {
     margin: 0;
     font-size: var(--boots-font-size-lg);
     font-weight: var(--boots-font-weight-semi-bold);
-    color: var(--boots-dark);
+    color: var(--boots-white);
 }
 
-#wrapper .boots-modal-close,
-#wrapper .boots-search-close {
+#wrapper .boots-modal-close {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -748,19 +747,20 @@ body.has-edit-mode-menu #wrapper .boots-language-selector-dropzone:empty::after 
     height: 40px;
     padding: 0;
     background: transparent;
-    border: 2px solid transparent;
+    border: none;
     border-radius: var(--boots-border-radius);
-    color: var(--boots-dark);
+    color: var(--boots-white);
     cursor: pointer;
     transition: var(--boots-transition);
+    font-size: 28px;
+    font-weight: bold;
+    line-height: 1;
 }
 
 #wrapper .boots-modal-close:hover,
-#wrapper .boots-modal-close:focus,
-#wrapper .boots-search-close:hover,
-#wrapper .boots-search-close:focus {
-    background: var(--gray-200, #f1f2f5);
-    border-color: var(--gray-300, #dee2e6);
+#wrapper .boots-modal-close:focus {
+    background: rgba(255, 255, 255, 0.15);
+    transform: scale(1.05);
     outline: none;
 }
 
@@ -819,8 +819,31 @@ body.has-edit-mode-menu #wrapper .boots-dropzone-wrapper {
 }
 
 /* Active login modal state */
-#wrapper .boots-login-overlay.active {
+#wrapper .boots-login-overlay[style*="flex"],
+#wrapper .boots-login-overlay[style*="block"] {
     display: flex !important;
+}
+
+#wrapper .boots-login-modal {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    background: var(--boots-white);
+    border-radius: var(--boots-border-radius-lg);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-30px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
 }
 
 #wrapper .boots-login-backdrop {
