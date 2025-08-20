@@ -11,3 +11,6 @@ boots-partner-portal-global-js:
   name: Boots Partner Portal Global JS
   type: globalJS
   url: global.js
+  scriptElementAttributes:
+    data-senna-track: "permanent"
+    fetchpriority: "high"

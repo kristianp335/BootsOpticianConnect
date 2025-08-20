@@ -141,3 +141,5 @@ This project delivers a comprehensive Liferay fragment collection to recreate Bo
 - Changed client extension from themeCSS to globalCSS type per user request (August 20, 2025)
 - Updated fragment structure to match Johnson Matthey pattern with separate configuration.json files (August 20, 2025)
 - **CRITICAL**: Integrated comprehensive Liferay implementation guidelines from uploaded documentation to prevent structural mistakes (August 20, 2025)
+- Fixed client extension YAML format to match documentation standards (August 20, 2025)
+- Added scriptElementAttributes to global JS for SPA navigation persistence and high priority loading (August 20, 2025)
