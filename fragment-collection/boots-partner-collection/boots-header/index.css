@@ -993,7 +993,7 @@ body.has-edit-mode-menu #wrapper .boots-dropzone-wrapper {
 }
 
 #wrapper .boots-login-content {
-    padding: calc(var(--boots-spacing-xl) + 1.25rem);
+    padding: 20px;
 }
 
 /* =================================================================================
@@ -1247,8 +1247,9 @@ body.has-edit-mode-menu #wrapper .boots-dropzone-wrapper {
 
 /* Main content shift when menu is open */
 #wrapper.menu-open {
-    transform: translateX(320px);
+    transform: translateX(240px);
     transition: transform 0.3s ease;
+    overflow: hidden;
 }
 
 /* Mobile sliding menu adjustments */
@@ -1263,7 +1264,8 @@ body.has-edit-mode-menu #wrapper .boots-dropzone-wrapper {
     }
     
     #wrapper.menu-open {
-        transform: translateX(280px);
+        transform: translateX(220px);
+        overflow: hidden;
     }
     
     #wrapper .boots-header-actions {
