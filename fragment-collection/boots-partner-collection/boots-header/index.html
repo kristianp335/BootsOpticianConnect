@@ -39,6 +39,23 @@
                 
                 <!-- Header Actions -->
                 <div class="boots-header-actions">
+                    [#if configuration.showSearch!true]
+                    <!-- Search Button -->
+                    <button class="boots-search-btn boots-focus-visible" id="boots-search-btn" aria-label="Open search">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="2"/>
+                            <path d="M15 15L19 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </button>
+                    [/#if]
+                    
+                    <!-- Language Selector Dropzone -->
+                    <div class="boots-language-selector-dropzone">
+                        <div id="dropzone-language-selector" class="boots-dropzone-container">
+                            <!-- Language selector widgets will be placed here in edit mode -->
+                        </div>
+                    </div>
+                    
                     [#if configuration.showNotifications!true]
                     <!-- Notifications -->
                     <div class="boots-notifications">
@@ -86,19 +103,31 @@
                     [/#if]
                     
                     [#if configuration.showUserProfile!true]
-                    <!-- User Profile -->
+                    <!-- User Profile / Login -->
                     <div class="boots-user-profile">
-                        <button class="boots-profile-btn boots-focus-visible" aria-label="User menu">
+                        [#if themeDisplay.isSignedIn()]
+                        <!-- Authenticated User Menu -->
+                        <button class="boots-profile-btn boots-focus-visible" aria-label="User menu" aria-expanded="false">
                             <div class="boots-avatar">
                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                                     <path d="M10 2C11.1 2 12 2.9 12 4S11.1 6 10 6 8 5.1 8 4 8.9 2 10 2ZM10 16C7.3 16 5 13.7 5 11C5 9.9 5.9 9 7 9H13C14.1 9 15 9.9 15 11C15 13.7 12.7 16 10 16Z" fill="currentColor"/>
                                 </svg>
                             </div>
-                            <span class="boots-profile-name">John Smith</span>
+                            <span class="boots-profile-name">${user.fullName}</span>
                             <svg class="boots-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none">
                                 <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </button>
+                        [#else]
+                        <!-- Login Button for Guest Users -->
+                        <button class="boots-login-btn boots-focus-visible" id="boots-login-btn" aria-label="Sign in">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M14 6H3C2.4 6 2 6.4 2 7V17C2 17.6 2.4 18 3 18H14C14.6 18 15 17.6 15 17V7C15 6.4 14.6 6 14 6Z" stroke="currentColor" stroke-width="2"/>
+                                <path d="M5 6V4C5 2.9 5.9 2 7 2H10C11.1 2 12 2.9 12 4V6" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                            Sign In
+                        </button>
+                        [/#if]
                         
                         <!-- Profile Dropdown -->
                         <div class="boots-profile-dropdown">
@@ -136,6 +165,62 @@
             </div>
         </div>
     </header>
+    
+    <!-- Search Modal -->
+    [#if configuration.showSearch!true]
+    <div class="boots-search-overlay" id="boots-search-overlay" role="dialog" aria-modal="true" aria-labelledby="search-modal-title" style="display: none;">
+        <div class="boots-search-backdrop"></div>
+        <div class="boots-search-modal">
+            <div class="boots-search-header">
+                <h2 id="search-modal-title" data-lfr-editable-id="search-modal-title" data-lfr-editable-type="text">Search Portal</h2>
+                <button class="boots-search-close" aria-label="Close search">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="boots-search-content">
+                <!-- Embedded Liferay Search Portlet -->
+                <div class="boots-search-dropzone">
+                    <div id="dropzone-search-portlet" class="boots-dropzone-container">
+                        <!-- Search portlets will be placed here in edit mode -->
+                        <div class="boots-search-fallback">
+                            [@liferay_portlet["runtime"] portletName="com_liferay_portal_search_web_search_bar_portlet_SearchBarPortlet" /]
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Search Suggestions Dropzone -->
+                <div class="boots-search-suggestions-dropzone">
+                    <div id="dropzone-search-suggestions" class="boots-dropzone-container">
+                        <!-- Search result widgets can be placed here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    [/#if]
+    
+    <!-- Login Modal -->
+    [#if configuration.showUserProfile!true && !themeDisplay.isSignedIn()]
+    <div class="boots-login-overlay" id="boots-login-overlay" role="dialog" aria-modal="true" aria-labelledby="login-modal-title" style="display: none;">
+        <div class="boots-login-backdrop"></div>
+        <div class="boots-login-modal">
+            <div class="boots-login-header">
+                <h2 id="login-modal-title" data-lfr-editable-id="login-modal-title" data-lfr-editable-type="text">Sign In to Partner Portal</h2>
+                <button class="boots-login-close" aria-label="Close login">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="boots-login-content">
+                <!-- Embedded Liferay Login Portlet -->
+                [@liferay_portlet["runtime"] portletName="com_liferay_login_web_portlet_LoginPortlet" /]
+            </div>
+        </div>
+    </div>
+    [/#if]
     
     <!-- Left Sliding Menu -->
     <nav class="boots-sliding-menu" id="boots-sliding-menu" aria-hidden="true">

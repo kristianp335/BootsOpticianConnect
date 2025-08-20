@@ -19,7 +19,7 @@
         {
           "name": "showSearch",
           "label": "Show Search Button",
-          "description": "Display the search button in the header",
+          "description": "Display the search button in the header with modal overlay",
           "type": "checkbox",
           "defaultValue": true
         },
