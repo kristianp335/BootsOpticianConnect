@@ -1115,3 +1115,69 @@ body.has-edit-mode-menu #wrapper .boots-dropzone-wrapper {
     text-decoration: none;
     outline: none;
 }
+
+/* =================================================================================
+   EDIT MODE ONLY SECTIONS
+   Static dropzones that appear below header in edit mode only (JM pattern)
+   ================================================================================= */
+
+/* Hide edit-mode-only sections by default */
+#wrapper .boots-edit-mode-only {
+    display: none;
+}
+
+/* Show edit-mode-only sections in edit mode */
+[data-editor-enabled="true"] #wrapper .boots-edit-mode-only,
+.is-edit-mode #wrapper .boots-edit-mode-only,
+body.has-edit-mode-menu #wrapper .boots-edit-mode-only {
+    display: block !important;
+    padding: var(--boots-spacing-lg);
+    background: var(--gray-50, #f8f9fa);
+    border-top: 1px solid var(--gray-200, #f1f2f5);
+    margin-top: var(--boots-spacing-sm);
+}
+
+#wrapper .boots-search-dropzones {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#wrapper .boots-search-dropzone {
+    margin-bottom: var(--boots-spacing-lg);
+}
+
+#wrapper .boots-dropzone-label {
+    font-size: var(--boots-font-size-base);
+    font-weight: var(--boots-font-weight-semi-bold);
+    color: var(--boots-dark);
+    margin-bottom: var(--boots-spacing-sm);
+    padding: var(--boots-spacing-sm) 0;
+    border-bottom: 2px solid var(--boots-primary);
+    display: inline-block;
+}
+
+#wrapper .boots-dropzone-wrapper {
+    min-height: 80px;
+    border: 2px dashed var(--gray-300, #dee2e6);
+    border-radius: var(--boots-border-radius);
+    padding: var(--boots-spacing-lg);
+    background: var(--boots-white);
+    transition: var(--boots-transition);
+    text-align: center;
+}
+
+#wrapper .boots-dropzone-wrapper:hover {
+    border-color: var(--boots-primary);
+    background: rgba(24, 66, 144, 0.02);
+}
+
+#wrapper .boots-dropzone-wrapper:empty::after {
+    content: "Drop Search Widget Here - This dropzone is only visible in edit mode";
+    color: var(--text-color-secondary, #6c757d);
+    font-size: var(--boots-font-size-sm);
+    font-style: italic;
+    display: block;
+    padding: var(--boots-spacing-md);
+    background: var(--gray-100, #f8f9fa);
+    border-radius: var(--boots-border-radius-sm);
+}
