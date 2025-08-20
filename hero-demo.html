@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boots Hero Fragment Demo</title>
+    <link rel="stylesheet" href="boots-frontend-client-extension/assets/global.css">
+    <link rel="stylesheet" href="fragment-collection/boots-partner-collection/boots-hero/index.css">
+    <style>
+        body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+        .demo-info {
+            padding: 2rem;
+            background: #f8f9fa;
+            text-align: center;
+            border-bottom: 1px solid #dee2e6;
+        }
+        .demo-info h2 { color: #184290; margin: 0 0 1rem 0; }
+        .demo-info p { margin: 0; color: #6c757d; }
+    </style>
+</head>
+<body>
+    <div class="demo-info">
+        <h2>🎯 Boots Hero Fragment Demo</h2>
+        <p>Professional hero section for optician login and landing pages</p>
+    </div>
+    
+    <!-- Hero Fragment Demo -->
+    <div class="boots-hero-fragment">
+        <section class="boots-hero boots-hero-medium boots-hero-align-center boots-hero-overlay-medium">
+            <!-- Hero Background Image -->
+            <div class="boots-hero-background">
+                <img 
+                    src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwMCIgaGVpZ2h0PSI4MDAiIHZpZXdCb3g9IjAgMCAxMjAwIDgwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImEiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiMxODQyOTAiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM0NTQ3NjkiLz48L2xpbmVhckdyYWRpZW50PjxzdHlsZT4uYntmaWxsOnVybCgjYSk7fS5je2ZpbGw6IzRkNmJkNztvcGFjaXR5OjAuMTt9PC9zdHlsZT48L2RlZnM+PHJlY3QgY2xhc3M9ImIiIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIvPjxjaXJjbGUgY3g9IjMwMCIgY3k9IjIwMCIgcj0iMTAwIiBjbGFzcz0iYyIvPjxjaXJjbGUgY3g9IjkwMCIgY3k9IjYwMCIgcj0iMTUwIiBjbGFzcz0iYyIvPjxjaXJjbGUgY3g9IjEwMDAiIGN5PSIxNTAiIHI9IjgwIiBjbGFzcz0iYyIvPjwvc3ZnPg=="
+                    alt="Professional optician services - comprehensive eye care and eyewear solutions"
+                    class="boots-hero-image"
+                >
+            </div>
+            
+            <!-- Hero Content Overlay -->
+            <div class="boots-hero-overlay"></div>
+            
+            <!-- Hero Content -->
+            <div class="boots-container">
+                <div class="boots-hero-content">
+                    <h1 class="boots-hero-title">
+                        Expert Eye Care & Professional Eyewear
+                    </h1>
+                    <p class="boots-hero-subtitle">
+                        Discover comprehensive optical services, cutting-edge technology, and premium eyewear solutions designed to enhance your vision and style. Your trusted partner in professional eye care.
+                    </p>
+                    <div class="boots-hero-actions">
+                        <a href="#learn-more" class="boots-hero-btn boots-hero-btn-primary">
+                            Learn More About Our Services
+                        </a>
+                        <a href="#" class="boots-hero-btn boots-hero-btn-secondary">
+                            Book Appointment
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Scroll Indicator -->
+            <div class="boots-hero-scroll-indicator" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M7 13L12 18L17 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M7 6L12 11L17 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+        </section>
+    </div>
+    
+    <div style="height: 100vh; display: flex; align-items: center; justify-content: center; background: #f8f9fa;">
+        <div style="text-align: center;">
+            <h3 style="color: #184290;">Rest of your login page content goes here</h3>
+            <p style="color: #6c757d;">The hero fragment creates the perfect introduction to your optician portal</p>
+        </div>
+    </div>
+    
+    <script src="fragment-collection/boots-partner-collection/boots-hero/index.js"></script>
+</body>
+</html>

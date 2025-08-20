@@ -1,0 +1,334 @@
+/*
+ * Boots Hero Fragment
+ * Professional hero section for optician services
+ */
+
+/* Hero Container */
+#wrapper .boots-hero-fragment {
+    position: relative;
+    overflow: hidden;
+}
+
+#wrapper .boots-hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 500px;
+    width: 100%;
+    color: var(--boots-white);
+    overflow: hidden;
+}
+
+/* Hero Height Variations */
+#wrapper .boots-hero-small {
+    min-height: 400px;
+}
+
+#wrapper .boots-hero-medium {
+    min-height: 600px;
+}
+
+#wrapper .boots-hero-large {
+    min-height: 800px;
+}
+
+#wrapper .boots-hero-fullscreen {
+    min-height: 100vh;
+}
+
+/* Background Image */
+#wrapper .boots-hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+}
+
+#wrapper .boots-hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Background Overlay */
+#wrapper .boots-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    transition: var(--boots-transition);
+}
+
+#wrapper .boots-hero-overlay-light .boots-hero-overlay {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+#wrapper .boots-hero-overlay-medium .boots-hero-overlay {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+#wrapper .boots-hero-overlay-dark .boots-hero-overlay {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+/* Hero Content */
+#wrapper .boots-hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    width: 100%;
+    padding: var(--boots-spacing-xl) var(--boots-spacing-lg);
+    animation: heroFadeInUp 1s ease-out;
+}
+
+@keyframes heroFadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Text Alignment Options */
+#wrapper .boots-hero-align-left .boots-hero-content {
+    text-align: left;
+}
+
+#wrapper .boots-hero-align-center .boots-hero-content {
+    text-align: center;
+}
+
+#wrapper .boots-hero-align-right .boots-hero-content {
+    text-align: right;
+}
+
+/* Hero Typography */
+#wrapper .boots-hero-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: var(--boots-font-weight-bold);
+    line-height: 1.1;
+    margin: 0 0 var(--boots-spacing-lg) 0;
+    color: var(--boots-white);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+#wrapper .boots-hero-subtitle {
+    font-size: clamp(1.1rem, 2vw, 1.25rem);
+    font-weight: var(--boots-font-weight-normal);
+    line-height: 1.6;
+    margin: 0 0 var(--boots-spacing-xl) 0;
+    color: rgba(255, 255, 255, 0.95);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#wrapper .boots-hero-align-left .boots-hero-subtitle {
+    margin-left: 0;
+    margin-right: auto;
+}
+
+#wrapper .boots-hero-align-right .boots-hero-subtitle {
+    margin-left: auto;
+    margin-right: 0;
+}
+
+/* Hero Actions */
+#wrapper .boots-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--boots-spacing-md);
+    margin-top: var(--boots-spacing-xl);
+}
+
+#wrapper .boots-hero-align-center .boots-hero-actions {
+    justify-content: center;
+}
+
+#wrapper .boots-hero-align-right .boots-hero-actions {
+    justify-content: flex-end;
+}
+
+/* Hero Buttons */
+#wrapper .boots-hero-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--boots-spacing-sm);
+    padding: var(--boots-spacing-md) var(--boots-spacing-xl);
+    font-size: var(--boots-font-size-base);
+    font-weight: var(--boots-font-weight-semi-bold);
+    text-decoration: none;
+    border-radius: var(--boots-border-radius-lg);
+    border: 2px solid transparent;
+    transition: var(--boots-transition);
+    cursor: pointer;
+    min-height: 50px;
+    justify-content: center;
+    text-align: center;
+}
+
+#wrapper .boots-hero-btn-primary {
+    background: var(--boots-primary);
+    color: var(--boots-white);
+    border-color: var(--boots-primary);
+    box-shadow: 0 4px 12px rgba(24, 66, 144, 0.3);
+}
+
+#wrapper .boots-hero-btn-primary:hover,
+#wrapper .boots-hero-btn-primary:focus {
+    background: var(--boots-primary-dark);
+    border-color: var(--boots-primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(24, 66, 144, 0.4);
+    color: var(--boots-white);
+    text-decoration: none;
+}
+
+#wrapper .boots-hero-btn-secondary {
+    background: transparent;
+    color: var(--boots-white);
+    border-color: var(--boots-white);
+    backdrop-filter: blur(10px);
+}
+
+#wrapper .boots-hero-btn-secondary:hover,
+#wrapper .boots-hero-btn-secondary:focus {
+    background: var(--boots-white);
+    color: var(--boots-primary);
+    border-color: var(--boots-white);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
+    text-decoration: none;
+}
+
+/* Scroll Indicator */
+#wrapper .boots-hero-scroll-indicator {
+    position: absolute;
+    bottom: var(--boots-spacing-xl);
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--boots-white);
+    animation: bounce 2s infinite;
+    opacity: 0.8;
+    cursor: pointer;
+    z-index: 2;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    40% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+    60% {
+        transform: translateX(-50%) translateY(-5px);
+    }
+}
+
+#wrapper .boots-hero-scroll-indicator:hover {
+    opacity: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #wrapper .boots-hero-content {
+        padding: var(--boots-spacing-lg) var(--boots-spacing-md);
+    }
+    
+    #wrapper .boots-hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    #wrapper .boots-hero-btn {
+        width: 100%;
+    }
+    
+    #wrapper .boots-hero-small {
+        min-height: 350px;
+    }
+    
+    #wrapper .boots-hero-medium {
+        min-height: 450px;
+    }
+    
+    #wrapper .boots-hero-large {
+        min-height: 600px;
+    }
+    
+    #wrapper .boots-hero-fullscreen {
+        min-height: 70vh;
+    }
+}
+
+@media (max-width: 480px) {
+    #wrapper .boots-hero-title {
+        font-size: 2rem;
+    }
+    
+    #wrapper .boots-hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    #wrapper .boots-hero-btn {
+        padding: var(--boots-spacing-md) var(--boots-spacing-lg);
+        font-size: 0.95rem;
+    }
+}
+
+/* Accessibility Improvements */
+@media (prefers-reduced-motion: reduce) {
+    #wrapper .boots-hero-content {
+        animation: none;
+    }
+    
+    #wrapper .boots-hero-scroll-indicator {
+        animation: none;
+    }
+    
+    #wrapper .boots-hero-btn {
+        transform: none !important;
+    }
+}
+
+/* Print Styles */
+@media print {
+    #wrapper .boots-hero {
+        min-height: 200px;
+        background: var(--boots-white) !important;
+        color: var(--boots-dark) !important;
+    }
+    
+    #wrapper .boots-hero-title,
+    #wrapper .boots-hero-subtitle {
+        color: var(--boots-dark) !important;
+        text-shadow: none !important;
+    }
+    
+    #wrapper .boots-hero-overlay,
+    #wrapper .boots-hero-scroll-indicator {
+        display: none !important;
+    }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+    #wrapper .boots-hero-btn {
+        border-width: 3px;
+    }
+    
+    #wrapper .boots-hero-title {
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    }
+}
