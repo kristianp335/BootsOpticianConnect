@@ -115,18 +115,7 @@
     width: auto;
 }
 
-/* Partner Name */
-#wrapper .boots-partner-name {
-    flex: 1; /* Take available space but allow actions to be pushed right */
-    margin-left: var(--boots-spacing-lg);
-    min-width: 0; /* Allow text truncation */
-}
 
-#wrapper .boots-partner-name span {
-    font-size: var(--boots-font-size-lg);
-    font-weight: var(--boots-font-weight-semi-bold);
-    color: var(--boots-dark);
-}
 
 /* Header Actions */
 #wrapper .boots-header-actions {
