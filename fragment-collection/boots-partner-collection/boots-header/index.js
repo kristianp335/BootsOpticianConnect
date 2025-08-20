@@ -238,8 +238,7 @@
                 if (navItems.length > 0) {
                     renderNavigationToSlidingMenu(navItems);
                 } else {
-                    console.warn('⚠️ No navigation items found, loading fallback');
-                    loadFallbackNavigation();
+                    console.warn('⚠️ No navigation items found in API response');
                 }
             })
             .catch(error => {
