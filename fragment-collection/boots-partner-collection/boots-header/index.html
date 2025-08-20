@@ -1,5 +1,5 @@
 <div class="boots-header-fragment">
-    <header class="boots-header [#if headerStyle == "primary"]boots-header-primary[/#if]">
+    <header class="boots-header [#if configuration.headerStyle == "primary"]boots-header-primary[/#if]">
         <div class="boots-container">
             <div class="boots-header-content">
                 <!-- Left Sliding Menu Toggle -->
@@ -39,7 +39,7 @@
                 
                 <!-- Header Actions -->
                 <div class="boots-header-actions">
-                    [#if showNotifications]
+                    [#if configuration.showNotifications!true]
                     <!-- Notifications -->
                     <div class="boots-notifications">
                         <button class="boots-notification-btn boots-focus-visible" aria-label="Notifications">
@@ -85,7 +85,7 @@
                     </div>
                     [/#if]
                     
-                    [#if showUserProfile]
+                    [#if configuration.showUserProfile!true]
                     <!-- User Profile -->
                     <div class="boots-user-profile">
                         <button class="boots-profile-btn boots-focus-visible" aria-label="User menu">

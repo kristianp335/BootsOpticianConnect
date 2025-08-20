@@ -1,4 +1,4 @@
-<footer class="boots-footer-fragment [#if footerStyle == "light"]boots-footer-light[#elseif footerStyle == "primary"]boots-footer-primary[#else]boots-footer-dark[/#if]">
+<footer class="boots-footer-fragment [#if configuration.footerStyle == "light"]boots-footer-light[#elseif configuration.footerStyle == "primary"]boots-footer-primary[#else]boots-footer-dark[/#if]">
     <div class="boots-container">
         <!-- Footer Main Content -->
         <div class="boots-footer-main">
@@ -19,7 +19,7 @@
                     <p data-lfr-editable-id="partner-description" data-lfr-editable-type="text">Professional optician services with the trusted quality and expertise of Boots. Your vision is our priority.</p>
                 </div>
                 
-                [#if showSocialMedia]
+                [#if configuration.showSocialMedia!true]
                 <div class="boots-social-media">
                     <h5 data-lfr-editable-id="social-title" data-lfr-editable-type="text">Connect With Us</h5>
                     <div class="boots-social-links">
