@@ -7,9 +7,11 @@ A comprehensive Boots Optician partner portal built with Liferay fragments featu
 This project delivers a comprehensive Liferay fragment collection to recreate Boots Optician partner portal. It provides modular, configurable, and responsive dashboard components such as header with left-sliding navigation, dashboard widgets, training modules, performance analytics, and case management tools. The goal is to ensure easy content editing, deployment, and adherence to Boots' branding guidelines using Liferay's Classic theme.
 
 ## User Preferences
-- Use simple, everyday language for communication
+- Use simple, everyday language for communication (preferred communication style)
 - Focus on practical implementation over technical details
 - Ensure all fragments are properly editable via Liferay's inline editing system
+- Work independently for extended periods without constant check-ins
+- Document all architectural decisions and changes with dates
 
 ## Project Architecture
 
@@ -18,12 +20,16 @@ This project delivers a comprehensive Liferay fragment collection to recreate Bo
 - **Fragment Collection**: Individual UI components for dashboard features
 
 ### Key Architectural Decisions
+- **Dual-Deployment Strategy**: Client extension for global CSS/JS and fragment collection for UI components
 - **Color System**: Exclusive use of Liferay Classic theme frontend tokens with Boots brand colors
 - **Navigation System**: Left-sliding menu that shifts main content right while keeping header/footer fixed
 - **Fragment Modularity**: Each dashboard component is an independent Liferay fragment
 - **CSS Scoping**: All styles scoped under `#wrapper` to prevent admin interface conflicts
-- **JavaScript Isolation**: Fragment-scoped event handling and initialization
+- **JavaScript Isolation**: Fragment-scoped event handling and initialization using `fragmentElement` variable
 - **Mobile-First Design**: Responsive breakpoints with touch-friendly interactions
+- **Content Management**: All content (text, images, links) editable via Liferay's inline editing system using `data-lfr-editable` attributes
+- **Modal System**: Centralized system for login, search, and video modals, embedding Liferay portlets with CSS overrides
+- **Fragment Element Detection**: Use Liferay's injected `fragmentElement` variable instead of `document.currentScript.closest()`
 
 ### Brand Colors (Liferay Tokens)
 - Primary: `var(--brand-color-1)` (#1E22AA) - Boots blue
@@ -110,6 +116,22 @@ This project delivers a comprehensive Liferay fragment collection to recreate Bo
 - **Brackets**: Use `[#` instead of `<#` for conditionals
 - **Configuration Access**: Use `configuration.variableName` syntax
 - **Conditionals**: `[#if condition]content[/#if]` structure
+- **Fragment Configuration**: Uses `typeOptions.validValues` for select fields
+
+### External Dependencies & Integration
+- **Liferay DXP/Portal**: Core platform for fragment rendering, theme system, and content management
+- **Liferay Classic Theme**: Provides frontend tokens and base styling
+- **Liferay Headless Delivery API**: Used for navigation menu structure and content data
+- **Login Portlet** (`com_liferay_login_web_portlet_LoginPortlet`): Embedded in modal overlays
+- **Search Portlet**: Integrated into search modal functionality
+- **Browser APIs**: Intersection Observer, Fetch API, Local Storage for enhanced functionality
+
+### Advanced Fragment Features
+- **Context-Aware Styling**: Components automatically adapt to different contexts (mega menus vs page content)
+- **SPA Navigation Support**: Compatible with Liferay's SennaJS for seamless page transitions
+- **Animation System**: Scroll-triggered animations using CSS transitions and Intersection Observers
+- **Performance Optimized**: Lazy loading, error handling, hardware acceleration with `transform: translateZ(0)`
+- **Accessibility Compliant**: WCAG AA standards with proper alt text, ARIA labels, keyboard navigation
 
 ## Recent Changes
 - Project initialization (August 20, 2025)
