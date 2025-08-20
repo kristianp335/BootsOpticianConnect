@@ -1,0 +1,95 @@
+{
+  "fieldSets": [
+    {
+      "fields": [
+        {
+          "name": "showVideo",
+          "label": "Show Video Button",
+          "description": "Display video play button overlay",
+          "type": "checkbox",
+          "defaultValue": true
+        },
+        {
+          "name": "showStats",
+          "label": "Show Statistics",
+          "description": "Display the animated statistics counter",
+          "type": "checkbox",
+          "defaultValue": true
+        },
+        {
+          "name": "layoutStyle",
+          "label": "Layout Style",
+          "description": "Choose the hero section layout",
+          "type": "select",
+          "defaultValue": "text-left",
+          "typeOptions": {
+            "validValues": [
+              {
+                "label": "Text Left, Image Right",
+                "value": "text-left"
+              },
+              {
+                "label": "Text Right, Image Left",
+                "value": "text-right"
+              },
+              {
+                "label": "Centered Layout",
+                "value": "centered"
+              }
+            ]
+          }
+        },
+        {
+          "name": "backgroundStyle",
+          "label": "Background Style",
+          "description": "Choose background color using Liferay Classic theme tokens",
+          "type": "select",
+          "defaultValue": "primary",
+          "typeOptions": {
+            "validValues": [
+              {
+                "label": "Primary Color Background",
+                "value": "primary"
+              },
+              {
+                "label": "Light Background",
+                "value": "light"
+              },
+              {
+                "label": "Dark Background",
+                "value": "dark"
+              },
+              {
+                "label": "Gradient Background",
+                "value": "gradient"
+              }
+            ]
+          }
+        },
+        {
+          "name": "fontFamily",
+          "label": "Font Family",
+          "description": "Choose font family for optimal LCP performance",
+          "type": "select",
+          "defaultValue": "system",
+          "typeOptions": {
+            "validValues": [
+              {
+                "label": "System Fonts (Fastest LCP)",
+                "value": "system"
+              },
+              {
+                "label": "Liferay Default Fonts",
+                "value": "liferay"
+              },
+              {
+                "label": "Serif Fonts",
+                "value": "serif"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

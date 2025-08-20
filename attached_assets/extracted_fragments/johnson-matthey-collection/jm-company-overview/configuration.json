@@ -1,0 +1,96 @@
+{
+  "fieldSets": [
+    {
+      "fields": [
+        {
+          "name": "showVideo",
+          "label": "Show Video Button",
+          "description": "Display video play button overlay on image",
+          "type": "checkbox",
+          "defaultValue": true
+        },
+        {
+          "name": "showStatistics",
+          "label": "Show Company Statistics",
+          "description": "Display animated company statistics",
+          "type": "checkbox",
+          "defaultValue": true
+        },
+        {
+          "name": "showFocusAreas",
+          "label": "Show Focus Areas",
+          "description": "Display key business focus areas",
+          "type": "checkbox",
+          "defaultValue": true
+        },
+        {
+          "name": "enableAnimations",
+          "label": "Enable Scroll Animations",
+          "description": "Enable scroll-triggered animations",
+          "type": "checkbox",
+          "defaultValue": true
+        },
+        {
+          "name": "videoUrl",
+          "label": "Company Video URL",
+          "description": "YouTube or Vimeo embed URL for company overview video",
+          "type": "text",
+          "defaultValue": ""
+        },
+        {
+          "name": "layoutStyle",
+          "label": "Layout Style",
+          "description": "Choose the overview section layout",
+          "type": "select",
+          "defaultValue": "side-by-side",
+          "typeOptions": {
+            "validValues": [
+              {
+                "label": "Side by Side",
+                "value": "side-by-side"
+              },
+              {
+                "label": "Stacked Layout",
+                "value": "stacked"
+              },
+              {
+                "label": "Media First",
+                "value": "media-first"
+              }
+            ]
+          }
+        },
+        {
+          "name": "colorScheme",
+          "label": "Color Scheme",
+          "description": "Choose the color scheme for the section",
+          "type": "select",
+          "defaultValue": "primary",
+          "typeOptions": {
+            "validValues": [
+              {
+                "label": "Primary Colors",
+                "value": "primary"
+              },
+              {
+                "label": "Secondary Colors",
+                "value": "secondary"
+              },
+              {
+                "label": "Neutral Tones",
+                "value": "neutral"
+              }
+            ]
+          }
+        },
+        {
+          "name": "compactMode",
+          "label": "Compact Mode",
+          "description": "Use compact spacing for smaller areas",
+          "type": "checkbox",
+          "defaultValue": false
+        }
+      ]
+    }
+  ]
+}

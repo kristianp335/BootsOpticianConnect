@@ -53,3 +53,4 @@ This project delivers a comprehensive Liferay fragment collection to recreate Bo
 - Confirmed Liferay Classic theme token usage for brand consistency
 - Planned dual client extension + fragment collection architecture
 - Changed client extension from themeCSS to globalCSS type per user request (August 20, 2025)
+- Updated fragment structure to match Johnson Matthey pattern with separate configuration.json files (August 20, 2025)

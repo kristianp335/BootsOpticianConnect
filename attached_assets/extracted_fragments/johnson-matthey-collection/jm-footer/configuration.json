@@ -1,0 +1,116 @@
+{
+  "fieldSets": [
+    {
+      "fields": [
+        {
+          "name": "showNewsletter",
+          "label": "Show Newsletter Signup",
+          "description": "Display newsletter subscription form in footer",
+          "type": "checkbox",
+          "defaultValue": false
+        },
+        {
+          "name": "showSocialMedia",
+          "label": "Show Social Media Links",
+          "description": "Display social media icons and links",
+          "type": "checkbox",
+          "defaultValue": true
+        },
+        {
+          "name": "showBackToTop",
+          "label": "Show Back to Top Button",
+          "description": "Display floating back to top button",
+          "type": "checkbox",
+          "defaultValue": true
+        },
+        {
+          "name": "companyName",
+          "label": "Company Name",
+          "description": "Company name for copyright notice",
+          "type": "text",
+          "defaultValue": "Johnson Matthey"
+        },
+        {
+          "name": "footerStyle",
+          "label": "Footer Style",
+          "description": "Choose the footer background style",
+          "type": "select",
+          "defaultValue": "dark",
+          "typeOptions": {
+            "validValues": [
+              {
+                "label": "Dark Background",
+                "value": "dark"
+              },
+              {
+                "label": "Light Background",
+                "value": "light"
+              },
+              {
+                "label": "Primary Color Background",
+                "value": "primary"
+              }
+            ]
+          }
+        },
+        {
+          "name": "columnLayout",
+          "label": "Column Layout",
+          "description": "Choose the footer columns layout",
+          "type": "select",
+          "defaultValue": "5-column",
+          "typeOptions": {
+            "validValues": [
+              {
+                "label": "5 Columns (Company + 4 Links)",
+                "value": "5-column"
+              },
+              {
+                "label": "4 Columns (Equal Width)",
+                "value": "4-column"
+              },
+              {
+                "label": "3 Columns (Compact)",
+                "value": "3-column"
+              }
+            ]
+          }
+        },
+        {
+          "name": "enableTracking",
+          "label": "Enable Link Tracking",
+          "description": "Track footer link clicks for analytics",
+          "type": "checkbox",
+          "defaultValue": true
+        },
+        {
+          "name": "newsletterService",
+          "label": "Newsletter Service",
+          "description": "Newsletter service integration",
+          "type": "select",
+          "defaultValue": "custom",
+          "typeOptions": {
+            "validValues": [
+              {
+                "label": "Custom Integration",
+                "value": "custom"
+              },
+              {
+                "label": "Mailchimp",
+                "value": "mailchimp"
+              },
+              {
+                "label": "Campaign Monitor",
+                "value": "campaign-monitor"
+              },
+              {
+                "label": "Constant Contact",
+                "value": "constant-contact"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

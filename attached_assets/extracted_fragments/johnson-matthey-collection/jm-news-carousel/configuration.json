@@ -1,0 +1,86 @@
+{
+  "fieldSets": [
+    {
+      "fields": [
+        {
+          "name": "showAutoplay",
+          "label": "Enable Autoplay",
+          "description": "Automatically advance carousel slides",
+          "type": "checkbox",
+          "defaultValue": true
+        },
+        {
+          "name": "autoplayDelay",
+          "label": "Autoplay Delay (seconds)",
+          "description": "Time between automatic slide transitions",
+          "type": "text",
+          "defaultValue": "5"
+        },
+        {
+          "name": "showControls",
+          "label": "Show Navigation Controls",
+          "description": "Display previous/next arrow buttons",
+          "type": "checkbox",
+          "defaultValue": true
+        },
+        {
+          "name": "showIndicators",
+          "label": "Show Indicators",
+          "description": "Display dot indicators below carousel",
+          "type": "checkbox",
+          "defaultValue": true
+        },
+        {
+          "name": "slidesToShowDesktop",
+          "label": "Slides to Show (Desktop)",
+          "description": "Number of slides visible on desktop screens",
+          "type": "select",
+          "defaultValue": "3",
+          "typeOptions": {
+            "validValues": [
+              {
+                "label": "1 Slide",
+                "value": "1"
+              },
+              {
+                "label": "2 Slides",
+                "value": "2"
+              },
+              {
+                "label": "3 Slides",
+                "value": "3"
+              },
+              {
+                "label": "4 Slides",
+                "value": "4"
+              }
+            ]
+          }
+        },
+        {
+          "name": "carouselStyle",
+          "label": "Carousel Style",
+          "description": "Choose the visual style for the carousel",
+          "type": "select",
+          "defaultValue": "standard",
+          "typeOptions": {
+            "validValues": [
+              {
+                "label": "Standard Cards",
+                "value": "standard"
+              },
+              {
+                "label": "Compact Cards",
+                "value": "compact"
+              },
+              {
+                "label": "Featured Layout",
+                "value": "featured"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

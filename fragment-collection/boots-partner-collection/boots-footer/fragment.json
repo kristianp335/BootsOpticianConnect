@@ -1,56 +1,10 @@
 {
-    "configurationSchema": {
-        "fieldSets": [
-            {
-                "fields": [
-                    {
-                        "name": "showNewsletterSignup",
-                        "label": "Show Newsletter Signup",
-                        "description": "Display newsletter subscription section",
-                        "type": "checkbox",
-                        "defaultValue": true
-                    },
-                    {
-                        "name": "showSocialMedia",
-                        "label": "Show Social Media Links",
-                        "description": "Display social media icons and links",
-                        "type": "checkbox",
-                        "defaultValue": true
-                    },
-                    {
-                        "name": "showBackToTop",
-                        "label": "Show Back to Top Button",
-                        "description": "Display floating back to top button",
-                        "type": "checkbox",
-                        "defaultValue": true
-                    },
-                    {
-                        "name": "footerStyle",
-                        "label": "Footer Style",
-                        "description": "Choose footer background style",
-                        "type": "select",
-                        "defaultValue": "dark",
-                        "typeOptions": {
-                            "validValues": [
-                                {"value": "dark", "label": "Dark Background"},
-                                {"value": "light", "label": "Light Background"},
-                                {"value": "primary", "label": "Primary Blue Background"}
-                            ]
-                        }
-                    },
-                    {
-                        "name": "companyName",
-                        "label": "Company Name",
-                        "description": "Partner company name for footer branding",
-                        "type": "text",
-                        "defaultValue": "Your Optician Practice"
-                    }
-                ]
-            }
-        ]
-    },
-    "cssPath": "index.css",
-    "htmlPath": "index.html",
-    "name": "Boots Footer",
-    "type": "component"
+  "fragmentEntryKey": "boots-footer",
+  "name": "Boots Footer",
+  "type": "section",
+  "htmlPath": "index.html",
+  "cssPath": "index.css",
+  "configurationPath": "configuration.json",
+  "thumbnailPath": "thumbnail.png",
+  "icon": "footer"
 }

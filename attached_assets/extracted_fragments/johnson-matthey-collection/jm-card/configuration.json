@@ -1,0 +1,128 @@
+{
+  "fieldSets": [
+    {
+      "fields": [
+        {
+          "name": "showImage",
+          "label": "Show Image",
+          "description": "Display the card image",
+          "type": "checkbox",
+          "defaultValue": true
+        },
+        {
+          "name": "cardImage",
+          "label": "Card Image",
+          "description": "Upload an image for the card",
+          "type": "text",
+          "typeOptions": {
+            "placeholder": "Enter image URL or upload via content editor"
+          },
+          "defaultValue": "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&h=225&fit=crop&crop=center"
+        },
+        {
+          "name": "cardImageAlt",
+          "label": "Image Alt Text",
+          "description": "Alternative text for the image",
+          "type": "text",
+          "typeOptions": {
+            "placeholder": "Describe the image"
+          },
+          "defaultValue": "Card image"
+        }
+      ]
+    },
+    {
+      "label": "Content",
+      "fields": [
+        {
+          "name": "showCategory",
+          "label": "Show Category",
+          "description": "Display a category tag",
+          "type": "checkbox",
+          "defaultValue": true
+        },
+        {
+          "name": "cardCategory",
+          "label": "Category",
+          "description": "Category or tag for the card",
+          "type": "text",
+          "typeOptions": {
+            "placeholder": "e.g., Technology, News, Innovation"
+          },
+          "defaultValue": "Technology"
+        },
+        {
+          "name": "cardTitle",
+          "label": "Card Title",
+          "description": "Main heading for the card",
+          "type": "text",
+          "typeOptions": {
+            "placeholder": "Enter card title"
+          },
+          "defaultValue": "Innovation in Sustainable Technology"
+        },
+        {
+          "name": "cardDescription",
+          "label": "Card Description",
+          "description": "Brief description or summary",
+          "type": "text",
+          "typeOptions": {
+            "placeholder": "Enter card description"
+          },
+          "defaultValue": "Discover how our latest innovations are driving sustainable solutions for the future of technology and environmental responsibility."
+        }
+      ]
+    },
+    {
+      "label": "Call to Action",
+      "fields": [
+        {
+          "name": "showButton",
+          "label": "Show Button",
+          "description": "Display a call-to-action button",
+          "type": "checkbox",
+          "defaultValue": true
+        },
+        {
+          "name": "cardButtonText",
+          "label": "Button Text",
+          "description": "Text for the action button",
+          "type": "text",
+          "typeOptions": {
+            "placeholder": "e.g., Learn More, Read Article"
+          },
+          "defaultValue": "Learn More"
+        },
+        {
+          "name": "cardButtonUrl",
+          "label": "Button URL",
+          "description": "Link destination for the button",
+          "type": "text",
+          "typeOptions": {
+            "placeholder": "Enter URL or page path"
+          },
+          "defaultValue": "#"
+        },
+        {
+          "name": "cardButtonTarget",
+          "label": "Button Target",
+          "description": "How the link should open",
+          "type": "select",
+          "typeOptions": {
+            "validValues": [
+              {
+                "value": "self",
+                "label": "Same Window"
+              },
+              {
+                "value": "blank",
+                "label": "New Window/Tab"
+              }
+            ]
+          },
+          "defaultValue": "self"
+        }
+      ]
+    }
+  ]
+}

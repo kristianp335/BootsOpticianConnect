@@ -1,0 +1,148 @@
+<div class="jm-share-price-fragment">
+  <div class="jm-share-price-widget" data-theme="${configuration.widgetTheme}" [#if configuration.compactMode]data-compact="true"[/#if]>
+    <div class="jm-share-price-header">
+      <h3 class="jm-share-price-title" data-lfr-editable-id="shareTitle" data-lfr-editable-type="text">
+        Share Price
+      </h3>
+      <div class="jm-share-price-symbol" data-lfr-editable-id="shareSymbol" data-lfr-editable-type="text">
+        JMAT (LON)
+      </div>
+    </div>
+    
+    <div class="jm-share-price-main" id="jm-share-price-display">
+      <div class="jm-share-price-value">
+        <span class="jm-price-amount" id="jm-price-amount">1,789.00</span>
+        <span class="jm-price-currency">GBX</span>
+      </div>
+      
+      <div class="jm-share-price-change" id="jm-price-change">
+        <span class="jm-change-amount">+24.00</span>
+        <span class="jm-change-percentage">(+1.36%)</span>
+      </div>
+    </div>
+    
+    <div class="jm-share-price-meta">
+      <div class="jm-price-date" id="jm-price-date">
+        <span data-lfr-editable-id="priceDate" data-lfr-editable-type="text">12 August 2025</span>
+      </div>
+      <div class="jm-price-disclaimer">
+        <span data-lfr-editable-id="priceDisclaimer" data-lfr-editable-type="text">
+          Prices delayed by at least 15 minutes
+        </span>
+      </div>
+    </div>
+    
+    <!-- Price Chart Placeholder -->
+    <div class="jm-price-chart" id="jm-price-chart" [#if !configuration.showChart]style="display: none;"[/#if]>
+      <div class="jm-chart-placeholder">
+        <svg width="100%" height="120" viewBox="0 0 300 120" xmlns="http://www.w3.org/2000/svg" class="jm-chart-svg">
+          <defs>
+            <linearGradient id="priceGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" style="stop-color:var(--jm-success);stop-opacity:0.3" />
+              <stop offset="100%" style="stop-color:var(--jm-success);stop-opacity:0.0" />
+            </linearGradient>
+          </defs>
+          
+          <!-- Background Grid -->
+          <defs>
+            <pattern id="priceGrid" width="25" height="20" patternUnits="userSpaceOnUse">
+              <path d="M 25 0 L 0 0 0 20" fill="none" stroke="var(--jm-gray-200)" stroke-width="0.5" opacity="0.5"/>
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#priceGrid)"/>
+          
+          <!-- Sample Price Line (trending upward) -->
+          <polyline 
+            points="10,80 30,75 50,85 70,70 90,65 110,60 130,55 150,50 170,45 190,40 210,35 230,30 250,25 270,20 290,15"
+            fill="none" 
+            stroke="var(--jm-success)" 
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"/>
+          
+          <!-- Fill area under the line -->
+          <polyline 
+            points="10,80 30,75 50,85 70,70 90,65 110,60 130,55 150,50 170,45 190,40 210,35 230,30 250,25 270,20 290,15 290,120 10,120"
+            fill="url(#priceGradient)"/>
+          
+          <!-- Data points -->
+          <circle cx="290" cy="15" r="3" fill="var(--jm-success)"/>
+          
+          <!-- Value labels -->
+          <text x="10" y="95" font-size="10" fill="var(--jm-gray-500)">1,765</text>
+          <text x="290" y="10" font-size="10" fill="var(--jm-gray-500)" text-anchor="end">1,789</text>
+          
+          <!-- Time labels -->
+          <text x="10" y="115" font-size="8" fill="var(--jm-gray-400)">9:00</text>
+          <text x="290" y="115" font-size="8" fill="var(--jm-gray-400)" text-anchor="end">16:00</text>
+        </svg>
+      </div>
+      
+      <!-- Chart Time Range Selector -->
+      <div class="jm-chart-controls">
+        <div class="jm-chart-timeframes">
+          <button class="jm-timeframe-btn active" data-timeframe="1D">1D</button>
+          <button class="jm-timeframe-btn" data-timeframe="5D">5D</button>
+          <button class="jm-timeframe-btn" data-timeframe="1M">1M</button>
+          <button class="jm-timeframe-btn" data-timeframe="6M">6M</button>
+          <button class="jm-timeframe-btn" data-timeframe="1Y">1Y</button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Key Statistics -->
+    <div class="jm-price-stats">
+      <div class="jm-stat-item">
+        <span class="jm-stat-label">Day Range</span>
+        <span class="jm-stat-value" id="jm-day-range">1,765 - 1,795</span>
+      </div>
+      <div class="jm-stat-item">
+        <span class="jm-stat-label">52W Range</span>
+        <span class="jm-stat-value" id="jm-year-range">1,420 - 1,850</span>
+      </div>
+      <div class="jm-stat-item">
+        <span class="jm-stat-label">Volume</span>
+        <span class="jm-stat-value" id="jm-volume">1.2M</span>
+      </div>
+      <div class="jm-stat-item">
+        <span class="jm-stat-label">Market Cap</span>
+        <span class="jm-stat-value" id="jm-market-cap">£3.4B</span>
+      </div>
+    </div>
+    
+    <!-- Action Links -->
+    <div class="jm-share-price-actions">
+      <a href="/investors/share-price" 
+         class="jm-btn jm-btn-sm jm-btn-secondary" 
+         data-lfr-editable-id="detailedPriceLink" 
+         data-lfr-editable-type="link">
+        <span data-lfr-editable-id="detailedPriceText" data-lfr-editable-type="text">Detailed Price Info</span>
+      </a>
+      <a href="/investors" 
+         class="jm-btn jm-btn-sm" 
+         data-lfr-editable-id="investorRelationsLink" 
+         data-lfr-editable-type="link">
+        <span data-lfr-editable-id="investorRelationsText" data-lfr-editable-type="text">Investor Relations</span>
+      </a>
+    </div>
+    
+    <!-- Loading State -->
+    <div class="jm-price-loading" id="jm-price-loading" style="display: none;">
+      <div class="jm-loading-spinner"></div>
+      <span>Updating prices...</span>
+    </div>
+    
+    <!-- Error State -->
+    <div class="jm-price-error" id="jm-price-error" style="display: none;">
+      <div class="jm-error-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="12" r="10" stroke="var(--jm-danger)" stroke-width="2"/>
+          <line x1="15" y1="9" x2="9" y2="15" stroke="var(--jm-danger)" stroke-width="2"/>
+          <line x1="9" y1="9" x2="15" y2="15" stroke="var(--jm-danger)" stroke-width="2"/>
+        </svg>
+      </div>
+      <span>Unable to load current price data</span>
+      <button class="jm-retry-btn" id="jm-retry-price">Retry</button>
+    </div>
+  </div>
+</div>

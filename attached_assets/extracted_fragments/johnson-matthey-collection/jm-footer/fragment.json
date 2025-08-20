@@ -1,11 +1,11 @@
 {
-  "fragmentEntryKey": "boots-dashboard",
-  "name": "Boots Dashboard",
+  "fragmentEntryKey": "jm-footer",
+  "name": "JM Footer",
   "type": "section",
   "htmlPath": "index.html",
   "cssPath": "index.css",
   "jsPath": "index.js",
   "configurationPath": "configuration.json",
   "thumbnailPath": "thumbnail.png",
-  "icon": "dashboard"
+  "icon": "footer"
 }

@@ -1,0 +1,183 @@
+<div class="jm-company-overview-fragment">
+  <section class="jm-company-overview" data-layout="${configuration.layoutStyle}" data-color-scheme="${configuration.colorScheme}" [#if configuration.compactMode]data-compact="true"[/#if]>
+    <div class="jm-container">
+      <!-- Section Header -->
+      <div class="jm-section-header">
+        <h2 class="jm-section-title" data-lfr-editable-id="overviewTitle" data-lfr-editable-type="text">
+          Johnson Matthey Overview
+        </h2>
+        <p class="jm-section-subtitle" data-lfr-editable-id="overviewSubtitle" data-lfr-editable-type="text">
+          A world leader in sustainable technology solutions
+        </p>
+      </div>
+
+      <!-- Overview Content Grid -->
+      <div class="jm-overview-grid">
+        <!-- Company Description -->
+        <div class="jm-overview-content">
+          <div class="jm-overview-text" data-lfr-editable-id="companyDescription" data-lfr-editable-type="rich-text">
+            <p>For over <strong>200</strong> years Johnson Matthey has contributed to solving some of the world's toughest problems, leaning on our expertise in advanced metals chemistry. But now is the time to make our biggest impact yet.</p>
+            
+            <p>The world's leading energy, chemicals and automotive companies depend on us to help them decarbonise and reduce harmful emissions.</p>
+            
+            <p>And as the planet faces up to an era of huge global challenges including climate change, energy supply and resource scarcity, we're continuing to innovate, providing solutions that are helping our customers and catalysing the net zero transition for millions of people every day.</p>
+          </div>
+
+          <!-- Company Stats -->
+          <div class="jm-company-stats" [#if !configuration.showStatistics]style="display: none;"[/#if]>
+            <div class="jm-stat-item">
+              <div class="jm-stat-icon">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="16" cy="16" r="12" fill="var(--jm-primary)" opacity="0.1"/>
+                  <path d="M16 8v16M8 16h16" stroke="var(--jm-primary)" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div class="jm-stat-content">
+                <span class="jm-stat-number" data-lfr-editable-id="yearsInBusiness" data-lfr-editable-type="text">200+</span>
+                <span class="jm-stat-label" data-lfr-editable-id="yearsLabel" data-lfr-editable-type="text">Years in business</span>
+              </div>
+            </div>
+
+            <div class="jm-stat-item">
+              <div class="jm-stat-icon">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="16" cy="16" r="12" fill="var(--jm-success)" opacity="0.1"/>
+                  <path d="M9 16l6 6L25 8" stroke="var(--jm-success)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div class="jm-stat-content">
+                <span class="jm-stat-number" data-lfr-editable-id="globalLocations" data-lfr-editable-type="text">30+</span>
+                <span class="jm-stat-label" data-lfr-editable-id="locationsLabel" data-lfr-editable-type="text">Global locations</span>
+              </div>
+            </div>
+
+            <div class="jm-stat-item">
+              <div class="jm-stat-icon">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="16" cy="16" r="12" fill="var(--jm-accent)" opacity="0.1"/>
+                  <path d="M16 2C8.8 2 3 7.8 3 15s5.8 13 13 13 13-5.8 13-13S23.2 2 16 2zM16 26c-6.1 0-11-4.9-11-11s4.9-11 11-11 11 4.9 11 11-4.9 11-11 11z" fill="var(--jm-accent)"/>
+                  <circle cx="16" cy="10" r="1.5" fill="var(--jm-accent)"/>
+                  <path d="M16 14v8" stroke="var(--jm-accent)" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div class="jm-stat-content">
+                <span class="jm-stat-number" data-lfr-editable-id="employees" data-lfr-editable-type="text">13,000+</span>
+                <span class="jm-stat-label" data-lfr-editable-id="employeesLabel" data-lfr-editable-type="text">Employees worldwide</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Call to Action -->
+          <div class="jm-overview-actions">
+            <a href="/about-us" 
+               class="jm-btn jm-btn-lg" 
+               data-lfr-editable-id="learnMoreLink" 
+               data-lfr-editable-type="link">
+              <span data-lfr-editable-id="learnMoreText" data-lfr-editable-type="text">Learn More About Us</span>
+            </a>
+            <a href="/investors" 
+               class="jm-btn jm-btn-secondary jm-btn-lg" 
+               data-lfr-editable-id="investorInfoLink" 
+               data-lfr-editable-type="link">
+              <span data-lfr-editable-id="investorInfoText" data-lfr-editable-type="text">Investor Information</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Video/Image Section -->
+        <div class="jm-overview-media">
+          <div class="jm-media-container">
+            <!-- Main Image with editable capability -->
+            <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='400' viewBox='0 0 600 400'><rect width='100%' height='100%' fill='%23f1f2f5'/><rect x='50' y='50' width='500' height='300' fill='%230b5fff' opacity='0.1'/><g transform='translate(300, 200)'><circle r='80' fill='none' stroke='%230b5fff' stroke-width='3'/><circle cx='-40' cy='-40' r='12' fill='%230b5fff'/><circle cx='40' cy='-40' r='12' fill='%232e5aac'/><circle cx='40' cy='40' r='12' fill='%23287d3c'/><circle cx='-40' cy='40' r='12' fill='%23b95000'/><line x1='-40' y1='-40' x2='40' y2='40' stroke='%230b5fff' stroke-width='2'/><line x1='40' y1='-40' x2='-40' y2='40' stroke='%232e5aac' stroke-width='2'/></g><text x='300' y='50' text-anchor='middle' font-size='24' fill='%236b6c7e' font-weight='600'>Johnson Matthey</text><text x='300' y='80' text-anchor='middle' font-size='16' fill='%236b6c7e'>Sustainable Technology Solutions</text></svg>" 
+                 alt="Johnson Matthey Company Overview" 
+                 class="jm-overview-image"
+                 data-lfr-editable-id="overviewImage" 
+                 data-lfr-editable-type="image"
+                 width="600"
+                 height="400"
+                 loading="eager">
+
+            <!-- Play Button Overlay -->
+            <div class="jm-video-overlay">
+              <button class="jm-video-play-btn" aria-label="Play company overview video">
+                <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="30" cy="30" r="30" fill="var(--jm-primary)" opacity="0.9"/>
+                  <path d="M24 20L24 40L38 30L24 20Z" fill="white"/>
+                </svg>
+              </button>
+              <p class="jm-video-caption" data-lfr-editable-id="videoCaption" data-lfr-editable-type="text">
+                Watch our company overview
+              </p>
+            </div>
+          </div>
+
+          <!-- Key Focus Areas -->
+          <div class="jm-focus-areas">
+            <h3 class="jm-focus-title" data-lfr-editable-id="focusAreasTitle" data-lfr-editable-type="text">
+              Our Key Focus Areas
+            </h3>
+            <div class="jm-focus-grid">
+              <div class="jm-focus-item">
+                <div class="jm-focus-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2L2 7v10c0 5.5 3.8 7.7 9 9 5.2-1.3 9-3.5 9-9V7l-10-5z" fill="var(--jm-primary)" opacity="0.2"/>
+                    <path d="M12 2L2 7v10c0 5.5 3.8 7.7 9 9 5.2-1.3 9-3.5 9-9V7l-10-5z" stroke="var(--jm-primary)" stroke-width="2"/>
+                  </svg>
+                </div>
+                <h4 class="jm-focus-name" data-lfr-editable-id="focusArea1" data-lfr-editable-type="text">Catalyst Technologies</h4>
+              </div>
+              
+              <div class="jm-focus-item">
+                <div class="jm-focus-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="12" r="9" fill="var(--jm-accent)" opacity="0.2"/>
+                    <circle cx="12" cy="12" r="9" stroke="var(--jm-accent)" stroke-width="2"/>
+                    <circle cx="12" cy="12" r="3" fill="var(--jm-accent)"/>
+                  </svg>
+                </div>
+                <h4 class="jm-focus-name" data-lfr-editable-id="focusArea2" data-lfr-editable-type="text">Precious Metal Services</h4>
+              </div>
+              
+              <div class="jm-focus-item">
+                <div class="jm-focus-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 12h4l3-8 4 16 3-8h4" fill="none" stroke="var(--jm-success)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <rect x="1" y="10" width="22" height="4" fill="var(--jm-success)" opacity="0.2"/>
+                  </svg>
+                </div>
+                <h4 class="jm-focus-name" data-lfr-editable-id="focusArea3" data-lfr-editable-type="text">Hydrogen Technologies</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video Modal -->
+  <div class="jm-modal-backdrop jm-overview-video-backdrop">
+    <div class="jm-modal jm-overview-video-modal" role="dialog" aria-labelledby="overview-video-title" aria-modal="true">
+      <div class="jm-modal-header">
+        <h3 class="jm-modal-title" id="overview-video-title">Johnson Matthey Company Overview</h3>
+        <button class="jm-modal-close" aria-label="Close video modal">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2"/>
+          </svg>
+        </button>
+      </div>
+      <div class="jm-modal-body jm-overview-video-content">
+        <div class="jm-overview-video-container">
+          <iframe 
+            id="jm-overview-video"
+            width="100%" 
+            height="400" 
+            src="" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

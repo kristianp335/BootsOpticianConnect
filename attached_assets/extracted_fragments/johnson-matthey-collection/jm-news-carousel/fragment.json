@@ -1,11 +1,11 @@
 {
-  "fragmentEntryKey": "boots-dashboard",
-  "name": "Boots Dashboard",
+  "fragmentEntryKey": "jm-news-carousel",
+  "name": "JM News Carousel",
   "type": "section",
   "htmlPath": "index.html",
   "cssPath": "index.css",
   "jsPath": "index.js",
   "configurationPath": "configuration.json",
   "thumbnailPath": "thumbnail.png",
-  "icon": "dashboard"
+  "icon": "carousel"
 }

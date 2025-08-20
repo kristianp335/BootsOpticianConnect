@@ -1,0 +1,924 @@
+/* Johnson Matthey Header Fragment Styles */
+
+/* CSS Variables */
+:root {
+  --jm-header-height: 80px; /* Default header height */
+}
+
+/* Header Layout */
+#wrapper .jm-header-fragment {
+  position: relative;
+  z-index: 100;
+}
+
+#wrapper .jm-header {
+  background: var(--jm-white);
+  border-bottom: 1px solid var(--jm-gray-300);
+  position: relative;
+  z-index: 100;
+  /* CRITICAL: Removed contain properties - they block first paint and reduce Lighthouse score */
+}
+
+/* Sticky header functionality removed for performance optimization */
+
+/* Header Style Variants */
+#wrapper .jm-header[data-style="white"] {
+  background: var(--jm-white) !important;
+  border-bottom: 1px solid var(--jm-gray-300) !important;
+}
+
+#wrapper .jm-header[data-style="light"] {
+  background: var(--jm-gray-100) !important;
+  border-bottom: 1px solid var(--jm-gray-400) !important;
+}
+
+#wrapper .jm-header[data-style="primary"] {
+  background: var(--jm-primary) !important;
+  border-bottom: 1px solid var(--jm-primary-dark) !important;
+  color: var(--jm-white) !important;
+}
+
+/* Header style variants - adjust text colors */
+#wrapper .jm-header[data-style="primary"] .jm-nav-link {
+  color: var(--jm-white) !important;
+}
+
+#wrapper .jm-header[data-style="primary"] .jm-nav-link:hover,
+#wrapper .jm-header[data-style="primary"] .jm-nav-link:focus {
+  color: var(--jm-white) !important;
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+#wrapper .jm-header[data-style="primary"] .jm-nav-item.active > .jm-nav-link {
+  color: var(--jm-white) !important;
+  background-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+#wrapper .jm-header[data-style="primary"] .jm-header-action-btn {
+  color: var(--jm-white) !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+#wrapper .jm-header[data-style="primary"] .jm-header-action-btn:hover,
+#wrapper .jm-header[data-style="primary"] .jm-header-action-btn:focus {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  border-color: rgba(255, 255, 255, 0.5) !important;
+}
+
+
+
+#wrapper .jm-header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--jm-spacing-md) 0;
+  min-height: 60px;
+}
+
+/* Logo */
+#wrapper .jm-header-logo {
+  flex-shrink: 0;
+}
+
+#wrapper .jm-logo-link {
+  display: inline-block;
+  text-decoration: none;
+}
+
+#wrapper .jm-logo {
+  height: 40px;
+  width: auto;
+  transition: var(--jm-transition);
+}
+
+#wrapper .jm-logo:hover {
+  opacity: 0.8;
+}
+
+
+
+/* Main Navigation */
+#wrapper .jm-nav {
+  flex: 1;
+  margin: 0 var(--jm-spacing-xl);
+}
+
+#wrapper .jm-nav-list {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+#wrapper .jm-nav-item {
+  position: relative;
+  margin: 0 var(--jm-spacing-sm);
+}
+
+#wrapper .jm-nav-link {
+  display: flex;
+  align-items: center;
+  padding: var(--jm-spacing-sm) var(--jm-spacing-md);
+  color: var(--jm-gray-800);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: var(--jm-font-size-base);
+  border-radius: var(--jm-border-radius);
+  transition: var(--jm-transition);
+  white-space: nowrap;
+}
+
+#wrapper .jm-nav-link:hover,
+#wrapper .jm-nav-link:focus {
+  color: var(--jm-primary);
+  background-color: var(--jm-gray-100);
+  text-decoration: none;
+}
+
+#wrapper .jm-nav-item.active > .jm-nav-link {
+  color: var(--jm-primary);
+  background-color: var(--jm-gray-100);
+}
+
+#wrapper .jm-nav-arrow {
+  margin-left: var(--jm-spacing-xs);
+  transition: var(--jm-transition);
+}
+
+#wrapper .jm-nav-item.active .jm-nav-arrow {
+  transform: rotate(180deg);
+}
+
+/* Dropdown Menus - Dynamic Mega Menu Style */
+#wrapper .jm-nav-item .jm-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: var(--jm-white);
+  border: 2px solid var(--jm-primary);
+  border-radius: calc(var(--jm-border-radius) * 1.5);
+  box-shadow: 0 8px 25px rgba(11, 95, 255, 0.15), 0 4px 12px rgba(0, 0, 0, 0.1);
+  min-width: 220px;
+  max-width: 800px;
+  width: auto;
+  z-index: 1060 !important;
+  display: none;
+  padding: 0;
+  margin-top: var(--jm-spacing-xs);
+  margin-right: var(--jm-spacing-xl);
+  transform: translateY(-5px);
+  opacity: 0;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  list-style: none !important;
+}
+
+/* Mega menu with content gets expanded width */
+#wrapper .jm-nav-item .jm-dropdown-menu.has-mega-content {
+  min-width: 480px;
+}
+
+#wrapper .jm-nav-item .jm-dropdown-menu.show {
+  display: block;
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Mega Menu Content Area */
+#wrapper .jm-mega-content {
+  padding: var(--jm-spacing-lg);
+  border-bottom: 1px solid var(--jm-gray-200);
+  display: none;
+  min-height: 60px;
+}
+
+#wrapper .jm-mega-content.has-content {
+  display: block !important;
+}
+
+/* Ensure mega content shows when dropdown is visible */
+#wrapper .jm-dropdown-menu.show .jm-mega-content.has-content {
+  display: block !important;
+}
+
+/* Navigation Links Section */
+#wrapper .jm-dropdown-links {
+  padding: var(--jm-spacing-md) var(--jm-spacing-lg);
+  list-style: none !important;
+  margin: 0;
+}
+
+#wrapper .jm-dropdown-links li,
+#wrapper .jm-dropdown-menu li,
+#wrapper .jm-dropdown-menu ul,
+#wrapper .jm-dropdown-menu ol {
+  list-style: none !important;
+  list-style-type: none !important;
+  margin: 0;
+  padding-left: 0;
+}
+
+#wrapper .jm-dropdown-menu::before,
+#wrapper .jm-dropdown-menu li::before {
+  display: none !important;
+}
+
+#wrapper .jm-dropdown-item {
+  display: block;
+  width: 100%;
+  padding: var(--jm-spacing-md) calc(var(--jm-spacing-xl) * 1.5);
+  margin-right: var(--jm-spacing-lg);
+  color: var(--jm-gray-800);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  font-size: var(--jm-font-size-sm);
+  font-weight: 600;
+  position: relative;
+  border-left: 3px solid transparent;
+  list-style: none !important;
+}
+
+#wrapper .jm-dropdown-item:hover,
+#wrapper .jm-dropdown-item:focus {
+  background: linear-gradient(135deg, rgba(11, 95, 255, 0.05) 0%, rgba(11, 95, 255, 0.1) 100%);
+  color: var(--jm-primary);
+  text-decoration: none;
+  border-left-color: var(--jm-primary);
+  transform: translateX(4px);
+}
+
+/* Header Actions */
+#wrapper .jm-header-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--jm-spacing-sm);
+  flex-shrink: 0;
+}
+
+#wrapper .jm-header-action-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--jm-spacing-xs);
+  padding: var(--jm-spacing-sm);
+  background: none;
+  border: 1px solid var(--jm-gray-300);
+  border-radius: var(--jm-border-radius);
+  color: var(--jm-gray-700);
+  cursor: pointer;
+  transition: var(--jm-transition);
+  font-size: var(--jm-font-size-sm);
+  font-weight: 500;
+}
+
+#wrapper .jm-header-action-btn:hover,
+#wrapper .jm-header-action-btn:focus {
+  background-color: var(--jm-gray-100);
+  border-color: var(--jm-primary);
+  color: var(--jm-primary);
+}
+
+#wrapper .jm-user-dropdown {
+  position: relative;
+}
+
+#wrapper .jm-user-dropdown .jm-dropdown-menu {
+  right: 0;
+  left: auto;
+  min-width: 180px;
+}
+
+/* Dropzone Styling */
+#wrapper .jm-header-dropzone {
+  display: flex;
+  align-items: center;
+  margin-left: var(--jm-spacing-md);
+}
+
+#wrapper .jm-header-dropzone lfr-drop-zone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  min-width: 100px;
+  border: 2px dashed transparent;
+  border-radius: var(--jm-border-radius);
+  transition: var(--jm-transition);
+  padding: var(--jm-spacing-xs) var(--jm-spacing-md);
+  box-sizing: border-box;
+}
+
+/* Edit Mode Detection and Styling */
+#wrapper .jm-header-dropzone lfr-drop-zone[data-editor-enabled="true"],
+#wrapper .is-edit-mode .jm-header-dropzone lfr-drop-zone,
+body.has-edit-mode-menu .jm-header-dropzone lfr-drop-zone {
+  border-color: var(--jm-primary) !important;
+  background-color: rgba(11, 95, 255, 0.05) !important;
+  position: relative;
+  min-width: 120px !important;
+  min-height: 40px !important;
+  width: auto;
+  display: flex !important;
+  visibility: visible !important;
+}
+
+/* Edit Mode Placeholder Text */
+#wrapper .jm-header-dropzone lfr-drop-zone[data-editor-enabled="true"]:before,
+#wrapper .is-edit-mode .jm-header-dropzone lfr-drop-zone:before,
+body.has-edit-mode-menu .jm-header-dropzone lfr-drop-zone:before {
+  content: "Drop content here";
+  color: var(--jm-primary);
+  font-size: 0.75rem;
+  font-weight: 500;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 1;
+  display: block !important;
+}
+
+/* Hide placeholder when content is present */
+#wrapper .jm-header-dropzone lfr-drop-zone:not(:empty):before {
+  display: none;
+}
+
+/* Mobile Menu Toggle */
+#wrapper .jm-mobile-menu-toggle {
+  display: none;
+  background: none;
+  border: 1px solid var(--jm-gray-300);
+  border-radius: var(--jm-border-radius);
+  padding: var(--jm-spacing-sm);
+  cursor: pointer;
+  transition: var(--jm-transition);
+}
+
+#wrapper .jm-mobile-menu-toggle:hover,
+#wrapper .jm-mobile-menu-toggle:focus {
+  background-color: var(--jm-gray-100);
+  border-color: var(--jm-primary);
+}
+
+#wrapper .jm-hamburger {
+  display: flex;
+  flex-direction: column;
+  width: 20px;
+  height: 16px;
+  justify-content: space-between;
+}
+
+#wrapper .jm-hamburger span {
+  display: block;
+  height: 2px;
+  background-color: var(--jm-gray-700);
+  border-radius: 1px;
+  transition: var(--jm-transition);
+}
+
+#wrapper .jm-mobile-menu-toggle[aria-expanded="true"] .jm-hamburger span:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+#wrapper .jm-mobile-menu-toggle[aria-expanded="true"] .jm-hamburger span:nth-child(2) {
+  opacity: 0;
+}
+
+#wrapper .jm-mobile-menu-toggle[aria-expanded="true"] .jm-hamburger span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Mobile Navigation */
+#wrapper .jm-mobile-nav {
+  display: none !important;
+  background: var(--jm-white);
+  border-top: 1px solid var(--jm-gray-300);
+  padding: var(--jm-spacing-lg) 0;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  z-index: 50;
+  box-shadow: var(--jm-box-shadow);
+}
+
+#wrapper .jm-mobile-nav.show {
+  display: block !important;
+}
+
+#wrapper .jm-mobile-nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#wrapper .jm-mobile-nav-item {
+  border-bottom: 1px solid var(--jm-gray-200);
+}
+
+#wrapper .jm-mobile-nav-link {
+  display: block;
+  padding: var(--jm-spacing-md) var(--jm-spacing-lg);
+  color: var(--jm-gray-800);
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--jm-transition);
+}
+
+#wrapper .jm-mobile-nav-link:hover,
+#wrapper .jm-mobile-nav-link:focus {
+  background-color: var(--jm-gray-100);
+  color: var(--jm-primary);
+  text-decoration: none;
+}
+
+#wrapper .jm-mobile-dropdown-menu {
+  background: linear-gradient(135deg, rgba(11, 95, 255, 0.03) 0%, rgba(11, 95, 255, 0.08) 100%);
+  border-left: 3px solid var(--jm-primary);
+  padding: var(--jm-spacing-sm) 0;
+  list-style: none;
+  margin: 0;
+  margin-left: var(--jm-spacing-md);
+}
+
+/* Show mobile dropdowns by default on mobile viewports */
+@media (max-width: 768px) {
+  #wrapper .jm-mobile-dropdown-menu {
+    display: block !important;
+  }
+}
+
+/* Hide mobile dropdowns on wider viewports */
+@media (min-width: 769px) {
+  #wrapper .jm-mobile-dropdown-menu {
+    display: none !important;
+  }
+}
+
+#wrapper .jm-mobile-dropdown-item {
+  display: block;
+  padding: var(--jm-spacing-md) calc(var(--jm-spacing-xl) * 1.5);
+  margin-right: var(--jm-spacing-lg);
+  color: var(--jm-gray-800);
+  text-decoration: none;
+  font-size: var(--jm-font-size-sm);
+  font-weight: 600;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+#wrapper .jm-mobile-dropdown-item:hover,
+#wrapper .jm-mobile-dropdown-item:focus {
+  background: linear-gradient(135deg, rgba(11, 95, 255, 0.1) 0%, rgba(11, 95, 255, 0.15) 100%);
+  color: var(--jm-primary);
+  text-decoration: none;
+}
+
+#wrapper .jm-mobile-nav-actions {
+  padding: var(--jm-spacing-lg);
+  border-top: 1px solid var(--jm-gray-300);
+  margin-top: var(--jm-spacing-md);
+}
+
+#wrapper .jm-mobile-nav-actions .jm-btn {
+  width: 100%;
+  justify-content: center;
+}
+
+/* Modal Styling */
+#wrapper .search-content {
+  padding: var(--jm-spacing-lg);
+  min-height: 200px;
+  height: auto;
+  transition: min-height 0.3s ease;
+}
+
+/* Dynamic height expansion when dropdown suggestions appear */
+#wrapper .search-content:has(.dropdown-menu.show) {
+  min-height: 500px;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  #wrapper .jm-nav {
+    margin: 0 var(--jm-spacing-md);
+  }
+  
+  #wrapper .jm-nav-item {
+    margin: 0 var(--jm-spacing-xs);
+  }
+  
+  #wrapper .jm-nav-link {
+    padding: var(--jm-spacing-xs) var(--jm-spacing-sm);
+    font-size: var(--jm-font-size-sm);
+  }
+}
+
+@media (max-width: 768px) {
+  #wrapper .jm-nav,
+  #wrapper .jm-header-action-btn span {
+    display: none;
+  }
+  
+  #wrapper .jm-mobile-menu-toggle {
+    display: block;
+  }
+  
+  #wrapper .jm-header-actions {
+    gap: var(--jm-spacing-xs);
+  }
+  
+  #wrapper .jm-header-action-btn {
+    padding: var(--jm-spacing-xs);
+    border: none;
+  }
+  
+  #wrapper .jm-header-dropzone,
+  #wrapper .jm-mega-menu-dropzones {
+    display: none !important;
+  }
+}
+
+/* Mega Menu Dropzones - Edit Mode Only */
+#wrapper .jm-mega-menu-dropzones {
+  display: none;
+  padding: var(--jm-spacing-lg);
+  background: var(--jm-gray-50);
+  border: 2px dashed var(--jm-primary);
+  border-radius: var(--jm-border-radius);
+  margin: var(--jm-spacing-md) 0;
+}
+
+/* Show mega menu dropzones in edit mode */
+.has-edit-mode-menu #wrapper .jm-mega-menu-dropzones,
+body.has-edit-mode-menu #wrapper .jm-mega-menu-dropzones,
+.portlet-layout #wrapper .jm-mega-menu-dropzones,
+.fragment-entry-link-edit-mode #wrapper .jm-mega-menu-dropzones {
+  display: block !important;
+}
+
+#wrapper .jm-mega-dropzone {
+  margin-bottom: var(--jm-spacing-lg);
+  padding: var(--jm-spacing-md);
+  background: var(--jm-white);
+  border: 1px solid var(--jm-gray-300);
+  border-radius: var(--jm-border-radius);
+}
+
+#wrapper .jm-mega-dropzone:last-child {
+  margin-bottom: 0;
+}
+
+#wrapper .jm-mega-dropzone-label {
+  margin: 0 0 var(--jm-spacing-sm) 0;
+  font-size: var(--jm-font-size-sm);
+  font-weight: 600;
+  color: var(--jm-primary);
+}
+
+
+
+/* Mega menu widget containers */
+#wrapper .mega-menu-widgets-container {
+  width: 100%;
+}
+
+#wrapper .mega-menu-widgets-container .portlet {
+  margin: 0;
+  border: none;
+  box-shadow: none;
+}
+
+
+}
+
+@media (max-width: 480px) {
+  #wrapper .jm-header-content {
+    padding: var(--jm-spacing-sm) 0;
+  }
+  
+  #wrapper .jm-logo {
+    height: 32px;
+  }
+  
+  #wrapper .jm-container {
+    padding: 0 var(--jm-spacing-sm);
+  }
+}
+
+/* Modal Overlay Styles */
+#wrapper .jm-search-overlay,
+#wrapper .jm-login-overlay {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  background: rgba(0, 0, 0, 0.5) !important;
+  z-index: 1050 !important;
+  display: none !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+#wrapper .jm-search-overlay.show,
+#wrapper .jm-login-overlay.show {
+  display: flex !important;
+}
+
+#wrapper .jm-search-modal,
+#wrapper .jm-login-modal {
+  background: var(--jm-white) !important;
+  border-radius: var(--jm-border-radius-lg) !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2) !important;
+  max-width: 500px !important;
+  width: 90% !important;
+  max-height: 80vh !important;
+  overflow: hidden !important;
+  animation: modalFadeIn 0.3s ease !important;
+  position: relative !important;
+  margin: 0 auto !important;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+#wrapper .jm-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--jm-spacing-lg);
+  border-bottom: 1px solid var(--jm-gray-200);
+}
+
+#wrapper .jm-modal-title {
+  margin: 0;
+  font-size: var(--jm-font-size-xl);
+  color: var(--jm-gray-900);
+}
+
+#wrapper .jm-modal-close {
+  background: none;
+  border: none;
+  padding: var(--jm-spacing-xs);
+  color: var(--jm-gray-500);
+  cursor: pointer;
+  border-radius: var(--jm-border-radius);
+  transition: var(--jm-transition);
+}
+
+#wrapper .jm-modal-close:hover {
+  background: var(--jm-gray-100);
+  color: var(--jm-gray-700);
+}
+
+#wrapper .jm-modal-body {
+  padding: var(--jm-spacing-lg);
+  min-height: 200px;
+  overflow-y: auto;
+}
+
+/* Search Modal Specific */
+#wrapper .search-content {
+  min-height: 300px;
+}
+
+/* Login Modal Specific */
+#wrapper .login-content {
+  min-height: 400px;
+}
+
+/* Dropzone Styles */
+#wrapper .jm-header-dropzone {
+  display: flex;
+  align-items: center;
+  margin-left: var(--jm-spacing-md);
+}
+
+#wrapper .jm-header-dropzone lfr-drop-zone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  min-width: 100px;
+  border: 2px dashed transparent;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  padding: 8px 16px;
+  box-sizing: border-box;
+}
+
+/* Edit Mode Detection and Styling */
+#wrapper .jm-header-dropzone lfr-drop-zone[data-editor-enabled="true"],
+#wrapper .is-edit-mode .jm-header-dropzone lfr-drop-zone,
+body.has-edit-mode-menu .jm-header-dropzone lfr-drop-zone {
+  border-color: var(--jm-primary) !important;
+  background-color: rgba(13, 110, 253, 0.05) !important;
+  position: relative;
+  min-width: 120px !important;
+  min-height: 40px !important;
+  width: auto;
+  display: flex !important;
+  visibility: visible !important;
+}
+
+#wrapper .jm-header-dropzone lfr-drop-zone[data-editor-enabled="true"]:before,
+#wrapper .is-edit-mode .jm-header-dropzone lfr-drop-zone:before,
+body.has-edit-mode-menu .jm-header-dropzone lfr-drop-zone:before {
+  content: "Drop content here";
+  color: var(--jm-primary);
+  font-size: 0.75rem;
+  font-weight: 500;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 1;
+  display: block !important;
+}
+
+#wrapper .jm-header-dropzone lfr-drop-zone:not(:empty):before {
+  display: none;
+}
+
+/* Edit Mode Modal Styles */
+#wrapper .jm-search-overlay.jm-edit-mode {
+  display: block !important;
+  position: relative !important;
+  background: rgba(241, 245, 249, 0.95) !important;
+  border: 2px dashed var(--jm-primary) !important;
+  margin: 20px 0 !important;
+  border-radius: var(--jm-border-radius) !important;
+}
+
+#wrapper .jm-search-overlay.jm-edit-mode .jm-search-modal {
+  background: var(--jm-white) !important;
+  box-shadow: none !important;
+  position: relative !important;
+  transform: none !important;
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+}
+
+#wrapper .jm-search-overlay.jm-edit-mode::before {
+  content: "🎯 Edit Mode: Drop Search Portlet Here";
+  display: block;
+  text-align: center;
+  padding: 10px;
+  background: var(--jm-primary);
+  color: var(--jm-white);
+  font-weight: 600;
+  border-radius: var(--jm-border-radius) var(--jm-border-radius) 0 0;
+}
+
+#wrapper .jm-login-overlay.jm-edit-mode {
+  display: block !important;
+  position: relative !important;
+  background: rgba(241, 245, 249, 0.95) !important;
+  border: 2px dashed var(--jm-primary) !important;
+  margin: 20px 0 !important;
+  border-radius: var(--jm-border-radius) !important;
+}
+
+#wrapper .jm-login-overlay.jm-edit-mode .jm-login-modal {
+  background: var(--jm-white) !important;
+  box-shadow: none !important;
+  position: relative !important;
+  transform: none !important;
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+}
+
+#wrapper .jm-login-overlay.jm-edit-mode::before {
+  content: "🎯 Edit Mode: Login Modal Configuration";
+  display: block;
+  text-align: center;
+  padding: 10px;
+  background: var(--jm-primary);
+  color: var(--jm-white);
+  font-weight: 600;
+  border-radius: var(--jm-border-radius) var(--jm-border-radius) 0 0;
+}
+
+/* Modal Dropzone Styles */
+#wrapper .jm-modal-body lfr-drop-zone {
+  min-height: 200px;
+  border: 2px dashed var(--jm-gray-300);
+  border-radius: var(--jm-border-radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+#wrapper .jm-modal-body lfr-drop-zone:before {
+  content: "Drop search portlet or content here";
+  color: var(--jm-gray-500);
+  font-size: var(--jm-font-size-sm);
+  text-align: center;
+  padding: var(--jm-spacing-md);
+}
+
+#wrapper .jm-modal-body lfr-drop-zone:not(:empty):before {
+  display: none;
+}
+
+/* User Profile Widget Styling */
+#wrapper .jm-user-profile-widget {
+  /* Removed min-width to allow natural growth */
+}
+
+/* Language Selector Dropzone */
+#wrapper .jm-language-selector-dropzone {
+  display: inline-flex;
+  align-items: center;
+  margin-left: var(--jm-spacing-sm);
+}
+
+#wrapper .jm-language-selector-dropzone lfr-drop-zone {
+  min-width: 120px;
+  min-height: 40px;
+  border: 2px dashed transparent;
+  border-radius: var(--jm-border-radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  position: relative;
+  background: transparent;
+}
+
+/* Edit Mode Styling for Language Selector Dropzone */
+#wrapper .jm-language-selector-dropzone.jm-edit-mode lfr-drop-zone {
+  border-color: var(--jm-primary) !important;
+  background: rgba(241, 245, 249, 0.95) !important;
+  min-height: 44px;
+}
+
+#wrapper .jm-language-selector-dropzone.jm-edit-mode lfr-drop-zone:before {
+  content: "🌐 Language Selector";
+  color: var(--jm-primary);
+  font-size: var(--jm-font-size-xs);
+  font-weight: 600;
+  text-align: center;
+  padding: var(--jm-spacing-xs);
+  white-space: nowrap;
+}
+
+#wrapper .jm-language-selector-dropzone.jm-edit-mode lfr-drop-zone:not(:empty):before {
+  display: none;
+}
+
+/* Hide language dropzone in normal mode when empty */
+#wrapper .jm-language-selector-dropzone:not(.jm-edit-mode) lfr-drop-zone:empty {
+  display: none;
+}
+
+/* Override Liferay portlet styles in modals */
+#wrapper .jm-modal .portlet,
+#wrapper .jm-modal .portlet-content,
+#wrapper .jm-modal .portlet-body {
+  border: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+#wrapper .jm-modal .form-control,
+#wrapper .jm-modal input.field,
+#wrapper .jm-modal .clearable.form-control {
+  border-color: var(--jm-gray-300) !important;
+  border-radius: var(--jm-border-radius) !important;
+  padding: var(--jm-spacing-sm) !important;
+  font-size: var(--jm-font-size-base) !important;
+}
+
+#wrapper .jm-modal .btn-primary {
+  background-color: var(--jm-primary) !important;
+  border-color: var(--jm-primary) !important;
+  color: var(--jm-white) !important;
+  border-radius: var(--jm-border-radius) !important;
+  padding: var(--jm-spacing-sm) var(--jm-spacing-md) !important;
+  font-size: var(--jm-font-size-base) !important;
+}
+
+#wrapper .jm-modal .btn-primary:hover {
+  background-color: var(--jm-primary-dark) !important;
+  border-color: var(--jm-primary-dark) !important;
+}

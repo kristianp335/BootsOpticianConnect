@@ -1,0 +1,541 @@
+/* Johnson Matthey Share Price Fragment Styles */
+
+/* Widget Container */
+#wrapper .jm-share-price-fragment {
+  position: relative;
+}
+
+#wrapper .jm-share-price-widget {
+  background: var(--jm-white);
+  border-radius: var(--jm-border-radius-lg);
+  box-shadow: var(--jm-box-shadow);
+  padding: var(--jm-spacing-lg);
+  border: 1px solid var(--jm-gray-300);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Header */
+#wrapper .jm-share-price-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--jm-spacing-lg);
+  padding-bottom: var(--jm-spacing-md);
+  border-bottom: 1px solid var(--jm-gray-200);
+}
+
+#wrapper .jm-share-price-title {
+  font-size: var(--jm-font-size-xl);
+  font-weight: 600;
+  color: var(--jm-dark);
+  margin: 0;
+}
+
+#wrapper .jm-share-price-symbol {
+  font-size: var(--jm-font-size-sm);
+  color: var(--jm-gray-600);
+  font-weight: 500;
+  background: var(--jm-gray-100);
+  padding: var(--jm-spacing-xs) var(--jm-spacing-sm);
+  border-radius: var(--jm-border-radius);
+}
+
+/* Main Price Display */
+#wrapper .jm-share-price-main {
+  margin-bottom: var(--jm-spacing-lg);
+}
+
+#wrapper .jm-share-price-value {
+  display: flex;
+  align-items: baseline;
+  gap: var(--jm-spacing-xs);
+  margin-bottom: var(--jm-spacing-sm);
+}
+
+#wrapper .jm-price-amount {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--jm-dark);
+  line-height: 1;
+}
+
+#wrapper .jm-price-currency {
+  font-size: 1.125rem;
+  color: var(--jm-gray-600);
+  font-weight: 500;
+}
+
+/* Price Change */
+#wrapper .jm-share-price-change {
+  display: flex;
+  align-items: center;
+  gap: var(--jm-spacing-xs);
+  font-weight: 600;
+}
+
+#wrapper .jm-share-price-change.positive {
+  color: var(--jm-success);
+}
+
+#wrapper .jm-share-price-change.positive::before {
+  content: '↗';
+  margin-right: var(--jm-spacing-xs);
+  font-size: 1.125rem;
+}
+
+#wrapper .jm-share-price-change.negative {
+  color: var(--jm-danger);
+}
+
+#wrapper .jm-share-price-change.negative::before {
+  content: '↘';
+  margin-right: var(--jm-spacing-xs);
+  font-size: 1.125rem;
+}
+
+#wrapper .jm-change-amount {
+  font-size: 1.125rem;
+}
+
+#wrapper .jm-change-percentage {
+  font-size: 1rem;
+  opacity: 0.8;
+}
+
+/* Meta Information */
+#wrapper .jm-share-price-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--jm-spacing-lg);
+  font-size: var(--jm-font-size-sm);
+  color: var(--jm-gray-600);
+}
+
+#wrapper .jm-price-date {
+  font-weight: 500;
+}
+
+#wrapper .jm-price-disclaimer {
+  font-style: italic;
+}
+
+/* Price Chart */
+#wrapper .jm-price-chart {
+  margin-bottom: var(--jm-spacing-lg);
+  border: 1px solid var(--jm-gray-200);
+  border-radius: var(--jm-border-radius);
+  overflow: hidden;
+  background: var(--jm-gray-50);
+}
+
+#wrapper .jm-chart-placeholder {
+  width: 100%;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#wrapper .jm-chart-svg {
+  width: 100%;
+  height: 100%;
+  transition: opacity 0.3s ease;
+}
+
+/* Chart Controls */
+#wrapper .jm-chart-controls {
+  padding: var(--jm-spacing-sm);
+  background: var(--jm-white);
+  border-top: 1px solid var(--jm-gray-200);
+}
+
+#wrapper .jm-chart-timeframes {
+  display: flex;
+  justify-content: center;
+  gap: var(--jm-spacing-xs);
+}
+
+#wrapper .jm-timeframe-btn {
+  background: none;
+  border: 1px solid var(--jm-gray-300);
+  color: var(--jm-gray-600);
+  padding: var(--jm-spacing-xs) var(--jm-spacing-sm);
+  border-radius: var(--jm-border-radius);
+  font-size: var(--jm-font-size-sm);
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--jm-transition);
+  min-width: 36px;
+}
+
+#wrapper .jm-timeframe-btn:hover,
+#wrapper .jm-timeframe-btn:focus {
+  background: var(--jm-gray-100);
+  border-color: var(--jm-primary);
+  color: var(--jm-primary);
+}
+
+#wrapper .jm-timeframe-btn.active {
+  background: var(--jm-primary);
+  border-color: var(--jm-primary);
+  color: var(--jm-white);
+}
+
+/* Statistics */
+#wrapper .jm-price-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--jm-spacing-md);
+  margin-bottom: var(--jm-spacing-lg);
+  padding: var(--jm-spacing-md);
+  background: var(--jm-gray-50);
+  border-radius: var(--jm-border-radius);
+}
+
+#wrapper .jm-stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--jm-spacing-xs);
+}
+
+#wrapper .jm-stat-label {
+  font-size: var(--jm-font-size-sm);
+  color: var(--jm-gray-600);
+  font-weight: 500;
+}
+
+#wrapper .jm-stat-value {
+  font-size: var(--jm-font-size-base);
+  color: var(--jm-dark);
+  font-weight: 600;
+}
+
+/* Action Links */
+#wrapper .jm-share-price-actions {
+  display: flex;
+  gap: var(--jm-spacing-sm);
+  flex-wrap: wrap;
+}
+
+#wrapper .jm-share-price-actions .jm-btn {
+  flex: 1;
+  min-width: 120px;
+  text-align: center;
+  justify-content: center;
+}
+
+/* Loading State */
+#wrapper .jm-price-loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.9);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--jm-spacing-sm);
+  color: var(--jm-gray-600);
+  font-size: var(--jm-font-size-sm);
+  z-index: 10;
+}
+
+#wrapper .jm-loading-spinner {
+  width: 24px;
+  height: 24px;
+  border: 2px solid var(--jm-gray-300);
+  border-top: 2px solid var(--jm-primary);
+  border-radius: 50%;
+  animation: jm-spin 1s linear infinite;
+}
+
+@keyframes jm-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Error State */
+#wrapper .jm-price-error {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.95);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--jm-spacing-sm);
+  color: var(--jm-danger);
+  font-size: var(--jm-font-size-sm);
+  text-align: center;
+  z-index: 10;
+  padding: var(--jm-spacing-lg);
+}
+
+#wrapper .jm-error-icon {
+  margin-bottom: var(--jm-spacing-xs);
+}
+
+#wrapper .jm-retry-btn {
+  background: var(--jm-danger);
+  color: var(--jm-white);
+  border: none;
+  padding: var(--jm-spacing-sm) var(--jm-spacing-md);
+  border-radius: var(--jm-border-radius);
+  font-size: var(--jm-font-size-sm);
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--jm-transition);
+  margin-top: var(--jm-spacing-sm);
+}
+
+#wrapper .jm-retry-btn:hover,
+#wrapper .jm-retry-btn:focus {
+  background: var(--jm-warning);
+  transform: translateY(-1px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  #wrapper .jm-share-price-widget {
+    padding: var(--jm-spacing-md);
+  }
+  
+  #wrapper .jm-share-price-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--jm-spacing-sm);
+  }
+  
+  #wrapper .jm-price-amount {
+    font-size: 2rem;
+  }
+  
+  #wrapper .jm-share-price-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--jm-spacing-xs);
+  }
+  
+  #wrapper .jm-price-stats {
+    grid-template-columns: 1fr;
+    gap: var(--jm-spacing-sm);
+  }
+  
+  #wrapper .jm-share-price-actions {
+    flex-direction: column;
+  }
+  
+  #wrapper .jm-chart-timeframes {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 480px) {
+  #wrapper .jm-share-price-widget {
+    padding: var(--jm-spacing-sm);
+  }
+  
+  #wrapper .jm-price-amount {
+    font-size: 1.75rem;
+  }
+  
+  #wrapper .jm-share-price-title {
+    font-size: var(--jm-font-size-lg);
+  }
+  
+  #wrapper .jm-chart-placeholder {
+    height: 100px;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  #wrapper .jm-share-price-widget {
+    border-width: 2px;
+    border-color: var(--jm-dark);
+  }
+  
+  #wrapper .jm-timeframe-btn {
+    border-width: 2px;
+  }
+  
+  #wrapper .jm-price-stats {
+    border: 2px solid var(--jm-gray-400);
+  }
+}
+
+/* Print styles */
+@media print {
+  #wrapper .jm-chart-controls,
+  #wrapper .jm-share-price-actions,
+  #wrapper .jm-price-loading,
+  #wrapper .jm-price-error {
+    display: none;
+  }
+  
+  #wrapper .jm-share-price-widget {
+    box-shadow: none;
+    border: 1px solid var(--jm-gray-400);
+  }
+  
+  #wrapper .jm-price-chart {
+    background: white;
+  }
+}
+
+/* Widget Theme Variants */
+#wrapper .jm-share-price-widget[data-theme="standard"] {
+  background: var(--jm-white);
+  border: 1px solid var(--jm-gray-300);
+  color: var(--jm-dark);
+}
+
+#wrapper .jm-share-price-widget[data-theme="dark"] {
+  background: var(--jm-dark) !important;
+  border: 1px solid var(--jm-gray-600) !important;
+  color: var(--jm-white) !important;
+}
+
+#wrapper .jm-share-price-widget[data-theme="dark"] .jm-share-price-title {
+  color: var(--jm-white) !important;
+}
+
+#wrapper .jm-share-price-widget[data-theme="dark"] .jm-share-price-symbol {
+  background: rgba(255, 255, 255, 0.1) !important;
+  color: var(--jm-gray-200) !important;
+}
+
+#wrapper .jm-share-price-widget[data-theme="dark"] .jm-price-amount {
+  color: var(--jm-white) !important;
+}
+
+#wrapper .jm-share-price-widget[data-theme="dark"] .jm-price-currency {
+  color: var(--jm-gray-300) !important;
+}
+
+#wrapper .jm-share-price-widget[data-theme="dark"] .jm-share-price-header {
+  border-bottom: 1px solid var(--jm-gray-600) !important;
+}
+
+#wrapper .jm-share-price-widget[data-theme="dark"] .jm-price-date,
+#wrapper .jm-share-price-widget[data-theme="dark"] .jm-price-disclaimer {
+  color: var(--jm-gray-300) !important;
+}
+
+#wrapper .jm-share-price-widget[data-theme="dark"] .jm-timeframe-btn {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-color: var(--jm-gray-600) !important;
+  color: var(--jm-white) !important;
+}
+
+#wrapper .jm-share-price-widget[data-theme="dark"] .jm-timeframe-btn.active,
+#wrapper .jm-share-price-widget[data-theme="dark"] .jm-timeframe-btn:hover {
+  background: var(--jm-primary) !important;
+  border-color: var(--jm-primary) !important;
+  color: var(--jm-white) !important;
+}
+
+/* Dark theme chart and controls */
+#wrapper .jm-share-price-widget[data-theme="dark"] .jm-price-chart {
+  background: var(--jm-gray-800) !important;
+  border-color: var(--jm-gray-600) !important;
+}
+
+#wrapper .jm-share-price-widget[data-theme="dark"] .jm-chart-controls {
+  background: var(--jm-gray-800) !important;
+  border-top-color: var(--jm-gray-600) !important;
+}
+
+/* Dark theme statistics */
+#wrapper .jm-share-price-widget[data-theme="dark"] .jm-price-stats {
+  background: var(--jm-gray-800) !important;
+}
+
+#wrapper .jm-share-price-widget[data-theme="dark"] .jm-stat-label {
+  color: var(--jm-gray-400) !important;
+}
+
+#wrapper .jm-share-price-widget[data-theme="dark"] .jm-stat-value {
+  color: var(--jm-white) !important;
+}
+
+#wrapper .jm-share-price-widget[data-theme="dark"] .jm-stat-item:hover .jm-stat-value {
+  color: var(--jm-primary) !important;
+}
+
+/* Dark theme loading and error states */
+#wrapper .jm-share-price-widget[data-theme="dark"] .jm-price-loading {
+  background: rgba(0, 0, 0, 0.8) !important;
+  color: var(--jm-gray-300) !important;
+}
+
+#wrapper .jm-share-price-widget[data-theme="dark"] .jm-price-error {
+  background: rgba(0, 0, 0, 0.9) !important;
+  color: var(--jm-danger) !important;
+}
+
+#wrapper .jm-share-price-widget[data-theme="minimal"] {
+  background: var(--jm-gray-50) !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: var(--jm-spacing-md) !important;
+}
+
+#wrapper .jm-share-price-widget[data-theme="minimal"] .jm-share-price-header {
+  border-bottom: none !important;
+  margin-bottom: var(--jm-spacing-sm) !important;
+  padding-bottom: 0 !important;
+}
+
+#wrapper .jm-share-price-widget[data-theme="minimal"] .jm-share-price-title {
+  font-size: var(--jm-font-size-lg) !important;
+  font-weight: 500 !important;
+  color: var(--jm-gray-700) !important;
+}
+
+#wrapper .jm-share-price-widget[data-theme="minimal"] .jm-share-price-symbol {
+  background: var(--jm-gray-200) !important;
+  color: var(--jm-gray-600) !important;
+  font-size: var(--jm-font-size-xs) !important;
+  padding: 2px 6px !important;
+}
+
+#wrapper .jm-share-price-widget[data-theme="minimal"] .jm-price-amount {
+  font-size: 2rem !important;
+  color: var(--jm-gray-800) !important;
+}
+
+#wrapper .jm-share-price-widget[data-theme="minimal"] .jm-timeframe-btn {
+  background: transparent !important;
+  border: 1px solid var(--jm-gray-400) !important;
+  color: var(--jm-gray-600) !important;
+  padding: 4px 8px !important;
+  font-size: var(--jm-font-size-xs) !important;
+}
+
+#wrapper .jm-share-price-widget[data-theme="minimal"] .jm-timeframe-btn.active,
+#wrapper .jm-share-price-widget[data-theme="minimal"] .jm-timeframe-btn:hover {
+  background: var(--jm-gray-200) !important;
+  border-color: var(--jm-gray-500) !important;
+  color: var(--jm-gray-800) !important;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  #wrapper .jm-loading-spinner {
+    animation: none;
+    border-top-color: var(--jm-primary);
+  }
+  
+  #wrapper .jm-timeframe-btn,
+  #wrapper .jm-chart-svg {
+    transition: none;
+  }
+}

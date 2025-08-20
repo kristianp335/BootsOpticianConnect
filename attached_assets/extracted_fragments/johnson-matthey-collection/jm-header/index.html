@@ -1,0 +1,169 @@
+<div class="jm-header-fragment">
+  <header class="jm-header">
+    <div class="jm-container">
+      <div class="jm-header-content">
+        <!-- Logo -->
+        <div class="jm-header-logo">
+          <a href="/" class="jm-logo-link">
+            <img 
+              src="[resources:johnson-matthey-logo.png]"
+              alt="Johnson Matthey Logo"
+              class="jm-logo"
+              data-lfr-editable-id="logo"
+              data-lfr-editable-type="image"
+              width="180"
+              height="40"
+            />
+          </a>
+        </div>
+
+        <!-- Main Navigation -->
+        <nav class="jm-nav" role="navigation" aria-label="Main navigation">
+          <ul class="jm-nav-list" id="jm-main-nav">
+            <!-- Navigation will be populated by JavaScript -->
+          </ul>
+        </nav>
+
+        <!-- Header Actions -->
+        <div class="jm-header-actions">
+          <!-- Mobile Menu Toggle -->
+          <button class="jm-mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+            <span class="jm-hamburger">
+              <span></span>
+              <span></span>
+              <span></span>
+            </span>
+          </button>
+
+          <!-- Search Button -->
+          <button class="jm-header-action-btn jm-search-btn" aria-label="Open search">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2"/>
+              <path d="m21 21-4.35-4.35" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </button>
+
+          <!-- Login/User Button -->
+          [#if themeDisplay.isSignedIn()]
+            <div class="jm-user-profile-widget">
+              [@liferay.user_personal_bar /]
+            </div>
+          [#else]
+            <button class="jm-header-action-btn jm-login-btn" aria-label="Sign in">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" stroke="currentColor" stroke-width="2"/>
+                <polyline points="10,17 15,12 10,7" stroke="currentColor" stroke-width="2"/>
+                <line x1="15" y1="12" x2="3" y2="12" stroke="currentColor" stroke-width="2"/>
+              </svg>
+              <span>Sign In</span>
+            </button>
+          [/#if]
+
+          <!-- Language Selector Dropzone -->
+          <div class="jm-language-selector-dropzone">
+            <lfr-drop-zone data-lfr-drop-zone-id="language-selector">
+            </lfr-drop-zone>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mega Menu Dropzones (Edit Mode Only) -->
+      <div class="jm-mega-menu-dropzones jm-edit-mode-only">
+        <div class="jm-mega-dropzone">
+          <h4 class="jm-mega-dropzone-label">Mega Menu Content 1</h4>
+          <div id="dropzone-mega-menu-1">
+            <lfr-drop-zone data-lfr-drop-zone-id="mega-menu-1">
+            </lfr-drop-zone>
+          </div>
+        </div>
+        <div class="jm-mega-dropzone">
+          <h4 class="jm-mega-dropzone-label">Mega Menu Content 2</h4>
+          <div id="dropzone-mega-menu-2">
+            <lfr-drop-zone data-lfr-drop-zone-id="mega-menu-2">
+            </lfr-drop-zone>
+          </div>
+        </div>
+        <div class="jm-mega-dropzone">
+          <h4 class="jm-mega-dropzone-label">Mega Menu Content 3</h4>
+          <div id="dropzone-mega-menu-3">
+            <lfr-drop-zone data-lfr-drop-zone-id="mega-menu-3">
+            </lfr-drop-zone>
+          </div>
+        </div>
+        <div class="jm-mega-dropzone">
+          <h4 class="jm-mega-dropzone-label">Mega Menu Content 4</h4>
+          <div id="dropzone-mega-menu-4">
+            <lfr-drop-zone data-lfr-drop-zone-id="mega-menu-4">
+            </lfr-drop-zone>
+          </div>
+        </div>
+        <div class="jm-mega-dropzone">
+          <h4 class="jm-mega-dropzone-label">Mega Menu Content 5</h4>
+          <div id="dropzone-mega-menu-5">
+            <lfr-drop-zone data-lfr-drop-zone-id="mega-menu-5">
+            </lfr-drop-zone>
+          </div>
+        </div>
+      </div>
+
+
+
+      <!-- Mobile Navigation -->
+      <div class="jm-mobile-nav" id="jm-mobile-nav">
+        <ul class="jm-mobile-nav-list">
+          <!-- Mobile navigation will be populated by JavaScript -->
+        </ul>
+        <div class="jm-mobile-nav-actions">
+          [#if !themeDisplay.isSignedIn()]
+            <button class="jm-btn jm-mobile-login-btn">Sign In</button>
+          [#else]
+            <a href="/c/portal/logout" class="jm-btn jm-btn-secondary">Sign Out</a>
+          [/#if]
+        </div>
+      </div>
+
+      <!-- Mobile Navigation -->
+      <div class="jm-mobile-nav" id="jm-mobile-nav">
+        <ul class="jm-mobile-nav-list">
+          <!-- Mobile navigation will be populated by JavaScript -->
+        </ul>
+        <div class="jm-mobile-nav-actions">
+          [#if !themeDisplay.isSignedIn()]
+            <button class="jm-btn jm-mobile-login-btn">Sign In</button>
+          [#else]
+            <a href="/c/portal/logout" class="jm-btn jm-btn-secondary">Sign Out</a>
+          [/#if]
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Search Modal -->
+  <div id="jm-search-overlay" class="jm-search-overlay" style="display: none;">
+    <div class="jm-search-modal">
+      <div class="jm-modal-header">
+        <h3 class="jm-modal-title" data-lfr-editable-id="search-title" data-lfr-editable-type="text">Search Johnson Matthey</h3>
+        <button id="jm-close-search" class="jm-modal-close" aria-label="Close search">&times;</button>
+      </div>
+      <div class="jm-modal-body search-content">
+        <lfr-drop-zone data-lfr-drop-zone-id="search">
+        </lfr-drop-zone>
+      </div>
+    </div>
+  </div>
+
+  <!-- Login Modal -->
+  [#if !themeDisplay.isSignedIn()]
+    <div id="jm-login-overlay" class="jm-login-overlay" style="display: none;">
+      <div class="jm-login-modal">
+        <div class="jm-modal-header">
+          <h3 class="jm-modal-title" data-lfr-editable-id="login-title" data-lfr-editable-type="text">Sign In to Johnson Matthey</h3>
+          <button id="jm-close-login" class="jm-modal-close" aria-label="Close login">&times;</button>
+        </div>
+        <div class="jm-modal-body login-content">
+          [@liferay_portlet["runtime"] portletName="com_liferay_login_web_portlet_LoginPortlet" /]
+        </div>
+      </div>
+    </div>
+  [/#if]
+</div>

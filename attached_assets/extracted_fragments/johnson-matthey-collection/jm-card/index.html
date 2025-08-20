@@ -1,0 +1,44 @@
+<div id="${fragmentEntryLinkNamespace}-jm-card" class="jm-card">
+  <div class="jm-card-content">
+    [#if configuration.showImage]
+      <div class="jm-card-image">
+        <img 
+          src="${configuration.cardImage}" 
+          alt="${configuration.cardImageAlt}" 
+          data-lfr-editable-id="cardImage" 
+          data-lfr-editable-type="image"
+        />
+      </div>
+    [/#if]
+    
+    <div class="jm-card-body">
+      [#if configuration.showCategory]
+        <div class="jm-card-category" data-lfr-editable-id="cardCategory" data-lfr-editable-type="text">
+          ${configuration.cardCategory}
+        </div>
+      [/#if]
+      
+      <h3 class="jm-card-title" data-lfr-editable-id="cardTitle" data-lfr-editable-type="text">
+        ${configuration.cardTitle}
+      </h3>
+      
+      <p class="jm-card-description" data-lfr-editable-id="cardDescription" data-lfr-editable-type="rich-text">
+        ${configuration.cardDescription}
+      </p>
+      
+      [#if configuration.showButton]
+        <div class="jm-card-actions">
+          <a 
+            href="${configuration.cardButtonUrl}" 
+            class="jm-card-button" 
+            data-lfr-editable-id="cardButtonText" 
+            data-lfr-editable-type="link"
+            [#if configuration.cardButtonTarget == "blank"]target="_blank" rel="noopener noreferrer"[/#if]
+          >
+            ${configuration.cardButtonText}
+          </a>
+        </div>
+      [/#if]
+    </div>
+  </div>
+</div>

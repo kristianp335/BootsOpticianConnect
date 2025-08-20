@@ -1,58 +1,11 @@
 {
-    "configurationSchema": {
-        "fieldSets": [
-            {
-                "fields": [
-                    {
-                        "name": "showCaseFilters",
-                        "label": "Show Case Filters",
-                        "description": "Display case filtering options",
-                        "type": "checkbox",
-                        "defaultValue": true
-                    },
-                    {
-                        "name": "showCaseStats",
-                        "label": "Show Case Statistics",
-                        "description": "Display case statistics overview",
-                        "type": "checkbox",
-                        "defaultValue": true
-                    },
-                    {
-                        "name": "caseView",
-                        "label": "Case View",
-                        "description": "Choose how cases are displayed",
-                        "type": "select",
-                        "defaultValue": "list",
-                        "typeOptions": {
-                            "validValues": [
-                                {"value": "list", "label": "List View"},
-                                {"value": "cards", "label": "Card View"},
-                                {"value": "table", "label": "Table View"}
-                            ]
-                        }
-                    },
-                    {
-                        "name": "defaultFilter",
-                        "label": "Default Filter",
-                        "description": "Default case filter on page load",
-                        "type": "select",
-                        "defaultValue": "active",
-                        "typeOptions": {
-                            "validValues": [
-                                {"value": "all", "label": "All Cases"},
-                                {"value": "active", "label": "Active Cases"},
-                                {"value": "pending", "label": "Pending Cases"},
-                                {"value": "completed", "label": "Completed Cases"}
-                            ]
-                        }
-                    }
-                ]
-            }
-        ]
-    },
-    "cssPath": "index.css",
-    "htmlPath": "index.html",
-    "jsPath": "index.js",
-    "name": "Boots Case Management",
-    "type": "component"
+  "fragmentEntryKey": "boots-case-management",
+  "name": "Boots Case Management",
+  "type": "section",
+  "htmlPath": "index.html",
+  "cssPath": "index.css",
+  "jsPath": "index.js",
+  "configurationPath": "configuration.json",
+  "thumbnailPath": "thumbnail.png",
+  "icon": "folder"
 }

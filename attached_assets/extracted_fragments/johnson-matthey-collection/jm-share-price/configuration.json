@@ -1,0 +1,80 @@
+{
+  "fieldSets": [
+    {
+      "fields": [
+        {
+          "name": "showChart",
+          "label": "Show Price Chart",
+          "description": "Display the interactive price chart",
+          "type": "checkbox",
+          "defaultValue": true
+        },
+        {
+          "name": "showStatistics",
+          "label": "Show Statistics",
+          "description": "Display key financial statistics",
+          "type": "checkbox",
+          "defaultValue": true
+        },
+        {
+          "name": "autoUpdate",
+          "label": "Auto Update Prices",
+          "description": "Automatically refresh price data",
+          "type": "checkbox",
+          "defaultValue": true
+        },
+        {
+          "name": "updateInterval",
+          "label": "Update Interval (seconds)",
+          "description": "Time between automatic price updates",
+          "type": "text",
+          "defaultValue": "30"
+        },
+        {
+          "name": "stockSymbol",
+          "label": "Stock Symbol",
+          "description": "Stock exchange symbol to display",
+          "type": "text",
+          "defaultValue": "JMAT"
+        },
+        {
+          "name": "exchangeName",
+          "label": "Exchange Name",
+          "description": "Stock exchange name",
+          "type": "text",
+          "defaultValue": "LON"
+        },
+        {
+          "name": "compactMode",
+          "label": "Compact Display",
+          "description": "Use compact layout for smaller spaces",
+          "type": "checkbox",
+          "defaultValue": false
+        },
+        {
+          "name": "widgetTheme",
+          "label": "Widget Theme",
+          "description": "Choose the visual theme for the widget",
+          "type": "select",
+          "defaultValue": "standard",
+          "typeOptions": {
+            "validValues": [
+              {
+                "label": "Standard Theme",
+                "value": "standard"
+              },
+              {
+                "label": "Dark Theme",
+                "value": "dark"
+              },
+              {
+                "label": "Minimal Theme",
+                "value": "minimal"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
