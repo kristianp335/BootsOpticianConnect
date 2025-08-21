@@ -111,6 +111,9 @@
         if (!controlMenu && navigation) {
             // Control menu not present, adjust navigation position
             navigation.style.marginTop = '-60px';
+            // Also ensure we force the positioning
+            navigation.style.position = 'fixed';
+            navigation.style.top = '0px';
         }
     }
 
