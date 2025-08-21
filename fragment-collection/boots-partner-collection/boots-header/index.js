@@ -106,11 +106,11 @@
      */
     function adjustNavigationForControlMenu() {
         const controlMenu = document.querySelector('.control-menu-level-1-nav.control-menu-nav');
-        const navigation = fragmentElement.querySelector('#boots-slide-menu');
+        const navigation = fragmentElement.querySelector('#boots-sliding-menu');
         
         if (!controlMenu && navigation) {
             // Control menu not present, adjust navigation position
-            navigation.style.top = '10px'; // 60px - 50px = 10px
+            navigation.style.marginTop = '-60px';
         }
     }
 
