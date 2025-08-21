@@ -1175,7 +1175,7 @@ html body #wrapper .boots-sliding-menu {
     visibility: visible !important;
     opacity: 1 !important;
     transform: none !important;
-    margin-top: -4px !important;
+    margin-top: -4px;
 }
 
 body #wrapper .boots-sliding-menu.active,
