@@ -1342,6 +1342,11 @@ html body #wrapper .boots-menu-list {
     #wrapper .boots-header-action-btn span {
         display: none;
     }
+    
+    /* Hide account selector on mobile */
+    #wrapper .boots-account-selector-dropzone {
+        display: none !important;
+    }
 }
 
 /* =================================================================================
