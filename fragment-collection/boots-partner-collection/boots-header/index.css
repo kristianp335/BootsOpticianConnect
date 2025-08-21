@@ -1163,7 +1163,7 @@ html body #wrapper .boots-sliding-menu {
     top: 60px !important; /* Account for Liferay control menu */
     left: -240px !important; /* Hidden by default - reduced width */
     width: 240px !important; /* Reduced from 320px to 240px */
-    height: calc(100vh - 60px) !important; /* Adjust height for control menu */
+
     background: var(--boots-white) !important;
     border-right: 1px solid var(--gray-300, #dddfe2) !important;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1) !important;
@@ -1317,7 +1317,7 @@ html body #wrapper .boots-menu-list {
         width: 220px !important;
         left: -220px !important;
         top: 60px !important; /* Account for Liferay control menu on mobile */
-        height: calc(100vh - 60px) !important;
+
     }
     
     body #wrapper .boots-sliding-menu.active,
