@@ -1,13 +1,12 @@
 /**
  * Boots Header Fragment JavaScript
- * Following Johnson Matthey pattern with proper API integration and console logging
+ * Navigation system with API integration and modal management
  */
 (function() {
     'use strict';
     
     // Use the fragmentElement provided by Liferay
     if (!fragmentElement) {
-        console.warn('❌ Boots Header: fragmentElement not available');
         return;
     }
     
@@ -16,32 +15,15 @@
      * DEFINED FIRST TO PREVENT REFERENCE ERRORS
      */
     function renderNavigationToSlidingMenu(navigationItems) {
-        console.log('🎨 Rendering navigation to sliding menu with', navigationItems.length, 'items');
-        
         const menuList = fragmentElement.querySelector('#boots-menu-list');
         if (!menuList) {
-            console.error('❌ Could not find #boots-menu-list element in fragmentElement:', fragmentElement);
-            console.error('❌ Available elements in fragment:', fragmentElement ? Array.from(fragmentElement.querySelectorAll('[id]')).map(el => el.id) : 'none');
             return;
         }
         
-        console.log('✅ Found menu list element:', menuList);
-        console.log('📍 Menu list parent:', menuList.parentElement);
-        console.log('📍 Menu list innerHTML before clear:', menuList.innerHTML);
-        
-        // Verify we have the right element by checking its properties
-        if (menuList.id !== 'boots-menu-list' || !menuList.classList.contains('boots-menu-list')) {
-            console.error('❌ Element found but wrong properties. ID:', menuList.id, 'Classes:', Array.from(menuList.classList));
-            return;
-        }
-        
-        // Build HTML string instead of using appendChild
-        console.log('🔧 Building navigation HTML directly');
+        // Build HTML string for navigation items
         let menuHTML = '';
         
         navigationItems.forEach((item, index) => {
-            console.log(`🔧 Creating menu item ${index + 1}:`, item.name || item.title);
-            
             // Get configuration to access site prefix
             const config = getFragmentConfiguration();
             const sitePrefix = config.sitePrefix || '';
@@ -55,7 +37,7 @@
             const icon = getMenuIcon(itemName);
             const iconHTML = icon ? icon + ' ' : '';
             
-            // Build menu item HTML directly
+            // Build menu item HTML
             const menuItemHTML = `
                 <li class="boots-menu-item">
                     <a href="${itemUrl}" class="boots-menu-link">
@@ -65,26 +47,13 @@
             `;
             
             menuHTML += menuItemHTML;
-            console.log(`✅ Added item ${index + 1} to HTML: ${itemName}`);
         });
         
-        // Set innerHTML directly - this should force the DOM update
-        console.log('📝 Setting menuList innerHTML directly');
+        // Set innerHTML directly
         menuList.innerHTML = menuHTML;
-        
-        console.log(`✅ Set innerHTML with ${navigationItems.length} items`);
-        console.log('📍 Verifying innerHTML update:', menuList.innerHTML.length > 50 ? 'SUCCESS' : 'FAILED');
-        
-        // Force a DOM update and verify
-        menuList.style.opacity = '0.99';
-        setTimeout(() => {
-            menuList.style.opacity = '1';
-        }, 10);
         
         // Initialize submenu functionality
         initializeSubmenus();
-        
-        console.log('🎯 Navigation rendering completed successfully');
     }
     
     // Initialize on DOM ready and SPA navigation events
@@ -100,48 +69,51 @@
     ready(initializeHeader);
     
     function initializeHeader() {
-        console.log('🔧 Boots Header Fragment initializing - DEBUG MODE');
-        console.log('📍 fragmentElement:', fragmentElement);
-        
         // Get configuration values
         const config = getFragmentConfiguration();
-        console.log('⚙️ Configuration loaded:', config);
         
         // Check if we're in edit mode
         const editMode = isInEditMode();
-        console.log('📝 Edit mode detected:', editMode);
+        
+        // Check for Liferay control menu and adjust navigation positioning
+        adjustNavigationForControlMenu();
         
         if (editMode) {
-            console.log('🎨 Initializing edit mode...');
             // Apply configuration settings even in edit mode
             applyConfiguration(config);
             // Load sample navigation for edit mode preview
-            console.log('📋 Loading sample navigation for edit mode');
             const sampleNav = getSampleNavigation();
             renderNavigationToSlidingMenu(sampleNav);
             // Initialize mobile menu and modals for edit mode
             initializeMobileMenu();
             initializeModals();
-            console.log('✅ Boots Header Fragment initialized in edit mode');
             return;
         }
         
-        console.log('🌐 Initializing live mode...');
         // Full initialization for live mode
         ensureModalsHidden();
         applyConfiguration(config);
         
         // Initialize navigation from API
-        console.log('📡 Loading navigation from Liferay API...');
-        console.log('🔍 Checking menu list element:', fragmentElement.querySelector('#boots-menu-list'));
         loadNavigationMenu();
         
         initializeMobileMenu();
         initializeModals();
-        
-        console.log('✅ Boots Header Fragment initialized in live mode');
     }
     
+    /**
+     * Adjust navigation position based on Liferay control menu presence
+     */
+    function adjustNavigationForControlMenu() {
+        const controlMenu = document.querySelector('.control-menu-level-1-nav.control-menu-nav');
+        const navigation = fragmentElement.querySelector('#boots-slide-menu');
+        
+        if (!controlMenu && navigation) {
+            // Control menu not present, adjust navigation position
+            navigation.style.top = '10px'; // 60px - 50px = 10px
+        }
+    }
+
     /**
      * Get sample navigation for edit mode
      */
@@ -180,15 +152,6 @@
         // Must have both control menu AND active page editor OR actively editable elements
         const inEditMode = (hasEditModeMenu || isEditMode) && (hasPageEditor || hasEditableElements);
         
-        console.log('🔍 Edit mode detection:', {
-            hasEditModeMenu,
-            isEditMode,
-            hasControlMenu,
-            hasPageEditor,
-            hasEditableElements,
-            inEditMode
-        });
-        
         // Add/remove body class to help with dropzone visibility
         if (inEditMode) {
             body.classList.add('has-edit-mode-menu');
@@ -202,7 +165,6 @@
     }
     
     function ensureModalsHidden() {
-        console.log('🙈 Ensuring modals are hidden in live mode');
         const searchOverlay = fragmentElement.querySelector('#boots-search-overlay');
         const loginOverlay = fragmentElement.querySelector('#boots-login-overlay');
         
@@ -221,13 +183,13 @@
         try {
             return (typeof configuration !== 'undefined') ? configuration : {};
         } catch (error) {
-            console.warn('⚠️ Could not load fragment configuration:', error);
+            // Configuration loading failed
             return {};
         }
     }
     
     function applyConfiguration(config) {
-        console.log('🔧 Applying configuration settings');
+        
         const header = fragmentElement.querySelector('.boots-header');
         const searchBtn = fragmentElement.querySelector('.boots-search-btn');
         const userProfileWidget = fragmentElement.querySelector('.boots-user-profile-widget');
@@ -241,14 +203,14 @@
         if (accountSelectorDropzone) {
             const showAccountSelector = config.showAccountSelector !== false; // default to true
             accountSelectorDropzone.style.display = showAccountSelector ? 'block' : 'none';
-            console.log('🏢 Account selector visibility:', showAccountSelector);
+            
         }
         
         // Show/hide search button
         if (searchBtn) {
             const showSearch = config.showSearch !== false; // default to true
             searchBtn.style.display = showSearch ? 'flex' : 'none';
-            console.log('🔍 Search button visibility:', showSearch);
+            
         }
         
         // Show/hide navigation menu components
@@ -262,7 +224,7 @@
         if (overlay) {
             overlay.style.display = showNavigation ? 'block' : 'none';
         }
-        console.log('🧭 Navigation menu visibility:', showNavigation);
+        
         
         // Show/hide user menu components
         const showUserProfile = config.showUserProfile !== false; // default to true
@@ -272,7 +234,7 @@
         if (loginBtn) {
             loginBtn.style.display = showUserProfile ? 'flex' : 'none';
         }
-        console.log('👤 User profile visibility:', showUserProfile);
+        
     }
     
     /**
@@ -282,66 +244,66 @@
         const config = getFragmentConfiguration();
         const menuId = config.navigationMenuId;
         
-        console.log('📡 Attempting to load navigation with menu ID:', menuId);
+        
         
         // Skip API call if no valid menu ID is provided
         if (!menuId || menuId === 'primary-menu' || menuId === 'undefined' || menuId === undefined || typeof menuId !== 'string') {
-            console.log('⚠️ No valid menu ID provided, navigation will remain empty');
+            
             return;
         }
         
         // Check if authentication token is available
         if (typeof Liferay === 'undefined' || !Liferay.authToken) {
-            console.log('⚠️ Liferay auth token not available, navigation will remain empty');
+            
             return;
         }
         
         const apiUrl = `/o/headless-delivery/v1.0/navigation-menus/${menuId}?nestedFields=true&p_auth=${Liferay.authToken}`;
-        console.log('🌐 API URL:', apiUrl);
+        
         
         fetch(apiUrl)
             .then(response => {
-                console.log('📡 API Response status:', response.status);
+                
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
                 return response.json();
             })
             .then(data => {
-                console.log('📋 Navigation data received:', data);
-                console.log('📄 Full API response structure:', JSON.stringify(data, null, 2));
+                
+                
                 
                 // Extract navigation items from API response - handle multiple possible structures
                 let navItems = [];
                 
                 if (data.navigationMenuItems && Array.isArray(data.navigationMenuItems)) {
                     navItems = data.navigationMenuItems;
-                    console.log('✅ Using data.navigationMenuItems:', navItems.length);
+                    
                 } else if (data.items && Array.isArray(data.items)) {
                     navItems = data.items;
-                    console.log('✅ Using data.items:', navItems.length);
+                    
                 } else if (Array.isArray(data)) {
                     navItems = data;
-                    console.log('✅ Using data as array:', navItems.length);
+                    
                 } else {
-                    console.warn('❌ Could not extract navigation items from API response');
-                    console.warn('Available keys:', Object.keys(data));
+                    
+                    
                 }
                 
-                console.log('🎯 Final extracted navigation items:', navItems.length, 'items');
+                
                 navItems.forEach((item, index) => {
-                    console.log(`📋 Item ${index + 1}:`, item.name || item.title || item.label || 'NO NAME', '| URL:', item.link || item.url || item.href || 'NO URL');
+                    
                 });
                 
                 if (navItems.length > 0) {
                     renderNavigationToSlidingMenu(navItems);
                 } else {
-                    console.warn('⚠️ No navigation items found in API response, navigation will remain empty');
+                    
                 }
             })
             .catch(error => {
-                console.error('❌ Error loading navigation menu:', error);
-                console.log('Navigation will remain empty due to API error');
+                
+                
             });
     }
     
@@ -350,7 +312,7 @@
      */
     function createSlidingMenuItemFromAPI(item) {
         if (!item || (!item.name && !item.title)) {
-            console.warn('❌ Invalid menu item data:', item);
+            
             return null;
         }
         
@@ -445,7 +407,7 @@
      * Initialize submenu functionality
      */
     function initializeSubmenus() {
-        console.log('🎯 Initializing submenu functionality');
+        
         
         const submenuItems = fragmentElement.querySelectorAll('.boots-menu-item.has-submenu');
         
@@ -468,14 +430,14 @@
             }
         });
         
-        console.log('✅ Submenu functionality initialized for', submenuItems.length, 'items');
+        
     }
     
     /**
      * Initialize mobile menu functionality
      */
     function initializeMobileMenu() {
-        console.log('📱 Initializing mobile menu');
+        
         
         const menuToggle = fragmentElement.querySelector('#boots-menu-toggle');
         const menuClose = fragmentElement.querySelector('#boots-menu-close');
@@ -484,14 +446,14 @@
         const mainContent = document.querySelector('#wrapper');
         
         if (!menuToggle || !slidingMenu) {
-            console.warn('⚠️ Menu toggle or sliding menu not found');
+            
             return;
         }
         
         let isMenuOpen = false;
         
         function openMenu() {
-            console.log('📂 Opening sliding menu');
+            
             isMenuOpen = true;
             slidingMenu.classList.add('active');
             slidingMenu.setAttribute('aria-hidden', 'false');
@@ -516,7 +478,7 @@
         }
         
         function closeMenu() {
-            console.log('📁 Closing sliding menu');
+            
             isMenuOpen = false;
             slidingMenu.classList.remove('active');
             slidingMenu.setAttribute('aria-hidden', 'true');
@@ -569,14 +531,14 @@
             }
         });
         
-        console.log('✅ Mobile menu initialized');
+        
     }
     
     /**
      * Initialize modal functionality
      */
     function initializeModals() {
-        console.log('🎭 Initializing modals');
+        
         
         // Search modal
         const searchBtn = fragmentElement.querySelector('.boots-search-btn');
@@ -586,11 +548,11 @@
         if (searchBtn && searchOverlay) {
             searchBtn.addEventListener('click', function(e) {
                 e.preventDefault();
-                console.log('🔍 Opening search modal');
+                
                 
                 // Prevent opening modal in edit mode
                 if (isInEditMode()) {
-                    console.log('📝 Search modal disabled in edit mode');
+                    
                     return;
                 }
                 
@@ -603,7 +565,7 @@
         if (searchClose) {
             searchClose.addEventListener('click', function(e) {
                 e.preventDefault();
-                console.log('❌ Closing search modal');
+                
                 searchOverlay.style.display = 'none';
                 searchOverlay.classList.remove('active');
                 document.body.style.overflow = '';
@@ -614,7 +576,7 @@
             // Click outside to close
             searchOverlay.addEventListener('click', function(e) {
                 if (e.target === searchOverlay) {
-                    console.log('🖱️ Closing search modal (click outside)');
+                    
                     searchOverlay.style.display = 'none';
                     searchOverlay.classList.remove('active');
                     document.body.style.overflow = '';
@@ -630,7 +592,7 @@
         if (loginBtn && loginOverlay) {
             loginBtn.addEventListener('click', function(e) {
                 e.preventDefault();
-                console.log('👤 Opening login modal');
+                
                 loginOverlay.style.display = 'flex';
                 loginOverlay.classList.add('active');
                 document.body.style.overflow = 'hidden';
@@ -640,7 +602,7 @@
         if (loginClose) {
             loginClose.addEventListener('click', function(e) {
                 e.preventDefault();
-                console.log('❌ Closing login modal');
+                
                 loginOverlay.style.display = 'none';
                 loginOverlay.classList.remove('active');
                 document.body.style.overflow = '';
@@ -651,7 +613,7 @@
             // Click outside to close
             loginOverlay.addEventListener('click', function(e) {
                 if (e.target === loginOverlay) {
-                    console.log('🖱️ Closing login modal (click outside)');
+                    
                     loginOverlay.style.display = 'none';
                     loginOverlay.classList.remove('active');
                     document.body.style.overflow = '';
@@ -663,13 +625,13 @@
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 if (searchOverlay && searchOverlay.classList.contains('active')) {
-                    console.log('⌨️ Closing search modal (escape key)');
+                    
                     searchOverlay.style.display = 'none';
                     searchOverlay.classList.remove('active');
                     document.body.style.overflow = '';
                 }
                 if (loginOverlay && loginOverlay.classList.contains('active')) {
-                    console.log('⌨️ Closing login modal (escape key)');
+                    
                     loginOverlay.style.display = 'none';
                     loginOverlay.classList.remove('active');
                     document.body.style.overflow = '';
@@ -677,7 +639,7 @@
             }
         });
         
-        console.log('✅ Modals initialized');
+        
     }
     
 })();

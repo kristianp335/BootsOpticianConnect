@@ -1,0 +1,19 @@
+<div class="boots-chart-widget-fragment">
+    <div class="boots-chart-card boots-card">
+        <div class="boots-card-header">
+            <h3 data-lfr-editable-id="chart-title" data-lfr-editable-type="text">${configuration.chartTitle}</h3>
+            [#if configuration.showControls!true]
+            <div class="boots-chart-controls">
+                <button class="boots-btn boots-btn-outline" data-period="week">Week</button>
+                <button class="boots-btn boots-btn-outline active" data-period="month">Month</button>
+                <button class="boots-btn boots-btn-outline" data-period="quarter">Quarter</button>
+            </div>
+            [/#if]
+        </div>
+        <div class="boots-card-body">
+            <div class="boots-chart-container boots-chart-${configuration.chartHeight}">
+                <canvas id="boots-chart-${.globals.randomNamespace}" data-chart-type="${configuration.chartType}" data-data-source="${configuration.dataSource}"></canvas>
+            </div>
+        </div>
+    </div>
+</div>

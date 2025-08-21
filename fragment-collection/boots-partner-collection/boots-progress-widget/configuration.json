@@ -1,0 +1,85 @@
+{
+    "fieldSets": [
+        {
+            "fields": [
+                {
+                    "name": "progressTitle",
+                    "label": "Progress Title",
+                    "description": "The title of the progress widget",
+                    "type": "text",
+                    "typeOptions": {
+                        "placeholder": "Training Progress"
+                    },
+                    "defaultValue": "Progress"
+                },
+                {
+                    "name": "progressValue",
+                    "label": "Progress Value",
+                    "description": "Current progress value (0-100)",
+                    "type": "text",
+                    "typeOptions": {
+                        "placeholder": "78"
+                    },
+                    "defaultValue": "0"
+                },
+                {
+                    "name": "progressMax",
+                    "label": "Maximum Value",
+                    "description": "Maximum value for progress calculation",
+                    "type": "text",
+                    "typeOptions": {
+                        "placeholder": "100"
+                    },
+                    "defaultValue": "100"
+                },
+                {
+                    "name": "progressDescription",
+                    "label": "Description",
+                    "description": "Description text below progress bar",
+                    "type": "text",
+                    "typeOptions": {
+                        "placeholder": "12 of 15 modules completed"
+                    },
+                    "defaultValue": ""
+                },
+                {
+                    "name": "progressColor",
+                    "label": "Progress Color",
+                    "description": "Color scheme for the progress bar",
+                    "type": "select",
+                    "typeOptions": {
+                        "validValues": [
+                            {"value": "primary", "label": "Primary Blue"},
+                            {"value": "success", "label": "Success Green"},
+                            {"value": "warning", "label": "Warning Orange"},
+                            {"value": "danger", "label": "Danger Red"}
+                        ]
+                    },
+                    "defaultValue": "primary"
+                },
+                {
+                    "name": "showIcon",
+                    "label": "Show Icon",
+                    "description": "Display an icon with the progress widget",
+                    "type": "checkbox",
+                    "defaultValue": true
+                },
+                {
+                    "name": "iconType",
+                    "label": "Icon Type",
+                    "description": "Choose an icon for the widget",
+                    "type": "select",
+                    "typeOptions": {
+                        "validValues": [
+                            {"value": "training", "label": "Training"},
+                            {"value": "certification", "label": "Certification"},
+                            {"value": "progress", "label": "Progress Circle"},
+                            {"value": "chart", "label": "Chart"}
+                        ]
+                    },
+                    "defaultValue": "training"
+                }
+            ]
+        }
+    ]
+}

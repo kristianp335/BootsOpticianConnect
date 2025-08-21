@@ -33,14 +33,14 @@ This project delivers a comprehensive Liferay fragment collection to recreate th
 - **Edit Mode Detection**: Uses multiple selectors for robust edit mode detection.
 
 ### Core Components
-- **Header Fragment**: Logo, left-sliding navigation menu, user profile, search, and sign-in.
+- **Header Fragment**: Logo with configurable navigation system (`navigationMenuId`), left-sliding menu (240px width), user profile dropdown, search modal, sign-in modal, and account selector dropzone. Features API-driven navigation rendering, modal system with Liferay portlet embedding, responsive mobile design, and control menu detection for proper positioning.
 - **Dashboard Overview**: KPI cards, quick actions, performance metrics.
 - **Training Module Fragment**: Training progress, upcoming courses, certifications.
 - **Case Management Fragment**: Active cases, recent activity, case statistics.
 - **Performance Analytics**: Charts, trends, goal tracking.
 - **Announcements Fragment**: Latest updates, information broadcasts.
 - **Footer Fragment**: Links, support information, company branding.
-- **Hero Fragment**: Configurable hero component for login/landing pages with editable content and responsive design.
+- **Hero Fragment**: Configurable hero component for login/landing pages with editable content, custom background images, enhanced contrast overlays, and responsive design.
 
 ## External Dependencies
 - **Liferay DXP/Portal**: Core platform for fragment rendering, theme system, and content management.
@@ -70,3 +70,5 @@ This project delivers a comprehensive Liferay fragment collection to recreate th
 - **ACCOUNT SELECTOR DROPZONE**: Added configurable account selector dropzone positioned left of search button with unique ID `account-selector`, includes edit mode styling and JavaScript visibility controls via `showAccountSelector` configuration option.
 - **HERO BACKGROUND IMAGE FALLBACK SYSTEM**: Implemented dual background image system for hero fragment with CSS background fallback and JavaScript error handling. Ensures hero image displays even if Liferay resources syntax fails, providing robust image loading with automatic fallback to CSS background when HTML image element fails.
 - **HERO TEXT CONTRAST ENHANCEMENT**: Fixed poor text readability on bright backgrounds by strengthening overlay opacity (light: 0.5, medium: 0.7, dark: 0.85), adding enhanced multi-layer text shadows, implementing semi-transparent content backdrop with blur effect, and improving button contrast. Ensures excellent text visibility against custom optician shop imagery.
+- **HEADER FRAGMENT CLEANUP**: Removed all console logging statements from header fragment JavaScript for production readiness. Added control menu detection to adjust navigation positioning (-50px top margin when Liferay control menu absent). Documented complete header fragment functionality including API-driven navigation, modal system, and responsive design.
+- **FRAGMENT DECOMPOSITION COMPLETE**: Created 5 individual component fragments from large dashboard/training/case-management fragments: KPI Card (configurable metrics with icons and animations), Chart Widget (Chart.js integration with multiple chart types), Progress Widget (animated progress bars with multiple color schemes), Stats Card (statistics display with horizontal/vertical layouts), and Data Table (configurable data tables with search/pagination). Each fragment is fully self-contained with configuration options, responsive design, and edit mode styling.
