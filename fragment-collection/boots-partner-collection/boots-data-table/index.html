@@ -1,7 +1,7 @@
 <div class="boots-data-table-fragment">
     <div class="boots-table-card boots-card">
         <div class="boots-card-header">
-            <h3 data-lfr-editable-id="table-title" data-lfr-editable-type="text">${configuration.tableTitle}</h3>
+            <h3 data-lfr-editable-id="table-title" data-lfr-editable-type="text">${configuration.tableTitle!"Data Table"}</h3>
             [#if configuration.enableSearch!true]
             <div class="boots-table-search">
                 <input type="text" placeholder="Search..." class="boots-search-input">
@@ -14,9 +14,9 @@
         </div>
         <div class="boots-card-body">
             <div class="boots-table-container">
-                <table class="boots-data-table" data-table-type="${configuration.tableType}" data-rows-per-page="${configuration.rowsPerPage}">
+                <table class="boots-data-table" data-table-type="${configuration.tableType!"cases"}" data-rows-per-page="${configuration.rowsPerPage!"10"}">
                     <thead>
-                        [#if configuration.tableType == "cases"]
+                        [#if (configuration.tableType!"cases") == "cases"]
                         <tr>
                             <th>Case ID</th>
                             <th>Customer</th>
@@ -25,7 +25,7 @@
                             <th>Date</th>
                             [#if configuration.showActions!true]<th>Actions</th>[/#if]
                         </tr>
-                        [#elseif configuration.tableType == "appointments"]
+                        [#elseif (configuration.tableType!"cases") == "appointments"]
                         <tr>
                             <th>Time</th>
                             <th>Customer</th>
@@ -33,7 +33,7 @@
                             <th>Status</th>
                             [#if configuration.showActions!true]<th>Actions</th>[/#if]
                         </tr>
-                        [#elseif configuration.tableType == "training"]
+                        [#elseif (configuration.tableType!"cases") == "training"]
                         <tr>
                             <th>Module</th>
                             <th>Progress</th>
