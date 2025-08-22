@@ -49,6 +49,27 @@
     --boots-transition-fast: all 0.15s ease-in-out;
 }
 
+/* Global Link Styles */
+#wrapper a {
+    color: var(--boots-primary-light);
+    text-decoration: none;
+    transition: var(--boots-transition);
+}
+
+#wrapper a:hover {
+    color: var(--boots-primary-dark);
+    text-decoration: underline;
+}
+
+#wrapper a:visited {
+    color: var(--boots-primary);
+}
+
+#wrapper a:focus {
+    outline: 2px solid var(--boots-primary);
+    outline-offset: 2px;
+}
+
 /* Global Typography */
 #wrapper h1,
 #wrapper h2,
