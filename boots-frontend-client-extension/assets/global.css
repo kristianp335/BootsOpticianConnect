@@ -6,10 +6,10 @@
 
 /* Boots Brand Color System */
 #wrapper {
-    /* Primary Boots Brand Colors */
-    --boots-primary: #184290;
-    --boots-primary-light: #2563eb;
-    --boots-primary-dark: #0f2a5a;
+    /* Primary Boots Brand Colors using Liferay Classic theme tokens */
+    --boots-primary: var(--brand-color-1, #184290);
+    --boots-primary-light: var(--brand-color-2, #2563eb);
+    --boots-primary-dark: var(--brand-color-3, #0f2a5a);
     
     /* Semantic Colors using Liferay tokens */
     --boots-white: var(--white, #fff);

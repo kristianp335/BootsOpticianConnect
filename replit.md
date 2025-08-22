@@ -52,6 +52,12 @@ This project delivers a comprehensive Liferay fragment collection to recreate th
 
 ## Recent Changes
 
+### August 22, 2025
+- **BRAND COLOR SYSTEM UPGRADE**: Updated global CSS to use Liferay Classic theme frontend tokens (`--brand-color-1`, `--brand-color-2`, `--brand-color-3`) instead of hardcoded Boots color values. Colors now properly integrate with Liferay's theme system while maintaining Boots brand identity as fallback values. Ensures theme-level color customization capability and full Liferay compliance.
+- **MOBILE ACCOUNT SELECTOR HIDDEN**: Added CSS media query to hide account selector dropzone on mobile devices (≤768px width) to optimize header space for essential navigation elements. Desktop functionality remains unchanged.
+- **NAVIGATION HEIGHT OPTIMIZATION**: Removed fixed height constraints (`height: calc(100vh - 60px)`) from sliding navigation menu to allow natural content-based height. Improves flexibility across different Liferay environments and navigation content amounts.
+- **CONTROL MENU DETECTION REFINED**: Simplified JavaScript logic to apply `-60px` margin-top when Liferay control menu is absent, removed forced positioning properties. Combined with CSS `!important` removal for cleaner positioning behavior.
+
 ### August 20, 2025
 - **LIFERAY CSS OVERRIDE SYSTEM**: Applied maximum CSS specificity overrides using `html body #wrapper` selectors with `!important` declarations on all navigation properties. Increased z-index to 99999-100003 range and added `transform: none !important` to combat Liferay Classic theme conflicts. Navigation DOM elements created successfully with API data but required strongest possible CSS force-rendering approach.
 - **NAVIGATION DISPLAY ISSUE RESOLVED**: Fixed CSS visibility problem where DOM elements were created successfully but not displaying. Added explicit `display: flex !important`, `visibility: visible !important`, and `opacity: 1 !important` to menu links, plus proper display properties for menu list and items. Navigation menu now renders authentic API data visibly.
