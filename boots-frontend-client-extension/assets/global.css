@@ -4,6 +4,8 @@
  * All styles scoped to #wrapper for admin interface protection
  */
 
+
+
 /* Boots Brand Color System */
 #wrapper {
     /* Primary Boots Brand Colors using Liferay Classic theme tokens */
@@ -69,6 +71,7 @@
     outline: 2px solid var(--boots-primary);
     outline-offset: 2px;
 }
+
 
 /* Global Typography */
 #wrapper h1,
