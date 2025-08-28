@@ -11,6 +11,12 @@ This project delivers a comprehensive Liferay fragment collection to recreate th
 - Document all architectural decisions and changes with dates
 - **CRITICAL**: Always verify ZIP packaging correctness - check that updated code is actually included in generated ZIPs before considering deployment ready
 
+## Critical Development Rules
+- **MANDATORY**: Every Liferay fragment with configuration options MUST include `"configurationPath": "configuration.json"` in fragment.json
+- **MANDATORY**: Every Liferay fragment MUST have a thumbnail.png file for proper fragment selection interface
+- **ALWAYS**: When creating new fragments, verify both configurationPath and thumbnail are included before deployment
+- **NEVER**: Deploy fragments without these essential files - they will not function properly in Liferay
+
 ## System Architecture
 
 ### Dual-Deployment Strategy
@@ -51,6 +57,12 @@ This project delivers a comprehensive Liferay fragment collection to recreate th
 - **Browser APIs**: Intersection Observer, Fetch API, Local Storage for enhanced functionality.
 
 ## Recent Changes
+
+### August 28, 2025
+- **FRAGMENT CONFIGURATION PATHS FIXED**: **CRITICAL LESSON** - All component fragments (boots-kpi-card, boots-chart-widget, boots-progress-widget, boots-stats-card, boots-data-table) were missing `"configurationPath": "configuration.json"` in their fragment.json files, causing configuration options to be non-functional. This is a mandatory field for any fragment with configuration options.
+- **COMPONENT THUMBNAILS GENERATED**: Created professional thumbnails for all 5 component fragments that were missing them. Liferay fragments require thumbnails for proper display in fragment selection interface.
+- **SCROLL INDICATOR REMOVED**: Completely removed scroll indicator from hero fragment including HTML element, CSS animations, and JavaScript functionality for cleaner presentation.
+- **GLOBAL LINK STYLING**: Added comprehensive link styles for all anchor elements within #wrapper using Boots color scheme (primary-light for default, primary-dark for hover, primary for visited).
 
 ### August 22, 2025
 - **BRAND COLOR SYSTEM UPGRADE**: Updated global CSS to use Liferay Classic theme frontend tokens (`--brand-color-1`, `--brand-color-2`, `--brand-color-3`) instead of hardcoded Boots color values. Colors now properly integrate with Liferay's theme system while maintaining Boots brand identity as fallback values. Ensures theme-level color customization capability and full Liferay compliance.
