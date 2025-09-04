@@ -8,9 +8,6 @@
           "label": "Google Places API Key",
           "description": "Enter your Google Places API key for address autocomplete functionality",
           "type": "text",
-          "typeOptions": {
-            "secret": true
-          },
           "defaultValue": ""
         }
       ]
