@@ -1,0 +1,10 @@
+{
+  "configurationPath": "configuration.json",
+  "jsPath": "index.js",
+  "htmlPath": "index.html",
+  "cssPath": "index.css",
+  "icon": "calendar",
+  "name": "Date (Copy)",
+  "typeOptions": {"fieldTypes": ["date"]},
+  "type": "input"
+}

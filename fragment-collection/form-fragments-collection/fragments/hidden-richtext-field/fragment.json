@@ -1,0 +1,14 @@
+{
+  "configurationPath": "configuration.json",
+  "thumbnailPath": "thumbnail.png",
+  "jsPath": "index.js",
+  "htmlPath": "index.html",
+  "cssPath": "index.css",
+  "icon": "hidden",
+  "name": "Hidden Rich Text Field",
+  "typeOptions": {"fieldTypes": [
+    "journal-article",
+    "rich-text"
+  ]},
+  "type": "input"
+}

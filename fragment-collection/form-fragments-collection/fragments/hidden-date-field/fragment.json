@@ -1,0 +1,13 @@
+{
+  "configurationPath": "configuration.json",
+  "thumbnailPath": "thumbnail.png",
+  "jsPath": "index.js",
+  "htmlPath": "index.html",
+  "cssPath": "index.css",
+  "icon": "hidden",
+  "name": "Hidden Date Field",
+  "typeOptions": {"fieldTypes": [
+    "date"
+  ]},
+  "type": "input"
+}

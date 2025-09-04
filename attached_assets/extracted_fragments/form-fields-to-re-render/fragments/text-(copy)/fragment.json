@@ -1,0 +1,13 @@
+{
+  "configurationPath": "configuration.json",
+  "jsPath": "index.js",
+  "htmlPath": "index.html",
+  "cssPath": "index.css",
+  "icon": "custom-field",
+  "name": "Text (Copy)",
+  "typeOptions": {"fieldTypes": [
+    "long-text",
+    "text"
+  ]},
+  "type": "input"
+}

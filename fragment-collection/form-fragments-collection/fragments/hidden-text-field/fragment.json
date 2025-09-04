@@ -1,0 +1,14 @@
+{
+  "configurationPath": "configuration.json",
+  "thumbnailPath": "thumbnail.png",
+  "jsPath": "index.js",
+  "htmlPath": "index.html",
+  "cssPath": "index.css",
+  "icon": "hidden",
+  "name": "Hidden Text Field",
+  "typeOptions": {"fieldTypes": [
+    "long-text",
+    "text"
+  ]},
+  "type": "input"
+}

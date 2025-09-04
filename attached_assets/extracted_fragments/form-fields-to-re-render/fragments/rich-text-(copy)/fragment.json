@@ -1,0 +1,10 @@
+{
+  "configurationPath": "configuration.json",
+  "jsPath": "index.js",
+  "htmlPath": "index.html",
+  "cssPath": "index.css",
+  "icon": "field-area",
+  "name": "Rich Text (Copy)",
+  "typeOptions": {"fieldTypes": ["html"]},
+  "type": "input"
+}
