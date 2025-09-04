@@ -37,5 +37,35 @@ if (inputEl && inputConfirmationEl) {
                 inputEl.addEventListener('blur', validateConfirmation);
                 inputConfirmationEl.addEventListener('input', validateConfirmation);
                 inputConfirmationEl.addEventListener('blur', validateConfirmation);
+                
+                // Password visibility toggle functionality
+                const toggleButtons = fragmentElement.querySelectorAll('.password-toggle');
+                
+                toggleButtons.forEach(button => {
+                        button.addEventListener('click', (e) => {
+                                e.preventDefault();
+                                
+                                const targetId = button.getAttribute('data-target');
+                                const targetInput = fragmentElement.querySelector(`#${targetId}`);
+                                const eyeIcon = button.querySelector('.eye-icon');
+                                const eyeSlashIcon = button.querySelector('.eye-slash-icon');
+                                
+                                if (targetInput && eyeIcon && eyeSlashIcon) {
+                                        if (targetInput.type === 'password') {
+                                                // Show password
+                                                targetInput.type = 'text';
+                                                eyeIcon.style.display = 'none';
+                                                eyeSlashIcon.style.display = 'block';
+                                                button.setAttribute('aria-label', 'Hide password');
+                                        } else {
+                                                // Hide password
+                                                targetInput.type = 'password';
+                                                eyeIcon.style.display = 'block';
+                                                eyeSlashIcon.style.display = 'none';
+                                                button.setAttribute('aria-label', 'Show password');
+                                        }
+                                }
+                        });
+                });
         }
 }
