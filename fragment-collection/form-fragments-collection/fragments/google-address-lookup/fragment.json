@@ -1,0 +1,15 @@
+{
+  "configurationPath": "configuration.json",
+  "jsPath": "index.js",
+  "htmlPath": "index.html",
+  "cssPath": "index.css",
+  "thumbnailPath": "thumbnail.png",
+  "icon": "forms",
+  "name": "Google Address Lookup",
+  "typeOptions": {
+    "fieldTypes": [
+      "text"
+    ]
+  },
+  "type": "input"
+}

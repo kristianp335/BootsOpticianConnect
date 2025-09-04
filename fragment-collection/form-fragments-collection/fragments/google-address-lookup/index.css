@@ -1,0 +1,136 @@
+/* Google Address Lookup Fragment Styles */
+.google-address-lookup-container {
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.address-lookup-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #333;
+  font-size: 0.9rem;
+}
+
+.required-indicator {
+  color: #dc3545;
+  margin-left: 0.25rem;
+}
+
+.address-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.address-lookup-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #ced4da;
+  border-radius: 0.375rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  background-color: #fff;
+}
+
+.address-lookup-input:focus {
+  border-color: #86b7fe;
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+.address-lookup-input:disabled {
+  background-color: #e9ecef;
+  opacity: 1;
+}
+
+.address-loading-indicator {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.spinner {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid #f3f3f3;
+  border-top: 2px solid #007bff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.address-error-message {
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  border-radius: 0.375rem;
+  color: #721c24;
+}
+
+.error-text {
+  font-size: 0.875rem;
+}
+
+.address-help-text {
+  margin-top: 0.25rem;
+}
+
+.text-muted {
+  color: #6c757d;
+  font-size: 0.875rem;
+}
+
+/* Google Places Autocomplete Dropdown Styling */
+.pac-container {
+  background-color: #fff;
+  border-radius: 0.375rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  border: 1px solid #ced4da;
+  z-index: 1060;
+}
+
+.pac-item {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #e9ecef;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.pac-item:hover {
+  background-color: #f8f9fa;
+}
+
+.pac-item:last-child {
+  border-bottom: none;
+}
+
+.pac-item-selected {
+  background-color: #e3f2fd;
+}
+
+.pac-matched {
+  font-weight: 600;
+  color: #0d6efd;
+}
+
+/* Responsive Design */
+@media (max-width: 576px) {
+  .address-lookup-input {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9rem;
+  }
+  
+  .address-lookup-label {
+    font-size: 0.85rem;
+  }
+}

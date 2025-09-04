@@ -1,0 +1,32 @@
+<div class="google-address-lookup-container">
+  [#if configuration.showLabel!true]
+    <label class="address-lookup-label" data-lfr-editable-id="field-label" data-lfr-editable-type="text">
+      ${configuration.fieldLabel!"Address Line 1"}
+      [#if configuration.required!false]
+        <span class="required-indicator">*</span>
+      [/#if]
+    </label>
+  [/#if]
+  
+  <div class="address-input-wrapper">
+    <input 
+      type="text" 
+      class="address-lookup-input form-control"
+      name="${configuration.fieldName!"addressLine1"}"
+      placeholder="${configuration.placeholder!"Start typing an address..."}"
+      [#if configuration.required!false]required[/#if]
+      autocomplete="off"
+    />
+    <div class="address-loading-indicator" style="display: none;">
+      <span class="spinner"></span>
+    </div>
+  </div>
+  
+  <div class="address-error-message" style="display: none;">
+    <span class="error-text">Unable to load address suggestions. Please enter your address manually.</span>
+  </div>
+  
+  <div class="address-help-text">
+    <small class="text-muted">Start typing to see address suggestions</small>
+  </div>
+</div>

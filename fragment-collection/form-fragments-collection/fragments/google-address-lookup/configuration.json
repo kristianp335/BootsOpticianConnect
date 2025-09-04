@@ -1,0 +1,90 @@
+{
+  "fieldSets": [
+    {
+      "label": "Google API Configuration",
+      "fields": [
+        {
+          "name": "googleApiKey",
+          "label": "Google Places API Key",
+          "description": "Enter your Google Places API key for address autocomplete functionality",
+          "type": "text",
+          "typeOptions": {
+            "secret": true
+          },
+          "defaultValue": ""
+        }
+      ]
+    },
+    {
+      "label": "Field Configuration",
+      "fields": [
+        {
+          "name": "fieldName",
+          "label": "Address Line 1 Field Name",
+          "description": "The name attribute for this address field (will store house number + street)",
+          "type": "text",
+          "defaultValue": "addressLine1"
+        },
+        {
+          "name": "fieldLabel",
+          "label": "Field Label",
+          "description": "The label text displayed above the address input field",
+          "type": "text",
+          "defaultValue": "Address Line 1"
+        },
+        {
+          "name": "placeholder",
+          "label": "Placeholder Text",
+          "description": "Placeholder text shown in the address input field",
+          "type": "text",
+          "defaultValue": "Start typing an address..."
+        }
+      ]
+    },
+    {
+      "label": "Auto-Population Target Fields",
+      "fields": [
+        {
+          "name": "addressLine2Field",
+          "label": "Address Line 2 Field Name",
+          "description": "Name of the field to populate with apartment/unit information",
+          "type": "text",
+          "defaultValue": "branchAddressLine2"
+        },
+        {
+          "name": "cityField",
+          "label": "City Field Name",
+          "description": "Name of the field to populate with city/locality",
+          "type": "text",
+          "defaultValue": "city"
+        },
+        {
+          "name": "postcodeField",
+          "label": "Postcode Field Name", 
+          "description": "Name of the field to populate with postal/zip code",
+          "type": "text",
+          "defaultValue": "postcode"
+        }
+      ]
+    },
+    {
+      "label": "Styling Options",
+      "fields": [
+        {
+          "name": "required",
+          "label": "Required Field",
+          "description": "Mark this field as required for form validation",
+          "type": "checkbox",
+          "defaultValue": false
+        },
+        {
+          "name": "showLabel",
+          "label": "Show Field Label",
+          "description": "Display the field label above the input",
+          "type": "checkbox", 
+          "defaultValue": true
+        }
+      ]
+    }
+  ]
+}
