@@ -50,11 +50,16 @@
             [/#if]
             
             <div class="boots-task-footer">
-                <div class="boots-task-priority boots-priority-${configuration.taskPriority!"medium"}">
-                    <span class="boots-priority-label">${(configuration.taskPriority!"medium")?cap_first} Priority</span>
+                <div class="boots-task-meta">
+                    <div class="boots-task-priority boots-priority-${configuration.taskPriority!"medium"}">
+                        <span class="boots-priority-label">${(configuration.taskPriority!"medium")?cap_first} Priority</span>
+                    </div>
+                    <div class="boots-task-status">
+                        <span class="boots-status-label">Outstanding</span>
+                    </div>
                 </div>
-                <div class="boots-task-status">
-                    <span class="boots-status-label">Outstanding</span>
+                <div class="boots-task-actions">
+                    <a class="btn btn-primary boots-task-button" data-lfr-editable-id="complete-button" data-lfr-editable-type="link" href="#complete-task">Complete Task</a>
                 </div>
             </div>
         </div>
