@@ -37,6 +37,27 @@
     align-items: center;
 }
 
+/* Button Styling */
+#wrapper .boots-btn-primary {
+    color: white !important;
+    background-color: var(--boots-primary);
+    border-color: var(--boots-primary);
+}
+
+#wrapper .boots-btn-primary:hover,
+#wrapper .boots-btn-primary:focus {
+    color: white !important;
+    background-color: var(--boots-primary-dark);
+    border-color: var(--boots-primary-dark);
+    text-decoration: none;
+}
+
+#wrapper .boots-btn-primary:active {
+    color: white !important;
+    background-color: var(--boots-primary-dark);
+    border-color: var(--boots-primary-dark);
+}
+
 /* Case Statistics */
 #wrapper .boots-case-stats {
     margin-bottom: var(--boots-spacing-xl);
