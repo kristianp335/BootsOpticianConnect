@@ -5,13 +5,30 @@ if (layoutMode !== 'edit') {
     const taskCard = fragmentElement.querySelector('.boots-task-card');
     
     if (taskCard) {
-        // Get the action by date from the data attribute
-        const actionDateStr = taskCard.getAttribute('data-action-date');
+        // Get the action by date from the displayed text (editable field)
+        const deadlineDateElement = fragmentElement.querySelector('.boots-deadline-date');
         
-        if (actionDateStr) {
+        if (deadlineDateElement) {
+            const actionDateStr = deadlineDateElement.textContent.trim();
+            
             try {
-                // Parse the action date
-                const actionDate = new Date(actionDateStr);
+                // Parse the action date - handle common date formats
+                let actionDate;
+                
+                // Try parsing as MM/DD/YY HH:MM AM/PM format first
+                if (actionDateStr.match(/^\d{1,2}\/\d{1,2}\/\d{2,4}\s+\d{1,2}:\d{2}\s+(AM|PM)$/i)) {
+                    actionDate = new Date(actionDateStr);
+                } else if (actionDateStr.match(/^\d{1,2}\/\d{1,2}\/\d{2,4}$/)) {
+                    // Handle MM/DD/YY format without time
+                    actionDate = new Date(actionDateStr);
+                } else if (actionDateStr.match(/^\d{4}-\d{2}-\d{2}$/)) {
+                    // Handle YYYY-MM-DD format
+                    actionDate = new Date(actionDateStr);
+                } else {
+                    // Fallback - try direct parsing
+                    actionDate = new Date(actionDateStr);
+                }
+                
                 const today = new Date();
                 
                 // Set both dates to midnight for accurate comparison
