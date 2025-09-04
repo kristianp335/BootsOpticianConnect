@@ -3,8 +3,13 @@
   "jsPath": "index.js",
   "htmlPath": "index.html",
   "cssPath": "index.css",
+  "thumbnailPath": "thumbnail.png",
   "icon": "forms",
   "name": "Range",
-  "typeOptions": {"fieldTypes": ["number"]},
+  "typeOptions": {
+    "fieldTypes": [
+      "number"
+    ]
+  },
   "type": "input"
 }

@@ -3,6 +3,7 @@
   "jsPath": "index.js",
   "htmlPath": "index.html",
   "cssPath": "index.css",
+  "thumbnailPath": "thumbnail.png",
   "icon": "code",
   "name": "Submit Button (Confirmation)",
   "type": "component"

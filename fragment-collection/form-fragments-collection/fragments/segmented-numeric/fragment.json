@@ -3,8 +3,13 @@
   "jsPath": "index.js",
   "htmlPath": "index.ftl",
   "cssPath": "index.css",
+  "thumbnailPath": "thumbnail.png",
   "icon": "forms",
   "name": "Segmented Numeric",
-  "typeOptions": {"fieldTypes": ["number"]},
+  "typeOptions": {
+    "fieldTypes": [
+      "number"
+    ]
+  },
   "type": "input"
 }

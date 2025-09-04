@@ -3,11 +3,14 @@
   "jsPath": "index.js",
   "htmlPath": "index.html",
   "cssPath": "index.css",
+  "thumbnailPath": "thumbnail.png",
   "icon": "forms",
   "name": "Autocomplete (Object)",
-  "typeOptions": {"fieldTypes": [
-    "long-text",
-    "text"
-  ]},
+  "typeOptions": {
+    "fieldTypes": [
+      "long-text",
+      "text"
+    ]
+  },
   "type": "input"
 }

@@ -3,8 +3,13 @@
   "jsPath": "index.js",
   "htmlPath": "index.html",
   "cssPath": "index.css",
+  "thumbnailPath": "thumbnail.png",
   "icon": "forms",
   "name": "Toggle Switch",
-  "typeOptions": {"fieldTypes": ["boolean"]},
+  "typeOptions": {
+    "fieldTypes": [
+      "boolean"
+    ]
+  },
   "type": "input"
 }
