@@ -6,9 +6,6 @@
   "cssPath": "index.css",
   "icon": "hidden",
   "name": "Hidden Rich Text Field",
-  "typeOptions": {"fieldTypes": [
-    "journal-article",
-    "rich-text"
-  ]},
+  "typeOptions": {"fieldTypes": ["html"]},
   "type": "input"
 }
