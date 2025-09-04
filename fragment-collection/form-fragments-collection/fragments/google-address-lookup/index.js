@@ -13,10 +13,10 @@
   let errorMessage = null;
   let isApiLoaded = false;
   
-  // Configuration from Liferay
+  // Configuration from Liferay - will be populated by loadFragmentConfiguration()
   const config = {
-    apiKey: fragmentElement.querySelector('[data-lfr-editable-id="google-api-key"]')?.textContent?.trim() || '',
-    fieldName: fragmentElement.querySelector('input')?.getAttribute('name') || 'addressLine1',
+    apiKey: '',
+    fieldName: 'addressLine1',
     addressLine2Field: 'branchAddressLine2',
     cityField: 'city', 
     postcodeField: 'postcode'
@@ -59,15 +59,35 @@
    * Load fragment configuration from Liferay configuration
    */
   function loadFragmentConfiguration() {
-    // In a real Liferay environment, configuration would be available
-    // For now, we'll use the defaults with fallback to data attributes
-    const container = fragmentElement.querySelector('.google-address-lookup-container');
-    
-    if (container) {
-      config.apiKey = container.dataset.googleApiKey || config.apiKey;
-      config.addressLine2Field = container.dataset.addressLine2Field || config.addressLine2Field;
-      config.cityField = container.dataset.cityField || config.cityField;
-      config.postcodeField = container.dataset.postcodeField || config.postcodeField;
+    try {
+      // Access Liferay fragment configuration object
+      if (typeof configuration !== 'undefined') {
+        // Use Liferay's configuration object
+        config.apiKey = configuration.googleApiKey || '';
+        config.fieldName = configuration.fieldName || 'addressLine1';
+        config.addressLine2Field = configuration.addressLine2Field || 'branchAddressLine2';
+        config.cityField = configuration.cityField || 'city';
+        config.postcodeField = configuration.postcodeField || 'postcode';
+      }
+      
+      // Also get field name from the input element itself
+      const inputElement = fragmentElement.querySelector('.address-lookup-input');
+      if (inputElement && inputElement.getAttribute('name')) {
+        config.fieldName = inputElement.getAttribute('name');
+      }
+      
+      console.log('Google Address Lookup: Configuration loaded', {
+        hasApiKey: !!config.apiKey,
+        fieldName: config.fieldName,
+        targetFields: {
+          addressLine2: config.addressLine2Field,
+          city: config.cityField,
+          postcode: config.postcodeField
+        }
+      });
+      
+    } catch (error) {
+      console.warn('Google Address Lookup: Could not load configuration, using defaults', error);
     }
   }
   
