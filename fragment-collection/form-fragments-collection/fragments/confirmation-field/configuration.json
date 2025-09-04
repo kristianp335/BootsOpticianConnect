@@ -2,14 +2,14 @@
   "fieldSets": [
     {
       "fields": [
-				{
-					"dataType": "string",
-					"defaultValue": "",
-					"label": "placeholder",
-					"localizable": true,
-					"name": "placeholder",
-					"type": "text"
-				},
+        {
+          "dataType": "string",
+          "defaultValue": "",
+          "label": "placeholder",
+          "localizable": true,
+          "name": "placeholder",
+          "type": "text"
+        },
         {
           "dataType": "string",
           "defaultValue": "flex-column-direction",
@@ -28,40 +28,47 @@
               }
             ]
           }
-        },{
-					"dataType": "string",
-					"defaultValue": "",
-					"label": "Horizontal Spacer",
-					"name": "horizontalSpacerWidth",
-					"type": "select",
-					"typeOptions": {
-						"validValues": [
-							{
-								"label": "0",
-								"value": ""
-							},
-							{
-								"label": "1",
-								"value": "px-1"
-							},
-							{
-								"label": "2",
-								"value": "px-2"
-							},
-							{
-								"label": "3",
-								"value": "px-3"
-							},
-							{
-								"label": "4",
-								"value": "px-4"
-							},
-							{
-								"label": "5",
-								"value": "px-5"
-							}
-						]
-					}
+        },
+        {
+          "dataType": "string",
+          "defaultValue": "",
+          "label": "Horizontal Spacer",
+          "name": "horizontalSpacerWidth",
+          "type": "select",
+          "typeOptions": {
+            "validValues": [
+              {
+                "label": "0",
+                "value": ""
+              },
+              {
+                "label": "1",
+                "value": "px-1"
+              },
+              {
+                "label": "2",
+                "value": "px-2"
+              },
+              {
+                "label": "3",
+                "value": "px-3"
+              },
+              {
+                "label": "4",
+                "value": "px-4"
+              },
+              {
+                "label": "5",
+                "value": "px-5"
+              }
+            ]
+          }
+        },
+        {
+          "defaultValue": false,
+          "label": "Password Field",
+          "name": "isPasswordField",
+          "type": "checkbox"
         },
         {
           "dataType": "string",
@@ -70,12 +77,12 @@
           "name": "label",
           "type": "text"
         },
-				{
-					"defaultValue": true,
-					"label": "Convert Label Text to Lowercase",
-					"name": "convertLabelToLowercase",
-					"type": "checkbox"
-				},
+        {
+          "defaultValue": true,
+          "label": "Convert Label Text to Lowercase",
+          "name": "convertLabelToLowercase",
+          "type": "checkbox"
+        },
         {
           "dataType": "string",
           "defaultValue": "The information does not match.",
