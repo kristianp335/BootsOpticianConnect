@@ -184,6 +184,27 @@
     text-decoration: none;
     transition: var(--boots-transition);
     white-space: nowrap;
+    color: white !important;
+    background-color: var(--boots-primary);
+    border: 1px solid var(--boots-primary);
+}
+
+#wrapper .boots-task-button:hover,
+#wrapper .boots-task-button:focus {
+    color: white !important;
+    background-color: var(--boots-primary-dark);
+    border-color: var(--boots-primary-dark);
+    text-decoration: none;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+#wrapper .boots-task-button:active {
+    color: white !important;
+    background-color: var(--boots-primary-dark);
+    border-color: var(--boots-primary-dark);
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* Priority Badge */
