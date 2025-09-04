@@ -58,9 +58,11 @@
                         <span class="boots-status-label">Outstanding</span>
                     </div>
                 </div>
+                [#if (configuration.showActionButton!true)]
                 <div class="boots-task-actions">
                     <a class="btn btn-primary boots-task-button" data-lfr-editable-id="complete-button" data-lfr-editable-type="link" href="#complete-task">Complete Task</a>
                 </div>
+                [/#if]
             </div>
         </div>
     </div>

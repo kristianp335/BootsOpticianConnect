@@ -69,6 +69,13 @@
                         ]
                     },
                     "defaultValue": "detailed"
+                },
+                {
+                    "name": "showActionButton",
+                    "label": "Show Action Button",
+                    "description": "Display the Complete Task button",
+                    "type": "checkbox",
+                    "defaultValue": true
                 }
             ]
         }
