@@ -194,6 +194,7 @@
       streetNumber: '',
       route: '',
       locality: '',
+      postalTown: '',
       postalCode: '',
       subpremise: '',
       administrativeAreaLevel1: '',
@@ -211,6 +212,8 @@
         addressData.route = value;
       } else if (types.includes('locality')) {
         addressData.locality = value;
+      } else if (types.includes('postal_town')) {
+        addressData.postalTown = value;
       } else if (types.includes('postal_code')) {
         addressData.postalCode = value;
       } else if (types.includes('subpremise')) {
@@ -228,20 +231,11 @@
   }
   
   /**
-   * Build the first line of address (house number + street name)
+   * Build the first line of address (just the street number)
    */
   function buildAddressLine1(addressData) {
-    const parts = [];
-    
-    if (addressData.streetNumber) {
-      parts.push(addressData.streetNumber);
-    }
-    
-    if (addressData.route) {
-      parts.push(addressData.route);
-    }
-    
-    return parts.join(' ');
+    // Return just the street number as requested
+    return addressData.streetNumber || '';
   }
   
   /**
@@ -249,21 +243,24 @@
    */
   function populateTargetFields(addressData) {
     try {
-      // Address Line 2 (apartment/unit info)
-      if (config.addressLine2Field && addressData.subpremise) {
+      // Address Line 2 (street name/route)
+      if (config.addressLine2Field && addressData.route) {
         const addressLine2Field = document.querySelector(`[name="${config.addressLine2Field}"]`);
         if (addressLine2Field) {
-          addressLine2Field.value = addressData.subpremise;
+          addressLine2Field.value = addressData.route;
           triggerChangeEvent(addressLine2Field);
         }
       }
       
-      // City
-      if (config.cityField && addressData.locality) {
-        const cityField = document.querySelector(`[name="${config.cityField}"]`);
-        if (cityField) {
-          cityField.value = addressData.locality;
-          triggerChangeEvent(cityField);
+      // City (use postal_town for UK addresses, fallback to locality)
+      if (config.cityField) {
+        const cityValue = addressData.postalTown || addressData.locality || '';
+        if (cityValue) {
+          const cityField = document.querySelector(`[name="${config.cityField}"]`);
+          if (cityField) {
+            cityField.value = cityValue;
+            triggerChangeEvent(cityField);
+          }
         }
       }
       
