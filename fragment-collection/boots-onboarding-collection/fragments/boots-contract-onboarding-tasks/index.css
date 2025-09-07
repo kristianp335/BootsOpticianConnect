@@ -207,6 +207,10 @@
     content: "✓ ";
 }
 
+#wrapper .boots-task-card.boots-completed .boots-task-button {
+    display: none;
+}
+
 /* Download Button Styling */
 #wrapper .boots-download-button {
     padding: var(--boots-spacing-xs) var(--boots-spacing-md);
