@@ -11,7 +11,7 @@ if (layoutMode !== 'edit') {
         if (taskStatusElement) {
             const taskStatus = taskStatusElement.textContent.trim().toLowerCase();
             
-            if (taskStatus !== 'outstanding') {
+            if (taskStatus && taskStatus !== 'outstanding') {
                 // Task is completed - apply completed styling and hide elements
                 taskCard.classList.add('boots-completed');
                 taskCard.classList.remove('boots-overdue', 'boots-due-soon', 'boots-due-today');
