@@ -1,0 +1,12 @@
+/* Hidden Upload Field Fragment CSS */
+/* This field is only visible in edit mode */
+
+.file-upload-preview {
+    min-height: 120px;
+    transition: all 0.3s ease;
+}
+
+.file-upload-preview:hover {
+    background-color: #f8f9fa !important;
+    border-color: #6c757d !important;
+}

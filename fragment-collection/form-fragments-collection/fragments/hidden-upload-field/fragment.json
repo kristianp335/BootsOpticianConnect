@@ -1,0 +1,11 @@
+{
+  "configurationPath": "configuration.json",
+  "thumbnailPath": "thumbnail.png",
+  "jsPath": "index.js",
+  "htmlPath": "index.html",
+  "cssPath": "index.css",
+  "icon": "hidden",
+  "name": "Hidden Upload Field",
+  "typeOptions": {"fieldTypes": ["file"]},
+  "type": "input"
+}
