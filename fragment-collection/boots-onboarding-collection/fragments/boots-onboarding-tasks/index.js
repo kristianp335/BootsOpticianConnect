@@ -27,6 +27,12 @@ function checkTaskCompletion() {
                 // Set completion tooltip
                 taskCard.setAttribute('title', 'This task has been completed');
                 
+                // Show contract dropzone when task is completed
+                const contractDropZone = document.getElementById('contractDropZone');
+                if (contractDropZone) {
+                    contractDropZone.style.display = 'block';
+                }
+                
                 return true; // Task is completed, skip overdue logic
             }
         }
