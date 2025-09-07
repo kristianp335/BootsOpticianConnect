@@ -217,7 +217,7 @@
     color: var(--boots-primary) !important;
     background-color: transparent;
     border: 1px solid var(--boots-primary);
-    margin-right: var(--boots-spacing-sm);
+    margin-right: var(--boots-spacing-md);
 }
 
 #wrapper .boots-download-button:hover,
