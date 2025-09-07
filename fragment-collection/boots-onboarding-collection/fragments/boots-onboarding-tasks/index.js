@@ -28,9 +28,24 @@ function checkTaskCompletion() {
                 taskCard.setAttribute('title', 'This task has been completed');
                 
                 // Show contract dropzone when task is completed
-                const contractDropZone = document.getElementById('contractDropZone');
-                if (contractDropZone) {
-                    contractDropZone.style.display = 'block';
+                function showContractDropzone() {
+                    const contractDropZone = document.getElementById('contractDropZone');
+                    if (contractDropZone) {
+                        contractDropZone.style.display = 'block';
+                        contractDropZone.style.visibility = 'visible';
+                        return true;
+                    }
+                    return false;
+                }
+                
+                // Try to show dropzone immediately
+                if (!showContractDropzone()) {
+                    // If not found, try again after a short delay in case dropzone fragment loads later
+                    setTimeout(showContractDropzone, 100);
+                    // Also try after page is fully loaded
+                    if (document.readyState !== 'complete') {
+                        window.addEventListener('load', showContractDropzone);
+                    }
                 }
                 
                 return true; // Task is completed, skip overdue logic
