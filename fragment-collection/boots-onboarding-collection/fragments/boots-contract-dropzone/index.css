@@ -7,7 +7,6 @@
 #wrapper #contractDropZone {
     width: 100%;
     display: block;
-    margin: var(--boots-spacing-md) 0;
 }
 
 /* Dropzone Styling */

@@ -173,6 +173,8 @@
 
 #wrapper .boots-task-actions {
     margin-left: auto;
+    display: flex;
+    gap: var(--boots-spacing-md);
 }
 
 /* Completed Task Styling */
@@ -217,7 +219,6 @@
     color: var(--boots-primary) !important;
     background-color: transparent;
     border: 1px solid var(--boots-primary);
-    margin-right: var(--boots-spacing-md);
 }
 
 #wrapper .boots-download-button:hover,
