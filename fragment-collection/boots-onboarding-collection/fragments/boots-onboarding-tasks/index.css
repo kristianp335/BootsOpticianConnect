@@ -250,6 +250,27 @@
     border-radius: var(--boots-border-radius-sm);
 }
 
+/* Completed Task Styling */
+#wrapper .boots-task-card.boots-completed {
+    border: 2px solid #10B981;
+    border-left: 4px solid #10B981;
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.02) 0%, rgba(16, 185, 129, 0.05) 100%);
+}
+
+#wrapper .boots-task-card.boots-completed .boots-icon-default,
+#wrapper .boots-task-card.boots-completed .boots-icon-problem {
+    display: none;
+}
+
+#wrapper .boots-task-card.boots-completed .boots-icon-completed {
+    display: block !important;
+}
+
+#wrapper .boots-task-card.boots-completed .boots-task-icon {
+    background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+    color: var(--boots-white);
+}
+
 /* Overdue Status Override */
 #wrapper .boots-task-card.boots-overdue .boots-status-label {
     background: rgba(220, 38, 38, 0.1);

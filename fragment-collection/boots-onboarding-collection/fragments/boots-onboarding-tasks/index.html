@@ -2,6 +2,12 @@
     <div class="boots-task-card boots-card boots-layout-${configuration.cardLayout!"detailed"}" data-action-date="${configuration.actionByDate!"2024-12-31"}">
         <div class="boots-task-status-indicator">
             <div class="boots-task-icon boots-priority-${configuration.taskPriority!"medium"}">
+                <!-- Completed icon for finished tasks -->
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" class="boots-icon-completed" style="display: none;">
+                    <path d="M22 11.08V12C22 17.52 17.52 22 12 22S2 17.52 2 12S6.48 2 12 2C14.1 2 15.99 2.64 17.54 3.71" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M22 4L12 14.01L9 11.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                
                 <!-- Problem icon for overdue tasks (will be shown via CSS/JS) -->
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" class="boots-icon-problem" style="display: none;">
                     <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
@@ -55,7 +61,7 @@
                         <span class="boots-priority-label">${(configuration.taskPriority!"medium")?cap_first} Priority</span>
                     </div>
                     <div class="boots-task-status">
-                        <span class="boots-status-label">Outstanding</span>
+                        <span class="boots-status-label" data-lfr-editable-id="task-status" data-lfr-editable-type="text">Outstanding</span>
                     </div>
                 </div>
                 [#if (configuration.showActionButton!true)]

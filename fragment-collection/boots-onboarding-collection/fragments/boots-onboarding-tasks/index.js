@@ -5,6 +5,34 @@ if (layoutMode !== 'edit') {
     const taskCard = fragmentElement.querySelector('.boots-task-card');
     
     if (taskCard) {
+        // Check task status from editable field
+        const taskStatusElement = fragmentElement.querySelector('.boots-status-label');
+        
+        if (taskStatusElement) {
+            const taskStatus = taskStatusElement.textContent.trim().toLowerCase();
+            
+            if (taskStatus !== 'outstanding') {
+                // Task is completed - apply completed styling and hide elements
+                taskCard.classList.add('boots-completed');
+                taskCard.classList.remove('boots-overdue', 'boots-due-soon', 'boots-due-today');
+                
+                // Hide the status element and complete button
+                const statusDiv = fragmentElement.querySelector('.boots-task-status');
+                const completeButton = fragmentElement.querySelector('.boots-task-button');
+                
+                if (statusDiv) statusDiv.style.display = 'none';
+                if (completeButton) completeButton.style.display = 'none';
+                
+                // Set completion tooltip
+                taskCard.setAttribute('title', 'This task has been completed');
+                
+                return; // Skip overdue logic for completed tasks
+            }
+        }
+        
+        // Task is outstanding - proceed with normal overdue/outstanding logic
+        taskCard.classList.remove('boots-completed');
+        
         // Get the action by date from the displayed text (editable field)
         const deadlineDateElement = fragmentElement.querySelector('.boots-deadline-date');
         
