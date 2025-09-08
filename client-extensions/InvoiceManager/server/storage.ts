@@ -38,7 +38,8 @@ export class MemStorage implements IStorage {
         issueDate: "2024-01-15",
         dueDate: "2024-02-14",
         amount: "2450.00",
-        status: "paid"
+        status: "paid",
+        numberOfAppointments: 12
       },
       {
         invoiceNumber: "INV-2024-002",
@@ -46,7 +47,8 @@ export class MemStorage implements IStorage {
         issueDate: "2024-01-20",
         dueDate: "2024-02-19",
         amount: "1750.00",
-        status: "pending"
+        status: "pending",
+        numberOfAppointments: 8
       },
       {
         invoiceNumber: "INV-2024-003",
@@ -54,7 +56,8 @@ export class MemStorage implements IStorage {
         issueDate: "2024-01-10",
         dueDate: "2024-02-09",
         amount: "3200.00",
-        status: "overdue"
+        status: "overdue",
+        numberOfAppointments: 15
       },
       {
         invoiceNumber: "INV-2024-004",
@@ -62,7 +65,8 @@ export class MemStorage implements IStorage {
         issueDate: "2024-01-25",
         dueDate: "2024-02-24",
         amount: "890.00",
-        status: "draft"
+        status: "draft",
+        numberOfAppointments: 4
       },
       {
         invoiceNumber: "INV-2024-005",
@@ -70,7 +74,8 @@ export class MemStorage implements IStorage {
         issueDate: "2024-01-28",
         dueDate: "2024-02-27",
         amount: "5100.00",
-        status: "paid"
+        status: "paid",
+        numberOfAppointments: 22
       },
       {
         invoiceNumber: "INV-2024-006",
@@ -78,7 +83,8 @@ export class MemStorage implements IStorage {
         issueDate: "2024-02-01",
         dueDate: "2024-03-02",
         amount: "1420.00",
-        status: "pending"
+        status: "pending",
+        numberOfAppointments: 6
       }
     ];
 

@@ -14,6 +14,7 @@ const sampleInvoices: Invoice[] = [
     dueDate: "2024-02-14",
     amount: "2450.00",
     status: "paid",
+    numberOfAppointments: 12,
     createdAt: new Date("2024-01-15")
   },
   {
@@ -24,6 +25,7 @@ const sampleInvoices: Invoice[] = [
     dueDate: "2024-02-19",
     amount: "1750.00",
     status: "pending",
+    numberOfAppointments: 8,
     createdAt: new Date("2024-01-20")
   },
   {
@@ -34,6 +36,7 @@ const sampleInvoices: Invoice[] = [
     dueDate: "2024-02-09",
     amount: "3200.00",
     status: "overdue",
+    numberOfAppointments: 15,
     createdAt: new Date("2024-01-10")
   },
   {
@@ -44,6 +47,7 @@ const sampleInvoices: Invoice[] = [
     dueDate: "2024-02-24",
     amount: "890.00",
     status: "draft",
+    numberOfAppointments: 4,
     createdAt: new Date("2024-01-25")
   },
   {
@@ -54,6 +58,7 @@ const sampleInvoices: Invoice[] = [
     dueDate: "2024-02-27",
     amount: "5100.00",
     status: "paid",
+    numberOfAppointments: 22,
     createdAt: new Date("2024-01-28")
   },
   {
@@ -64,6 +69,7 @@ const sampleInvoices: Invoice[] = [
     dueDate: "2024-03-02",
     amount: "1420.00",
     status: "pending",
+    numberOfAppointments: 6,
     createdAt: new Date("2024-02-01")
   }
 ];

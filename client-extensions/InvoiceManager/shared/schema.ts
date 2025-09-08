@@ -10,6 +10,7 @@ export const invoices = pgTable("invoices", {
   dueDate: text("due_date").notNull(),
   amount: decimal("amount", { precision: 10, scale: 2 }).notNull(),
   status: text("status").notNull(), // 'paid', 'pending', 'overdue', 'draft'
+  numberOfAppointments: integer("number_of_appointments").notNull().default(0),
   createdAt: timestamp("created_at").defaultNow(),
 });
 
