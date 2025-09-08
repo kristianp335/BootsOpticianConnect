@@ -1,0 +1,19 @@
+assemble:
+  - from: dist
+    into: static
+
+invoice-data-table:
+  cssURLs:
+    - "public/assets/*.css"
+  friendlyURLMapping: invoice-data-table
+  htmlElementName: invoice-data-table
+  instanceable: false
+  name: Invoice Data Table
+  portletCategoryName: category.business
+  properties:
+    com.liferay.portlet.display-category: category.business
+    com.liferay.portlet.instanceable: false
+    com.liferay.portlet.single-page-application: false
+  type: customElement
+  urls:
+    - "public/assets/*.js"

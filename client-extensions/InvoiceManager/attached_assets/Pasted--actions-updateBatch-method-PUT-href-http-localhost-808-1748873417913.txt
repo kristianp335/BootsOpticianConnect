@@ -1,0 +1,190 @@
+{
+  "actions": {
+    "updateBatch": {
+      "method": "PUT",
+      "href": "http://localhost:8080/o/c/sapinvoices/batch"
+    },
+    "create": {
+      "method": "POST",
+      "href": "http://localhost:8080/o/c/sapinvoices/"
+    },
+    "createBatch": {
+      "method": "POST",
+      "href": "http://localhost:8080/o/c/sapinvoices/batch"
+    },
+    "deleteBatch": {
+      "method": "DELETE",
+      "href": "http://localhost:8080/o/c/sapinvoices/batch"
+    }
+  },
+  "facets": [],
+  "items": [
+    {
+      "actions": {
+        "permissions": {
+          "method": "GET",
+          "href": "http://localhost:8080/o/c/sapinvoices/309853/permissions"
+        },
+        "get": {
+          "method": "GET",
+          "href": "http://localhost:8080/o/c/sapinvoices/309853"
+        },
+        "replace": {
+          "method": "PUT",
+          "href": "http://localhost:8080/o/c/sapinvoices/309853"
+        },
+        "update": {
+          "method": "PATCH",
+          "href": "http://localhost:8080/o/c/sapinvoices/309853"
+        },
+        "delete": {
+          "method": "DELETE",
+          "href": "http://localhost:8080/o/c/sapinvoices/309853"
+        }
+      },
+      "creator": {
+        "additionalName": "",
+        "contentType": "UserAccount",
+        "familyName": "MacDonald",
+        "givenName": "Mike",
+        "id": 309040,
+        "image": "/image/user_portrait?img_id=309045&img_id_token=fN5lehsVJ6WlItcADtjTNoe7%2B7w%3D&t=1748873339439",
+        "name": "Mike MacDonald"
+      },
+      "dateCreated": "2025-03-12T20:02:28Z",
+      "dateModified": "2025-05-14T11:21:48Z",
+      "externalReferenceCode": "2b10b60e-1a13-3613-319d-905d481160dc",
+      "id": 309853,
+      "keywords": [],
+      "status": {
+        "code": 0,
+        "label": "approved",
+        "label_i18n": "Approved"
+      },
+      "taxonomyCategoryBriefs": [],
+      "amount": 103456.61,
+      "r_accountToSAPInvoice_accountEntryERC": "620649",
+      "r_accountToSAPInvoice_accountEntryId": 44276,
+      "dueDate": "2025-04-30T00:00:00.000Z",
+      "accountToSAPInvoiceERC": "620649"
+    },
+    {
+      "actions": {
+        "permissions": {
+          "method": "GET",
+          "href": "http://localhost:8080/o/c/sapinvoices/310277/permissions"
+        },
+        "get": {
+          "method": "GET",
+          "href": "http://localhost:8080/o/c/sapinvoices/310277"
+        },
+        "replace": {
+          "method": "PUT",
+          "href": "http://localhost:8080/o/c/sapinvoices/310277"
+        },
+        "update": {
+          "method": "PATCH",
+          "href": "http://localhost:8080/o/c/sapinvoices/310277"
+        },
+        "delete": {
+          "method": "DELETE",
+          "href": "http://localhost:8080/o/c/sapinvoices/310277"
+        }
+      },
+      "creator": {
+        "additionalName": "",
+        "contentType": "UserAccount",
+        "familyName": "MacDonald",
+        "givenName": "Mike",
+        "id": 309040,
+        "image": "/image/user_portrait?img_id=309045&img_id_token=fN5lehsVJ6WlItcADtjTNoe7%2B7w%3D&t=1748873339439",
+        "name": "Mike MacDonald"
+      },
+      "dateCreated": "2025-03-13T09:08:41Z",
+      "dateModified": "2025-05-19T13:24:13Z",
+      "externalReferenceCode": "a11d2b65-463e-8b0c-79a9-5bd07d0a3bee",
+      "id": 310277,
+      "keywords": [],
+      "status": {
+        "code": 0,
+        "label": "approved",
+        "label_i18n": "Approved"
+      },
+      "taxonomyCategoryBriefs": [],
+      "amount": 134560.35,
+      "r_accountToSAPInvoice_accountEntryERC": "620649",
+      "r_accountToSAPInvoice_accountEntryId": 44276,
+      "dueDate": "2025-04-27T00:00:00.000Z",
+      "invoiceUpload": {
+        "id": 327892,
+        "link": {
+          "href": "/documents/20123/0/25feb.pdf/8808c366-3262-2db6-f802-a4dae6eadde7?version=1.0&t=1747657003622&download=true&objectDefinitionExternalReferenceCode=ad48cb20-8f95-d09c-1b6e-4ede6f5a0d2a&objectEntryExternalReferenceCode=a11d2b65-463e-8b0c-79a9-5bd07d0a3bee",
+          "label": "25feb.pdf"
+        },
+        "name": "25feb.pdf"
+      },
+      "accountToSAPInvoiceERC": "620649"
+    },
+    {
+      "actions": {
+        "permissions": {
+          "method": "GET",
+          "href": "http://localhost:8080/o/c/sapinvoices/310576/permissions"
+        },
+        "get": {
+          "method": "GET",
+          "href": "http://localhost:8080/o/c/sapinvoices/310576"
+        },
+        "replace": {
+          "method": "PUT",
+          "href": "http://localhost:8080/o/c/sapinvoices/310576"
+        },
+        "update": {
+          "method": "PATCH",
+          "href": "http://localhost:8080/o/c/sapinvoices/310576"
+        },
+        "delete": {
+          "method": "DELETE",
+          "href": "http://localhost:8080/o/c/sapinvoices/310576"
+        }
+      },
+      "creator": {
+        "additionalName": "",
+        "contentType": "UserAccount",
+        "familyName": "MacDonald",
+        "givenName": "Mike",
+        "id": 309040,
+        "image": "/image/user_portrait?img_id=309045&img_id_token=fN5lehsVJ6WlItcADtjTNoe7%2B7w%3D&t=1748873339439",
+        "name": "Mike MacDonald"
+      },
+      "dateCreated": "2025-03-13T11:33:37Z",
+      "dateModified": "2025-05-18T16:12:03Z",
+      "externalReferenceCode": "b140e865-6617-dbe2-fa34-265d5b365c8d",
+      "id": 310576,
+      "keywords": [],
+      "status": {
+        "code": 0,
+        "label": "approved",
+        "label_i18n": "Approved"
+      },
+      "taxonomyCategoryBriefs": [],
+      "amount": 677556,
+      "r_accountToSAPInvoice_accountEntryERC": "620649",
+      "r_accountToSAPInvoice_accountEntryId": 44276,
+      "dueDate": "2025-03-30T00:00:00.000Z",
+      "invoiceUpload": {
+        "id": 327892,
+        "link": {
+          "href": "/documents/20123/0/25feb.pdf/8808c366-3262-2db6-f802-a4dae6eadde7?version=1.0&t=1747657003622&download=true&objectDefinitionExternalReferenceCode=ad48cb20-8f95-d09c-1b6e-4ede6f5a0d2a&objectEntryExternalReferenceCode=b140e865-6617-dbe2-fa34-265d5b365c8d",
+          "label": "25feb.pdf"
+        },
+        "name": "25feb.pdf"
+      },
+      "accountToSAPInvoiceERC": "620649"
+    }
+  ],
+  "lastPage": 1,
+  "page": 1,
+  "pageSize": 20,
+  "totalCount": 3
+}

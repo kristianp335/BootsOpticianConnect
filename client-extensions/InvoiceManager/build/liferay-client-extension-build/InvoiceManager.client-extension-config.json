@@ -1,0 +1,17 @@
+{
+  "com.liferay.client.extension.type.configuration.CETConfiguration~invoice-data-table" : {
+    ":configurator:policy" : "force",
+    "baseURL" : "${portalURL}/o/InvoiceManager",
+    "buildTimestamp" : 1751395864662,
+    "description" : "",
+    "dxp.lxc.liferay.com.virtualInstanceId" : "default",
+    "name" : "Invoice Data Table",
+    "projectId" : "invoicemanager",
+    "projectName" : "InvoiceManager",
+    "properties" : [ "com.liferay.portlet.display-category=category.business", "com.liferay.portlet.instanceable=false", "com.liferay.portlet.single-page-application=false" ],
+    "sourceCodeURL" : "",
+    "type" : "customElement",
+    "typeSettings" : [ "friendlyURLMapping=invoice-data-table", "instanceable=false", "urls=public\\assets\\index-s3uM5hJK.js", "htmlElementName=invoice-data-table", "cssURLs=public\\assets\\index-C9IqEjCa.css", "portletCategoryName=category.business" ],
+    "webContextPath" : "/InvoiceManager"
+  }
+}
