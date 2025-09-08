@@ -23,7 +23,7 @@ export function formatDate(dateString: string): string {
 }
 
 export type SortDirection = 'asc' | 'desc';
-export type SortKey = 'invoiceNumber' | 'customerName' | 'issueDate' | 'dueDate' | 'amount' | 'status';
+export type SortKey = 'invoiceNumber' | 'customerName' | 'issueDate' | 'dueDate' | 'amount' | 'status' | 'numberOfAppointments';
 
 export interface SortConfig {
   key: SortKey | null;
@@ -41,7 +41,7 @@ export function sortInvoices<T extends Record<string, any>>(
     let bVal = b[sortConfig.key!];
 
     // Handle different data types
-    if (sortConfig.key === 'amount') {
+    if (sortConfig.key === 'amount' || sortConfig.key === 'numberOfAppointments') {
       aVal = parseFloat(aVal);
       bVal = parseFloat(bVal);
     } else if (sortConfig.key === 'issueDate' || sortConfig.key === 'dueDate') {

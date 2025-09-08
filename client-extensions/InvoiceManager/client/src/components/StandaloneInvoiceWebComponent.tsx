@@ -32,6 +32,7 @@ interface Invoice {
   dueDate: string;
   amount: string;
   status: string;
+  numberOfAppointments: number;
   createdAt?: Date | null;
 }
 
@@ -952,6 +953,9 @@ function InvoiceTableComponent({ data = [], onEvent }: { data?: Invoice[], onEve
                     <th className={`sortable ${getSortClass('status')}`} onClick={() => handleSort('status')}>
                       Status
                     </th>
+                    <th className={`sortable ${getSortClass('numberOfAppointments')}`} onClick={() => handleSort('numberOfAppointments')}>
+                      Appointments
+                    </th>
                     <th>Actions</th>
                   </tr>
                 </thead>
@@ -975,6 +979,7 @@ function InvoiceTableComponent({ data = [], onEvent }: { data?: Invoice[], onEve
                           {formatStatus(invoice.status)}
                         </span>
                       </td>
+                      <td className="text-center">{invoice.numberOfAppointments}</td>
                       <td>
                         <button 
                           className="btn btn-primary btn-sm"
