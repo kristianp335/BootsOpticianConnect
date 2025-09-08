@@ -53,11 +53,11 @@
                     }
                 },
                 {
-                    "dataType": "boolean",
-                    "defaultValue": true,
-                    "label": "Show Download Button",
                     "name": "showDownloadButton",
-                    "type": "checkbox"
+                    "label": "Show Download Button",
+                    "description": "Display download invoice button",
+                    "type": "checkbox",
+                    "defaultValue": true
                 }
             ]
         }
