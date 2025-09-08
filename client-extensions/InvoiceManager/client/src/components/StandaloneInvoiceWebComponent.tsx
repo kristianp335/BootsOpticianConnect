@@ -33,6 +33,7 @@ interface Invoice {
   amount: string;
   status: string;
   numberOfAppointments: number;
+  accountId?: number | null;
   createdAt?: Date | null;
 }
 
@@ -631,6 +632,7 @@ function InvoiceTableComponent({ data = [], onEvent }: { data?: Invoice[], onEve
           amount: (item.amount || 0).toString(),
           status: status === 'approved' ? 'paid' : status,
           numberOfAppointments: item.numberOfAppointments || 0,
+          accountId: accountId,
           createdAt: item.dateCreated ? new Date(item.dateCreated) : new Date()
         };
       });
@@ -652,6 +654,7 @@ function InvoiceTableComponent({ data = [], onEvent }: { data?: Invoice[], onEve
           amount: "2450.00",
           status: "paid",
           numberOfAppointments: 12,
+          accountId: 12345,
           createdAt: new Date("2024-01-15")
         },
         {
@@ -663,6 +666,7 @@ function InvoiceTableComponent({ data = [], onEvent }: { data?: Invoice[], onEve
           amount: "1750.00",
           status: "pending",
           numberOfAppointments: 8,
+          accountId: 12346,
           createdAt: new Date("2024-02-20")
         },
         {
@@ -674,6 +678,7 @@ function InvoiceTableComponent({ data = [], onEvent }: { data?: Invoice[], onEve
           amount: "3200.00",
           status: "overdue",
           numberOfAppointments: 15,
+          accountId: 12347,
           createdAt: new Date("2024-03-10")
         },
         {
@@ -685,6 +690,7 @@ function InvoiceTableComponent({ data = [], onEvent }: { data?: Invoice[], onEve
           amount: "890.00",
           status: "paid",
           numberOfAppointments: 4,
+          accountId: 12348,
           createdAt: new Date("2024-01-25")
         },
         {
@@ -696,6 +702,7 @@ function InvoiceTableComponent({ data = [], onEvent }: { data?: Invoice[], onEve
           amount: "5100.00",
           status: "paid",
           numberOfAppointments: 22,
+          accountId: 12349,
           createdAt: new Date("2024-02-28")
         }
       ];
@@ -827,7 +834,7 @@ function InvoiceTableComponent({ data = [], onEvent }: { data?: Invoice[], onEve
   }
 
   const handleViewInvoice = (invoice: Invoice) => {
-    window.location.href = `/web/boots/l/${invoice.id}`;
+    window.location.href = `/web/boots-opticians-portal/e/invoice-detail/${invoice.id}/${invoice.accountId || 'unknown'}`;
   };
 
   return (

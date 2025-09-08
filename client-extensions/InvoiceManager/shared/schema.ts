@@ -11,6 +11,7 @@ export const invoices = pgTable("invoices", {
   amount: decimal("amount", { precision: 10, scale: 2 }).notNull(),
   status: text("status").notNull(), // 'paid', 'pending', 'overdue', 'draft'
   numberOfAppointments: integer("number_of_appointments").notNull().default(0),
+  accountId: integer("account_id"),
   createdAt: timestamp("created_at").defaultNow(),
 });
 

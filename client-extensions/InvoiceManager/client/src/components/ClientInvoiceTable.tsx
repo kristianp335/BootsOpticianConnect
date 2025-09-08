@@ -15,6 +15,7 @@ const sampleInvoices: Invoice[] = [
     amount: "2450.00",
     status: "paid",
     numberOfAppointments: 12,
+    accountId: 12345,
     createdAt: new Date("2024-01-15")
   },
   {
@@ -26,6 +27,7 @@ const sampleInvoices: Invoice[] = [
     amount: "1750.00",
     status: "pending",
     numberOfAppointments: 8,
+    accountId: 12346,
     createdAt: new Date("2024-01-20")
   },
   {
@@ -37,6 +39,7 @@ const sampleInvoices: Invoice[] = [
     amount: "3200.00",
     status: "overdue",
     numberOfAppointments: 15,
+    accountId: 12347,
     createdAt: new Date("2024-01-10")
   },
   {
@@ -48,6 +51,7 @@ const sampleInvoices: Invoice[] = [
     amount: "890.00",
     status: "draft",
     numberOfAppointments: 4,
+    accountId: 12348,
     createdAt: new Date("2024-01-25")
   },
   {
@@ -59,6 +63,7 @@ const sampleInvoices: Invoice[] = [
     amount: "5100.00",
     status: "paid",
     numberOfAppointments: 22,
+    accountId: 12349,
     createdAt: new Date("2024-01-28")
   },
   {
@@ -103,10 +108,8 @@ export default function ClientInvoiceTable({
     if (onInvoiceClick) {
       onInvoiceClick(invoice);
     } else {
-      toast({
-        title: "Invoice Selected",
-        description: `Viewing invoice ${invoice.invoiceNumber}`,
-      });
+      // Navigate to invoice detail page
+      window.location.href = `/web/boots-opticians-portal/e/invoice-detail/${invoice.id}/${invoice.accountId || 'unknown'}`;
     }
   };
 
