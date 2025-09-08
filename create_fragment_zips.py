@@ -33,16 +33,15 @@ def create_collection_zip(source_dir, output_path):
         if collection_json.exists():
             zip_file.write(collection_json, "boots-partner-collection/collection.json")
         
-        # Add all fragment directories
-        fragment_dirs = [d for d in source_dir.iterdir() if d.is_dir() and d.name.startswith('boots-')]
-        
-        for fragment_dir in sorted(fragment_dirs):
-            print(f"  Adding fragment: {fragment_dir.name}")
-            for file_path in fragment_dir.rglob('*'):
-                if file_path.is_file():
-                    # Create archive path with collection name prefix
-                    archive_path = f"boots-partner-collection/{file_path.relative_to(source_dir)}"
-                    zip_file.write(file_path, archive_path)
+        # Add all fragments and resources directories
+        for subdir in ['fragments', 'resources']:
+            subdir_path = source_dir / subdir
+            if subdir_path.exists():
+                for file_path in subdir_path.rglob('*'):
+                    if file_path.is_file():
+                        # Create archive path with collection name prefix
+                        archive_path = f"boots-partner-collection/{file_path.relative_to(source_dir)}"
+                        zip_file.write(file_path, archive_path)
     
     return output_path
 
@@ -59,8 +58,9 @@ def main():
     # Create output directory
     output_dir.mkdir(exist_ok=True)
     
-    # Get all fragment directories
-    fragment_dirs = [d for d in source_dir.iterdir() if d.is_dir() and d.name.startswith('boots-')]
+    # Get all fragment directories from fragments subdirectory
+    fragments_dir = source_dir / "fragments"
+    fragment_dirs = [d for d in fragments_dir.iterdir() if d.is_dir() and d.name.startswith('boots-')]
     fragment_names = [d.name for d in fragment_dirs]
     
     print(f"Creating individual fragment ZIPs for {len(fragment_names)} fragments...")
@@ -69,7 +69,7 @@ def main():
     individual_zips = []
     for fragment_name in sorted(fragment_names):
         print(f"Creating fragment-zips/{fragment_name}.zip...")
-        zip_path = create_fragment_zip(fragment_name, source_dir, output_dir)
+        zip_path = create_fragment_zip(fragment_name, fragments_dir, output_dir)
         individual_zips.append(zip_path)
         print(f"✅ Created {zip_path} ({zip_path.stat().st_size} bytes)")
     
