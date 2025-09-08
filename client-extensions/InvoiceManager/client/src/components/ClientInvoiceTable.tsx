@@ -109,7 +109,7 @@ export default function ClientInvoiceTable({
       onInvoiceClick(invoice);
     } else {
       // Navigate to invoice detail page
-      window.location.href = `/web/boots-opticians-portal/e/invoice-detail/${invoice.id}/${invoice.accountId || 'unknown'}`;
+      window.location.href = `/web/boots-opticians-portal/e/invoice-detail/46170/${invoice.id}`;
     }
   };
 
