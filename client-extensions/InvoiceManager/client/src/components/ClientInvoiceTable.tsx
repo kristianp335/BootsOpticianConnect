@@ -115,7 +115,7 @@ export default function ClientInvoiceTable({
       onExport();
     } else {
       // Generate CSV export
-      const headers = ['Invoice Number', 'Customer', 'Issue Date', 'Due Date', 'Amount', 'Status'];
+      const headers = ['Invoice Number', 'Customer', 'Issue Date', 'Due Date', 'Amount', 'Status', 'Appointments'];
       const csvContent = [
         headers.join(','),
         ...sortedInvoices.map(invoice => [
@@ -124,7 +124,8 @@ export default function ClientInvoiceTable({
           invoice.issueDate,
           invoice.dueDate,
           invoice.amount,
-          invoice.status
+          invoice.status,
+          invoice.numberOfAppointments
         ].join(','))
       ].join('\n');
 
@@ -190,6 +191,9 @@ export default function ClientInvoiceTable({
               <th className={getSortClass('status')} onClick={() => handleSort('status')}>
                 Status
               </th>
+              <th className={getSortClass('numberOfAppointments')} onClick={() => handleSort('numberOfAppointments')}>
+                Appointments
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -213,6 +217,7 @@ export default function ClientInvoiceTable({
                     {formatStatus(invoice.status)}
                   </span>
                 </td>
+                <td className="appointments-cell">{invoice.numberOfAppointments}</td>
               </tr>
             ))}
           </tbody>
