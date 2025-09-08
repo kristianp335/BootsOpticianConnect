@@ -630,6 +630,7 @@ function InvoiceTableComponent({ data = [], onEvent }: { data?: Invoice[], onEve
           dueDate: formatDate(item.dueDate),
           amount: (item.amount || 0).toString(),
           status: status === 'approved' ? 'paid' : status,
+          numberOfAppointments: item.numberOfAppointments || 0,
           createdAt: item.dateCreated ? new Date(item.dateCreated) : new Date()
         };
       });
@@ -650,6 +651,7 @@ function InvoiceTableComponent({ data = [], onEvent }: { data?: Invoice[], onEve
           dueDate: "2024-02-14",
           amount: "2450.00",
           status: "paid",
+          numberOfAppointments: 12,
           createdAt: new Date("2024-01-15")
         },
         {
@@ -660,6 +662,7 @@ function InvoiceTableComponent({ data = [], onEvent }: { data?: Invoice[], onEve
           dueDate: "2024-03-19",
           amount: "1750.00",
           status: "pending",
+          numberOfAppointments: 8,
           createdAt: new Date("2024-02-20")
         },
         {
@@ -670,6 +673,7 @@ function InvoiceTableComponent({ data = [], onEvent }: { data?: Invoice[], onEve
           dueDate: "2024-04-09",
           amount: "3200.00",
           status: "overdue",
+          numberOfAppointments: 15,
           createdAt: new Date("2024-03-10")
         },
         {
@@ -680,6 +684,7 @@ function InvoiceTableComponent({ data = [], onEvent }: { data?: Invoice[], onEve
           dueDate: "2024-02-24",
           amount: "890.00",
           status: "paid",
+          numberOfAppointments: 4,
           createdAt: new Date("2024-01-25")
         },
         {
@@ -690,6 +695,7 @@ function InvoiceTableComponent({ data = [], onEvent }: { data?: Invoice[], onEve
           dueDate: "2024-03-27",
           amount: "5100.00",
           status: "paid",
+          numberOfAppointments: 22,
           createdAt: new Date("2024-02-28")
         }
       ];
@@ -712,7 +718,7 @@ function InvoiceTableComponent({ data = [], onEvent }: { data?: Invoice[], onEve
   };
 
   const handleExport = () => {
-    const headers = ['Invoice Number', 'Customer', 'Issue Date', 'Due Date', 'Amount', 'Status'];
+    const headers = ['Invoice Number', 'Customer', 'Issue Date', 'Due Date', 'Amount', 'Status', 'Appointments'];
     const csvContent = [
       headers.join(','),
       ...sortedInvoices.map(invoice => [
@@ -721,7 +727,8 @@ function InvoiceTableComponent({ data = [], onEvent }: { data?: Invoice[], onEve
         invoice.issueDate,
         invoice.dueDate,
         invoice.amount,
-        invoice.status
+        invoice.status,
+        invoice.numberOfAppointments
       ].join(','))
     ].join('\n');
 
