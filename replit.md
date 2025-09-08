@@ -45,6 +45,10 @@ This project aims to recreate the Boots Optician partner portal using a comprehe
 - **Footer Fragment**: Links, support information, company branding.
 - **Form Fragments Collection**: Includes Autocomplete Fields, Confirmation Field, Rating Components, Selection Controls (multi-select listbox, toggles, range sliders), Advanced Fields (segmented numeric, user field selectors, relationship management), Submit Controls, and Hidden Fields.
 
+### Client Extensions
+- **Boots Frontend Client Extension**: Global CSS and JavaScript for site-wide functionality and theme integration.
+- **InvoiceManager Client Extension**: Custom element client extension providing invoice data table functionality with TypeScript, React, and Tailwind CSS.
+
 ## External Dependencies
 - **Liferay DXP/Portal**: Core platform for fragment rendering, theme system, and content management.
 - **Liferay Classic Theme**: Provides frontend tokens and base styling.
@@ -54,6 +58,12 @@ This project aims to recreate the Boots Optician partner portal using a comprehe
 - **Browser APIs**: Intersection Observer, Fetch API, Local Storage for enhanced functionality.
 
 ## Recent Changes
+
+### September 8, 2025
+- **CLIENT EXTENSIONS ORGANIZATION**: Restructured project to include dedicated `client-extensions/` directory housing both Boots Frontend Client Extension and newly integrated InvoiceManager Client Extension. This provides better organization for multiple client extensions within the project.
+- **INVOICEMANAGER INTEGRATION**: Successfully integrated InvoiceManager custom element client extension into the repository. Features React-based invoice data table with TypeScript, Tailwind CSS, server-side functionality, and proper Liferay client extension configuration.
+- **ONBOARDING TASK COMPLETION LOGIC**: Enhanced task completion detection to properly handle tasks with file URLs or any non-"outstanding" status text. Tasks now correctly display as completed with green styling, hidden status fields, and automatic contract dropzone visibility.
+- **CONTRACT DROPZONE VISIBILITY**: Implemented intelligent dropzone visibility system where contract dropzone is hidden by default but automatically shown when onboarding tasks are completed. Features robust timing logic to handle fragment loading order and prevent display conflicts.
 
 ### September 4, 2025
 - **FORM FRAGMENTS COLLECTION INTEGRATED**: Successfully integrated comprehensive form fragments collection with 12 specialized form field components including autocomplete (object and picklist), confirmation fields, star rating, multi-select listbox, range sliders, segmented numeric inputs, toggle switches, submit buttons, user field selectors, and hidden relationship fields. All fragments include proper `configurationPath` entries and professional thumbnail images.
