@@ -21,21 +21,23 @@
             return;
         }
         
-        // Add click handler for the training card
-        const trainingCard = fragmentElement.querySelector('.boots-outstanding-training-card');
-        if (trainingCard) {
-            trainingCard.addEventListener('click', handleTrainingClick);
-            trainingCard.style.cursor = 'pointer';
-            trainingCard.setAttribute('role', 'button');
-            trainingCard.setAttribute('tabindex', '0');
-            
-            // Keyboard accessibility
-            trainingCard.addEventListener('keydown', function(e) {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    handleTrainingClick();
-                }
-            });
+        // Add click handler for the training card (if enabled in configuration)
+        if (typeof configuration !== 'undefined' && configuration.enableClickAction !== false) {
+            const trainingCard = fragmentElement.querySelector('.boots-outstanding-training-card');
+            if (trainingCard) {
+                trainingCard.addEventListener('click', handleTrainingClick);
+                trainingCard.style.cursor = 'pointer';
+                trainingCard.setAttribute('role', 'button');
+                trainingCard.setAttribute('tabindex', '0');
+                
+                // Keyboard accessibility
+                trainingCard.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        handleTrainingClick();
+                    }
+                });
+            }
         }
         
         // Check for overdue training and update styling
@@ -68,31 +70,76 @@
     
     // Set up listener for training completion based on floating button
     function setupTrainingCompletionListener() {
+        console.log('Outstanding Training: Setting up completion listener...');
+        
         // Function to check if training is complete
         function checkTrainingCompletion() {
-            const floatingButton = document.querySelector('.btn-floating-bar.btn-floating-bar-text.btn.btn-primary');
+            // Try multiple selector approaches
+            const selectors = [
+                '.btn-floating-bar.btn-floating-bar-text.btn.btn-primary',
+                '.btn-floating-bar',
+                'button[title*="jump"]',
+                'button[title*="page"]',
+                '[class*="floating"][class*="bar"]'
+            ];
+            
+            let floatingButton = null;
+            for (let selector of selectors) {
+                floatingButton = document.querySelector(selector);
+                if (floatingButton) {
+                    console.log('Outstanding Training: Found button with selector:', selector);
+                    break;
+                }
+            }
+            
             if (floatingButton) {
                 const buttonText = floatingButton.textContent.trim();
-                console.log('Outstanding Training: Floating button text:', buttonText);
+                const titleText = floatingButton.getAttribute('title') || '';
+                console.log('Outstanding Training: Button text:', buttonText);
+                console.log('Outstanding Training: Button title:', titleText);
+                console.log('Outstanding Training: Button classes:', floatingButton.className);
                 
-                if (buttonText === 'Page 3 / 3') {
+                // Check both text content and title attribute
+                if (buttonText === 'Page 3 / 3' || titleText.includes('Page 3 / 3') || buttonText.includes('3 / 3')) {
+                    console.log('Outstanding Training: Training completion detected!');
                     markTrainingComplete();
                     return true;
                 }
+            } else {
+                console.log('Outstanding Training: No floating button found');
             }
             return false;
         }
         
-        // Initial check
-        if (checkTrainingCompletion()) {
-            return;
-        }
+        // Initial check with delay to ensure DOM is fully loaded
+        setTimeout(() => {
+            console.log('Outstanding Training: Running initial completion check...');
+            if (checkTrainingCompletion()) {
+                return;
+            }
+        }, 1000);
         
         // Set up MutationObserver to watch for changes
         const observer = new MutationObserver(function(mutations) {
             mutations.forEach(function(mutation) {
                 if (mutation.type === 'childList' || mutation.type === 'characterData') {
-                    checkTrainingCompletion();
+                    // Check if any added nodes contain our button
+                    if (mutation.addedNodes) {
+                        for (let node of mutation.addedNodes) {
+                            if (node.nodeType === Node.ELEMENT_NODE) {
+                                if (node.matches && (node.matches('.btn-floating-bar') || 
+                                    node.querySelector && node.querySelector('.btn-floating-bar'))) {
+                                    console.log('Outstanding Training: Floating button detected in DOM change');
+                                    setTimeout(checkTrainingCompletion, 100);
+                                    return;
+                                }
+                            }
+                        }
+                    }
+                    // Also check for text changes
+                    if (mutation.type === 'characterData') {
+                        setTimeout(checkTrainingCompletion, 100);
+                    }
                 }
             });
         });
@@ -104,14 +151,15 @@
             characterData: true
         });
         
-        // Also set up a periodic check as backup
+        // Also set up a more frequent periodic check as backup
         const intervalCheck = setInterval(() => {
             if (checkTrainingCompletion()) {
                 clearInterval(intervalCheck);
+                observer.disconnect();
             }
-        }, 2000);
+        }, 1000); // Check every second
         
-        console.log('Outstanding Training: Training completion listener set up');
+        console.log('Outstanding Training: Training completion listener set up successfully');
     }
     
     // Mark training as complete
