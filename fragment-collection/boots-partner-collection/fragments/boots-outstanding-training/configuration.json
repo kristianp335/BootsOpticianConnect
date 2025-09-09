@@ -1,0 +1,53 @@
+{
+  "fieldSets": [
+    {
+      "fields": [
+        {
+          "name": "showStatusBadge",
+          "label": "Show Status Badge",
+          "description": "Display training status badge (Urgent, Due Soon, etc.)",
+          "type": "checkbox",
+          "defaultValue": true
+        },
+        {
+          "name": "enableClickAction",
+          "label": "Enable Click Action",
+          "description": "Make the training card clickable",
+          "type": "checkbox",
+          "defaultValue": true
+        },
+        {
+          "name": "statusType",
+          "label": "Status Type",
+          "description": "Override the automatic status detection",
+          "type": "select",
+          "defaultValue": "auto",
+          "typeOptions": {
+            "validValues": [
+              {
+                "label": "Auto-detect from due date",
+                "value": "auto"
+              },
+              {
+                "label": "Urgent",
+                "value": "urgent"
+              },
+              {
+                "label": "Due Soon",
+                "value": "due-soon"
+              },
+              {
+                "label": "Upcoming",
+                "value": "upcoming"
+              },
+              {
+                "label": "Overdue",
+                "value": "overdue"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

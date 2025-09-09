@@ -1,0 +1,198 @@
+#wrapper .boots-outstanding-training-fragment {
+  background: transparent;
+  color: var(--brand-color-1);
+  font-family: var(--clay-body-font-family);
+  padding: 0;
+  margin: 0;
+}
+
+/* Container */
+#wrapper .boots-outstanding-training-fragment .boots-container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* Outstanding Training Card */
+#wrapper .boots-outstanding-training-fragment .boots-outstanding-training-card {
+  background: #fff;
+  border: 1px solid #e7e7ed;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  transition: all 0.15s ease-in-out;
+  overflow: hidden;
+}
+
+#wrapper .boots-outstanding-training-fragment .boots-outstanding-training-card:hover {
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.15);
+  transform: translateY(-1px);
+}
+
+/* Card Header */
+#wrapper .boots-outstanding-training-fragment .boots-card-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+  border-bottom: 1px solid #e7e7ed;
+}
+
+/* Training Icon */
+#wrapper .boots-outstanding-training-fragment .boots-training-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  background: var(--brand-color-1);
+  color: #fff;
+  border-radius: 50%;
+  flex-shrink: 0;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 82, 204, 0.3);
+}
+
+#wrapper .boots-outstanding-training-fragment .boots-training-icon svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+/* Training Content */
+#wrapper .boots-outstanding-training-fragment .boots-training-content {
+  flex: 1;
+  min-width: 0;
+}
+
+#wrapper .boots-outstanding-training-fragment .boots-training-title {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--brand-color-1);
+  line-height: 1.4;
+}
+
+#wrapper .boots-outstanding-training-fragment .boots-training-due-date {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: #6c757d;
+}
+
+#wrapper .boots-outstanding-training-fragment .boots-due-label {
+  font-weight: 500;
+  color: var(--brand-color-1);
+}
+
+#wrapper .boots-outstanding-training-fragment .boots-due-date {
+  font-weight: 600;
+  color: #dc3545;
+}
+
+/* Training Status */
+#wrapper .boots-outstanding-training-fragment .boots-training-status {
+  flex-shrink: 0;
+}
+
+#wrapper .boots-outstanding-training-fragment .boots-status-badge {
+  display: inline-block;
+  padding: 0.375rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+  border-radius: 0.25rem;
+  border: 1px solid transparent;
+}
+
+#wrapper .boots-outstanding-training-fragment .boots-status-urgent {
+  background: #fff5f5;
+  color: #dc3545;
+  border-color: #f5c6cb;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  #wrapper .boots-outstanding-training-fragment .boots-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem;
+  }
+  
+  #wrapper .boots-outstanding-training-fragment .boots-training-content {
+    width: 100%;
+  }
+  
+  #wrapper .boots-outstanding-training-fragment .boots-training-status {
+    align-self: flex-end;
+  }
+}
+
+@media (max-width: 480px) {
+  #wrapper .boots-outstanding-training-fragment .boots-container {
+    padding: 0.5rem;
+  }
+  
+  #wrapper .boots-outstanding-training-fragment .boots-card-header {
+    padding: 0.75rem;
+  }
+  
+  #wrapper .boots-outstanding-training-fragment .boots-training-title {
+    font-size: 1.125rem;
+  }
+  
+  #wrapper .boots-outstanding-training-fragment .boots-training-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+  
+  #wrapper .boots-outstanding-training-fragment .boots-training-icon svg {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+}
+
+/* Edit Mode Styling */
+#wrapper .has-edit-mode-menu .boots-outstanding-training-fragment {
+  border: 2px dashed var(--brand-color-1);
+  border-radius: 0.5rem;
+  position: relative;
+}
+
+#wrapper .has-edit-mode-menu .boots-outstanding-training-fragment::before {
+  content: "Outstanding Training Fragment";
+  position: absolute;
+  top: -1.5rem;
+  left: 0;
+  background: var(--brand-color-1);
+  color: #fff;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 0.25rem;
+  z-index: 10;
+}
+
+/* Accessibility */
+#wrapper .boots-outstanding-training-fragment .boots-outstanding-training-card:focus-within {
+  outline: 2px solid var(--brand-color-1);
+  outline-offset: 2px;
+}
+
+/* Animation for status badge */
+#wrapper .boots-outstanding-training-fragment .boots-status-urgent {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(220, 53, 69, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(220, 53, 69, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(220, 53, 69, 0);
+  }
+}
