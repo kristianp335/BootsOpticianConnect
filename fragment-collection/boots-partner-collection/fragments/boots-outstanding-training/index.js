@@ -74,8 +74,14 @@
         
         // Function to check if training is complete
         function checkTrainingCompletion() {
-            // Try multiple selector approaches
-            const selectors = [
+            console.log('Outstanding Training: Checking for completion...');
+            
+            // Look for ANY element containing "Page 3 / 3" text (not just buttons)
+            const allElements = document.querySelectorAll('*');
+            let pageElement = null;
+            
+            // First, try specific selectors for buttons/interactive elements
+            const buttonSelectors = [
                 '.btn-floating-bar.btn-floating-bar-text.btn.btn-primary',
                 '.btn-floating-bar',
                 'button[title*="jump"]',
@@ -83,41 +89,87 @@
                 '[class*="floating"][class*="bar"]'
             ];
             
-            let floatingButton = null;
-            for (let selector of selectors) {
-                floatingButton = document.querySelector(selector);
-                if (floatingButton) {
-                    console.log('Outstanding Training: Found button with selector:', selector);
-                    break;
+            for (let selector of buttonSelectors) {
+                const element = document.querySelector(selector);
+                if (element) {
+                    const text = element.textContent.trim();
+                    console.log('Outstanding Training: Found button element:', selector, 'Text:', text);
+                    if (text.includes('Page 3 / 3') || text.includes('3 / 3')) {
+                        pageElement = element;
+                        break;
+                    }
                 }
             }
             
-            if (floatingButton) {
-                const buttonText = floatingButton.textContent.trim();
-                const titleText = floatingButton.getAttribute('title') || '';
-                console.log('Outstanding Training: Button text:', buttonText);
-                console.log('Outstanding Training: Button title:', titleText);
-                console.log('Outstanding Training: Button classes:', floatingButton.className);
+            // If no button found, search ALL elements for page text
+            if (!pageElement) {
+                for (let element of allElements) {
+                    const text = element.textContent?.trim() || '';
+                    // Look for elements that contain page information
+                    if (text === 'Page 3 / 3' || text === '3 / 3' || 
+                        (text.includes('Page') && text.includes('3 / 3'))) {
+                        console.log('Outstanding Training: Found page element:', element.tagName, 'Class:', element.className, 'Text:', text);
+                        pageElement = element;
+                        break;
+                    }
+                }
+            }
+            
+            if (pageElement) {
+                const elementText = pageElement.textContent.trim();
+                const titleText = pageElement.getAttribute('title') || '';
+                console.log('Outstanding Training: Page element text:', elementText);
+                console.log('Outstanding Training: Page element title:', titleText);
+                console.log('Outstanding Training: Page element tag:', pageElement.tagName);
+                console.log('Outstanding Training: Page element classes:', pageElement.className);
                 
-                // Check both text content and title attribute
-                if (buttonText === 'Page 3 / 3' || titleText.includes('Page 3 / 3') || buttonText.includes('3 / 3')) {
+                // Check for completion indicators
+                if (elementText.includes('Page 3 / 3') || elementText === '3 / 3' || 
+                    titleText.includes('Page 3 / 3')) {
                     console.log('Outstanding Training: Training completion detected!');
                     markTrainingComplete();
                     return true;
                 }
             } else {
-                console.log('Outstanding Training: No floating button found');
+                console.log('Outstanding Training: No page element found - searching for partial matches');
+                
+                // Search for any element containing "3 / 3" as a last resort
+                for (let element of allElements) {
+                    const text = element.textContent?.trim() || '';
+                    if (text.includes('3 / 3') && text.length < 50) { // Limit length to avoid false positives
+                        console.log('Outstanding Training: Found potential page element:', element.tagName, 'Text:', text);
+                        pageElement = element;
+                        break;
+                    }
+                }
             }
+            
             return false;
         }
         
-        // Initial check with delay to ensure DOM is fully loaded
+        // Initial check with longer delay to ensure document viewer is loaded
         setTimeout(() => {
-            console.log('Outstanding Training: Running initial completion check...');
+            console.log('Outstanding Training: Running initial completion check (1s delay)...');
             if (checkTrainingCompletion()) {
                 return;
             }
         }, 1000);
+        
+        // Additional delayed check for slow-loading document viewers
+        setTimeout(() => {
+            console.log('Outstanding Training: Running delayed completion check (5s delay)...');
+            if (checkTrainingCompletion()) {
+                return;
+            }
+        }, 5000);
+        
+        // Another check for very slow document viewers
+        setTimeout(() => {
+            console.log('Outstanding Training: Running extended completion check (10s delay)...');
+            if (checkTrainingCompletion()) {
+                return;
+            }
+        }, 10000);
         
         // Set up MutationObserver to watch for changes
         const observer = new MutationObserver(function(mutations) {
