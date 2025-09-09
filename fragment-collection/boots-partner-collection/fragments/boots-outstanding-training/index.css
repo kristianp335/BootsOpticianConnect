@@ -196,3 +196,44 @@
     box-shadow: 0 0 0 0 rgba(220, 53, 69, 0);
   }
 }
+
+/* Completed training styles */
+#wrapper .boots-outstanding-training-fragment .boots-training-completed {
+  background: linear-gradient(135deg, #f8fff9 0%, #e8f5e8 100%);
+  border-color: #28a745;
+  box-shadow: 0 0.25rem 0.5rem rgba(40, 167, 69, 0.15);
+}
+
+#wrapper .boots-outstanding-training-fragment .boots-training-completed:hover {
+  transform: none;
+  box-shadow: 0 0.25rem 0.5rem rgba(40, 167, 69, 0.15);
+}
+
+#wrapper .boots-outstanding-training-fragment .boots-status-completed {
+  background: #d4edda;
+  color: #155724;
+  border-color: #c3e6cb;
+  animation: none;
+}
+
+/* Completed training icon styles */
+#wrapper .boots-outstanding-training-fragment .boots-training-completed .boots-training-icon {
+  background: #28a745;
+  box-shadow: 0 0.125rem 0.25rem rgba(40, 167, 69, 0.3);
+}
+
+/* Fade in animation for completion */
+#wrapper .boots-outstanding-training-fragment .boots-training-completed {
+  animation: fadeInCompleted 0.5s ease-in-out;
+}
+
+@keyframes fadeInCompleted {
+  0% {
+    background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+    border-color: #e7e7ed;
+  }
+  100% {
+    background: linear-gradient(135deg, #f8fff9 0%, #e8f5e8 100%);
+    border-color: #28a745;
+  }
+}
