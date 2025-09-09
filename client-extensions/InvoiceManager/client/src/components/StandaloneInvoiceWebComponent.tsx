@@ -840,13 +840,7 @@ function InvoiceTableComponent({ data = [], onEvent }: { data?: Invoice[], onEve
   return (
     <div className={`portlet-content-container ${darkMode ? 'dark' : 'light'}`}>
       <div className={`card ${dataLoaded ? 'fade-in-animation' : ''}`}>
-        <div className="card-header d-flex justify-content-between align-items-center">
-          <button className="btn btn-primary" onClick={toggleCreateForm}>
-            <svg className="lexicon-icon lexicon-icon-plus" focusable="false" role="presentation">
-              <use xlinkHref="/o/classic-theme/images/clay/icons.svg#plus"></use>
-            </svg>
-            <span className="ml-2">Create Invoice</span>
-          </button>
+        <div className="card-header d-flex justify-content-end align-items-center">
           <button className="btn btn-outline-secondary" onClick={toggleTheme}>
             <svg className="lexicon-icon" focusable="false" role="presentation">
               <use xlinkHref={`/o/classic-theme/images/clay/icons.svg#${darkMode ? 'sun' : 'moon'}`}></use>
