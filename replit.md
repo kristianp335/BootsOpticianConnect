@@ -48,6 +48,7 @@ This project aims to recreate the Boots Optician partner portal using a comprehe
 ### Client Extensions
 - **Boots Frontend Client Extension**: Global CSS and JavaScript for site-wide functionality and theme integration.
 - **InvoiceManager Client Extension**: Custom element client extension providing invoice data table functionality with TypeScript, React, and Tailwind CSS.
+- **Custom Widget Container Client Extension**: React-based drag-and-drop widget customization system allowing users to arrange widgets in personalized grid layouts with user-specific persistence via Liferay object storage.
 
 ## External Dependencies
 - **Liferay DXP/Portal**: Core platform for fragment rendering, theme system, and content management.
@@ -58,6 +59,9 @@ This project aims to recreate the Boots Optician partner portal using a comprehe
 - **Browser APIs**: Intersection Observer, Fetch API, Local Storage for enhanced functionality.
 
 ## Recent Changes
+
+### September 10, 2025
+- **CUSTOM WIDGET CONTAINER INTEGRATION**: Integrated Custom Widget Container client extension into repository under `custom-widget-container/` directory. Features React-based drag-and-drop interface using React DnD, Clay UI components, Shadow DOM web component architecture, and user-specific configuration persistence via Liferay object storage API.
 
 ### September 8, 2025
 - **CLIENT EXTENSIONS ORGANIZATION**: Restructured project to include dedicated `client-extensions/` directory housing both Boots Frontend Client Extension and newly integrated InvoiceManager Client Extension. This provides better organization for multiple client extensions within the project.
