@@ -1,0 +1,72 @@
+<div class="boots-data-table-fragment">
+    <div class="boots-table-card boots-card">
+        <div class="boots-card-header">
+            <h3 data-lfr-editable-id="table-title" data-lfr-editable-type="text">${configuration.tableTitle!"Data Table"}</h3>
+            [#if configuration.enableSearch!true]
+            <div class="boots-table-search">
+                <input type="text" placeholder="Search..." class="boots-search-input">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="2"/>
+                    <path d="M15 15L11 11" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </div>
+            [/#if]
+        </div>
+        <div class="boots-card-body">
+            <div class="boots-table-container">
+                <table class="boots-data-table" data-table-type="${configuration.tableType!"cases"}" data-rows-per-page="${configuration.rowsPerPage!"10"}">
+                    <thead>
+                        [#if (configuration.tableType!"cases") == "cases"]
+                        <tr>
+                            <th>Case ID</th>
+                            <th>Customer</th>
+                            <th>Type</th>
+                            <th>Status</th>
+                            <th>Date</th>
+                            [#if configuration.showActions!true]<th>Actions</th>[/#if]
+                        </tr>
+                        [#elseif (configuration.tableType!"cases") == "appointments"]
+                        <tr>
+                            <th>Time</th>
+                            <th>Customer</th>
+                            <th>Service</th>
+                            <th>Status</th>
+                            [#if configuration.showActions!true]<th>Actions</th>[/#if]
+                        </tr>
+                        [#elseif (configuration.tableType!"cases") == "training"]
+                        <tr>
+                            <th>Module</th>
+                            <th>Progress</th>
+                            <th>Due Date</th>
+                            <th>Status</th>
+                            [#if configuration.showActions!true]<th>Actions</th>[/#if]
+                        </tr>
+                        [#else]
+                        <tr>
+                            <th>Name</th>
+                            <th>Value</th>
+                            <th>Status</th>
+                            <th>Date</th>
+                            [#if configuration.showActions!true]<th>Actions</th>[/#if]
+                        </tr>
+                        [/#if]
+                    </thead>
+                    <tbody>
+                        <!-- Table rows will be populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+            [#if configuration.showPagination!true]
+            <div class="boots-table-pagination">
+                <div class="boots-pagination-info">
+                    Showing <span class="boots-start-row">1</span> to <span class="boots-end-row">10</span> of <span class="boots-total-rows">0</span> entries
+                </div>
+                <div class="boots-pagination-controls">
+                    <button class="boots-btn boots-btn-outline" disabled>Previous</button>
+                    <button class="boots-btn boots-btn-outline" disabled>Next</button>
+                </div>
+            </div>
+            [/#if]
+        </div>
+    </div>
+</div>

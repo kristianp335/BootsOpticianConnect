@@ -1,0 +1,53 @@
+<div class="boots-kpi-card-fragment">
+    <div class="boots-metric-card boots-card">
+        <div class="boots-card-header">
+            <div class="boots-metric-icon boots-metric-${configuration.cardIcon!"revenue"}">
+                [#if (configuration.cardIcon!"revenue") == "revenue"]
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                    <path d="M16 8L12 12L8 16M16 8V12M16 8H12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                [#elseif (configuration.cardIcon!"revenue") == "appointments"]
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" stroke-width="2"/>
+                    <path d="M7 2V6M17 2V6M3 10H21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                [#elseif (configuration.cardIcon!"revenue") == "satisfaction"]
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                    <path d="M8 14S9.5 16 12 16S16 14 16 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <line x1="9" y1="9" x2="9.01" y2="9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <line x1="15" y1="9" x2="15.01" y2="9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                [#elseif (configuration.cardIcon!"revenue") == "training"]
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M22 10V6C22 5.4 21.6 5 21 5H3C2.4 5 2 5.4 2 6V10C2 10.6 2.4 11 3 11H21C21.6 11 22 10.6 22 10Z" stroke="currentColor" stroke-width="2"/>
+                    <path d="M7 19H17C18.1 19 19 18.1 19 17V11H5V17C5 18.1 5.9 19 7 19Z" stroke="currentColor" stroke-width="2"/>
+                    <line x1="12" y1="11" x2="12" y2="17" stroke="currentColor" stroke-width="2"/>
+                </svg>
+                [#elseif (configuration.cardIcon!"revenue") == "cases"]
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                    <path d="M12 6V12L16 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                [#else]
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                [/#if]
+            </div>
+            <h3 data-lfr-editable-id="kpi-title" data-lfr-editable-type="text">${configuration.cardTitle!"KPI Metric"}</h3>
+        </div>
+        <div class="boots-card-body">
+            <div class="boots-metric-value">
+                <span data-counter data-target="${(configuration.cardValue!"0")?replace('[^0-9]', '', 'r')}" data-lfr-editable-id="kpi-value" data-lfr-editable-type="text">${configuration.cardValue!"0"}</span>
+                [#if configuration.cardChange?has_content]
+                <span class="boots-metric-change boots-${configuration.changeType!"positive"}">${configuration.cardChange!""}</span>
+                [/#if]
+            </div>
+            [#if configuration.cardDescription?has_content]
+            <p class="boots-metric-description" data-lfr-editable-id="kpi-description" data-lfr-editable-type="text">${configuration.cardDescription!""}</p>
+            [/#if]
+        </div>
+    </div>
+</div>

@@ -1,0 +1,68 @@
+{
+    "fieldSets": [
+        {
+            "fields": [
+                {
+                    "name": "chartTitle",
+                    "label": "Chart Title",
+                    "description": "The title displayed above the chart",
+                    "type": "text",
+                    "typeOptions": {
+                        "placeholder": "Revenue Trend"
+                    },
+                    "defaultValue": "Performance Chart"
+                },
+                {
+                    "name": "chartType",
+                    "label": "Chart Type",
+                    "description": "Type of chart to display",
+                    "type": "select",
+                    "typeOptions": {
+                        "validValues": [
+                            {"value": "line", "label": "Line Chart"},
+                            {"value": "bar", "label": "Bar Chart"},
+                            {"value": "doughnut", "label": "Doughnut Chart"},
+                            {"value": "area", "label": "Area Chart"}
+                        ]
+                    },
+                    "defaultValue": "line"
+                },
+                {
+                    "name": "chartHeight",
+                    "label": "Chart Height",
+                    "description": "Height of the chart container",
+                    "type": "select",
+                    "typeOptions": {
+                        "validValues": [
+                            {"value": "small", "label": "Small (200px)"},
+                            {"value": "medium", "label": "Medium (300px)"},
+                            {"value": "large", "label": "Large (400px)"}
+                        ]
+                    },
+                    "defaultValue": "medium"
+                },
+                {
+                    "name": "showControls",
+                    "label": "Show Time Period Controls",
+                    "description": "Display buttons for switching time periods",
+                    "type": "checkbox",
+                    "defaultValue": true
+                },
+                {
+                    "name": "dataSource",
+                    "label": "Data Source",
+                    "description": "Source of chart data",
+                    "type": "select",
+                    "typeOptions": {
+                        "validValues": [
+                            {"value": "sample", "label": "Sample Data"},
+                            {"value": "api", "label": "API Endpoint"},
+                            {"value": "manual", "label": "Manual Entry"}
+                        ]
+                    },
+                    "defaultValue": "sample"
+                }
+            ]
+        }
+    ]
+}

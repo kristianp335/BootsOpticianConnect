@@ -1,0 +1,158 @@
+<footer class="boots-footer-fragment [#if configuration.footerStyle == "light"]boots-footer-light[#elseif configuration.footerStyle == "primary"]boots-footer-primary[#else]boots-footer-dark[/#if]">
+    <div class="boots-container">
+        <!-- Footer Main Content -->
+        <div class="boots-footer-main">
+            <!-- Partner Information -->
+            <div class="boots-footer-section">
+                <div class="boots-footer-brand">
+                    <img 
+                        src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiB2aWV3Qm94PSIwIDAgMTIwIDQwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxkZWZzPjxzdHlsZT4uYntmaWxsOiNmZmY7Zm9udC1mYW1pbHk6J0NvdXJpZXIgTmV3Jyxtb25vc3BhY2U7Zm9udC1zaXplOjI0cHg7Zm9udC13ZWlnaHQ6Ym9sZDt9PC9zdHlsZT48L2RlZnM+PHRleHQgeD0iMTAiIHk9IjI4IiBjbGFzcz0iYiI+Qm9vdHM8L3RleHQ+PC9zdmc+"
+                        alt="Boots Partner Portal"
+                        width="120"
+                        height="40"
+                        data-lfr-editable-id="footer-logo"
+                        data-lfr-editable-type="image"
+                    >
+                </div>
+                <div class="boots-partner-info">
+                    <h4 data-lfr-editable-id="partner-company-name" data-lfr-editable-type="text">${configuration.companyName}</h4>
+                    <p data-lfr-editable-id="partner-description" data-lfr-editable-type="text">Professional optician services with the trusted quality and expertise of Boots. Your vision is our priority.</p>
+                </div>
+                
+                [#if configuration.showSocialMedia!true]
+                <div class="boots-social-media">
+                    <h5 data-lfr-editable-id="social-title" data-lfr-editable-type="text">Connect With Us</h5>
+                    <div class="boots-social-links">
+                        <a href="https://facebook.com" class="boots-social-link" aria-label="Facebook" data-lfr-editable-id="facebook-link" data-lfr-editable-type="link">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M20 10C20 4.48 15.52 0 10 0S0 4.48 0 10C0 14.84 3.44 18.87 8 19.8V13H6V10H8V7.5C8 5.57 9.57 4 11.5 4H14V7H12C11.45 7 11 7.45 11 8V10H14V13H11V19.95C16.05 19.45 20 15.19 20 10Z"/>
+                            </svg>
+                        </a>
+                        <a href="https://twitter.com" class="boots-social-link" aria-label="Twitter" data-lfr-editable-id="twitter-link" data-lfr-editable-type="link">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M19.95 3.94C19.22 4.28 18.44 4.5 17.64 4.6C18.5 4.08 19.13 3.24 19.43 2.26C18.64 2.74 17.77 3.09 16.85 3.28C16.11 2.45 15.03 1.94 13.85 1.94C11.61 1.94 9.8 3.75 9.8 5.99C9.8 6.33 9.84 6.66 9.92 6.97C6.44 6.8 3.42 5.2 1.39 2.75C1.04 3.35 0.84 4.08 0.84 4.85C0.84 6.3 1.58 7.58 2.71 8.33C2.03 8.31 1.4 8.13 0.84 7.83V7.89C0.84 9.82 2.22 11.43 4.08 11.82C3.75 11.91 3.4 11.95 3.04 11.95C2.79 11.95 2.55 11.93 2.32 11.89C2.8 13.47 4.28 14.6 6.07 14.63C4.7 15.68 2.99 16.29 1.14 16.29C0.81 16.29 0.48 16.27 0.16 16.23C1.97 17.34 4.1 17.99 6.39 17.99C13.84 17.99 17.96 12.02 17.96 6.49C17.96 6.31 17.96 6.13 17.95 5.95C18.75 5.35 19.43 4.6 19.95 3.94Z"/>
+                            </svg>
+                        </a>
+                        <a href="https://linkedin.com" class="boots-social-link" aria-label="LinkedIn" data-lfr-editable-id="linkedin-link" data-lfr-editable-type="link">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M18.52 0H1.48C0.66 0 0 0.65 0 1.45V18.55C0 19.35 0.66 20 1.48 20H18.52C19.34 20 20 19.35 20 18.55V1.45C20 0.65 19.34 0 18.52 0ZM5.93 17.04H2.96V7.5H5.93V17.04ZM4.45 6.2C3.5 6.2 2.74 5.44 2.74 4.5S3.5 2.8 4.45 2.8S6.16 3.56 6.16 4.5S5.4 6.2 4.45 6.2ZM17.04 17.04H14.07V12.4C14.07 11.29 14.05 9.87 12.53 9.87C10.99 9.87 10.76 11.07 10.76 12.32V17.04H7.79V7.5H10.64V8.8H10.68C11.05 8.09 11.96 7.34 13.31 7.34C16.31 7.34 17.04 9.34 17.04 11.93V17.04Z"/>
+                            </svg>
+                        </a>
+                        <a href="https://instagram.com" class="boots-social-link" aria-label="Instagram" data-lfr-editable-id="instagram-link" data-lfr-editable-type="link">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M10 1.8C12.67 1.8 12.99 1.81 14.04 1.86C15.01 1.9 15.54 2.07 15.9 2.2C16.38 2.38 16.72 2.6 17.07 2.95C17.42 3.3 17.64 3.64 17.82 4.12C17.95 4.48 18.12 5.01 18.16 5.98C18.21 7.03 18.22 7.35 18.22 10.02C18.22 12.69 18.21 13.01 18.16 14.06C18.12 15.03 17.95 15.56 17.82 15.92C17.64 16.4 17.42 16.74 17.07 17.09C16.72 17.44 16.38 17.66 15.9 17.84C15.54 17.97 15.01 18.14 14.04 18.18C12.99 18.23 12.67 18.24 10 18.24C7.33 18.24 7.01 18.23 5.96 18.18C4.99 18.14 4.46 17.97 4.1 17.84C3.62 17.66 3.28 17.44 2.93 17.09C2.58 16.74 2.36 16.4 2.18 15.92C2.05 15.56 1.88 15.03 1.84 14.06C1.79 13.01 1.78 12.69 1.78 10.02C1.78 7.35 1.79 7.03 1.84 5.98C1.88 5.01 2.05 4.48 2.18 4.12C2.36 3.64 2.58 3.3 2.93 2.95C3.28 2.6 3.62 2.38 4.1 2.2C4.46 2.07 4.99 1.9 5.96 1.86C7.01 1.81 7.33 1.8 10 1.8ZM10 0C7.28 0 6.94 0.01 5.88 0.06C4.82 0.11 4.1 0.28 3.45 0.53C2.77 0.79 2.18 1.15 1.59 1.74C1 2.33 0.64 2.92 0.38 3.6C0.13 4.25 -0.04 4.97 0.01 6.03C0.06 7.09 0.07 7.43 0.07 10.15C0.07 12.87 0.08 13.21 0.13 14.27C0.18 15.33 0.35 16.05 0.6 16.7C0.86 17.38 1.22 17.97 1.81 18.56C2.4 19.15 2.99 19.51 3.67 19.77C4.32 20.02 5.04 20.19 6.1 20.14C7.16 20.09 7.5 20.08 10.22 20.08C12.94 20.08 13.28 20.07 14.34 20.02C15.4 19.97 16.12 19.8 16.77 19.55C17.45 19.29 18.04 18.93 18.63 18.34C19.22 17.75 19.58 17.16 19.84 16.48C20.09 15.83 20.26 15.11 20.21 14.05C20.16 12.99 20.15 12.65 20.15 9.93C20.15 7.21 20.14 6.87 20.09 5.81C20.04 4.75 19.87 4.03 19.62 3.38C19.36 2.7 19 2.11 18.41 1.52C17.82 0.93 17.23 0.57 16.55 0.31C15.9 0.06 15.18 -0.11 14.12 -0.06C13.06 -0.01 12.72 0 10 0Z"/>
+                                <path d="M10 4.86C7.16 4.86 4.86 7.16 4.86 10S7.16 15.14 10 15.14S15.14 12.84 15.14 10S12.84 4.86 10 4.86ZM10 13.33C8.16 13.33 6.67 11.84 6.67 10S8.16 6.67 10 6.67S13.33 8.16 13.33 10S11.84 13.33 10 13.33Z"/>
+                                <circle cx="15.4" cy="4.6" r="1.2"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                [/#if]
+            </div>
+            
+            <!-- Quick Links -->
+            <div class="boots-footer-section">
+                <h4 data-lfr-editable-id="quick-links-title" data-lfr-editable-type="text">Quick Links</h4>
+                <ul class="boots-footer-links">
+                    <li><a href="/dashboard" data-lfr-editable-id="link-dashboard" data-lfr-editable-type="link">Dashboard</a></li>
+                    <li><a href="/training" data-lfr-editable-id="link-training" data-lfr-editable-type="link">Training & Development</a></li>
+                    <li><a href="/cases" data-lfr-editable-id="link-cases" data-lfr-editable-type="link">Case Management</a></li>
+                    <li><a href="/performance" data-lfr-editable-id="link-performance" data-lfr-editable-type="link">Performance Reports</a></li>
+                    <li><a href="/resources" data-lfr-editable-id="link-resources" data-lfr-editable-type="link">Resources</a></li>
+                </ul>
+            </div>
+            
+            <!-- Support -->
+            <div class="boots-footer-section">
+                <h4 data-lfr-editable-id="support-title" data-lfr-editable-type="text">Support</h4>
+                <ul class="boots-footer-links">
+                    <li><a href="/help" data-lfr-editable-id="link-help" data-lfr-editable-type="link">Help Center</a></li>
+                    <li><a href="/contact" data-lfr-editable-id="link-contact" data-lfr-editable-type="link">Contact Support</a></li>
+                    <li><a href="/training/guides" data-lfr-editable-id="link-guides" data-lfr-editable-type="link">User Guides</a></li>
+                    <li><a href="/system-status" data-lfr-editable-id="link-status" data-lfr-editable-type="link">System Status</a></li>
+                    <li><a href="/feedback" data-lfr-editable-id="link-feedback" data-lfr-editable-type="link">Submit Feedback</a></li>
+                </ul>
+            </div>
+            
+            <!-- Partner Resources -->
+            <div class="boots-footer-section">
+                <h4 data-lfr-editable-id="resources-title" data-lfr-editable-type="text">Partner Resources</h4>
+                <ul class="boots-footer-links">
+                    <li><a href="/partner-agreement" data-lfr-editable-id="link-agreement" data-lfr-editable-type="link">Partner Agreement</a></li>
+                    <li><a href="/marketing-materials" data-lfr-editable-id="link-marketing" data-lfr-editable-type="link">Marketing Materials</a></li>
+                    <li><a href="/product-updates" data-lfr-editable-id="link-updates" data-lfr-editable-type="link">Product Updates</a></li>
+                    <li><a href="/compliance" data-lfr-editable-id="link-compliance" data-lfr-editable-type="link">Compliance Hub</a></li>
+                    <li><a href="/best-practices" data-lfr-editable-id="link-practices" data-lfr-editable-type="link">Best Practices</a></li>
+                </ul>
+            </div>
+            
+            [#if configuration.showNewsletterSignup!true]
+            <!-- Newsletter Signup -->
+            <div class="boots-footer-section boots-newsletter-section">
+                <h4 data-lfr-editable-id="newsletter-title" data-lfr-editable-type="text">Stay Updated</h4>
+                <p data-lfr-editable-id="newsletter-description" data-lfr-editable-type="text">Get the latest partner updates, training opportunities, and industry insights delivered to your inbox.</p>
+                
+                <form class="boots-newsletter-form" id="boots-newsletter-form">
+                    <div class="boots-newsletter-input">
+                        <input 
+                            type="email" 
+                            id="newsletter-email" 
+                            placeholder="Enter your email address" 
+                            required
+                            class="boots-form-input"
+                        >
+                        <button type="submit" class="boots-btn boots-btn-primary">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M15 1L1 8L4 9L6 15L8 8L15 1Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            Subscribe
+                        </button>
+                    </div>
+                    <div class="boots-newsletter-consent">
+                        <label class="boots-checkbox-label">
+                            <input type="checkbox" required>
+                            <span class="boots-checkmark"></span>
+                            <span data-lfr-editable-id="consent-text" data-lfr-editable-type="text">I agree to receive partner updates and marketing communications from Boots</span>
+                        </label>
+                    </div>
+                </form>
+                
+                <div class="boots-newsletter-success" id="newsletter-success" style="display: none;">
+                    <div class="boots-success-icon">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="2"/>
+                            <path d="M6 10L8.5 12.5L14 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div class="boots-success-content">
+                        <h5>Thank you for subscribing!</h5>
+                        <p>You'll receive our next partner update soon.</p>
+                    </div>
+                </div>
+            </div>
+            [/#if]
+        </div>
+        
+        <!-- Footer Bottom -->
+        <div class="boots-footer-bottom">
+            <div class="boots-footer-copyright">
+                <p data-lfr-editable-id="copyright-text" data-lfr-editable-type="text">&copy; 2025 Boots UK Limited. All rights reserved. Partner Portal powered by ${configuration.companyName}.</p>
+            </div>
+            <div class="boots-footer-legal">
+                <a href="/privacy-policy" data-lfr-editable-id="link-privacy" data-lfr-editable-type="link">Privacy Policy</a>
+                <a href="/terms-of-service" data-lfr-editable-id="link-terms" data-lfr-editable-type="link">Terms of Service</a>
+                <a href="/cookies" data-lfr-editable-id="link-cookies" data-lfr-editable-type="link">Cookie Settings</a>
+                <a href="/accessibility" data-lfr-editable-id="link-accessibility" data-lfr-editable-type="link">Accessibility</a>
+            </div>
+        </div>
+    </div>
+    
+    [#if configuration.showBackToTop!true]
+    <!-- Back to Top Button -->
+    <button class="boots-back-to-top" id="boots-back-to-top" aria-label="Back to top">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M10 18V2M3 9L10 2L17 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </button>
+    [/#if]
+</footer>

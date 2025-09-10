@@ -1,0 +1,65 @@
+{
+    "fieldSets": [
+        {
+            "fields": [
+                {
+                    "dataType": "string",
+                    "defaultValue": "£2,450.00",
+                    "label": "Invoice Amount",
+                    "name": "invoiceAmount",
+                    "type": "text",
+                    "typeOptions": {
+                        "placeholder": "Enter invoice amount"
+                    }
+                },
+                {
+                    "dataType": "string",
+                    "defaultValue": "2024-12-31",
+                    "label": "Due Date",
+                    "name": "dueDate",
+                    "type": "text",
+                    "typeOptions": {
+                        "placeholder": "YYYY-MM-DD"
+                    }
+                },
+                {
+                    "dataType": "string",
+                    "defaultValue": "12",
+                    "label": "Number of Appointments",
+                    "name": "numberOfAppointments",
+                    "type": "text",
+                    "typeOptions": {
+                        "placeholder": "Enter number"
+                    }
+                },
+                {
+                    "dataType": "string",
+                    "defaultValue": "INV-2024-001",
+                    "label": "Invoice Number",
+                    "name": "invoiceNumber",
+                    "type": "text",
+                    "typeOptions": {
+                        "placeholder": "Invoice reference"
+                    }
+                },
+                {
+                    "dataType": "string",
+                    "defaultValue": "Acme Corporation",
+                    "label": "Customer Name",
+                    "name": "customerName",
+                    "type": "text",
+                    "typeOptions": {
+                        "placeholder": "Customer name"
+                    }
+                },
+                {
+                    "name": "showDownloadButton",
+                    "label": "Show Download Button",
+                    "description": "Display download invoice button",
+                    "type": "checkbox",
+                    "defaultValue": true
+                }
+            ]
+        }
+    ]
+}

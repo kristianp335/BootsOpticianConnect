@@ -1,0 +1,456 @@
+<div class="boots-training-fragment">
+    <div class="boots-container">
+        <!-- Training Header -->
+        <div class="boots-training-header">
+            <div class="boots-training-title">
+                <h1 data-lfr-editable-id="training-title" data-lfr-editable-type="text">Training & Development</h1>
+                <p data-lfr-editable-id="training-subtitle" data-lfr-editable-type="text">Advance your skills and maintain professional certifications with our comprehensive training programs.</p>
+            </div>
+            <div class="boots-training-actions">
+                <button class="boots-btn boots-btn-outline" data-filter="${configuration.moduleFilter}">
+                    Filter: ${configuration.moduleFilter}
+                </button>
+                <a href="/training/search" class="boots-btn boots-btn-primary">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="2"/>
+                        <path d="M15 15L11 11" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    Browse Catalog
+                </a>
+            </div>
+        </div>
+        
+        <!-- Progress Overview -->
+        <div class="boots-training-overview">
+            <div class="boots-progress-cards">
+                <!-- Overall Progress -->
+                <div class="boots-progress-card boots-card">
+                    <div class="boots-card-header">
+                        <div class="boots-progress-icon boots-icon-overall">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                                <path d="M16 12L12 8L8 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3 data-lfr-editable-id="overall-progress-title" data-lfr-editable-type="text">Overall Progress</h3>
+                    </div>
+                    <div class="boots-card-body">
+                        <div class="boots-progress-value">
+                            <span data-counter data-target="78" data-lfr-editable-id="overall-progress-value" data-lfr-editable-type="text">78%</span>
+                        </div>
+                        <div class="boots-progress-bar">
+                            <div class="boots-progress-fill" style="width: 78%"></div>
+                        </div>
+                        <p class="boots-progress-description" data-lfr-editable-id="overall-progress-desc" data-lfr-editable-type="text">12 of 15 modules completed</p>
+                    </div>
+                </div>
+                
+                <!-- Required Training -->
+                <div class="boots-progress-card boots-card">
+                    <div class="boots-card-header">
+                        <div class="boots-progress-icon boots-icon-required">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                                <path d="M12 6V12L16 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3 data-lfr-editable-id="required-training-title" data-lfr-editable-type="text">Required Training</h3>
+                    </div>
+                    <div class="boots-card-body">
+                        <div class="boots-progress-value">
+                            <span data-counter data-target="85" data-lfr-editable-id="required-training-value" data-lfr-editable-type="text">85%</span>
+                        </div>
+                        <div class="boots-progress-bar">
+                            <div class="boots-progress-fill" style="width: 85%"></div>
+                        </div>
+                        <p class="boots-progress-description" data-lfr-editable-id="required-training-desc" data-lfr-editable-type="text">6 of 7 mandatory modules</p>
+                    </div>
+                </div>
+                
+                [#if configuration.showCertifications!true]
+                <!-- Certifications -->
+                <div class="boots-progress-card boots-card">
+                    <div class="boots-card-header">
+                        <div class="boots-progress-icon boots-icon-certifications">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 2L3 7L12 12L21 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M3 17L12 22L21 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M3 12L12 17L21 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3 data-lfr-editable-id="certifications-title" data-lfr-editable-type="text">Certifications</h3>
+                    </div>
+                    <div class="boots-card-body">
+                        <div class="boots-progress-value">
+                            <span data-counter data-target="4" data-lfr-editable-id="certifications-value" data-lfr-editable-type="text">4</span>
+                        </div>
+                        <div class="boots-certification-status">
+                            <span class="boots-status boots-status-success">Active</span>
+                        </div>
+                        <p class="boots-progress-description" data-lfr-editable-id="certifications-desc" data-lfr-editable-type="text">Valid certifications</p>
+                    </div>
+                </div>
+                [/#if]
+                
+                <!-- Continuing Education -->
+                <div class="boots-progress-card boots-card">
+                    <div class="boots-card-header">
+                        <div class="boots-progress-icon boots-icon-education">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M22 10V6C22 5.4 21.6 5 21 5H3C2.4 5 2 5.4 2 6V10C2 10.6 2.4 11 3 11H21C21.6 11 22 10.6 22 10Z" stroke="currentColor" stroke-width="2"/>
+                                <path d="M7 19H17C18.1 19 19 18.1 19 17V11H5V17C5 18.1 5.9 19 7 19Z" stroke="currentColor" stroke-width="2"/>
+                                <line x1="12" y1="11" x2="12" y2="17" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <h3 data-lfr-editable-id="education-title" data-lfr-editable-type="text">CE Credits</h3>
+                    </div>
+                    <div class="boots-card-body">
+                        <div class="boots-progress-value">
+                            <span data-counter data-target="24" data-lfr-editable-id="education-value" data-lfr-editable-type="text">24</span>
+                        </div>
+                        <div class="boots-progress-bar">
+                            <div class="boots-progress-fill" style="width: 60%"></div>
+                        </div>
+                        <p class="boots-progress-description" data-lfr-editable-id="education-desc" data-lfr-editable-type="text">24 of 40 credits earned</p>
+                    </div>
+                </div>
+            </div>
+            
+            [#if configuration.showProgressChart!true]
+            <!-- Progress Chart -->
+            <div class="boots-chart-section boots-card">
+                <div class="boots-card-header">
+                    <h3 data-lfr-editable-id="progress-chart-title" data-lfr-editable-type="text">Training Progress Over Time</h3>
+                    <div class="boots-chart-controls">
+                        <button class="boots-btn boots-btn-outline" data-chart-period="3months">3M</button>
+                        <button class="boots-btn boots-btn-outline active" data-chart-period="6months">6M</button>
+                        <button class="boots-btn boots-btn-outline" data-chart-period="1year">1Y</button>
+                    </div>
+                </div>
+                <div class="boots-card-body">
+                    <div class="boots-chart-container">
+                        <canvas id="boots-progress-chart"></canvas>
+                    </div>
+                </div>
+            </div>
+            [/#if]
+        </div>
+        
+        <!-- Training Modules -->
+        <div class="boots-training-content">
+            <div class="boots-training-main">
+                <!-- Current Modules -->
+                <div class="boots-training-section">
+                    <div class="boots-section-header">
+                        <h2 data-lfr-editable-id="current-modules-title" data-lfr-editable-type="text">Current Training Modules</h2>
+                        <div class="boots-module-filters">
+                            <button class="boots-filter-btn active" data-status="all">All</button>
+                            <button class="boots-filter-btn" data-status="in-progress">In Progress</button>
+                            <button class="boots-filter-btn" data-status="required">Required</button>
+                            <button class="boots-filter-btn" data-status="optional">Optional</button>
+                        </div>
+                    </div>
+                    
+                    <div class="boots-modules-grid [#if configuration.trainingLayout == 'compact']boots-modules-compact[#elseif configuration.trainingLayout == 'detailed']boots-modules-detailed[#else]boots-modules-standard[/#if]">
+                        <!-- Module 1: Eye Exam Techniques -->
+                        <div class="boots-module-card boots-card" data-status="in-progress required">
+                            <div class="boots-module-image">
+                                <img 
+                                    src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDMwMCAyMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGdyYWRpZW50IGlkPSJhIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj48c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMTg0MjkwO3N0b3Atb3BhY2l0eTowLjEiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiMxODQyOTA7c3RvcC1vcGFjaXR5OjAuMyIvPjwvZ3JhZGllbnQ+PC9kZWZzPjxyZWN0IHdpZHRoPSIzMDAiIGhlaWdodD0iMjAwIiBmaWxsPSJ1cmwoI2EpIi8+PGNpcmNsZSBjeD0iMTUwIiBjeT0iMTAwIiByPSI0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMTg0MjkwIiBzdHJva2Utd2lkdGg9IjMiLz48Y2lyY2xlIGN4PSIxNTAiIGN5PSIxMDAiIHI9IjE1IiBmaWxsPSIjMTg0MjkwIi8+PC9zdmc+"
+                                    alt="Eye Exam Techniques"
+                                    data-lfr-editable-id="module-1-image"
+                                    data-lfr-editable-type="image"
+                                >
+                            </div>
+                            <div class="boots-module-content">
+                                <div class="boots-module-header">
+                                    <div class="boots-module-status">
+                                        <span class="boots-status boots-status-warning">In Progress</span>
+                                        <span class="boots-required-badge">Required</span>
+                                    </div>
+                                    <h4 data-lfr-editable-id="module-1-title" data-lfr-editable-type="text">Advanced Eye Examination Techniques</h4>
+                                    <p data-lfr-editable-id="module-1-description" data-lfr-editable-type="text">Master advanced diagnostic techniques for comprehensive eye examinations and early detection of eye conditions.</p>
+                                </div>
+                                <div class="boots-module-progress">
+                                    <div class="boots-progress-info">
+                                        <span class="boots-progress-text">Progress: 65%</span>
+                                        <span class="boots-module-duration">4.5 hrs remaining</span>
+                                    </div>
+                                    <div class="boots-progress-bar">
+                                        <div class="boots-progress-fill" style="width: 65%"></div>
+                                    </div>
+                                </div>
+                                <div class="boots-module-actions">
+                                    <a href="/training/modules/eye-exam" class="boots-btn boots-btn-primary">Continue</a>
+                                    <button class="boots-btn boots-btn-outline" data-module="bookmark">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                            <path d="M3 2V14L8 11L13 14V2H3Z" stroke="currentColor" stroke-width="2"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Module 2: Contact Lens Fitting -->
+                        <div class="boots-module-card boots-card" data-status="required not-started">
+                            <div class="boots-module-image">
+                                <img 
+                                    src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDMwMCAyMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGdyYWRpZW50IGlkPSJiIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj48c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMjg3ZDNjO3N0b3Atb3BhY2l0eTowLjEiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiMyODdkM2M7c3RvcC1vcGFjaXR5OjAuMyIvPjwvZ3JhZGllbnQ+PC9kZWZzPjxyZWN0IHdpZHRoPSIzMDAiIGhlaWdodD0iMjAwIiBmaWxsPSJ1cmwoI2IpIi8+PGVsbGlwc2UgY3g9IjE1MCIgY3k9IjEwMCIgcng9IjQ1IiByeT0iMzAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzI4N2QzYyIgc3Ryb2tlLXdpZHRoPSIzIi8+PGVsbGlwc2UgY3g9IjE1MCIgY3k9IjEwMCIgcng9IjIwIiByeT0iMTUiIGZpbGw9IiMyODdkM2MiLz48L3N2Zz4="
+                                    alt="Contact Lens Fitting"
+                                    data-lfr-editable-id="module-2-image"
+                                    data-lfr-editable-type="image"
+                                >
+                            </div>
+                            <div class="boots-module-content">
+                                <div class="boots-module-header">
+                                    <div class="boots-module-status">
+                                        <span class="boots-status boots-status-info">Not Started</span>
+                                        <span class="boots-required-badge">Required</span>
+                                    </div>
+                                    <h4 data-lfr-editable-id="module-2-title" data-lfr-editable-type="text">Contact Lens Fitting & Care</h4>
+                                    <p data-lfr-editable-id="module-2-description" data-lfr-editable-type="text">Learn proper contact lens fitting techniques, patient education, and troubleshooting common issues.</p>
+                                </div>
+                                <div class="boots-module-progress">
+                                    <div class="boots-progress-info">
+                                        <span class="boots-progress-text">Duration: 6 hours</span>
+                                        <span class="boots-module-due">Due: Sept 15</span>
+                                    </div>
+                                </div>
+                                <div class="boots-module-actions">
+                                    <a href="/training/modules/contact-lens" class="boots-btn boots-btn-primary">Start Module</a>
+                                    <button class="boots-btn boots-btn-outline" data-module="preview">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                            <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="2"/>
+                                            <path d="M8 6V12M8 4H8.01" stroke="currentColor" stroke-width="2"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Module 3: Digital Retinal Imaging -->
+                        <div class="boots-module-card boots-card" data-status="completed optional">
+                            <div class="boots-module-image">
+                                <img 
+                                    src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDMwMCAyMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGdyYWRpZW50IGlkPSJjIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj48c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMmU1YWFjO3N0b3Atb3BhY2l0eTowLjEiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiMyZTVhYWM7c3RvcC1vcGFjaXR5OjAuMyIvPjwvZ3JhZGllbnQ+PC9kZWZzPjxyZWN0IHdpZHRoPSIzMDAiIGhlaWdodD0iMjAwIiBmaWxsPSJ1cmwoI2MpIi8+PHJlY3QgeD0iNzUiIHk9IjYwIiB3aWR0aD0iMTUwIiBoZWlnaHQ9IjgwIiBmaWxsPSJub25lIiBzdHJva2U9IiMyZTVhYWMiIHN0cm9rZS13aWR0aD0iMyIgcng9IjUiLz48Y2lyY2xlIGN4PSIxODAiIGN5PSI4MCIgcj0iOCIgZmlsbD0iIzJlNWFhYyIvPjwvc3ZnPg=="
+                                    alt="Digital Retinal Imaging"
+                                    data-lfr-editable-id="module-3-image"
+                                    data-lfr-editable-type="image"
+                                >
+                            </div>
+                            <div class="boots-module-content">
+                                <div class="boots-module-header">
+                                    <div class="boots-module-status">
+                                        <span class="boots-status boots-status-success">Completed</span>
+                                        <span class="boots-optional-badge">Optional</span>
+                                    </div>
+                                    <h4 data-lfr-editable-id="module-3-title" data-lfr-editable-type="text">Digital Retinal Imaging & Analysis</h4>
+                                    <p data-lfr-editable-id="module-3-description" data-lfr-editable-type="text">Advanced techniques for digital retinal imaging, image analysis, and patient communication.</p>
+                                </div>
+                                <div class="boots-module-completion">
+                                    <div class="boots-completion-info">
+                                        <span class="boots-completion-date">Completed: Aug 10, 2025</span>
+                                        <span class="boots-completion-score">Score: 95%</span>
+                                    </div>
+                                    <div class="boots-certificate-badge">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                            <path d="M8 1L10 6H15L11 9L12.5 14L8 11L3.5 14L5 9L1 6H6L8 1Z" fill="currentColor"/>
+                                        </svg>
+                                        Certificate Earned
+                                    </div>
+                                </div>
+                                <div class="boots-module-actions">
+                                    <a href="/training/certificates/retinal-imaging" class="boots-btn boots-btn-outline">View Certificate</a>
+                                    <button class="boots-btn boots-btn-light" data-module="review">Review</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Module 4: Customer Service Excellence -->
+                        <div class="boots-module-card boots-card" data-status="optional not-started">
+                            <div class="boots-module-image">
+                                <img 
+                                    src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDMwMCAyMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGdyYWRpZW50IGlkPSJkIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj48c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojYjk1MDAwO3N0b3Atb3BhY2l0eTowLjEiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiNiOTUwMDA7c3RvcC1vcGFjaXR5OjAuMyIvPjwvZ3JhZGllbnQ+PC9kZWZzPjxyZWN0IHdpZHRoPSIzMDAiIGhlaWdodD0iMjAwIiBmaWxsPSJ1cmwoI2QpIi8+PGNpcmNsZSBjeD0iMTIwIiBjeT0iODAiIHI9IjI1IiBmaWxsPSJub25lIiBzdHJva2U9IiNiOTUwMDAiIHN0cm9rZS13aWR0aD0iMyIvPjxjaXJjbGUgY3g9IjE4MCIgY3k9IjEyMCIgcj0iMjUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2I5NTAwMCIgc3Ryb2tlLXdpZHRoPSIzIi8+PGxpbmUgeDE9IjEzNSIgeTE9IjkwIiB4Mj0iMTY1IiB5Mj0iMTEwIiBzdHJva2U9IiNiOTUwMDAiIHN0cm9rZS13aWR0aD0iMyIvPjwvc3ZnPg=="
+                                    alt="Customer Service Excellence"
+                                    data-lfr-editable-id="module-4-image"
+                                    data-lfr-editable-type="image"
+                                >
+                            </div>
+                            <div class="boots-module-content">
+                                <div class="boots-module-header">
+                                    <div class="boots-module-status">
+                                        <span class="boots-status boots-status-info">Available</span>
+                                        <span class="boots-optional-badge">Optional</span>
+                                    </div>
+                                    <h4 data-lfr-editable-id="module-4-title" data-lfr-editable-type="text">Customer Service Excellence</h4>
+                                    <p data-lfr-editable-id="module-4-description" data-lfr-editable-type="text">Enhance customer satisfaction through effective communication and service delivery techniques.</p>
+                                </div>
+                                <div class="boots-module-progress">
+                                    <div class="boots-progress-info">
+                                        <span class="boots-progress-text">Duration: 3 hours</span>
+                                        <span class="boots-module-rating">★★★★☆ (4.7/5)</span>
+                                    </div>
+                                </div>
+                                <div class="boots-module-actions">
+                                    <a href="/training/modules/customer-service" class="boots-btn boots-btn-primary">Start Module</a>
+                                    <button class="boots-btn boots-btn-outline" data-module="preview">Preview</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Upcoming Training -->
+                <div class="boots-training-section">
+                    <div class="boots-section-header">
+                        <h2 data-lfr-editable-id="upcoming-training-title" data-lfr-editable-type="text">Upcoming Training</h2>
+                        <a href="/training/calendar" class="boots-btn boots-btn-outline">View Calendar</a>
+                    </div>
+                    
+                    <div class="boots-upcoming-list">
+                        <div class="boots-upcoming-item boots-card">
+                            <div class="boots-upcoming-date">
+                                <div class="boots-date-month">SEP</div>
+                                <div class="boots-date-day">15</div>
+                            </div>
+                            <div class="boots-upcoming-content">
+                                <h4 data-lfr-editable-id="upcoming-1-title" data-lfr-editable-type="text">New Frame Collection Training</h4>
+                                <p data-lfr-editable-id="upcoming-1-description" data-lfr-editable-type="text">Learn about the latest frame styles and fitting techniques for autumn collection.</p>
+                                <div class="boots-upcoming-meta">
+                                    <span class="boots-upcoming-time">2:00 PM - 4:00 PM</span>
+                                    <span class="boots-upcoming-location">Online Session</span>
+                                </div>
+                            </div>
+                            <div class="boots-upcoming-actions">
+                                <button class="boots-btn boots-btn-primary">Register</button>
+                            </div>
+                        </div>
+                        
+                        <div class="boots-upcoming-item boots-card">
+                            <div class="boots-upcoming-date">
+                                <div class="boots-date-month">SEP</div>
+                                <div class="boots-date-day">22</div>
+                            </div>
+                            <div class="boots-upcoming-content">
+                                <h4 data-lfr-editable-id="upcoming-2-title" data-lfr-editable-type="text">Eye Health Webinar</h4>
+                                <p data-lfr-editable-id="upcoming-2-description" data-lfr-editable-type="text">Expert panel discussing latest developments in preventive eye care.</p>
+                                <div class="boots-upcoming-meta">
+                                    <span class="boots-upcoming-time">11:00 AM - 12:30 PM</span>
+                                    <span class="boots-upcoming-location">Webinar</span>
+                                </div>
+                            </div>
+                            <div class="boots-upcoming-actions">
+                                <button class="boots-btn boots-btn-outline">Learn More</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Training Sidebar -->
+            <div class="boots-training-sidebar">
+                <!-- Quick Stats -->
+                <div class="boots-training-widget boots-card">
+                    <div class="boots-card-header">
+                        <h3 data-lfr-editable-id="quick-stats-title" data-lfr-editable-type="text">Quick Stats</h3>
+                    </div>
+                    <div class="boots-card-body">
+                        <div class="boots-stat-items">
+                            <div class="boots-stat-item">
+                                <div class="boots-stat-value" data-counter data-target="12">12</div>
+                                <div class="boots-stat-label">Modules Completed</div>
+                            </div>
+                            <div class="boots-stat-item">
+                                <div class="boots-stat-value" data-counter data-target="36">36</div>
+                                <div class="boots-stat-label">Hours Completed</div>
+                            </div>
+                            <div class="boots-stat-item">
+                                <div class="boots-stat-value" data-counter data-target="4">4</div>
+                                <div class="boots-stat-label">Certificates Earned</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Learning Goals -->
+                <div class="boots-training-widget boots-card">
+                    <div class="boots-card-header">
+                        <h3 data-lfr-editable-id="learning-goals-title" data-lfr-editable-type="text">Learning Goals</h3>
+                    </div>
+                    <div class="boots-card-body">
+                        <div class="boots-goals-list">
+                            <div class="boots-goal-item">
+                                <div class="boots-goal-progress">
+                                    <div class="boots-goal-fill" style="width: 85%"></div>
+                                </div>
+                                <div class="boots-goal-content">
+                                    <h5 data-lfr-editable-id="goal-1-title" data-lfr-editable-type="text">Q3 Compliance</h5>
+                                    <p data-lfr-editable-id="goal-1-desc" data-lfr-editable-type="text">Complete mandatory training</p>
+                                    <small>85% Complete</small>
+                                </div>
+                            </div>
+                            
+                            <div class="boots-goal-item">
+                                <div class="boots-goal-progress">
+                                    <div class="boots-goal-fill" style="width: 60%"></div>
+                                </div>
+                                <div class="boots-goal-content">
+                                    <h5 data-lfr-editable-id="goal-2-title" data-lfr-editable-type="text">CE Credits</h5>
+                                    <p data-lfr-editable-id="goal-2-desc" data-lfr-editable-type="text">Earn 40 hours by Dec 31</p>
+                                    <small>24 of 40 hours</small>
+                                </div>
+                            </div>
+                            
+                            <div class="boots-goal-item">
+                                <div class="boots-goal-progress">
+                                    <div class="boots-goal-fill" style="width: 30%"></div>
+                                </div>
+                                <div class="boots-goal-content">
+                                    <h5 data-lfr-editable-id="goal-3-title" data-lfr-editable-type="text">Specialization</h5>
+                                    <p data-lfr-editable-id="goal-3-desc" data-lfr-editable-type="text">Contact lens specialty</p>
+                                    <small>3 of 10 modules</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Recent Achievements -->
+                <div class="boots-training-widget boots-card">
+                    <div class="boots-card-header">
+                        <h3 data-lfr-editable-id="achievements-title" data-lfr-editable-type="text">Recent Achievements</h3>
+                    </div>
+                    <div class="boots-card-body">
+                        <div class="boots-achievements">
+                            <div class="boots-achievement-item">
+                                <div class="boots-achievement-icon">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                        <path d="M10 1L12.5 6.5L19 7.5L14.5 12L15.5 18.5L10 15.5L4.5 18.5L5.5 12L1 7.5L7.5 6.5L10 1Z" fill="currentColor"/>
+                                    </svg>
+                                </div>
+                                <div class="boots-achievement-content">
+                                    <h5 data-lfr-editable-id="achievement-1-title" data-lfr-editable-type="text">Expert Level</h5>
+                                    <p data-lfr-editable-id="achievement-1-desc" data-lfr-editable-type="text">Digital Imaging Certified</p>
+                                </div>
+                            </div>
+                            
+                            <div class="boots-achievement-item">
+                                <div class="boots-achievement-icon">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                        <path d="M10 2L3 7L10 12L17 7L10 2Z" stroke="currentColor" stroke-width="2"/>
+                                        <path d="M3 17L10 22L17 17" stroke="currentColor" stroke-width="2"/>
+                                        <path d="M3 12L10 17L17 12" stroke="currentColor" stroke-width="2"/>
+                                    </svg>
+                                </div>
+                                <div class="boots-achievement-content">
+                                    <h5 data-lfr-editable-id="achievement-2-title" data-lfr-editable-type="text">Fast Learner</h5>
+                                    <p data-lfr-editable-id="achievement-2-desc" data-lfr-editable-type="text">Completed 5 modules this month</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

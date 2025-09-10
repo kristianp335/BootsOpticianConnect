@@ -1,0 +1,11 @@
+{
+  "fragmentEntryKey": "boots-hero",
+  "name": "Boots Hero",
+  "type": "section",
+  "htmlPath": "index.html",
+  "cssPath": "index.css",
+  "jsPath": "index.js",
+  "configurationPath": "configuration.json",
+  "thumbnailPath": "thumbnail.png",
+  "icon": "picture"
+}

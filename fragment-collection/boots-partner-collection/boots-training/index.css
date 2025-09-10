@@ -1,0 +1,748 @@
+/*
+ * Boots Training Fragment
+ * Training & Development module with progress tracking
+ */
+
+/* Training Container */
+#wrapper .boots-training-fragment {
+    padding: var(--boots-spacing-xl) 0;
+    background: var(--gray-50, #f8f9fa);
+}
+
+/* Training Header */
+#wrapper .boots-training-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: var(--boots-spacing-xl);
+}
+
+#wrapper .boots-training-title h1 {
+    margin: 0 0 var(--boots-spacing-sm) 0;
+    color: var(--boots-dark);
+    font-size: 2.5rem;
+    font-weight: var(--boots-font-weight-bold);
+}
+
+#wrapper .boots-training-title p {
+    margin: 0;
+    color: var(--boots-muted);
+    font-size: var(--boots-font-size-lg);
+    max-width: 600px;
+}
+
+#wrapper .boots-training-actions {
+    display: flex;
+    gap: var(--boots-spacing-md);
+    align-items: center;
+}
+
+/* Progress Overview */
+#wrapper .boots-training-overview {
+    margin-bottom: var(--boots-spacing-xxl);
+}
+
+#wrapper .boots-progress-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--boots-spacing-lg);
+    margin-bottom: var(--boots-spacing-xl);
+}
+
+/* Progress Cards */
+#wrapper .boots-progress-card {
+    background: var(--boots-white);
+    border: 1px solid var(--gray-200, #f1f2f5);
+    border-radius: var(--boots-border-radius-lg);
+    transition: var(--boots-transition);
+}
+
+#wrapper .boots-progress-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--boots-shadow-lg);
+}
+
+#wrapper .boots-progress-card .boots-card-header {
+    display: flex;
+    align-items: center;
+    gap: var(--boots-spacing-md);
+    padding: var(--boots-spacing-lg);
+    background: var(--gray-100, #f7f8f9);
+    border-bottom: 1px solid var(--gray-200, #f1f2f5);
+}
+
+#wrapper .boots-progress-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--boots-border-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--boots-white);
+}
+
+#wrapper .boots-icon-overall {
+    background: var(--boots-primary);
+}
+
+#wrapper .boots-icon-required {
+    background: var(--warning, #b95000);
+}
+
+#wrapper .boots-icon-certifications {
+    background: var(--success, #287d3c);
+}
+
+#wrapper .boots-icon-education {
+    background: var(--info, #2e5aac);
+}
+
+#wrapper .boots-progress-card h3 {
+    margin: 0;
+    font-size: var(--boots-font-size-base);
+    font-weight: var(--boots-font-weight-semi-bold);
+    color: var(--boots-dark);
+}
+
+#wrapper .boots-progress-value {
+    text-align: center;
+    margin-bottom: var(--boots-spacing-lg);
+}
+
+#wrapper .boots-progress-value span {
+    font-size: 3rem;
+    font-weight: var(--boots-font-weight-bold);
+    color: var(--boots-primary);
+    line-height: 1;
+}
+
+#wrapper .boots-progress-bar {
+    width: 100%;
+    height: 8px;
+    background: var(--gray-200, #f1f2f5);
+    border-radius: var(--boots-border-radius);
+    overflow: hidden;
+    margin-bottom: var(--boots-spacing-md);
+}
+
+#wrapper .boots-progress-fill {
+    height: 100%;
+    background: var(--boots-primary);
+    border-radius: var(--boots-border-radius);
+    transition: width 1.5s ease-in-out;
+}
+
+#wrapper .boots-progress-description,
+#wrapper .boots-certification-status {
+    text-align: center;
+    color: var(--boots-muted);
+    font-size: var(--boots-font-size-sm);
+}
+
+#wrapper .boots-certification-status {
+    margin-bottom: var(--boots-spacing-md);
+}
+
+/* Chart Section */
+#wrapper .boots-chart-section {
+    background: var(--boots-white);
+    border: 1px solid var(--gray-200, #f1f2f5);
+    border-radius: var(--boots-border-radius-lg);
+    box-shadow: var(--boots-shadow-sm);
+}
+
+#wrapper .boots-chart-section .boots-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--boots-spacing-lg);
+    border-bottom: 1px solid var(--gray-200, #f1f2f5);
+    background: var(--gray-100, #f7f8f9);
+}
+
+#wrapper .boots-chart-controls {
+    display: flex;
+    gap: var(--boots-spacing-xs);
+}
+
+#wrapper .boots-chart-controls .boots-btn {
+    padding: var(--boots-spacing-sm) var(--boots-spacing-md);
+    font-size: var(--boots-font-size-sm);
+    min-height: auto;
+}
+
+#wrapper .boots-chart-controls .boots-btn.active {
+    background: var(--boots-primary);
+    color: var(--boots-white);
+    border-color: var(--boots-primary);
+}
+
+/* Training Content Layout */
+#wrapper .boots-training-content {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: var(--boots-spacing-xl);
+}
+
+#wrapper .boots-training-main {
+    display: flex;
+    flex-direction: column;
+    gap: var(--boots-spacing-xl);
+}
+
+#wrapper .boots-training-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: var(--boots-spacing-lg);
+}
+
+/* Training Sections */
+#wrapper .boots-training-section {
+    background: var(--boots-white);
+    border-radius: var(--boots-border-radius-lg);
+    box-shadow: var(--boots-shadow-sm);
+    overflow: hidden;
+}
+
+#wrapper .boots-section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--boots-spacing-lg);
+    border-bottom: 1px solid var(--gray-200, #f1f2f5);
+    background: var(--gray-100, #f7f8f9);
+}
+
+#wrapper .boots-section-header h2 {
+    margin: 0;
+    font-size: var(--boots-font-size-lg);
+    font-weight: var(--boots-font-weight-semi-bold);
+    color: var(--boots-dark);
+}
+
+/* Module Filters */
+#wrapper .boots-module-filters {
+    display: flex;
+    gap: var(--boots-spacing-xs);
+}
+
+#wrapper .boots-filter-btn {
+    padding: var(--boots-spacing-sm) var(--boots-spacing-md);
+    font-size: var(--boots-font-size-sm);
+    background: transparent;
+    border: 2px solid transparent;
+    border-radius: var(--boots-border-radius);
+    color: var(--boots-muted);
+    cursor: pointer;
+    transition: var(--boots-transition);
+    min-height: auto;
+}
+
+#wrapper .boots-filter-btn:hover {
+    background: var(--gray-100, #f7f8f9);
+    color: var(--boots-dark);
+}
+
+#wrapper .boots-filter-btn.active {
+    background: var(--boots-primary);
+    color: var(--boots-white);
+    border-color: var(--boots-primary);
+}
+
+/* Modules Grid */
+#wrapper .boots-modules-grid {
+    display: grid;
+    gap: var(--boots-spacing-lg);
+    padding: var(--boots-spacing-lg);
+}
+
+#wrapper .boots-modules-standard {
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+}
+
+#wrapper .boots-modules-compact {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
+#wrapper .boots-modules-detailed {
+    grid-template-columns: 1fr;
+}
+
+/* Module Cards */
+#wrapper .boots-module-card {
+    background: var(--boots-white);
+    border: 1px solid var(--gray-200, #f1f2f5);
+    border-radius: var(--boots-border-radius-lg);
+    overflow: hidden;
+    transition: var(--boots-transition);
+}
+
+#wrapper .boots-module-card:hover {
+    box-shadow: var(--boots-shadow);
+    transform: translateY(-2px);
+}
+
+#wrapper .boots-module-image {
+    height: 200px;
+    overflow: hidden;
+}
+
+#wrapper .boots-module-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#wrapper .boots-module-content {
+    padding: var(--boots-spacing-lg);
+}
+
+#wrapper .boots-module-header {
+    margin-bottom: var(--boots-spacing-lg);
+}
+
+#wrapper .boots-module-status {
+    display: flex;
+    align-items: center;
+    gap: var(--boots-spacing-sm);
+    margin-bottom: var(--boots-spacing-md);
+}
+
+#wrapper .boots-required-badge {
+    background: var(--warning, #b95000);
+    color: var(--boots-white);
+    padding: var(--boots-spacing-xs) var(--boots-spacing-sm);
+    font-size: 11px;
+    font-weight: var(--boots-font-weight-bold);
+    border-radius: var(--boots-border-radius);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+#wrapper .boots-optional-badge {
+    background: var(--info, #2e5aac);
+    color: var(--boots-white);
+    padding: var(--boots-spacing-xs) var(--boots-spacing-sm);
+    font-size: 11px;
+    font-weight: var(--boots-font-weight-bold);
+    border-radius: var(--boots-border-radius);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+#wrapper .boots-module-card h4 {
+    margin: 0 0 var(--boots-spacing-sm) 0;
+    font-size: var(--boots-font-size-lg);
+    font-weight: var(--boots-font-weight-semi-bold);
+    color: var(--boots-dark);
+}
+
+#wrapper .boots-module-card p {
+    margin: 0;
+    color: var(--boots-muted);
+    font-size: var(--boots-font-size-sm);
+    line-height: 1.5;
+}
+
+/* Module Progress */
+#wrapper .boots-module-progress {
+    margin-bottom: var(--boots-spacing-lg);
+}
+
+#wrapper .boots-progress-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--boots-spacing-sm);
+}
+
+#wrapper .boots-progress-text,
+#wrapper .boots-module-duration,
+#wrapper .boots-module-due,
+#wrapper .boots-module-rating {
+    font-size: var(--boots-font-size-sm);
+    color: var(--boots-muted);
+}
+
+#wrapper .boots-module-duration,
+#wrapper .boots-module-due {
+    font-weight: var(--boots-font-weight-semi-bold);
+}
+
+/* Module Completion */
+#wrapper .boots-module-completion {
+    margin-bottom: var(--boots-spacing-lg);
+}
+
+#wrapper .boots-completion-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--boots-spacing-sm);
+}
+
+#wrapper .boots-completion-date,
+#wrapper .boots-completion-score {
+    font-size: var(--boots-font-size-sm);
+    color: var(--boots-muted);
+}
+
+#wrapper .boots-completion-score {
+    font-weight: var(--boots-font-weight-semi-bold);
+    color: var(--success, #287d3c);
+}
+
+#wrapper .boots-certificate-badge {
+    display: flex;
+    align-items: center;
+    gap: var(--boots-spacing-sm);
+    padding: var(--boots-spacing-sm);
+    background: var(--success, #287d3c);
+    color: var(--boots-white);
+    border-radius: var(--boots-border-radius);
+    font-size: var(--boots-font-size-sm);
+    font-weight: var(--boots-font-weight-semi-bold);
+}
+
+/* Module Actions */
+#wrapper .boots-module-actions {
+    display: flex;
+    gap: var(--boots-spacing-sm);
+    align-items: center;
+}
+
+/* Upcoming Training */
+#wrapper .boots-upcoming-list {
+    padding: var(--boots-spacing-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--boots-spacing-lg);
+}
+
+#wrapper .boots-upcoming-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--boots-spacing-lg);
+    padding: var(--boots-spacing-lg);
+    background: var(--boots-white);
+    border: 1px solid var(--gray-200, #f1f2f5);
+    border-radius: var(--boots-border-radius);
+    transition: var(--boots-transition);
+}
+
+#wrapper .boots-upcoming-item:hover {
+    box-shadow: var(--boots-shadow-sm);
+    border-color: var(--boots-primary);
+}
+
+#wrapper .boots-upcoming-date {
+    text-align: center;
+    background: var(--boots-primary);
+    color: var(--boots-white);
+    border-radius: var(--boots-border-radius);
+    padding: var(--boots-spacing-md);
+    min-width: 70px;
+    flex-shrink: 0;
+}
+
+#wrapper .boots-date-month {
+    font-size: var(--boots-font-size-sm);
+    font-weight: var(--boots-font-weight-bold);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+#wrapper .boots-date-day {
+    font-size: 1.5rem;
+    font-weight: var(--boots-font-weight-bold);
+    line-height: 1;
+}
+
+#wrapper .boots-upcoming-content {
+    flex-grow: 1;
+}
+
+#wrapper .boots-upcoming-content h4 {
+    margin: 0 0 var(--boots-spacing-sm) 0;
+    font-size: var(--boots-font-size-base);
+    font-weight: var(--boots-font-weight-semi-bold);
+    color: var(--boots-dark);
+}
+
+#wrapper .boots-upcoming-content p {
+    margin: 0 0 var(--boots-spacing-sm) 0;
+    color: var(--boots-muted);
+    font-size: var(--boots-font-size-sm);
+}
+
+#wrapper .boots-upcoming-meta {
+    display: flex;
+    gap: var(--boots-spacing-lg);
+}
+
+#wrapper .boots-upcoming-time,
+#wrapper .boots-upcoming-location {
+    font-size: var(--boots-font-size-sm);
+    color: var(--boots-muted);
+}
+
+#wrapper .boots-upcoming-actions {
+    flex-shrink: 0;
+}
+
+/* Training Widgets */
+#wrapper .boots-training-widget {
+    background: var(--boots-white);
+    border: 1px solid var(--gray-200, #f1f2f5);
+    border-radius: var(--boots-border-radius-lg);
+    box-shadow: var(--boots-shadow-sm);
+}
+
+#wrapper .boots-training-widget .boots-card-header {
+    padding: var(--boots-spacing-lg);
+    border-bottom: 1px solid var(--gray-200, #f1f2f5);
+    background: var(--gray-100, #f7f8f9);
+}
+
+#wrapper .boots-training-widget .boots-card-body {
+    padding: var(--boots-spacing-lg);
+}
+
+#wrapper .boots-training-widget h3 {
+    margin: 0;
+    font-size: var(--boots-font-size-base);
+    font-weight: var(--boots-font-weight-semi-bold);
+    color: var(--boots-dark);
+}
+
+/* Quick Stats */
+#wrapper .boots-stat-items {
+    display: flex;
+    flex-direction: column;
+    gap: var(--boots-spacing-lg);
+}
+
+#wrapper .boots-stat-item {
+    text-align: center;
+    padding: var(--boots-spacing-md);
+    background: var(--gray-100, #f7f8f9);
+    border-radius: var(--boots-border-radius);
+}
+
+#wrapper .boots-stat-value {
+    font-size: 2rem;
+    font-weight: var(--boots-font-weight-bold);
+    color: var(--boots-primary);
+    line-height: 1;
+    margin-bottom: var(--boots-spacing-xs);
+}
+
+#wrapper .boots-stat-label {
+    font-size: var(--boots-font-size-sm);
+    color: var(--boots-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: var(--boots-font-weight-semi-bold);
+}
+
+/* Learning Goals */
+#wrapper .boots-goals-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--boots-spacing-lg);
+}
+
+#wrapper .boots-goal-item {
+    position: relative;
+    padding: var(--boots-spacing-md);
+    background: var(--gray-100, #f7f8f9);
+    border-radius: var(--boots-border-radius);
+}
+
+#wrapper .boots-goal-progress {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: var(--gray-300, #e7e7ed);
+    border-radius: var(--boots-border-radius) 0 0 var(--boots-border-radius);
+}
+
+#wrapper .boots-goal-fill {
+    height: 100%;
+    background: var(--boots-primary);
+    border-radius: var(--boots-border-radius) 0 0 var(--boots-border-radius);
+    transition: height 1.5s ease-in-out;
+}
+
+#wrapper .boots-goal-content h5 {
+    margin: 0 0 var(--boots-spacing-xs) 0;
+    font-size: var(--boots-font-size-sm);
+    font-weight: var(--boots-font-weight-semi-bold);
+    color: var(--boots-dark);
+}
+
+#wrapper .boots-goal-content p {
+    margin: 0 0 var(--boots-spacing-xs) 0;
+    font-size: 12px;
+    color: var(--boots-muted);
+}
+
+#wrapper .boots-goal-content small {
+    font-size: 11px;
+    color: var(--boots-primary);
+    font-weight: var(--boots-font-weight-semi-bold);
+}
+
+/* Achievements */
+#wrapper .boots-achievements {
+    display: flex;
+    flex-direction: column;
+    gap: var(--boots-spacing-md);
+}
+
+#wrapper .boots-achievement-item {
+    display: flex;
+    align-items: center;
+    gap: var(--boots-spacing-md);
+    padding: var(--boots-spacing-md);
+    background: var(--gray-100, #f7f8f9);
+    border-radius: var(--boots-border-radius);
+}
+
+#wrapper .boots-achievement-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--warning, #b95000);
+    color: var(--boots-white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+#wrapper .boots-achievement-content h5 {
+    margin: 0 0 var(--boots-spacing-xs) 0;
+    font-size: var(--boots-font-size-sm);
+    font-weight: var(--boots-font-weight-semi-bold);
+    color: var(--boots-dark);
+}
+
+#wrapper .boots-achievement-content p {
+    margin: 0;
+    font-size: 12px;
+    color: var(--boots-muted);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    #wrapper .boots-training-content {
+        grid-template-columns: 1fr 300px;
+        gap: var(--boots-spacing-lg);
+    }
+}
+
+@media (max-width: 968px) {
+    #wrapper .boots-training-content {
+        grid-template-columns: 1fr;
+    }
+    
+    #wrapper .boots-training-sidebar {
+        order: -1;
+    }
+    
+    #wrapper .boots-modules-standard,
+    #wrapper .boots-modules-compact {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    #wrapper .boots-training-fragment {
+        padding: var(--boots-spacing-lg) 0;
+    }
+    
+    #wrapper .boots-training-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--boots-spacing-md);
+    }
+    
+    #wrapper .boots-training-title h1 {
+        font-size: 2rem;
+    }
+    
+    #wrapper .boots-progress-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    #wrapper .boots-section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--boots-spacing-md);
+    }
+    
+    #wrapper .boots-module-filters {
+        width: 100%;
+        justify-content: stretch;
+    }
+    
+    #wrapper .boots-filter-btn {
+        flex: 1;
+        text-align: center;
+    }
+    
+    #wrapper .boots-upcoming-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    #wrapper .boots-upcoming-date {
+        align-self: center;
+    }
+}
+
+@media (max-width: 480px) {
+    #wrapper .boots-training-fragment {
+        padding: var(--boots-spacing-md) 0;
+    }
+    
+    #wrapper .boots-training-title h1 {
+        font-size: 1.75rem;
+    }
+    
+    #wrapper .boots-progress-value span {
+        font-size: 2.5rem;
+    }
+    
+    #wrapper .boots-training-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    #wrapper .boots-training-actions .boots-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Module Filtering */
+#wrapper .boots-modules-grid .boots-module-card {
+    display: block;
+}
+
+#wrapper .boots-modules-grid .boots-module-card[data-status*="hidden"] {
+    display: none;
+}
+
+/* Animation for progress bars */
+@keyframes boots-progress-fill {
+    from { width: 0; }
+    to { width: var(--progress-width); }
+}
+
+#wrapper .boots-progress-fill {
+    animation: boots-progress-fill 1.5s ease-in-out;
+}

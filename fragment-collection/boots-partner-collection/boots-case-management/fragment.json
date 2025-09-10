@@ -1,0 +1,11 @@
+{
+  "fragmentEntryKey": "boots-case-management",
+  "name": "Boots Case Management",
+  "type": "section",
+  "htmlPath": "index.html",
+  "cssPath": "index.css",
+  "jsPath": "index.js",
+  "configurationPath": "configuration.json",
+  "thumbnailPath": "thumbnail.png",
+  "icon": "folder"
+}

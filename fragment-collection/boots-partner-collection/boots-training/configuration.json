@@ -1,0 +1,79 @@
+{
+  "fieldSets": [
+    {
+      "fields": [
+        {
+          "name": "showProgressChart",
+          "label": "Show Progress Chart",
+          "description": "Display training progress visualization",
+          "type": "checkbox",
+          "defaultValue": true
+        },
+        {
+          "name": "showCertifications",
+          "label": "Show Certifications",
+          "description": "Display certification status section",
+          "type": "checkbox",
+          "defaultValue": true
+        },
+        {
+          "name": "showUpcomingTraining",
+          "label": "Show Upcoming Training",
+          "description": "Display upcoming training schedule",
+          "type": "checkbox",
+          "defaultValue": true
+        },
+        {
+          "name": "trainingLayout",
+          "label": "Training Layout",
+          "description": "Choose training module layout",
+          "type": "select",
+          "defaultValue": "standard",
+          "typeOptions": {
+            "validValues": [
+              {
+                "label": "Standard Layout",
+                "value": "standard"
+              },
+              {
+                "label": "Compact Layout",
+                "value": "compact"
+              },
+              {
+                "label": "Detailed Layout",
+                "value": "detailed"
+              }
+            ]
+          }
+        },
+        {
+          "name": "moduleFilter",
+          "label": "Module Filter",
+          "description": "Filter training modules by status",
+          "type": "select",
+          "defaultValue": "all",
+          "typeOptions": {
+            "validValues": [
+              {
+                "label": "All Modules",
+                "value": "all"
+              },
+              {
+                "label": "Required Only",
+                "value": "required"
+              },
+              {
+                "label": "Optional Only",
+                "value": "optional"
+              },
+              {
+                "label": "Completed Only",
+                "value": "completed"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

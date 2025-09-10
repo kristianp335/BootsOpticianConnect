@@ -1,0 +1,81 @@
+{
+  "fieldSets": [
+    {
+      "fields": [
+        {
+          "name": "heroHeight",
+          "label": "Hero Section Height",
+          "description": "Choose the height of the hero section",
+          "type": "select",
+          "defaultValue": "medium",
+          "typeOptions": {
+            "validValues": [
+              {
+                "label": "Small (400px)",
+                "value": "small"
+              },
+              {
+                "label": "Medium (600px)",
+                "value": "medium"
+              },
+              {
+                "label": "Large (800px)",
+                "value": "large"
+              },
+              {
+                "label": "Full Viewport",
+                "value": "fullscreen"
+              }
+            ]
+          }
+        },
+        {
+          "name": "textAlignment",
+          "label": "Text Alignment",
+          "description": "Choose text alignment for hero content",
+          "type": "select",
+          "defaultValue": "center",
+          "typeOptions": {
+            "validValues": [
+              {
+                "label": "Left Aligned",
+                "value": "left"
+              },
+              {
+                "label": "Center Aligned",
+                "value": "center"
+              },
+              {
+                "label": "Right Aligned",
+                "value": "right"
+              }
+            ]
+          }
+        },
+        {
+          "name": "overlayOpacity",
+          "label": "Background Overlay",
+          "description": "Adjust dark overlay for better text readability",
+          "type": "select",
+          "defaultValue": "medium",
+          "typeOptions": {
+            "validValues": [
+              {
+                "label": "Light Overlay (30%)",
+                "value": "light"
+              },
+              {
+                "label": "Medium Overlay (50%)",
+                "value": "medium"
+              },
+              {
+                "label": "Dark Overlay (70%)",
+                "value": "dark"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

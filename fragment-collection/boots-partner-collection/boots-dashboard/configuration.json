@@ -1,0 +1,52 @@
+{
+  "fieldSets": [
+    {
+      "fields": [
+        {
+          "name": "showPerformanceCharts",
+          "label": "Show Performance Charts",
+          "description": "Display performance analytics charts",
+          "type": "checkbox",
+          "defaultValue": true
+        },
+        {
+          "name": "showActionItems",
+          "label": "Show Action Items",
+          "description": "Display my action items section",
+          "type": "checkbox",
+          "defaultValue": true
+        },
+        {
+          "name": "showTrainingProgress",
+          "label": "Show Training Progress",
+          "description": "Display training progress widget",
+          "type": "checkbox",
+          "defaultValue": true
+        },
+        {
+          "name": "dashboardLayout",
+          "label": "Dashboard Layout",
+          "description": "Choose dashboard card layout",
+          "type": "select",
+          "defaultValue": "standard",
+          "typeOptions": {
+            "validValues": [
+              {
+                "label": "Standard Layout (4 columns)",
+                "value": "standard"
+              },
+              {
+                "label": "Compact Layout (6 columns)",
+                "value": "compact"
+              },
+              {
+                "label": "Wide Layout (3 columns)",
+                "value": "wide"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

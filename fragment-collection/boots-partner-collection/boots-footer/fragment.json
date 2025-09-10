@@ -1,0 +1,10 @@
+{
+  "fragmentEntryKey": "boots-footer",
+  "name": "Boots Footer",
+  "type": "section",
+  "htmlPath": "index.html",
+  "cssPath": "index.css",
+  "configurationPath": "configuration.json",
+  "thumbnailPath": "thumbnail.png",
+  "icon": "footer"
+}
