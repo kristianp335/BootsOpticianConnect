@@ -1,0 +1,75 @@
+/* Boots Custom Widget Container Fragment Styles */
+
+#wrapper .boots-custom-widget-container-fragment {
+    /* Container styles */
+    background: transparent;
+    padding: 0;
+}
+
+#wrapper .boots-custom-widget-container-fragment .container {
+    max-width: 100%;
+}
+
+#wrapper .boots-custom-widget-container-fragment .row {
+    margin: 0 -15px;
+}
+
+#wrapper .boots-custom-widget-container-fragment [class*="col-"] {
+    padding: 0 15px;
+}
+
+/* Drop zone styling */
+#wrapper .boots-custom-widget-container-fragment lfr-drop-zone {
+    min-height: 200px;
+    border: 2px dashed var(--brand-color-1, #0066cc);
+    border-radius: 8px;
+    background: rgba(0, 102, 204, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+#wrapper .boots-custom-widget-container-fragment lfr-drop-zone:hover {
+    border-color: var(--brand-color-2, #004499);
+    background: rgba(0, 102, 204, 0.1);
+}
+
+#wrapper .boots-custom-widget-container-fragment lfr-drop-zone:empty::before {
+    content: "Drop widget here";
+    color: var(--brand-color-1, #0066cc);
+    font-size: 14px;
+    font-weight: 500;
+    opacity: 0.7;
+}
+
+/* Widget labels in edit mode */
+#wrapper .boots-custom-widget-container-fragment h2[data-label-for] {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--brand-color-1, #0066cc);
+    margin-bottom: 12px;
+    padding: 8px 12px;
+    background: rgba(0, 102, 204, 0.05);
+    border-left: 4px solid var(--brand-color-1, #0066cc);
+    border-radius: 4px;
+}
+
+/* Custom widget container (non-edit mode) styling */
+#wrapper custom-widget-container {
+    display: block;
+    width: 100%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #wrapper .boots-custom-widget-container-fragment lfr-drop-zone {
+        min-height: 150px;
+    }
+    
+    #wrapper .boots-custom-widget-container-fragment h2[data-label-for] {
+        font-size: 14px;
+        padding: 6px 10px;
+    }
+}

@@ -43,6 +43,7 @@ This project aims to recreate the Boots Optician partner portal using a comprehe
 - **Performance Analytics**: Charts, trends, goal tracking.
 - **Announcements Fragment**: Latest updates, information broadcasts.
 - **Footer Fragment**: Links, support information, company branding.
+- **Custom Widget Container Fragment**: Configurable drag-and-drop widget container that integrates with the Custom Widget Container client extension, allowing users to create personalized widget layouts with drop zones.
 - **Form Fragments Collection**: Includes Autocomplete Fields, Confirmation Field, Rating Components, Selection Controls (multi-select listbox, toggles, range sliders), Advanced Fields (segmented numeric, user field selectors, relationship management), Submit Controls, and Hidden Fields.
 
 ### Client Extensions
@@ -62,6 +63,8 @@ This project aims to recreate the Boots Optician partner portal using a comprehe
 
 ### September 10, 2025
 - **CUSTOM WIDGET CONTAINER INTEGRATION**: Integrated Custom Widget Container client extension into repository under `custom-widget-container/` directory. Features React-based drag-and-drop interface using React DnD, Clay UI components, Shadow DOM web component architecture, and user-specific configuration persistence via Liferay object storage API.
+- **CUSTOM WIDGET CONTAINER FRAGMENT**: Created new fragment `boots-custom-widget-container` that provides the front-end interface for the Custom Widget Container client extension. Features configurable number of widget slots, drop zones for edit mode, and seamless integration with the drag-and-drop functionality.
+- **OBJECT DEFINITION INTEGRATION**: Added PageWidgetConfiguration object definition under `object definitions/` directory to provide data persistence layer for custom widget configurations.
 
 ### September 8, 2025
 - **CLIENT EXTENSIONS ORGANIZATION**: Restructured project to include dedicated `client-extensions/` directory housing both Boots Frontend Client Extension and newly integrated InvoiceManager Client Extension. This provides better organization for multiple client extensions within the project.
