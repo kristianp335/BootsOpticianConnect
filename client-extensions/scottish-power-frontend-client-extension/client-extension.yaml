@@ -1,0 +1,16 @@
+assemble:
+  - from: assets
+    into: static
+
+sp-global-css:
+  name: Scottish Power Global CSS
+  type: globalCSS
+  url: css/global.css
+
+sp-global-js:
+  name: Scottish Power Global JavaScript
+  type: globalJS
+  url: js/global.js
+  async: true
+  data-senna-track: permanent
+  fetchpriority: low
