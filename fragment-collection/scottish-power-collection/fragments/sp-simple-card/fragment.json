@@ -1,0 +1,8 @@
+{
+    "name": "SP Simple Card",
+    "cssPath": "index.css",
+    "htmlPath": "index.html",
+    "jsPath": "",
+    "configurationPath": "configuration.json",
+    "type": "component"
+}

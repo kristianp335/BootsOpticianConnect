@@ -1,0 +1,104 @@
+/*
+ * SP Simple Card Fragment
+ * A basic card component with icon, link and description
+ */
+
+/* Simple Card Fragment Container */
+#wrapper .sp-simple-card-fragment {
+    padding: var(--spacing-lg, 24px) 0;
+}
+
+/* Simple Card */
+#wrapper .sp-simple-card {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-lg, 24px);
+    padding: var(--spacing-xl, 32px);
+    border: 1px solid var(--gray-200, #e9ecef);
+    border-radius: var(--border-radius-lg, 12px);
+    background: var(--white, #ffffff);
+    transition: all 0.2s ease-in-out;
+}
+
+#wrapper .sp-simple-card:hover {
+    border-color: var(--brand-color-1, #0052cc);
+    box-shadow: 0 4px 12px rgba(0, 82, 204, 0.15);
+}
+
+/* Card Icon */
+#wrapper .sp-card-icon {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--brand-color-1, #0052cc);
+    border-radius: var(--border-radius, 8px);
+    color: var(--white, #ffffff);
+}
+
+#wrapper .sp-card-icon svg {
+    width: 32px;
+    height: 32px;
+}
+
+/* Card Content */
+#wrapper .sp-card-content {
+    flex: 1;
+    min-width: 0;
+}
+
+#wrapper .sp-card-title {
+    margin: 0 0 var(--spacing-sm, 12px) 0;
+    font-size: var(--font-size-lg, 18px);
+    font-weight: var(--font-weight-semi-bold, 600);
+    line-height: 1.3;
+}
+
+#wrapper .sp-card-title a {
+    color: var(--brand-color-1, #0052cc);
+    text-decoration: none;
+    transition: color 0.15s ease-in-out;
+}
+
+#wrapper .sp-card-title a:hover,
+#wrapper .sp-card-title a:focus {
+    color: var(--brand-color-1-dark, #003d99);
+    text-decoration: underline;
+}
+
+#wrapper .sp-card-description {
+    margin: 0;
+    color: var(--gray-600, #6c757d);
+    font-size: var(--font-size-base, 16px);
+    line-height: 1.5;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #wrapper .sp-simple-card {
+        flex-direction: column;
+        gap: var(--spacing-md, 16px);
+        padding: var(--spacing-lg, 24px);
+    }
+    
+    #wrapper .sp-card-icon {
+        align-self: flex-start;
+    }
+}
+
+/* Edit Mode Styling */
+#wrapper.has-edit-mode-menu .sp-simple-card,
+#wrapper .has-edit-mode-menu .sp-simple-card,
+.control-menu .sp-simple-card {
+    border: 2px dashed var(--brand-color-1, #0052cc);
+    background: rgba(0, 82, 204, 0.05);
+}
+
+#wrapper.has-edit-mode-menu .sp-simple-card:hover,
+#wrapper .has-edit-mode-menu .sp-simple-card:hover,
+.control-menu .sp-simple-card:hover {
+    border-color: var(--brand-color-1-dark, #003d99);
+    box-shadow: 0 2px 8px rgba(0, 82, 204, 0.2);
+}

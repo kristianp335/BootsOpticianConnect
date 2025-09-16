@@ -1,0 +1,25 @@
+{
+    "fieldSets": [
+        {
+            "fields": [
+                {
+                    "name": "cardAlignment",
+                    "label": "Card Alignment",
+                    "description": "Choose how to align the card content",
+                    "type": "select",
+                    "defaultValue": "left",
+                    "options": [
+                        {
+                            "label": "Left Aligned",
+                            "value": "left"
+                        },
+                        {
+                            "label": "Center Aligned", 
+                            "value": "center"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
