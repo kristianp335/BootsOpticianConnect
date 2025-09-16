@@ -1,0 +1,224 @@
+/* Scottish Power Resources Hub Fragment Styles */
+/* All styles scoped under #wrapper to prevent Liferay admin conflicts */
+
+#wrapper .sp-resources-hub-fragment {
+  margin-bottom: var(--sp-spacing-xl);
+}
+
+#wrapper .sp-resources-section {
+  background: var(--sp-white);
+  border-radius: var(--sp-border-radius-lg);
+  box-shadow: var(--sp-box-shadow);
+  overflow: hidden;
+}
+
+#wrapper .sp-resources-header {
+  padding: var(--sp-spacing-xl);
+  background: linear-gradient(135deg, var(--sp-light-gray), var(--sp-white));
+  border-bottom: 1px solid var(--sp-medium-gray);
+}
+
+#wrapper .sp-resources-title {
+  font-size: var(--sp-font-size-2xl);
+  font-weight: 700;
+  color: var(--sp-primary);
+  margin: 0 0 var(--sp-spacing-sm) 0;
+}
+
+#wrapper .sp-resources-subtitle {
+  color: var(--sp-grid-gray);
+  margin: 0;
+}
+
+#wrapper .sp-search-section {
+  padding: var(--sp-spacing-lg) var(--sp-spacing-xl);
+  background: var(--sp-light-gray);
+  border-bottom: 1px solid var(--sp-medium-gray);
+}
+
+#wrapper .sp-search-form {
+  display: flex;
+  gap: var(--sp-spacing-sm);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+#wrapper .sp-search-input {
+  flex: 1;
+  padding: var(--sp-spacing-md);
+  border: 2px solid var(--sp-medium-gray);
+  border-radius: var(--sp-border-radius);
+  font-size: var(--sp-font-size-base);
+  transition: var(--sp-transition);
+}
+
+#wrapper .sp-search-input:focus {
+  outline: none;
+  border-color: var(--sp-secondary);
+  box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
+}
+
+#wrapper .sp-search-btn {
+  padding: var(--sp-spacing-md) var(--sp-spacing-lg);
+  background: var(--sp-primary);
+  color: var(--sp-white);
+  border: none;
+  border-radius: var(--sp-border-radius);
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--sp-transition);
+}
+
+#wrapper .sp-search-btn:hover {
+  background: var(--sp-secondary);
+}
+
+#wrapper .sp-category-filters {
+  display: flex;
+  justify-content: center;
+  gap: var(--sp-spacing-sm);
+  padding: var(--sp-spacing-lg) var(--sp-spacing-xl);
+  background: var(--sp-light-gray);
+  border-bottom: 1px solid var(--sp-medium-gray);
+}
+
+#wrapper .sp-filter-btn {
+  padding: var(--sp-spacing-sm) var(--sp-spacing-md);
+  background: none;
+  border: 1px solid var(--sp-medium-gray);
+  border-radius: var(--sp-border-radius);
+  color: var(--sp-grid-gray);
+  cursor: pointer;
+  transition: var(--sp-transition);
+}
+
+#wrapper .sp-filter-btn.sp-active,
+#wrapper .sp-filter-btn:hover {
+  background: var(--sp-primary);
+  color: var(--sp-white);
+  border-color: var(--sp-primary);
+}
+
+#wrapper .sp-resources-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--sp-spacing-lg);
+  padding: var(--sp-spacing-xl);
+}
+
+#wrapper .sp-resource-card {
+  background: var(--sp-white);
+  border: 1px solid var(--sp-medium-gray);
+  border-radius: var(--sp-border-radius-lg);
+  padding: var(--sp-spacing-lg);
+  box-shadow: var(--sp-box-shadow);
+  transition: var(--sp-transition);
+}
+
+#wrapper .sp-resource-card:hover {
+  box-shadow: var(--sp-box-shadow-lg);
+  transform: translateY(-2px);
+}
+
+#wrapper .sp-resource-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--sp-light-gray), var(--sp-white));
+  border-radius: var(--sp-border-radius);
+  font-size: var(--sp-font-size-xl);
+  margin-bottom: var(--sp-spacing-md);
+}
+
+#wrapper .sp-resource-content h3 {
+  font-size: var(--sp-font-size-lg);
+  font-weight: 600;
+  color: var(--sp-primary);
+  margin: 0 0 var(--sp-spacing-md) 0;
+}
+
+#wrapper .sp-resource-content p {
+  color: var(--sp-dark-gray);
+  margin: 0 0 var(--sp-spacing-lg) 0;
+  line-height: 1.5;
+}
+
+#wrapper .sp-resource-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#wrapper .sp-resource-links li {
+  margin-bottom: var(--sp-spacing-sm);
+}
+
+#wrapper .sp-resource-links a {
+  color: var(--sp-secondary);
+  text-decoration: none;
+  font-size: var(--sp-font-size-sm);
+  transition: var(--sp-transition);
+}
+
+#wrapper .sp-resource-links a:hover {
+  color: var(--sp-primary);
+  text-decoration: underline;
+}
+
+#wrapper .sp-quick-access {
+  padding: var(--sp-spacing-xl);
+  background: var(--sp-light-gray);
+  border-top: 1px solid var(--sp-medium-gray);
+}
+
+#wrapper .sp-quick-access h3 {
+  text-align: center;
+  margin: 0 0 var(--sp-spacing-lg) 0;
+  color: var(--sp-primary);
+}
+
+#wrapper .sp-quick-links {
+  display: flex;
+  justify-content: center;
+  gap: var(--sp-spacing-lg);
+}
+
+#wrapper .sp-quick-link {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-spacing-sm);
+  padding: var(--sp-spacing-md);
+  color: var(--sp-primary);
+  text-decoration: none;
+  background: var(--sp-white);
+  border-radius: var(--sp-border-radius);
+  transition: var(--sp-transition);
+  box-shadow: var(--sp-box-shadow);
+}
+
+#wrapper .sp-quick-link:hover {
+  background: var(--sp-primary);
+  color: var(--sp-white);
+  transform: translateY(-1px);
+}
+
+#wrapper .sp-link-icon {
+  font-size: var(--sp-font-size-lg);
+}
+
+@media (max-width: 768px) {
+  #wrapper .sp-resources-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  #wrapper .sp-category-filters {
+    flex-wrap: wrap;
+  }
+  
+  #wrapper .sp-quick-links {
+    flex-direction: column;
+    align-items: center;
+  }
+}

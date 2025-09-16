@@ -1,0 +1,36 @@
+{
+  "fieldSets": [
+    {
+      "fields": [
+        {
+          "name": "directoryView",
+          "label": "Directory View",
+          "description": "Choose the view style for employee directory",
+          "type": "select",
+          "defaultValue": "cards",
+          "typeOptions": {
+            "validValues": [
+              {"value": "cards", "label": "Card View"},
+              {"value": "list", "label": "List View"},
+              {"value": "org-chart", "label": "Organization Chart"}
+            ]
+          }
+        },
+        {
+          "name": "enableAdvancedSearch",
+          "label": "Enable Advanced Search",
+          "description": "Enable advanced search filters for directory",
+          "type": "checkbox",
+          "defaultValue": true
+        },
+        {
+          "name": "showDepartments",
+          "label": "Show Departments",
+          "description": "Display department filtering options",
+          "type": "checkbox",
+          "defaultValue": true
+        }
+      ]
+    }
+  ]
+}

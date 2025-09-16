@@ -1,0 +1,178 @@
+/* Scottish Power News Feed Fragment Styles */
+/* All styles scoped under #wrapper to prevent Liferay admin conflicts */
+
+#wrapper .sp-news-feed-fragment {
+  margin-bottom: var(--sp-spacing-xl);
+}
+
+#wrapper .sp-news-section {
+  background: var(--sp-white);
+  border-radius: var(--sp-border-radius-lg);
+  box-shadow: var(--sp-box-shadow);
+  overflow: hidden;
+}
+
+#wrapper .sp-news-header {
+  padding: var(--sp-spacing-xl);
+  background: linear-gradient(135deg, var(--sp-light-gray), var(--sp-white));
+  border-bottom: 1px solid var(--sp-medium-gray);
+}
+
+#wrapper .sp-news-title {
+  font-size: var(--sp-font-size-2xl);
+  font-weight: 700;
+  color: var(--sp-primary);
+  margin: 0 0 var(--sp-spacing-sm) 0;
+}
+
+#wrapper .sp-news-subtitle {
+  color: var(--sp-grid-gray);
+  margin: 0;
+}
+
+#wrapper .sp-news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: var(--sp-spacing-lg);
+  padding: var(--sp-spacing-xl);
+}
+
+#wrapper .sp-news-item {
+  background: var(--sp-white);
+  border: 1px solid var(--sp-medium-gray);
+  border-radius: var(--sp-border-radius-lg);
+  overflow: hidden;
+  transition: var(--sp-transition);
+}
+
+#wrapper .sp-news-item:hover {
+  box-shadow: var(--sp-box-shadow-lg);
+  transform: translateY(-2px);
+}
+
+#wrapper .sp-news-badge {
+  position: absolute;
+  top: var(--sp-spacing-md);
+  right: var(--sp-spacing-md);
+  background: var(--sp-warning);
+  color: var(--sp-white);
+  padding: var(--sp-spacing-xs) var(--sp-spacing-sm);
+  border-radius: var(--sp-border-radius);
+  font-size: var(--sp-font-size-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+#wrapper .sp-news-image {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+#wrapper .sp-news-placeholder {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#wrapper .sp-news-content {
+  padding: var(--sp-spacing-lg);
+}
+
+#wrapper .sp-news-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--sp-spacing-md);
+  font-size: var(--sp-font-size-sm);
+}
+
+#wrapper .sp-news-category {
+  background: var(--sp-light-gray);
+  color: var(--sp-primary);
+  padding: var(--sp-spacing-xs) var(--sp-spacing-sm);
+  border-radius: var(--sp-border-radius);
+  font-weight: 500;
+}
+
+#wrapper .sp-news-date {
+  color: var(--sp-grid-gray);
+}
+
+#wrapper .sp-news-headline {
+  font-size: var(--sp-font-size-lg);
+  font-weight: 600;
+  color: var(--sp-primary);
+  margin: 0 0 var(--sp-spacing-md) 0;
+  line-height: 1.3;
+}
+
+#wrapper .sp-news-excerpt {
+  color: var(--sp-dark-gray);
+  line-height: 1.5;
+  margin-bottom: var(--sp-spacing-lg);
+}
+
+#wrapper .sp-news-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#wrapper .sp-news-link {
+  color: var(--sp-secondary);
+  font-weight: 500;
+  text-decoration: none;
+  transition: var(--sp-transition);
+}
+
+#wrapper .sp-news-link:hover {
+  color: var(--sp-primary);
+}
+
+#wrapper .sp-reading-time {
+  font-size: var(--sp-font-size-xs);
+  color: var(--sp-grid-gray);
+}
+
+#wrapper .sp-news-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--sp-spacing-lg) var(--sp-spacing-xl);
+  background: var(--sp-light-gray);
+  border-top: 1px solid var(--sp-medium-gray);
+}
+
+#wrapper .sp-news-filters {
+  display: flex;
+  gap: var(--sp-spacing-sm);
+}
+
+#wrapper .sp-filter-btn {
+  padding: var(--sp-spacing-xs) var(--sp-spacing-md);
+  background: none;
+  border: 1px solid var(--sp-medium-gray);
+  border-radius: var(--sp-border-radius);
+  color: var(--sp-grid-gray);
+  cursor: pointer;
+  transition: var(--sp-transition);
+}
+
+#wrapper .sp-filter-btn.sp-active,
+#wrapper .sp-filter-btn:hover {
+  background: var(--sp-primary);
+  color: var(--sp-white);
+  border-color: var(--sp-primary);
+}
+
+@media (max-width: 768px) {
+  #wrapper .sp-news-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  #wrapper .sp-news-footer {
+    flex-direction: column;
+    gap: var(--sp-spacing-md);
+  }
+}

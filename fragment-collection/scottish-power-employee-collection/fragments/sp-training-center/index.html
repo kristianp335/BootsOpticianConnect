@@ -1,0 +1,135 @@
+<div id="${fragmentEntryLinkNamespace}-sp-training-center" class="sp-training-center-fragment sp-layout-${configuration.trainingLayout!'dashboard'}">
+  <section class="sp-training-section">
+    <div class="sp-container">
+      <div class="sp-training-header">
+        <h2 class="sp-training-title" data-lfr-editable-id="trainingTitle" data-lfr-editable-type="text">
+          Training & Development Center
+        </h2>
+        <p class="sp-training-subtitle" data-lfr-editable-id="trainingSubtitle" data-lfr-editable-type="text">
+          Access learning materials, track progress, and manage certifications for professional development
+        </p>
+      </div>
+
+      [#if configuration.showProgress]
+        <div class="sp-progress-section">
+          <h3>Your Learning Progress</h3>
+          <div class="sp-progress-overview">
+            <div class="sp-progress-stat">
+              <span class="sp-stat-number">85%</span>
+              <span class="sp-stat-label">Completion Rate</span>
+            </div>
+            <div class="sp-progress-stat">
+              <span class="sp-stat-number">12</span>
+              <span class="sp-stat-label">Courses Completed</span>
+            </div>
+            <div class="sp-progress-stat">
+              <span class="sp-stat-number">3</span>
+              <span class="sp-stat-label">Pending Courses</span>
+            </div>
+          </div>
+        </div>
+      [/#if]
+
+      [#if configuration.showCertifications]
+        <div class="sp-certifications-section">
+          <h3>Certifications & Renewals</h3>
+          <div class="sp-cert-grid">
+            <div class="sp-cert-card sp-cert-current">
+              <div class="sp-cert-status">✓ Current</div>
+              <h4>Electrical Safety Certification</h4>
+              <p>Valid until: March 2026</p>
+              <div class="sp-cert-actions">
+                <button class="sp-btn sp-btn-secondary">View Certificate</button>
+              </div>
+            </div>
+            
+            <div class="sp-cert-card sp-cert-renew">
+              <div class="sp-cert-status">⚠ Renewal Due</div>
+              <h4>First Aid Certification</h4>
+              <p>Expires: October 15, 2025</p>
+              <div class="sp-cert-actions">
+                <button class="sp-btn sp-btn-primary">Schedule Renewal</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      [/#if]
+
+      <div class="sp-courses-section">
+        <h3>Available Training Courses</h3>
+        <div class="sp-course-grid">
+          <div class="sp-course-card sp-priority-high">
+            <div class="sp-course-badge">Required</div>
+            <div class="sp-course-content">
+              <h4 data-lfr-editable-id="course1Title" data-lfr-editable-type="text">Advanced Safety Protocols</h4>
+              <p data-lfr-editable-id="course1Description" data-lfr-editable-type="text">Updated safety procedures for high-voltage equipment handling</p>
+              <div class="sp-course-meta">
+                <span class="sp-course-duration">2 hours</span>
+                <span class="sp-course-deadline">Due: Oct 30</span>
+              </div>
+              <div class="sp-course-progress">
+                <div class="sp-progress-bar">
+                  <div class="sp-progress-fill" style="width: 0%"></div>
+                </div>
+                <span class="sp-progress-text">Not Started</span>
+              </div>
+              <button class="sp-btn sp-btn-primary">Start Course</button>
+            </div>
+          </div>
+
+          <div class="sp-course-card">
+            <div class="sp-course-content">
+              <h4 data-lfr-editable-id="course2Title" data-lfr-editable-type="text">Digital Grid Management</h4>
+              <p data-lfr-editable-id="course2Description" data-lfr-editable-type="text">Learn smart grid technologies and digital monitoring systems</p>
+              <div class="sp-course-meta">
+                <span class="sp-course-duration">4 hours</span>
+                <span class="sp-course-type">Self-paced</span>
+              </div>
+              <div class="sp-course-progress">
+                <div class="sp-progress-bar">
+                  <div class="sp-progress-fill" style="width: 60%"></div>
+                </div>
+                <span class="sp-progress-text">60% Complete</span>
+              </div>
+              <button class="sp-btn sp-btn-secondary">Continue</button>
+            </div>
+          </div>
+
+          <div class="sp-course-card">
+            <div class="sp-course-content">
+              <h4 data-lfr-editable-id="course3Title" data-lfr-editable-type="text">Leadership Development</h4>
+              <p data-lfr-editable-id="course3Description" data-lfr-editable-type="text">Develop leadership skills for career advancement</p>
+              <div class="sp-course-meta">
+                <span class="sp-course-duration">6 hours</span>
+                <span class="sp-course-type">Optional</span>
+              </div>
+              <div class="sp-course-progress">
+                <div class="sp-progress-bar">
+                  <div class="sp-progress-fill" style="width: 100%"></div>
+                </div>
+                <span class="sp-progress-text">Completed</span>
+              </div>
+              <button class="sp-btn sp-btn-accent">View Certificate</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sp-learning-paths">
+        <h3>Learning Paths</h3>
+        <div class="sp-path-grid">
+          <div class="sp-path-card">
+            <h4>Technical Specialist Track</h4>
+            <p>Advanced technical skills for equipment specialists</p>
+            <div class="sp-path-progress">5/8 courses completed</div>
+          </div>
+          <div class="sp-path-card">
+            <h4>Safety Leadership Track</h4>
+            <p>Safety management and incident prevention</p>
+            <div class="sp-path-progress">3/6 courses completed</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

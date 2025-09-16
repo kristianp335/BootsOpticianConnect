@@ -1,0 +1,36 @@
+{
+  "fieldSets": [
+    {
+      "fields": [
+        {
+          "name": "showProgress",
+          "label": "Show Progress Tracking",
+          "description": "Display training progress and completion status",
+          "type": "checkbox",
+          "defaultValue": true
+        },
+        {
+          "name": "showCertifications",
+          "label": "Show Certifications",
+          "description": "Display certification status and renewals",
+          "type": "checkbox",
+          "defaultValue": true
+        },
+        {
+          "name": "trainingLayout",
+          "label": "Training Layout",
+          "description": "Choose the layout style for training modules",
+          "type": "select",
+          "defaultValue": "dashboard",
+          "typeOptions": {
+            "validValues": [
+              {"value": "dashboard", "label": "Dashboard Layout"},
+              {"value": "catalog", "label": "Catalog Layout"},
+              {"value": "progress", "label": "Progress Layout"}
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

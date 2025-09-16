@@ -1,0 +1,105 @@
+<div id="${fragmentEntryLinkNamespace}-sp-resources-hub" class="sp-resources-hub-fragment sp-layout-${configuration.resourceLayout!'grid'}">
+  <section class="sp-resources-section">
+    <div class="sp-container">
+      <div class="sp-resources-header">
+        <h2 class="sp-resources-title" data-lfr-editable-id="resourcesTitle" data-lfr-editable-type="text">
+          Employee Resources Hub
+        </h2>
+        <p class="sp-resources-subtitle" data-lfr-editable-id="resourcesSubtitle" data-lfr-editable-type="text">
+          Access HR documents, technical manuals, policies, and essential employee resources
+        </p>
+      </div>
+
+      [#if configuration.enableSearch]
+        <div class="sp-search-section">
+          <div class="sp-search-form">
+            <input type="text" class="sp-search-input" placeholder="Search resources, documents, policies..." id="sp-resource-search">
+            <button class="sp-search-btn">Search</button>
+          </div>
+        </div>
+      [/#if]
+
+      [#if configuration.showCategories]
+        <div class="sp-category-filters">
+          <button class="sp-filter-btn sp-active" data-category="all">All Resources</button>
+          <button class="sp-filter-btn" data-category="hr">HR Documents</button>
+          <button class="sp-filter-btn" data-category="safety">Safety Manuals</button>
+          <button class="sp-filter-btn" data-category="technical">Technical Guides</button>
+          <button class="sp-filter-btn" data-category="policies">Policies</button>
+        </div>
+      [/#if]
+
+      <div class="sp-resources-grid">
+        <div class="sp-resource-card sp-category-hr">
+          <div class="sp-resource-icon">📋</div>
+          <div class="sp-resource-content">
+            <h3 data-lfr-editable-id="hrTitle" data-lfr-editable-type="text">HR Documents</h3>
+            <p data-lfr-editable-id="hrDescription" data-lfr-editable-type="text">Employee handbook, forms, benefits information, and HR policies</p>
+            <ul class="sp-resource-links">
+              <li><a href="#" data-lfr-editable-id="hrLink1" data-lfr-editable-type="link">Employee Handbook</a></li>
+              <li><a href="#" data-lfr-editable-id="hrLink2" data-lfr-editable-type="link">Leave Request Forms</a></li>
+              <li><a href="#" data-lfr-editable-id="hrLink3" data-lfr-editable-type="link">Benefits Guide</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="sp-resource-card sp-category-safety">
+          <div class="sp-resource-icon">⚠</div>
+          <div class="sp-resource-content">
+            <h3 data-lfr-editable-id="safetyTitle" data-lfr-editable-type="text">Safety Manuals</h3>
+            <p data-lfr-editable-id="safetyDescription" data-lfr-editable-type="text">Comprehensive safety procedures, emergency protocols, and equipment guidelines</p>
+            <ul class="sp-resource-links">
+              <li><a href="#" data-lfr-editable-id="safetyLink1" data-lfr-editable-type="link">Electrical Safety Protocols</a></li>
+              <li><a href="#" data-lfr-editable-id="safetyLink2" data-lfr-editable-type="link">Emergency Procedures</a></li>
+              <li><a href="#" data-lfr-editable-id="safetyLink3" data-lfr-editable-type="link">PPE Guidelines</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="sp-resource-card sp-category-technical">
+          <div class="sp-resource-icon">🔧</div>
+          <div class="sp-resource-content">
+            <h3 data-lfr-editable-id="technicalTitle" data-lfr-editable-type="text">Technical Guides</h3>
+            <p data-lfr-editable-id="technicalDescription" data-lfr-editable-type="text">Equipment manuals, maintenance procedures, and technical specifications</p>
+            <ul class="sp-resource-links">
+              <li><a href="#" data-lfr-editable-id="techLink1" data-lfr-editable-type="link">Grid Operations Manual</a></li>
+              <li><a href="#" data-lfr-editable-id="techLink2" data-lfr-editable-type="link">Maintenance Procedures</a></li>
+              <li><a href="#" data-lfr-editable-id="techLink3" data-lfr-editable-type="link">Equipment Specifications</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="sp-resource-card sp-category-policies">
+          <div class="sp-resource-icon">📖</div>
+          <div class="sp-resource-content">
+            <h3 data-lfr-editable-id="policiesTitle" data-lfr-editable-type="text">Company Policies</h3>
+            <p data-lfr-editable-id="policiesDescription" data-lfr-editable-type="text">Corporate policies, procedures, and compliance documentation</p>
+            <ul class="sp-resource-links">
+              <li><a href="#" data-lfr-editable-id="policyLink1" data-lfr-editable-type="link">Code of Conduct</a></li>
+              <li><a href="#" data-lfr-editable-id="policyLink2" data-lfr-editable-type="link">IT Security Policy</a></li>
+              <li><a href="#" data-lfr-editable-id="policyLink3" data-lfr-editable-type="link">Environmental Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="sp-quick-access">
+        <h3>Quick Access</h3>
+        <div class="sp-quick-links">
+          <a href="#" class="sp-quick-link" data-lfr-editable-id="quickLink1" data-lfr-editable-type="link">
+            <span class="sp-link-icon">📞</span>
+            <span>Emergency Contacts</span>
+          </a>
+          <a href="#" class="sp-quick-link" data-lfr-editable-id="quickLink2" data-lfr-editable-type="link">
+            <span class="sp-link-icon">🎯</span>
+            <span>Performance Forms</span>
+          </a>
+          <a href="#" class="sp-quick-link" data-lfr-editable-id="quickLink3" data-lfr-editable-type="link">
+            <span class="sp-link-icon">📋</span>
+            <span>Incident Reporting</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

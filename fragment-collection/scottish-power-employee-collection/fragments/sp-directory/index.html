@@ -1,0 +1,165 @@
+<div id="${fragmentEntryLinkNamespace}-sp-directory" class="sp-directory-fragment sp-view-${configuration.directoryView!'cards'}">
+  <section class="sp-directory-section">
+    <div class="sp-container">
+      <div class="sp-directory-header">
+        <h2 class="sp-directory-title" data-lfr-editable-id="directoryTitle" data-lfr-editable-type="text">
+          Employee Directory
+        </h2>
+        <p class="sp-directory-subtitle" data-lfr-editable-id="directorySubtitle" data-lfr-editable-type="text">
+          Find colleagues, view contact information, and explore organizational structure
+        </p>
+      </div>
+
+      [#if configuration.enableAdvancedSearch]
+        <div class="sp-search-section">
+          <div class="sp-search-form">
+            <input type="text" class="sp-search-input" placeholder="Search by name, department, role, or skills..." id="sp-directory-search">
+            <button class="sp-search-btn">Search</button>
+          </div>
+          <div class="sp-advanced-filters">
+            <select class="sp-filter-select" id="sp-department-filter">
+              <option value="">All Departments</option>
+              <option value="operations">Network Operations</option>
+              <option value="engineering">Engineering</option>
+              <option value="maintenance">Maintenance</option>
+              <option value="safety">Safety & Compliance</option>
+            </select>
+            <select class="sp-filter-select" id="sp-location-filter">
+              <option value="">All Locations</option>
+              <option value="glasgow">Glasgow</option>
+              <option value="edinburgh">Edinburgh</option>
+              <option value="aberdeen">Aberdeen</option>
+            </select>
+          </div>
+        </div>
+      [/#if]
+
+      [#if configuration.showDepartments]
+        <div class="sp-department-quick-links">
+          <button class="sp-dept-btn sp-active" data-dept="all">All Employees</button>
+          <button class="sp-dept-btn" data-dept="operations">Operations</button>
+          <button class="sp-dept-btn" data-dept="engineering">Engineering</button>
+          <button class="sp-dept-btn" data-dept="maintenance">Maintenance</button>
+          <button class="sp-dept-btn" data-dept="safety">Safety</button>
+        </div>
+      [/#if]
+
+      <div class="sp-directory-grid">
+        <div class="sp-employee-card" data-department="operations">
+          <div class="sp-employee-avatar">
+            <span class="sp-avatar-initials">JM</span>
+            <div class="sp-status-indicator sp-status-online"></div>
+          </div>
+          <div class="sp-employee-info">
+            <h3 class="sp-employee-name" data-lfr-editable-id="employee1Name" data-lfr-editable-type="text">John MacLeod</h3>
+            <p class="sp-employee-title" data-lfr-editable-id="employee1Title" data-lfr-editable-type="text">Senior Network Operator</p>
+            <p class="sp-employee-department">Network Operations</p>
+            <div class="sp-employee-contact">
+              <a href="mailto:john.macleod@scottishpower.com" class="sp-contact-link">
+                <span class="sp-contact-icon">📧</span>
+                <span>Email</span>
+              </a>
+              <a href="tel:+441412345678" class="sp-contact-link">
+                <span class="sp-contact-icon">📞</span>
+                <span>Call</span>
+              </a>
+            </div>
+            <div class="sp-employee-location">📍 Glasgow</div>
+          </div>
+        </div>
+
+        <div class="sp-employee-card" data-department="engineering">
+          <div class="sp-employee-avatar">
+            <span class="sp-avatar-initials">SF</span>
+            <div class="sp-status-indicator sp-status-away"></div>
+          </div>
+          <div class="sp-employee-info">
+            <h3 class="sp-employee-name" data-lfr-editable-id="employee2Name" data-lfr-editable-type="text">Sarah Ferguson</h3>
+            <p class="sp-employee-title" data-lfr-editable-id="employee2Title" data-lfr-editable-type="text">Lead Electrical Engineer</p>
+            <p class="sp-employee-department">Engineering</p>
+            <div class="sp-employee-contact">
+              <a href="mailto:sarah.ferguson@scottishpower.com" class="sp-contact-link">
+                <span class="sp-contact-icon">📧</span>
+                <span>Email</span>
+              </a>
+              <a href="tel:+441312345678" class="sp-contact-link">
+                <span class="sp-contact-icon">📞</span>
+                <span>Call</span>
+              </a>
+            </div>
+            <div class="sp-employee-location">📍 Edinburgh</div>
+          </div>
+        </div>
+
+        <div class="sp-employee-card" data-department="safety">
+          <div class="sp-employee-avatar">
+            <span class="sp-avatar-initials">RB</span>
+            <div class="sp-status-indicator sp-status-online"></div>
+          </div>
+          <div class="sp-employee-info">
+            <h3 class="sp-employee-name" data-lfr-editable-id="employee3Name" data-lfr-editable-type="text">Robert Burns</h3>
+            <p class="sp-employee-title" data-lfr-editable-id="employee3Title" data-lfr-editable-type="text">Safety Manager</p>
+            <p class="sp-employee-department">Safety & Compliance</p>
+            <div class="sp-employee-contact">
+              <a href="mailto:robert.burns@scottishpower.com" class="sp-contact-link">
+                <span class="sp-contact-icon">📧</span>
+                <span>Email</span>
+              </a>
+              <a href="tel:+441224345678" class="sp-contact-link">
+                <span class="sp-contact-icon">📞</span>
+                <span>Call</span>
+              </a>
+            </div>
+            <div class="sp-employee-location">📍 Aberdeen</div>
+          </div>
+        </div>
+
+        <div class="sp-employee-card" data-department="maintenance">
+          <div class="sp-employee-avatar">
+            <span class="sp-avatar-initials">AS</span>
+            <div class="sp-status-indicator sp-status-offline"></div>
+          </div>
+          <div class="sp-employee-info">
+            <h3 class="sp-employee-name" data-lfr-editable-id="employee4Name" data-lfr-editable-type="text">Anne Stewart</h3>
+            <p class="sp-employee-title" data-lfr-editable-id="employee4Title" data-lfr-editable-type="text">Maintenance Technician</p>
+            <p class="sp-employee-department">Maintenance</p>
+            <div class="sp-employee-contact">
+              <a href="mailto:anne.stewart@scottishpower.com" class="sp-contact-link">
+                <span class="sp-contact-icon">📧</span>
+                <span>Email</span>
+              </a>
+              <a href="tel:+441412345679" class="sp-contact-link">
+                <span class="sp-contact-icon">📞</span>
+                <span>Call</span>
+              </a>
+            </div>
+            <div class="sp-employee-location">📍 Glasgow</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sp-org-chart-section">
+        <h3>Organization Structure</h3>
+        <div class="sp-org-preview">
+          <p>View the complete organizational chart with reporting relationships and team structures.</p>
+          <button class="sp-btn sp-btn-secondary">View Full Organization Chart</button>
+        </div>
+      </div>
+
+      <div class="sp-directory-stats">
+        <div class="sp-stat-item">
+          <span class="sp-stat-number">1,247</span>
+          <span class="sp-stat-label">Total Employees</span>
+        </div>
+        <div class="sp-stat-item">
+          <span class="sp-stat-number">15</span>
+          <span class="sp-stat-label">Departments</span>
+        </div>
+        <div class="sp-stat-item">
+          <span class="sp-stat-number">8</span>
+          <span class="sp-stat-label">Locations</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
