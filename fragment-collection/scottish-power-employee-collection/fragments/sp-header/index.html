@@ -1,0 +1,158 @@
+<div id="${fragmentEntryLinkNamespace}-sp-header" class="sp-header-fragment">
+  <header class="sp-header">
+    <!-- Emergency Alerts Banner -->
+    [#if configuration.showEmergencyAlerts]
+      <div class="sp-emergency-alerts" id="sp-emergency-alerts" style="display: none;">
+        <div class="sp-container">
+          <div class="sp-alert-content">
+            <span class="sp-alert-icon">⚠</span>
+            <span class="sp-alert-text" data-lfr-editable-id="emergencyAlertText" data-lfr-editable-type="text">
+              Emergency maintenance scheduled for Grid Section A-7. Expected duration: 2 hours.
+            </span>
+            <button class="sp-alert-close" onclick="this.closest('.sp-emergency-alerts').style.display='none'">×</button>
+          </div>
+        </div>
+      </div>
+    [/#if]
+
+    <div class="sp-container">
+      <div class="sp-header-content">
+        <!-- Logo and Company Name -->
+        <div class="sp-header-logo">
+          <a href="${configuration.sitePrefix!'/'}" class="sp-logo-link">
+            <div class="sp-logo-container">
+              <svg width="40" height="40" viewBox="0 0 40 40" class="sp-logo-icon">
+                <circle cx="20" cy="20" r="18" fill="var(--sp-primary)" stroke="var(--sp-accent)" stroke-width="2"/>
+                <path d="M15 15 L25 25 M25 15 L15 25" stroke="var(--sp-white)" stroke-width="3" stroke-linecap="round"/>
+                <circle cx="20" cy="20" r="8" fill="none" stroke="var(--sp-electric-blue)" stroke-width="2"/>
+              </svg>
+              <div class="sp-logo-text">
+                <span class="sp-company-name" data-lfr-editable-id="companyName" data-lfr-editable-type="text">Scottish Power</span>
+                <span class="sp-division-name" data-lfr-editable-id="divisionName" data-lfr-editable-type="text">Energy Networks</span>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Energy Status Indicator -->
+        [#if configuration.showEnergyStatus]
+          <div class="sp-energy-status-container">
+            <div class="sp-energy-status operational" id="sp-energy-status">
+              <span class="sp-status-icon">⚡</span>
+              <span class="sp-status-text">Grid Operational</span>
+              <span class="sp-status-details">85% Load</span>
+            </div>
+          </div>
+        [/#if]
+
+        <!-- Main Navigation -->
+        <nav class="sp-nav" role="navigation" aria-label="Employee Navigation">
+          <ul class="sp-nav-list" id="sp-main-nav">
+            <!-- Navigation items will be populated by JavaScript -->
+            <li class="sp-nav-item"><a href="${configuration.sitePrefix!''}/dashboard" class="sp-nav-link">Dashboard</a></li>
+            <li class="sp-nav-item sp-nav-dropdown">
+              <a href="#" class="sp-nav-link">Resources <span class="sp-dropdown-arrow">▼</span></a>
+              <ul class="sp-dropdown-menu">
+                <li><a href="${configuration.sitePrefix!''}/resources/hr">HR Documents</a></li>
+                <li><a href="${configuration.sitePrefix!''}/resources/safety">Safety Manuals</a></li>
+                <li><a href="${configuration.sitePrefix!''}/resources/technical">Technical Guides</a></li>
+              </ul>
+            </li>
+            <li class="sp-nav-item"><a href="${configuration.sitePrefix!''}/training" class="sp-nav-link">Training</a></li>
+            <li class="sp-nav-item"><a href="${configuration.sitePrefix!''}/directory" class="sp-nav-link">Directory</a></li>
+          </ul>
+        </nav>
+
+        <!-- Header Actions -->
+        <div class="sp-header-actions">
+          <!-- Quick Actions -->
+          [#if configuration.enableQuickActions]
+            <div class="sp-quick-actions">
+              <button class="sp-quick-action" title="Report Issue" data-action="report-issue">
+                <span class="sp-action-icon">⚠</span>
+              </button>
+              <button class="sp-quick-action" title="Emergency Contact" data-action="emergency">
+                <span class="sp-action-icon">📞</span>
+              </button>
+            </div>
+          [/#if]
+
+          <!-- Search -->
+          <button class="sp-search-btn" onclick="ScottishPower.header.openSearchModal()" title="Search Employee Directory">
+            <span class="sp-search-icon">🔍</span>
+          </button>
+
+          <!-- Employee Profile -->
+          <div class="sp-employee-profile" id="sp-employee-profile">
+            <button class="sp-profile-btn" onclick="ScottishPower.header.toggleProfileMenu()">
+              <div class="sp-profile-avatar">
+                <span class="sp-avatar-initials">JM</span>
+              </div>
+              <div class="sp-profile-info">
+                <span class="sp-profile-name">John MacLeod</span>
+                <span class="sp-profile-dept">Network Ops</span>
+              </div>
+              <span class="sp-profile-arrow">▼</span>
+            </button>
+            
+            <div class="sp-profile-menu" id="sp-profile-menu" style="display: none;">
+              <div class="sp-profile-header">
+                <div class="sp-profile-avatar-large">JM</div>
+                <div class="sp-profile-details">
+                  <h4>John MacLeod</h4>
+                  <p>Network Operations</p>
+                  <p class="sp-employee-id">SP12345</p>
+                </div>
+              </div>
+              <ul class="sp-profile-links">
+                <li><a href="${configuration.sitePrefix!''}/profile">My Profile</a></li>
+                <li><a href="${configuration.sitePrefix!''}/preferences">Preferences</a></li>
+                <li><a href="${configuration.sitePrefix!''}/timesheet">Timesheet</a></li>
+                <li><a href="${configuration.sitePrefix!''}/benefits">Benefits</a></li>
+                <li class="sp-menu-divider"></li>
+                <li><a href="/c/portal/logout">Sign Out</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Mobile Menu Toggle -->
+          <button class="sp-mobile-menu-toggle" onclick="ScottishPower.header.toggleMobileMenu()" aria-label="Toggle Navigation Menu">
+            <span class="sp-hamburger-line"></span>
+            <span class="sp-hamburger-line"></span>
+            <span class="sp-hamburger-line"></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Navigation -->
+      <div class="sp-mobile-nav" id="sp-mobile-nav">
+        <ul class="sp-mobile-nav-list">
+          <li><a href="${configuration.sitePrefix!''}/dashboard">Dashboard</a></li>
+          <li><a href="${configuration.sitePrefix!''}/resources">Resources</a></li>
+          <li><a href="${configuration.sitePrefix!''}/training">Training</a></li>
+          <li><a href="${configuration.sitePrefix!''}/directory">Directory</a></li>
+          <li><a href="${configuration.sitePrefix!''}/profile">My Profile</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <!-- Search Modal -->
+  <div class="sp-search-overlay" id="sp-search-overlay" style="display: none;">
+    <div class="sp-search-modal">
+      <div class="sp-search-header">
+        <h3>Employee Directory Search</h3>
+        <button class="sp-modal-close" onclick="ScottishPower.header.closeSearchModal()">×</button>
+      </div>
+      <div class="sp-search-content">
+        <div class="sp-search-form">
+          <input type="text" class="sp-search-input" placeholder="Search employees, departments, or skills..." id="sp-search-input">
+          <button class="sp-search-submit">Search</button>
+        </div>
+        <div class="sp-search-results" id="sp-search-results">
+          <!-- Search results will be populated here -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
