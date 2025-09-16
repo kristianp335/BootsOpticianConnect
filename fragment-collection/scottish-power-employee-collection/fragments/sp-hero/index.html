@@ -1,0 +1,167 @@
+<div id="${fragmentEntryLinkNamespace}-sp-hero" class="sp-hero-fragment sp-hero-${configuration.heroStyle!'announcement'}">
+  <section class="sp-hero-section">
+    [#if configuration.showBackgroundImage]
+      <div class="sp-hero-background">
+        <svg width="600" height="400" viewBox="0 0 600 400" class="sp-hero-svg">
+          <defs>
+            <linearGradient id="sp-gradient-${fragmentEntryLinkNamespace}" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:var(--sp-primary);stop-opacity:0.1" />
+              <stop offset="50%" style="stop-color:var(--sp-secondary);stop-opacity:0.05" />
+              <stop offset="100%" style="stop-color:var(--sp-accent);stop-opacity:0.1" />
+            </linearGradient>
+            <pattern id="sp-grid-${fragmentEntryLinkNamespace}" width="40" height="40" patternUnits="userSpaceOnUse">
+              <path d="M 40 0 L 0 0 0 40" fill="none" stroke="var(--sp-primary)" stroke-width="0.5" opacity="0.3"/>
+            </pattern>
+          </defs>
+          
+          <!-- Background -->
+          <rect width="600" height="400" fill="url(#sp-gradient-${fragmentEntryLinkNamespace})"/>
+          <rect width="600" height="400" fill="url(#sp-grid-${fragmentEntryLinkNamespace})"/>
+          
+          <!-- Energy Infrastructure Elements -->
+          <g class="sp-infrastructure">
+            <!-- Power lines -->
+            <line x1="50" y1="150" x2="550" y2="150" stroke="var(--sp-primary)" stroke-width="3" opacity="0.6"/>
+            <line x1="50" y1="250" x2="550" y2="250" stroke="var(--sp-secondary)" stroke-width="2" opacity="0.4"/>
+            
+            <!-- Power towers -->
+            <g class="sp-tower" transform="translate(150, 120)">
+              <rect x="-2" y="0" width="4" height="60" fill="var(--sp-primary)"/>
+              <line x1="-15" y1="10" x2="15" y2="10" stroke="var(--sp-primary)" stroke-width="2"/>
+              <line x1="-12" y1="20" x2="12" y2="20" stroke="var(--sp-primary)" stroke-width="2"/>
+            </g>
+            <g class="sp-tower" transform="translate(450, 120)">
+              <rect x="-2" y="0" width="4" height="60" fill="var(--sp-primary)"/>
+              <line x1="-15" y1="10" x2="15" y2="10" stroke="var(--sp-primary)" stroke-width="2"/>
+              <line x1="-12" y1="20" x2="12" y2="20" stroke="var(--sp-primary)" stroke-width="2"/>
+            </g>
+            
+            <!-- Energy flow indicators -->
+            <circle cx="300" cy="150" r="8" fill="var(--sp-accent)" opacity="0.8">
+              <animate attributeName="opacity" values="0.8;0.3;0.8" dur="2s" repeatCount="indefinite"/>
+            </circle>
+            
+            <!-- Scottish elements -->
+            <path d="M 100 320 Q 150 300 200 320 T 300 320" stroke="var(--sp-accent)" stroke-width="2" fill="none" opacity="0.6"/>
+            <text x="120" y="340" font-family="var(--sp-font-family)" font-size="12" fill="var(--sp-primary)" opacity="0.5">Scotland</text>
+          </g>
+        </svg>
+      </div>
+    [/#if]
+    
+    <div class="sp-container">
+      <div class="sp-hero-content">
+        <div class="sp-hero-text">
+          [#if configuration.heroStyle == "leadership"]
+            <div class="sp-hero-badge">
+              <span class="sp-badge-icon">👤</span>
+              <span>Leadership Message</span>
+            </div>
+          [#elseif configuration.heroStyle == "safety"]
+            <div class="sp-hero-badge sp-safety-badge">
+              <span class="sp-badge-icon">⚠</span>
+              <span>Safety First</span>
+            </div>
+          [#elseif configuration.heroStyle == "achievement"]
+            <div class="sp-hero-badge sp-achievement-badge">
+              <span class="sp-badge-icon">🏆</span>
+              <span>Achievement</span>
+            </div>
+          [#else]
+            <div class="sp-hero-badge">
+              <span class="sp-badge-icon">📢</span>
+              <span>Company Update</span>
+            </div>
+          [/#if]
+          
+          <h1 class="sp-hero-title" data-lfr-editable-id="heroTitle" data-lfr-editable-type="text">
+            [#if configuration.heroStyle == "leadership"]
+              Message from Our CEO: Powering Scotland's Future
+            [#elseif configuration.heroStyle == "safety"]
+              Zero Harm Goal: Every Employee Home Safe Every Day
+            [#elseif configuration.heroStyle == "achievement"]
+              Outstanding Performance: Q3 Safety Excellence Award
+            [#else]
+              Welcome to Scottish Power Energy Networks Employee Portal
+            [/#if]
+          </h1>
+          
+          <p class="sp-hero-description" data-lfr-editable-id="heroDescription" data-lfr-editable-type="rich-text">
+            [#if configuration.heroStyle == "leadership"]
+              I'm proud to share our continued commitment to delivering reliable, sustainable energy across Scotland. Your dedication to excellence makes our mission possible.
+            [#elseif configuration.heroStyle == "safety"]
+              Our commitment to safety excellence continues with new initiatives, enhanced training programs, and updated protocols to ensure every team member returns home safely.
+            [#elseif configuration.heroStyle == "achievement"]
+              Congratulations to all teams for achieving our highest safety performance rating. This recognition reflects our shared commitment to operational excellence.
+            [#else]
+              Stay connected with company news, access your resources, and manage your professional development in one central location designed for Scottish Power employees.
+            [/#if]
+          </p>
+          
+          <div class="sp-hero-actions">
+            <a href="${configuration.ctaButtonUrl!'/employee/news'}" class="sp-btn sp-btn-primary sp-hero-cta" data-lfr-editable-id="heroButton" data-lfr-editable-type="link">
+              ${configuration.ctaButtonText!'Learn More'}
+            </a>
+            <a href="/employee/resources" class="sp-btn sp-btn-secondary">
+              Employee Resources
+            </a>
+          </div>
+          
+          <div class="sp-hero-stats">
+            <div class="sp-stat-item">
+              <span class="sp-stat-number" data-count="99.8">0</span>
+              <span class="sp-stat-label">Network Reliability</span>
+              <span class="sp-stat-unit">%</span>
+            </div>
+            <div class="sp-stat-item">
+              <span class="sp-stat-number" data-count="2.1">0</span>
+              <span class="sp-stat-label">Million Customers</span>
+              <span class="sp-stat-unit">M</span>
+            </div>
+            <div class="sp-stat-item">
+              <span class="sp-stat-number" data-count="7500">0</span>
+              <span class="sp-stat-label">Employees</span>
+              <span class="sp-stat-unit">+</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="sp-hero-visual">
+          <div class="sp-hero-card">
+            <div class="sp-card-header">
+              <h3>Quick Access</h3>
+            </div>
+            <div class="sp-card-body">
+              <ul class="sp-quick-links">
+                <li>
+                  <a href="/employee/timesheet" class="sp-quick-link">
+                    <span class="sp-link-icon">⏰</span>
+                    <span>Submit Timesheet</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="/employee/training" class="sp-quick-link">
+                    <span class="sp-link-icon">📚</span>
+                    <span>Safety Training</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="/employee/benefits" class="sp-quick-link">
+                    <span class="sp-link-icon">🎯</span>
+                    <span>Benefits Portal</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="/employee/directory" class="sp-quick-link">
+                    <span class="sp-link-icon">👥</span>
+                    <span>Employee Directory</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

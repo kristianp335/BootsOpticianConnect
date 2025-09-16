@@ -1,0 +1,36 @@
+{
+  "fieldSets": [
+    {
+      "fields": [
+        {
+          "name": "showSocialLinks",
+          "label": "Show Social Links",
+          "description": "Display social media links in footer",
+          "type": "checkbox",
+          "defaultValue": true
+        },
+        {
+          "name": "showEmergencyContacts",
+          "label": "Show Emergency Contacts",
+          "description": "Display emergency contact information",
+          "type": "checkbox",
+          "defaultValue": true
+        },
+        {
+          "name": "footerStyle",
+          "label": "Footer Style",
+          "description": "Choose the visual style for the footer",
+          "type": "select",
+          "defaultValue": "standard",
+          "typeOptions": {
+            "validValues": [
+              {"value": "standard", "label": "Standard Footer"},
+              {"value": "minimal", "label": "Minimal Footer"},
+              {"value": "extended", "label": "Extended Footer"}
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

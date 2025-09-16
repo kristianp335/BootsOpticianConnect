@@ -1,0 +1,111 @@
+<div id="${fragmentEntryLinkNamespace}-sp-news-feed" class="sp-news-feed-fragment sp-layout-${configuration.newsLayout!'card'}">
+  <section class="sp-news-section">
+    <div class="sp-container">
+      <div class="sp-news-header">
+        <h2 class="sp-news-title" data-lfr-editable-id="newsTitle" data-lfr-editable-type="text">
+          Company News & Updates
+        </h2>
+        <p class="sp-news-subtitle" data-lfr-editable-id="newsSubtitle" data-lfr-editable-type="text">
+          Stay informed with the latest announcements and updates from Scottish Power Energy Networks
+        </p>
+      </div>
+
+      <div class="sp-news-grid">
+        <article class="sp-news-item sp-priority-high">
+          <div class="sp-news-badge">Priority</div>
+          [#if configuration.showImages]
+            <div class="sp-news-image">
+              <svg width="300" height="200" viewBox="0 0 300 200" class="sp-news-placeholder">
+                <rect width="300" height="200" fill="var(--sp-light-gray)"/>
+                <circle cx="150" cy="100" r="40" fill="var(--sp-primary)" opacity="0.6"/>
+                <text x="150" y="105" text-anchor="middle" fill="var(--sp-white)" font-size="12">News</text>
+              </svg>
+            </div>
+          [/#if]
+          <div class="sp-news-content">
+            <div class="sp-news-meta">
+              <span class="sp-news-category">Safety Update</span>
+              <span class="sp-news-date">Today</span>
+            </div>
+            <h3 class="sp-news-headline" data-lfr-editable-id="news1Headline" data-lfr-editable-type="text">
+              New Safety Protocols Implemented Across All Sites
+            </h3>
+            <p class="sp-news-excerpt" data-lfr-editable-id="news1Excerpt" data-lfr-editable-type="rich-text">
+              Enhanced safety measures now in effect following comprehensive review. All employees must complete updated training modules by month end.
+            </p>
+            <div class="sp-news-actions">
+              <a href="#" class="sp-news-link" data-lfr-editable-id="news1Link" data-lfr-editable-type="link">Read More</a>
+              <span class="sp-reading-time">3 min read</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="sp-news-item">
+          [#if configuration.showImages]
+            <div class="sp-news-image">
+              <svg width="300" height="200" viewBox="0 0 300 200" class="sp-news-placeholder">
+                <rect width="300" height="200" fill="var(--sp-light-gray)"/>
+                <rect x="50" y="50" width="200" height="100" fill="var(--sp-secondary)" opacity="0.6"/>
+                <text x="150" y="105" text-anchor="middle" fill="var(--sp-white)" font-size="12">Company</text>
+              </svg>
+            </div>
+          [/#if]
+          <div class="sp-news-content">
+            <div class="sp-news-meta">
+              <span class="sp-news-category">Company News</span>
+              <span class="sp-news-date">2 days ago</span>
+            </div>
+            <h3 class="sp-news-headline" data-lfr-editable-id="news2Headline" data-lfr-editable-type="text">
+              Q3 Performance Results Exceed Expectations
+            </h3>
+            <p class="sp-news-excerpt" data-lfr-editable-id="news2Excerpt" data-lfr-editable-type="rich-text">
+              Strong quarterly performance across all divisions. Network reliability reaches 99.8% with improved customer satisfaction scores.
+            </p>
+            <div class="sp-news-actions">
+              <a href="#" class="sp-news-link" data-lfr-editable-id="news2Link" data-lfr-editable-type="link">Read More</a>
+              <span class="sp-reading-time">5 min read</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="sp-news-item">
+          [#if configuration.showImages]
+            <div class="sp-news-image">
+              <svg width="300" height="200" viewBox="0 0 300 200" class="sp-news-placeholder">
+                <rect width="300" height="200" fill="var(--sp-light-gray)"/>
+                <path d="M75 75 L225 75 L150 150 Z" fill="var(--sp-accent)" opacity="0.6"/>
+                <text x="150" y="130" text-anchor="middle" fill="var(--sp-white)" font-size="12">Training</text>
+              </svg>
+            </div>
+          [/#if]
+          <div class="sp-news-content">
+            <div class="sp-news-meta">
+              <span class="sp-news-category">Training</span>
+              <span class="sp-news-date">1 week ago</span>
+            </div>
+            <h3 class="sp-news-headline" data-lfr-editable-id="news3Headline" data-lfr-editable-type="text">
+              New Digital Skills Training Program Launched
+            </h3>
+            <p class="sp-news-excerpt" data-lfr-editable-id="news3Excerpt" data-lfr-editable-type="rich-text">
+              Comprehensive digital literacy program now available. Focus on emerging technologies and smart grid management systems.
+            </p>
+            <div class="sp-news-actions">
+              <a href="#" class="sp-news-link" data-lfr-editable-id="news3Link" data-lfr-editable-type="link">Read More</a>
+              <span class="sp-reading-time">4 min read</span>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="sp-news-footer">
+        <a href="/employee/news" class="sp-btn sp-btn-secondary">View All News</a>
+        <div class="sp-news-filters">
+          <button class="sp-filter-btn sp-active" data-filter="all">All</button>
+          <button class="sp-filter-btn" data-filter="safety">Safety</button>
+          <button class="sp-filter-btn" data-filter="company">Company</button>
+          <button class="sp-filter-btn" data-filter="training">Training</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

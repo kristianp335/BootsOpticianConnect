@@ -1,0 +1,385 @@
+/* Scottish Power Hero Fragment Styles */
+/* All styles scoped under #wrapper to prevent Liferay admin conflicts */
+
+/* =======================
+   Hero Section Base
+   ======================= */
+#wrapper .sp-hero-fragment {
+  position: relative;
+  margin-bottom: var(--sp-spacing-xl);
+}
+
+#wrapper .sp-hero-section {
+  position: relative;
+  background: linear-gradient(135deg, var(--sp-white) 0%, #f8fafc 50%, var(--sp-light-gray) 100%);
+  border-radius: var(--sp-border-radius-xl);
+  overflow: hidden;
+  box-shadow: var(--sp-box-shadow-lg);
+  contain: layout style paint;
+}
+
+/* =======================
+   Background Elements
+   ======================= */
+#wrapper .sp-hero-background {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 60%;
+  height: 100%;
+  opacity: 0.7;
+  pointer-events: none;
+  z-index: 1;
+}
+
+#wrapper .sp-hero-svg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: translateZ(0);
+  will-change: auto;
+  backface-visibility: hidden;
+}
+
+/* Infrastructure animation for energy flow */
+#wrapper .sp-infrastructure {
+  animation: energyFlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes energyFlow {
+  0% { opacity: 0.6; }
+  100% { opacity: 0.9; }
+}
+
+/* =======================
+   Hero Content Layout
+   ======================= */
+#wrapper .sp-hero-content {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: var(--sp-spacing-2xl);
+  align-items: center;
+  padding: var(--sp-spacing-2xl) 0;
+  min-height: 400px;
+}
+
+#wrapper .sp-hero-text {
+  padding-right: var(--sp-spacing-lg);
+}
+
+/* =======================
+   Hero Badge Styling
+   ======================= */
+#wrapper .sp-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-spacing-xs);
+  padding: var(--sp-spacing-xs) var(--sp-spacing-md);
+  background: rgba(0, 51, 102, 0.1);
+  color: var(--sp-primary);
+  border: 1px solid var(--sp-primary);
+  border-radius: var(--sp-border-radius-xl);
+  font-size: var(--sp-font-size-sm);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: var(--sp-spacing-lg);
+}
+
+#wrapper .sp-hero-badge.sp-safety-badge {
+  background: rgba(255, 107, 53, 0.1);
+  color: var(--sp-warning);
+  border-color: var(--sp-warning);
+}
+
+#wrapper .sp-hero-badge.sp-achievement-badge {
+  background: rgba(0, 166, 81, 0.1);
+  color: var(--sp-accent);
+  border-color: var(--sp-accent);
+}
+
+#wrapper .sp-badge-icon {
+  font-size: var(--sp-font-size-base);
+}
+
+/* =======================
+   Typography
+   ======================= */
+#wrapper .sp-hero-title {
+  font-size: var(--sp-font-size-3xl);
+  font-weight: 700;
+  color: var(--sp-primary);
+  line-height: 1.2;
+  margin-bottom: var(--sp-spacing-lg);
+  max-width: 90%;
+}
+
+#wrapper .sp-hero-description {
+  font-size: var(--sp-font-size-lg);
+  color: var(--sp-dark-gray);
+  line-height: 1.6;
+  margin-bottom: var(--sp-spacing-xl);
+  max-width: 85%;
+}
+
+/* =======================
+   Action Buttons
+   ======================= */
+#wrapper .sp-hero-actions {
+  display: flex;
+  gap: var(--sp-spacing-md);
+  margin-bottom: var(--sp-spacing-xl);
+}
+
+#wrapper .sp-hero-cta {
+  background: linear-gradient(135deg, var(--sp-primary), var(--sp-secondary));
+  border: none;
+  box-shadow: var(--sp-box-shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+#wrapper .sp-hero-cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+#wrapper .sp-hero-cta:hover::before {
+  left: 100%;
+}
+
+#wrapper .sp-hero-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--sp-box-shadow-lg);
+}
+
+/* =======================
+   Statistics Section
+   ======================= */
+#wrapper .sp-hero-stats {
+  display: flex;
+  gap: var(--sp-spacing-xl);
+  padding: var(--sp-spacing-lg) 0;
+  border-top: 2px solid var(--sp-medium-gray);
+}
+
+#wrapper .sp-stat-item {
+  display: flex;
+  align-items: baseline;
+  gap: var(--sp-spacing-xs);
+}
+
+#wrapper .sp-stat-number {
+  font-size: var(--sp-font-size-2xl);
+  font-weight: 700;
+  color: var(--sp-secondary);
+  line-height: 1;
+}
+
+#wrapper .sp-stat-unit {
+  font-size: var(--sp-font-size-lg);
+  font-weight: 600;
+  color: var(--sp-secondary);
+}
+
+#wrapper .sp-stat-label {
+  font-size: var(--sp-font-size-sm);
+  color: var(--sp-grid-gray);
+  font-weight: 500;
+  margin-left: var(--sp-spacing-sm);
+}
+
+/* =======================
+   Hero Visual Card
+   ======================= */
+#wrapper .sp-hero-visual {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+#wrapper .sp-hero-card {
+  background: var(--sp-white);
+  border-radius: var(--sp-border-radius-lg);
+  box-shadow: var(--sp-box-shadow-lg);
+  border: 1px solid var(--sp-medium-gray);
+  width: 100%;
+  max-width: 300px;
+  overflow: hidden;
+  transform: translateZ(0);
+  backdrop-filter: blur(8px);
+}
+
+#wrapper .sp-hero-card .sp-card-header {
+  padding: var(--sp-spacing-lg);
+  background: linear-gradient(135deg, var(--sp-light-gray), var(--sp-white));
+  border-bottom: 1px solid var(--sp-medium-gray);
+}
+
+#wrapper .sp-hero-card .sp-card-header h3 {
+  margin: 0;
+  font-size: var(--sp-font-size-lg);
+  font-weight: 600;
+  color: var(--sp-primary);
+}
+
+#wrapper .sp-hero-card .sp-card-body {
+  padding: var(--sp-spacing-md) 0;
+}
+
+/* =======================
+   Quick Links
+   ======================= */
+#wrapper .sp-quick-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#wrapper .sp-quick-link {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-spacing-md);
+  padding: var(--sp-spacing-md) var(--sp-spacing-lg);
+  color: var(--sp-dark-gray);
+  text-decoration: none;
+  transition: var(--sp-transition);
+  border-left: 3px solid transparent;
+}
+
+#wrapper .sp-quick-link:hover {
+  background: var(--sp-light-gray);
+  color: var(--sp-primary);
+  border-left-color: var(--sp-secondary);
+}
+
+#wrapper .sp-link-icon {
+  font-size: var(--sp-font-size-lg);
+  width: 24px;
+  text-align: center;
+}
+
+/* =======================
+   Style Variations
+   ======================= */
+#wrapper .sp-hero-leadership .sp-hero-section {
+  background: linear-gradient(135deg, #f8fafc 0%, var(--sp-white) 50%, #f1f5f9 100%);
+}
+
+#wrapper .sp-hero-safety .sp-hero-section {
+  background: linear-gradient(135deg, #fff7ed 0%, var(--sp-white) 50%, #ffedd5 100%);
+}
+
+#wrapper .sp-hero-safety .sp-hero-title {
+  color: var(--sp-warning);
+}
+
+#wrapper .sp-hero-achievement .sp-hero-section {
+  background: linear-gradient(135deg, #f0fdf4 0%, var(--sp-white) 50%, #dcfce7 100%);
+}
+
+#wrapper .sp-hero-achievement .sp-hero-title {
+  color: var(--sp-accent);
+}
+
+/* =======================
+   Animation Support
+   ======================= */
+#wrapper .sp-hero-fragment[data-enable-animation="true"] .sp-hero-content {
+  animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+  from { 
+    opacity: 0; 
+    transform: translateY(20px);
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0);
+  }
+}
+
+/* =======================
+   Responsive Design
+   ======================= */
+@media (max-width: 1024px) {
+  #wrapper .sp-hero-content {
+    grid-template-columns: 1fr;
+    gap: var(--sp-spacing-xl);
+    text-align: center;
+  }
+  
+  #wrapper .sp-hero-text {
+    padding-right: 0;
+  }
+  
+  #wrapper .sp-hero-background {
+    width: 100%;
+    opacity: 0.4;
+  }
+  
+  #wrapper .sp-hero-stats {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  #wrapper .sp-hero-content {
+    padding: var(--sp-spacing-xl) 0;
+    min-height: 300px;
+  }
+  
+  #wrapper .sp-hero-title {
+    font-size: var(--sp-font-size-2xl);
+    max-width: 100%;
+  }
+  
+  #wrapper .sp-hero-description {
+    font-size: var(--sp-font-size-base);
+    max-width: 100%;
+  }
+  
+  #wrapper .sp-hero-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  #wrapper .sp-hero-actions .sp-btn {
+    width: 100%;
+    max-width: 280px;
+  }
+  
+  #wrapper .sp-hero-stats {
+    flex-direction: column;
+    gap: var(--sp-spacing-md);
+    text-align: center;
+  }
+  
+  #wrapper .sp-hero-card {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  #wrapper .sp-hero-content {
+    padding: var(--sp-spacing-lg) 0;
+  }
+  
+  #wrapper .sp-hero-title {
+    font-size: var(--sp-font-size-xl);
+  }
+  
+  #wrapper .sp-hero-badge {
+    font-size: var(--sp-font-size-xs);
+    padding: var(--sp-spacing-xs) var(--sp-spacing-sm);
+  }
+}

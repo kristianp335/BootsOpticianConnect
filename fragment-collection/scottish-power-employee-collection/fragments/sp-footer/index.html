@@ -1,0 +1,119 @@
+<div id="${fragmentEntryLinkNamespace}-sp-footer" class="sp-footer-fragment sp-style-${configuration.footerStyle!'standard'}">
+  <footer class="sp-footer">
+    <div class="sp-container">
+      <!-- Main Footer Content -->
+      <div class="sp-footer-main">
+        <div class="sp-footer-grid">
+          <!-- Company Information -->
+          <div class="sp-footer-section">
+            <div class="sp-footer-logo">
+              <svg width="32" height="32" viewBox="0 0 40 40" class="sp-footer-logo-icon">
+                <circle cx="20" cy="20" r="18" fill="var(--sp-primary)" stroke="var(--sp-accent)" stroke-width="2"/>
+                <path d="M15 15 L25 25 M25 15 L15 25" stroke="var(--sp-white)" stroke-width="3" stroke-linecap="round"/>
+                <circle cx="20" cy="20" r="8" fill="none" stroke="var(--sp-electric-blue)" stroke-width="2"/>
+              </svg>
+              <div class="sp-footer-company">
+                <span class="sp-company-name" data-lfr-editable-id="companyName" data-lfr-editable-type="text">Scottish Power</span>
+                <span class="sp-division-name" data-lfr-editable-id="divisionName" data-lfr-editable-type="text">Energy Networks</span>
+              </div>
+            </div>
+            <p class="sp-footer-description" data-lfr-editable-id="footerDescription" data-lfr-editable-type="rich-text">
+              Delivering reliable, sustainable energy across Scotland. Empowering communities and supporting economic growth through innovative energy solutions.
+            </p>
+          </div>
+
+          <!-- Quick Links -->
+          <div class="sp-footer-section">
+            <h4 class="sp-footer-title">Employee Resources</h4>
+            <ul class="sp-footer-links">
+              <li><a href="/employee/profile" data-lfr-editable-id="link1" data-lfr-editable-type="link">My Profile</a></li>
+              <li><a href="/employee/timesheet" data-lfr-editable-id="link2" data-lfr-editable-type="link">Timesheet</a></li>
+              <li><a href="/employee/benefits" data-lfr-editable-id="link3" data-lfr-editable-type="link">Benefits Portal</a></li>
+              <li><a href="/employee/training" data-lfr-editable-id="link4" data-lfr-editable-type="link">Training Center</a></li>
+              <li><a href="/employee/directory" data-lfr-editable-id="link5" data-lfr-editable-type="link">Employee Directory</a></li>
+            </ul>
+          </div>
+
+          <!-- Support -->
+          <div class="sp-footer-section">
+            <h4 class="sp-footer-title">Support & Help</h4>
+            <ul class="sp-footer-links">
+              <li><a href="/support/it" data-lfr-editable-id="supportLink1" data-lfr-editable-type="link">IT Support</a></li>
+              <li><a href="/support/hr" data-lfr-editable-id="supportLink2" data-lfr-editable-type="link">HR Support</a></li>
+              <li><a href="/support/facilities" data-lfr-editable-id="supportLink3" data-lfr-editable-type="link">Facilities</a></li>
+              <li><a href="/safety/report" data-lfr-editable-id="supportLink4" data-lfr-editable-type="link">Safety Reporting</a></li>
+              <li><a href="/feedback" data-lfr-editable-id="supportLink5" data-lfr-editable-type="link">Give Feedback</a></li>
+            </ul>
+          </div>
+
+          <!-- Emergency Contacts -->
+          [#if configuration.showEmergencyContacts]
+            <div class="sp-footer-section sp-emergency-section">
+              <h4 class="sp-footer-title sp-emergency-title">Emergency Contacts</h4>
+              <div class="sp-emergency-contacts">
+                <div class="sp-emergency-item">
+                  <span class="sp-emergency-label">Network Control:</span>
+                  <a href="tel:08001234567" class="sp-emergency-number" data-lfr-editable-id="networkControl" data-lfr-editable-type="text">0800 123 4567</a>
+                </div>
+                <div class="sp-emergency-item">
+                  <span class="sp-emergency-label">Safety Hotline:</span>
+                  <a href="tel:08007890123" class="sp-emergency-number" data-lfr-editable-id="safetyHotline" data-lfr-editable-type="text">0800 789 0123</a>
+                </div>
+                <div class="sp-emergency-item">
+                  <span class="sp-emergency-label">Site Emergency:</span>
+                  <a href="tel:08003456789" class="sp-emergency-number" data-lfr-editable-id="siteEmergency" data-lfr-editable-type="text">0800 345 6789</a>
+                </div>
+              </div>
+              <p class="sp-emergency-note">For life-threatening emergencies, call 999</p>
+            </div>
+          [/#if]
+        </div>
+      </div>
+
+      <!-- Social Links -->
+      [#if configuration.showSocialLinks]
+        <div class="sp-footer-social">
+          <h4 class="sp-social-title">Connect With Us</h4>
+          <div class="sp-social-links">
+            <a href="#" class="sp-social-link" title="LinkedIn" data-lfr-editable-id="linkedinLink" data-lfr-editable-type="link">
+              <span class="sp-social-icon">💼</span>
+              <span class="sp-social-text">LinkedIn</span>
+            </a>
+            <a href="#" class="sp-social-link" title="Twitter" data-lfr-editable-id="twitterLink" data-lfr-editable-type="link">
+              <span class="sp-social-icon">🐦</span>
+              <span class="sp-social-text">Twitter</span>
+            </a>
+            <a href="#" class="sp-social-link" title="YouTube" data-lfr-editable-id="youtubeLink" data-lfr-editable-type="link">
+              <span class="sp-social-icon">📺</span>
+              <span class="sp-social-text">YouTube</span>
+            </a>
+          </div>
+        </div>
+      [/#if]
+
+      <!-- Footer Bottom -->
+      <div class="sp-footer-bottom">
+        <div class="sp-footer-bottom-content">
+          <div class="sp-footer-legal">
+            <p class="sp-copyright" data-lfr-editable-id="copyright" data-lfr-editable-type="text">
+              © 2025 Scottish Power Energy Networks. All rights reserved.
+            </p>
+            <div class="sp-legal-links">
+              <a href="/privacy" data-lfr-editable-id="privacyLink" data-lfr-editable-type="link">Privacy Policy</a>
+              <a href="/terms" data-lfr-editable-id="termsLink" data-lfr-editable-type="link">Terms of Use</a>
+              <a href="/cookies" data-lfr-editable-id="cookiesLink" data-lfr-editable-type="link">Cookie Policy</a>
+              <a href="/accessibility" data-lfr-editable-id="accessibilityLink" data-lfr-editable-type="link">Accessibility</a>
+            </div>
+          </div>
+          
+          <div class="sp-footer-meta">
+            <button class="sp-back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="Back to top">
+              <span class="sp-back-icon">↑</span>
+              <span class="sp-back-text">Back to Top</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
