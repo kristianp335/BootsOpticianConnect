@@ -1,0 +1,180 @@
+/**
+ * Boots KPI Card Fragment Styles
+ * Individual KPI metric card component
+ */
+
+/* Fragment Container */
+#wrapper .sp-kpi-card-fragment {
+    width: 100%;
+    display: block;
+}
+
+/* Metric Card Base */
+#wrapper .sp-metric-card {
+    background: var(--boots-white);
+    border: 1px solid var(--boots-border-light);
+    border-radius: var(--boots-border-radius-lg);
+    padding: var(--boots-spacing-lg);
+    transition: var(--boots-transition);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#wrapper .sp-metric-card:hover {
+    box-shadow: var(--boots-shadow-lg);
+    transform: translateY(-2px);
+}
+
+/* Card Header */
+#wrapper .sp-card-header {
+    display: flex;
+    align-items: center;
+    gap: var(--boots-spacing-md);
+    margin-bottom: var(--boots-spacing-lg);
+    flex-shrink: 0;
+}
+
+#wrapper .sp-card-header h3 {
+    font-size: var(--boots-font-size-sm);
+    font-weight: var(--boots-font-weight-semi-bold);
+    color: var(--boots-text-secondary);
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Metric Icons */
+#wrapper .sp-metric-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--boots-border-radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+#wrapper .sp-metric-revenue {
+    background: linear-gradient(135deg, var(--boots-primary) 0%, var(--boots-primary-dark) 100%);
+    color: var(--boots-white);
+}
+
+#wrapper .sp-metric-appointments {
+    background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+    color: var(--boots-white);
+}
+
+#wrapper .sp-metric-satisfaction {
+    background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+    color: var(--boots-white);
+}
+
+#wrapper .sp-metric-training {
+    background: linear-gradient(135deg, #8B5CF6 0%, #7C3AED 100%);
+    color: var(--boots-white);
+}
+
+#wrapper .sp-metric-cases {
+    background: linear-gradient(135deg, #EF4444 0%, #DC2626 100%);
+    color: var(--boots-white);
+}
+
+#wrapper .sp-metric-performance {
+    background: linear-gradient(135deg, #06B6D4 0%, #0891B2 100%);
+    color: var(--boots-white);
+}
+
+/* Card Body */
+#wrapper .sp-card-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Metric Value */
+#wrapper .sp-metric-value {
+    display: flex;
+    align-items: baseline;
+    gap: var(--boots-spacing-sm);
+    margin-bottom: var(--boots-spacing-md);
+}
+
+#wrapper .sp-metric-value > span:first-child {
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    font-weight: var(--boots-font-weight-bold);
+    color: var(--boots-text-primary);
+    line-height: 1;
+}
+
+/* Change Indicators */
+#wrapper .sp-metric-change {
+    font-size: var(--boots-font-size-sm);
+    font-weight: var(--boots-font-weight-semi-bold);
+    padding: 2px 8px;
+    border-radius: var(--boots-border-radius-sm);
+    white-space: nowrap;
+}
+
+#wrapper .sp-metric-change.sp-positive {
+    background: rgba(16, 185, 129, 0.1);
+    color: #059669;
+}
+
+#wrapper .sp-metric-change.sp-negative {
+    background: rgba(239, 68, 68, 0.1);
+    color: #DC2626;
+}
+
+#wrapper .sp-metric-change.sp-neutral {
+    background: var(--boots-gray-100);
+    color: var(--boots-text-secondary);
+}
+
+/* Metric Description */
+#wrapper .sp-metric-description {
+    font-size: var(--boots-font-size-sm);
+    color: var(--boots-text-secondary);
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* Counter Animation */
+#wrapper [data-counter] {
+    display: inline-block;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #wrapper .sp-metric-card {
+        padding: var(--boots-spacing-md);
+    }
+    
+    #wrapper .sp-card-header {
+        gap: var(--boots-spacing-sm);
+        margin-bottom: var(--boots-spacing-md);
+    }
+    
+    #wrapper .sp-metric-icon {
+        width: 40px;
+        height: 40px;
+    }
+    
+    #wrapper .sp-card-header h3 {
+        font-size: var(--boots-font-size-xs);
+    }
+}
+
+/* Edit Mode Styling */
+#wrapper .lfr-layout-structure-item-container .sp-kpi-card-fragment {
+    min-height: 120px;
+    border: 2px dashed var(--boots-border-light);
+    border-radius: var(--boots-border-radius-lg);
+    padding: var(--boots-spacing-md);
+}
+
+#wrapper .lfr-layout-structure-item-container .sp-metric-card {
+    border: none;
+    background: transparent;
+}

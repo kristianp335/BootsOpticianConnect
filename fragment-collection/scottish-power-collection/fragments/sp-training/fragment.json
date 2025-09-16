@@ -1,0 +1,11 @@
+{
+  "fragmentEntryKey": "sp-training",
+  "name": "SP Employee Training",
+  "type": "section",
+  "htmlPath": "index.html",
+  "cssPath": "index.css",
+  "jsPath": "index.js",
+  "configurationPath": "configuration.json",
+  "thumbnailPath": "thumbnail.png",
+  "icon": "education"
+}

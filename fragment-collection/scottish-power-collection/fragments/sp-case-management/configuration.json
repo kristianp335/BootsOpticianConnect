@@ -1,0 +1,72 @@
+{
+  "fieldSets": [
+    {
+      "fields": [
+        {
+          "name": "showCaseFilters",
+          "label": "Show Case Filters",
+          "description": "Display case filtering options",
+          "type": "checkbox",
+          "defaultValue": true
+        },
+        {
+          "name": "showCaseStats",
+          "label": "Show Case Statistics",
+          "description": "Display case statistics overview",
+          "type": "checkbox",
+          "defaultValue": true
+        },
+        {
+          "name": "caseView",
+          "label": "Case View",
+          "description": "Choose how cases are displayed",
+          "type": "select",
+          "defaultValue": "list",
+          "typeOptions": {
+            "validValues": [
+              {
+                "label": "List View",
+                "value": "list"
+              },
+              {
+                "label": "Card View",
+                "value": "cards"
+              },
+              {
+                "label": "Table View",
+                "value": "table"
+              }
+            ]
+          }
+        },
+        {
+          "name": "defaultFilter",
+          "label": "Default Filter",
+          "description": "Default case filter on page load",
+          "type": "select",
+          "defaultValue": "active",
+          "typeOptions": {
+            "validValues": [
+              {
+                "label": "All Cases",
+                "value": "all"
+              },
+              {
+                "label": "Active Cases",
+                "value": "active"
+              },
+              {
+                "label": "Pending Cases",
+                "value": "pending"
+              },
+              {
+                "label": "Completed Cases",
+                "value": "completed"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

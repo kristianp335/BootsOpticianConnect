@@ -1,0 +1,19 @@
+<div class="sp-chart-widget-fragment">
+    <div class="sp-chart-card sp-card">
+        <div class="sp-card-header">
+            <h3 data-lfr-editable-id="chart-title" data-lfr-editable-type="text">${configuration.chartTitle!"Performance Chart"}</h3>
+            [#if configuration.showControls!true]
+            <div class="sp-chart-controls">
+                <button class="sp-btn sp-btn-outline" data-period="week">Week</button>
+                <button class="sp-btn sp-btn-outline active" data-period="month">Month</button>
+                <button class="sp-btn sp-btn-outline" data-period="quarter">Quarter</button>
+            </div>
+            [/#if]
+        </div>
+        <div class="sp-card-body">
+            <div class="sp-chart-container sp-chart-${configuration.chartHeight!"medium"}">
+                <canvas id="sp-chart-${.globals.randomNamespace!"chart"}" data-chart-type="${configuration.chartType!"line"}" data-data-source="${configuration.dataSource!"sample"}"></canvas>
+            </div>
+        </div>
+    </div>
+</div>

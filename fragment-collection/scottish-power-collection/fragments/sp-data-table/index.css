@@ -1,0 +1,266 @@
+/**
+ * Boots Data Table Fragment Styles
+ * Configurable data table component
+ */
+
+/* Fragment Container */
+#wrapper .sp-data-table-fragment {
+    width: 100%;
+    display: block;
+}
+
+/* Table Card Base */
+#wrapper .sp-table-card {
+    background: var(--boots-white);
+    border: 1px solid var(--boots-border-light);
+    border-radius: var(--boots-border-radius-lg);
+    padding: var(--boots-spacing-lg);
+    transition: var(--boots-transition);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Card Header */
+#wrapper .sp-table-card .sp-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--boots-spacing-lg);
+    flex-wrap: wrap;
+    gap: var(--boots-spacing-md);
+}
+
+#wrapper .sp-table-card .sp-card-header h3 {
+    font-size: var(--boots-font-size-lg);
+    font-weight: var(--boots-font-weight-semi-bold);
+    color: var(--boots-text-primary);
+    margin: 0;
+}
+
+/* Search Input */
+#wrapper .sp-table-search {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+#wrapper .sp-search-input {
+    padding: var(--boots-spacing-sm) var(--boots-spacing-md);
+    padding-right: 40px;
+    border: 1px solid var(--boots-border-light);
+    border-radius: var(--boots-border-radius-md);
+    font-size: var(--boots-font-size-sm);
+    width: 200px;
+    background: var(--boots-white);
+}
+
+#wrapper .sp-search-input:focus {
+    outline: none;
+    border-color: var(--boots-primary);
+    box-shadow: 0 0 0 3px rgba(24, 66, 144, 0.1);
+}
+
+#wrapper .sp-table-search svg {
+    position: absolute;
+    right: 12px;
+    color: var(--boots-text-secondary);
+    pointer-events: none;
+}
+
+/* Card Body */
+#wrapper .sp-table-card .sp-card-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+}
+
+/* Table Container */
+#wrapper .sp-table-container {
+    flex: 1;
+    overflow-x: auto;
+    margin-bottom: var(--boots-spacing-lg);
+}
+
+/* Data Table */
+#wrapper .sp-data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--boots-font-size-sm);
+}
+
+#wrapper .sp-data-table th {
+    background: var(--boots-gray-50);
+    padding: var(--boots-spacing-md);
+    text-align: left;
+    font-weight: var(--boots-font-weight-semi-bold);
+    color: var(--boots-text-secondary);
+    border-bottom: 2px solid var(--boots-border-light);
+    white-space: nowrap;
+}
+
+#wrapper .sp-data-table td {
+    padding: var(--boots-spacing-md);
+    border-bottom: 1px solid var(--boots-border-light);
+    color: var(--boots-text-primary);
+    vertical-align: middle;
+}
+
+#wrapper .sp-data-table tbody tr:hover {
+    background: var(--boots-gray-50);
+}
+
+/* Status Badges */
+#wrapper .sp-status {
+    padding: 4px 8px;
+    border-radius: var(--boots-border-radius-sm);
+    font-size: var(--boots-font-size-xs);
+    font-weight: var(--boots-font-weight-medium);
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+#wrapper .sp-status-active {
+    background: rgba(16, 185, 129, 0.1);
+    color: #059669;
+}
+
+#wrapper .sp-status-pending {
+    background: rgba(245, 158, 11, 0.1);
+    color: #D97706;
+}
+
+#wrapper .sp-status-completed,
+#wrapper .sp-status-resolved {
+    background: rgba(16, 185, 129, 0.1);
+    color: #059669;
+}
+
+#wrapper .sp-status-cancelled,
+#wrapper .sp-status-failed {
+    background: rgba(239, 68, 68, 0.1);
+    color: #DC2626;
+}
+
+/* Action Buttons */
+#wrapper .sp-table-actions {
+    display: flex;
+    gap: var(--boots-spacing-xs);
+}
+
+#wrapper .sp-table-actions .sp-btn {
+    padding: var(--boots-spacing-xs) var(--boots-spacing-sm);
+    font-size: var(--boots-font-size-xs);
+    min-height: auto;
+}
+
+/* Pagination */
+#wrapper .sp-table-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--boots-spacing-md);
+    padding-top: var(--boots-spacing-md);
+    border-top: 1px solid var(--boots-border-light);
+}
+
+#wrapper .sp-pagination-info {
+    font-size: var(--boots-font-size-sm);
+    color: var(--boots-text-secondary);
+}
+
+#wrapper .sp-pagination-controls {
+    display: flex;
+    gap: var(--boots-spacing-xs);
+}
+
+#wrapper .sp-pagination-controls .sp-btn {
+    padding: var(--boots-spacing-xs) var(--boots-spacing-sm);
+    font-size: var(--boots-font-size-sm);
+    min-height: auto;
+}
+
+/* Empty State */
+#wrapper .sp-table-empty {
+    text-align: center;
+    padding: var(--boots-spacing-xl);
+    color: var(--boots-text-secondary);
+    font-size: var(--boots-font-size-sm);
+}
+
+#wrapper .sp-table-empty::before {
+    content: '📋';
+    display: block;
+    font-size: 2rem;
+    margin-bottom: var(--boots-spacing-sm);
+}
+
+/* Loading State */
+#wrapper .sp-table-loading {
+    text-align: center;
+    padding: var(--boots-spacing-xl);
+    color: var(--boots-text-secondary);
+    font-size: var(--boots-font-size-sm);
+}
+
+#wrapper .sp-table-loading::before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--boots-border-light);
+    border-top-color: var(--boots-primary);
+    border-radius: 50%;
+    margin-right: var(--boots-spacing-sm);
+    animation: spin 1s linear infinite;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #wrapper .sp-table-card {
+        padding: var(--boots-spacing-md);
+    }
+    
+    #wrapper .sp-table-card .sp-card-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    #wrapper .sp-search-input {
+        width: 100%;
+    }
+    
+    #wrapper .sp-data-table {
+        font-size: var(--boots-font-size-xs);
+    }
+    
+    #wrapper .sp-data-table th,
+    #wrapper .sp-data-table td {
+        padding: var(--boots-spacing-sm);
+    }
+    
+    #wrapper .sp-table-pagination {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+    }
+    
+    #wrapper .sp-pagination-controls {
+        justify-content: center;
+    }
+}
+
+/* Edit Mode Styling */
+#wrapper .lfr-layout-structure-item-container .sp-data-table-fragment {
+    min-height: 200px;
+    border: 2px dashed var(--boots-border-light);
+    border-radius: var(--boots-border-radius-lg);
+    padding: var(--boots-spacing-md);
+}
+
+#wrapper .lfr-layout-structure-item-container .sp-table-card {
+    border: none;
+    background: transparent;
+}

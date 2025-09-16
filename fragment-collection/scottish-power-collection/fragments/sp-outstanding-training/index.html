@@ -1,0 +1,27 @@
+<div class="sp-outstanding-training-fragment">
+    <div class="sp-container">
+        <!-- Outstanding Training Card -->
+        <div class="sp-outstanding-training-card">
+            <div class="sp-card-header">
+                <div class="sp-training-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                        <path d="M12 6V12L16 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <div class="sp-training-content">
+                    <h3 class="sp-training-title" data-lfr-editable-id="training-title" data-lfr-editable-type="text">Outstanding Training Required</h3>
+                    <div class="sp-training-due-date">
+                        <span class="sp-due-label">Due:</span>
+                        <span class="sp-due-date" data-lfr-editable-id="training-due-date" data-lfr-editable-type="text">March 15, 2025</span>
+                    </div>
+                </div>
+                [#if configuration.showStatusBadge]
+                <div class="sp-training-status">
+                    <span class="sp-status-badge sp-status-urgent">Urgent</span>
+                </div>
+                [/#if]
+            </div>
+        </div>
+    </div>
+</div>

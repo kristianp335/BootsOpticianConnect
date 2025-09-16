@@ -1,0 +1,461 @@
+<div class="sp-case-management-fragment">
+    <div class="sp-container">
+        <!-- Case Management Header -->
+        <div class="sp-case-header">
+            <div class="sp-case-title">
+                <h1 data-lfr-editable-id="case-title" data-lfr-editable-type="text">Case Management</h1>
+                <p data-lfr-editable-id="case-subtitle" data-lfr-editable-type="text">Manage customer queries, support requests, and optician consultations efficiently.</p>
+            </div>
+            <div class="sp-case-actions">
+                <button class="sp-btn sp-btn-outline" id="sp-case-search">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="2"/>
+                        <path d="M15 15L11 11" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    Search Cases
+                </button>
+                <a href="/cases/new" class="sp-btn sp-btn-primary" data-lfr-editable-id="new-case-button" data-lfr-editable-type="link">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M8 1V15M1 8H15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    New Case
+                </a>
+            </div>
+        </div>
+        
+        [#if configuration.showCaseStats!true]
+        <!-- Case Statistics -->
+        <div class="sp-case-stats">
+            <div class="sp-stats-grid">
+                <!-- Active Cases -->
+                <div class="sp-stat-card sp-card">
+                    <div class="sp-stat-icon sp-stat-active">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                            <path d="M12 6V12L16 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div class="sp-stat-content">
+                        <div class="sp-stat-value">
+                            <span data-counter data-target="23" data-lfr-editable-id="active-cases-value" data-lfr-editable-type="text">23</span>
+                        </div>
+                        <div class="sp-stat-label" data-lfr-editable-id="active-cases-label" data-lfr-editable-type="text">Active Cases</div>
+                        <div class="sp-stat-change sp-positive">+5 this week</div>
+                    </div>
+                </div>
+                
+                <!-- Pending Review -->
+                <div class="sp-stat-card sp-card">
+                    <div class="sp-stat-icon sp-stat-pending">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 2L15.5 8.5L22 9L17 14L18.5 21L12 17.5L5.5 21L7 14L2 9L8.5 8.5L12 2Z" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <div class="sp-stat-content">
+                        <div class="sp-stat-value">
+                            <span data-counter data-target="8" data-lfr-editable-id="pending-cases-value" data-lfr-editable-type="text">8</span>
+                        </div>
+                        <div class="sp-stat-label" data-lfr-editable-id="pending-cases-label" data-lfr-editable-type="text">Pending Review</div>
+                        <div class="sp-stat-change sp-neutral">Awaiting response</div>
+                    </div>
+                </div>
+                
+                <!-- Resolved Today -->
+                <div class="sp-stat-card sp-card">
+                    <div class="sp-stat-icon sp-stat-resolved">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M22 11.08V12C22 17.52 17.52 22 12 22S2 17.52 2 12S6.48 2 12 2C14.1 2 15.99 2.64 17.54 3.71" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M22 4L12 14.01L9 11.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div class="sp-stat-content">
+                        <div class="sp-stat-value">
+                            <span data-counter data-target="12" data-lfr-editable-id="resolved-cases-value" data-lfr-editable-type="text">12</span>
+                        </div>
+                        <div class="sp-stat-label" data-lfr-editable-id="resolved-cases-label" data-lfr-editable-type="text">Resolved Today</div>
+                        <div class="sp-stat-change sp-positive">+3 from yesterday</div>
+                    </div>
+                </div>
+                
+                <!-- Average Response Time -->
+                <div class="sp-stat-card sp-card">
+                    <div class="sp-stat-icon sp-stat-response">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div class="sp-stat-content">
+                        <div class="sp-stat-value">
+                            <span data-counter data-target="24" data-lfr-editable-id="response-time-value" data-lfr-editable-type="text">24m</span>
+                        </div>
+                        <div class="sp-stat-label" data-lfr-editable-id="response-time-label" data-lfr-editable-type="text">Avg Response</div>
+                        <div class="sp-stat-change sp-positive">-5m improvement</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        [/#if]
+        
+        <!-- Case Management Content -->
+        <div class="sp-case-content">
+            <div class="sp-case-main">
+                <!-- Case Filters and View Controls -->
+                [#if configuration.showCaseFilters!true]
+                <div class="sp-case-controls">
+                    <div class="sp-case-filters">
+                        <button class="sp-filter-btn [#if configuration.defaultFilter == 'all']active[/#if]" data-filter="all">All Cases</button>
+                        <button class="sp-filter-btn [#if configuration.defaultFilter == 'active']active[/#if]" data-filter="active">Active</button>
+                        <button class="sp-filter-btn [#if configuration.defaultFilter == 'pending']active[/#if]" data-filter="pending">Pending</button>
+                        <button class="sp-filter-btn [#if configuration.defaultFilter == 'completed']active[/#if]" data-filter="completed">Completed</button>
+                    </div>
+                    
+                    <div class="sp-view-controls">
+                        <button class="sp-view-btn [#if configuration.caseView == 'list']active[/#if]" data-view="list">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M2 4H14M2 8H14M2 12H14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </button>
+                        <button class="sp-view-btn [#if configuration.caseView == 'cards']active[/#if]" data-view="cards">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <rect x="2" y="2" width="5" height="5" stroke="currentColor" stroke-width="2"/>
+                                <rect x="9" y="2" width="5" height="5" stroke="currentColor" stroke-width="2"/>
+                                <rect x="2" y="9" width="5" height="5" stroke="currentColor" stroke-width="2"/>
+                                <rect x="9" y="9" width="5" height="5" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </button>
+                        <button class="sp-view-btn [#if configuration.caseView == 'table']active[/#if]" data-view="table">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <rect x="1" y="3" width="14" height="10" stroke="currentColor" stroke-width="2"/>
+                                <path d="M1 7H15M5 3V13" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                [/#if]
+                
+                <!-- Case List (Default View) -->
+                <div class="sp-cases-section" data-view="${configuration.caseView}">
+                    <div class="sp-cases-container" id="sp-cases-list">
+                        <!-- Case Item 1: Prescription Inquiry -->
+                        <div class="sp-case-item sp-card" data-status="active" data-priority="high">
+                            <div class="sp-case-priority sp-priority-high"></div>
+                            <div class="sp-case-header">
+                                <div class="sp-case-info">
+                                    <div class="sp-case-id">#CS-2025-0847</div>
+                                    <div class="sp-case-status">
+                                        <span class="sp-status sp-status-warning">Active</span>
+                                        <span class="sp-priority-label">High Priority</span>
+                                    </div>
+                                </div>
+                                <div class="sp-case-date">
+                                    <span class="sp-case-created">Created: Aug 20, 2025</span>
+                                    <span class="sp-case-updated">Updated: 2 hours ago</span>
+                                </div>
+                            </div>
+                            <div class="sp-case-content">
+                                <h4 data-lfr-editable-id="case-1-title" data-lfr-editable-type="text">Prescription Verification Issue</h4>
+                                <p data-lfr-editable-id="case-1-description" data-lfr-editable-type="text">Customer reporting difficulty reading with new progressive lenses. Requesting review of prescription accuracy and lens fitting.</p>
+                                <div class="sp-case-meta">
+                                    <div class="sp-case-customer">
+                                        <span class="sp-customer-label">Customer:</span>
+                                        <span data-lfr-editable-id="case-1-customer" data-lfr-editable-type="text">Sarah Johnson</span>
+                                    </div>
+                                    <div class="sp-case-category">
+                                        <span class="sp-category-label">Category:</span>
+                                        <span class="sp-category-tag">Prescription</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sp-case-actions">
+                                <a href="/cases/CS-2025-0847" class="sp-btn sp-btn-primary">View Details</a>
+                                <button class="sp-btn sp-btn-outline" data-case-action="update">Update Status</button>
+                                <button class="sp-btn sp-btn-light" data-case-action="notes">Add Notes</button>
+                            </div>
+                        </div>
+                        
+                        <!-- Case Item 2: Frame Adjustment -->
+                        <div class="sp-case-item sp-card" data-status="pending" data-priority="medium">
+                            <div class="sp-case-priority sp-priority-medium"></div>
+                            <div class="sp-case-header">
+                                <div class="sp-case-info">
+                                    <div class="sp-case-id">#CS-2025-0846</div>
+                                    <div class="sp-case-status">
+                                        <span class="sp-status sp-status-info">Pending</span>
+                                        <span class="sp-priority-label">Medium Priority</span>
+                                    </div>
+                                </div>
+                                <div class="sp-case-date">
+                                    <span class="sp-case-created">Created: Aug 19, 2025</span>
+                                    <span class="sp-case-updated">Updated: 1 day ago</span>
+                                </div>
+                            </div>
+                            <div class="sp-case-content">
+                                <h4 data-lfr-editable-id="case-2-title" data-lfr-editable-type="text">Frame Adjustment Request</h4>
+                                <p data-lfr-editable-id="case-2-description" data-lfr-editable-type="text">Customer requesting frame adjustment for better fit. Glasses sliding down nose despite previous adjustments.</p>
+                                <div class="sp-case-meta">
+                                    <div class="sp-case-customer">
+                                        <span class="sp-customer-label">Customer:</span>
+                                        <span data-lfr-editable-id="case-2-customer" data-lfr-editable-type="text">Michael Chen</span>
+                                    </div>
+                                    <div class="sp-case-category">
+                                        <span class="sp-category-label">Category:</span>
+                                        <span class="sp-category-tag">Frame Fitting</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sp-case-actions">
+                                <a href="/cases/CS-2025-0846" class="sp-btn sp-btn-primary">View Details</a>
+                                <button class="sp-btn sp-btn-outline" data-case-action="update">Update Status</button>
+                                <button class="sp-btn sp-btn-light" data-case-action="notes">Add Notes</button>
+                            </div>
+                        </div>
+                        
+                        <!-- Case Item 3: Warranty Claim -->
+                        <div class="sp-case-item sp-card" data-status="completed" data-priority="low">
+                            <div class="sp-case-priority sp-priority-low"></div>
+                            <div class="sp-case-header">
+                                <div class="sp-case-info">
+                                    <div class="sp-case-id">#CS-2025-0845</div>
+                                    <div class="sp-case-status">
+                                        <span class="sp-status sp-status-success">Completed</span>
+                                        <span class="sp-priority-label">Low Priority</span>
+                                    </div>
+                                </div>
+                                <div class="sp-case-date">
+                                    <span class="sp-case-created">Created: Aug 18, 2025</span>
+                                    <span class="sp-case-updated">Resolved: Aug 19, 2025</span>
+                                </div>
+                            </div>
+                            <div class="sp-case-content">
+                                <h4 data-lfr-editable-id="case-3-title" data-lfr-editable-type="text">Warranty Claim - Scratch Damage</h4>
+                                <p data-lfr-editable-id="case-3-description" data-lfr-editable-type="text">Lens scratches covered under warranty. Replacement lenses ordered and fitted successfully.</p>
+                                <div class="sp-case-meta">
+                                    <div class="sp-case-customer">
+                                        <span class="sp-customer-label">Customer:</span>
+                                        <span data-lfr-editable-id="case-3-customer" data-lfr-editable-type="text">Emma Thompson</span>
+                                    </div>
+                                    <div class="sp-case-category">
+                                        <span class="sp-category-label">Category:</span>
+                                        <span class="sp-category-tag">Warranty</span>
+                                    </div>
+                                </div>
+                                <div class="sp-case-resolution">
+                                    <div class="sp-resolution-icon">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                            <path d="M13 4L6 11L3 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </div>
+                                    <span class="sp-resolution-text" data-lfr-editable-id="case-3-resolution" data-lfr-editable-type="text">Replacement lenses fitted. Customer satisfied with outcome.</span>
+                                </div>
+                            </div>
+                            <div class="sp-case-actions">
+                                <a href="/cases/CS-2025-0845" class="sp-btn sp-btn-outline">View Details</a>
+                                <button class="sp-btn sp-btn-light" data-case-action="archive">Archive</button>
+                            </div>
+                        </div>
+                        
+                        <!-- Case Item 4: Contact Lens Consultation -->
+                        <div class="sp-case-item sp-card" data-status="active" data-priority="medium">
+                            <div class="sp-case-priority sp-priority-medium"></div>
+                            <div class="sp-case-header">
+                                <div class="sp-case-info">
+                                    <div class="sp-case-id">#CS-2025-0844</div>
+                                    <div class="sp-case-status">
+                                        <span class="sp-status sp-status-warning">Active</span>
+                                        <span class="sp-priority-label">Medium Priority</span>
+                                    </div>
+                                </div>
+                                <div class="sp-case-date">
+                                    <span class="sp-case-created">Created: Aug 17, 2025</span>
+                                    <span class="sp-case-updated">Updated: 6 hours ago</span>
+                                </div>
+                            </div>
+                            <div class="sp-case-content">
+                                <h4 data-lfr-editable-id="case-4-title" data-lfr-editable-type="text">Contact Lens Consultation</h4>
+                                <p data-lfr-editable-id="case-4-description" data-lfr-editable-type="text">New customer interested in switching from glasses to contact lenses. Requires fitting consultation and trial.</p>
+                                <div class="sp-case-meta">
+                                    <div class="sp-case-customer">
+                                        <span class="sp-customer-label">Customer:</span>
+                                        <span data-lfr-editable-id="case-4-customer" data-lfr-editable-type="text">James Wilson</span>
+                                    </div>
+                                    <div class="sp-case-category">
+                                        <span class="sp-category-label">Category:</span>
+                                        <span class="sp-category-tag">Contact Lens</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sp-case-actions">
+                                <a href="/cases/CS-2025-0844" class="sp-btn sp-btn-primary">View Details</a>
+                                <button class="sp-btn sp-btn-outline" data-case-action="schedule">Schedule Appointment</button>
+                                <button class="sp-btn sp-btn-light" data-case-action="notes">Add Notes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Case Management Sidebar -->
+            <div class="sp-case-sidebar">
+                <!-- Quick Actions -->
+                <div class="sp-case-widget sp-card">
+                    <div class="sp-card-header">
+                        <h3 data-lfr-editable-id="quick-actions-title" data-lfr-editable-type="text">Quick Actions</h3>
+                    </div>
+                    <div class="sp-card-body">
+                        <div class="sp-quick-actions">
+                            <a href="/cases/new" class="sp-quick-action">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <path d="M10 2V18M2 10H18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                                Create New Case
+                            </a>
+                            
+                            <a href="/cases/bulk-update" class="sp-quick-action">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <path d="M3 6L5 8L11 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M3 12L5 14L11 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M3 18L5 20L11 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                Bulk Update
+                            </a>
+                            
+                            <a href="/cases/export" class="sp-quick-action">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <path d="M14 2H6C4.9 2 4 2.9 4 4V16C4 17.1 4.9 18 6 18H14C15.1 18 16 17.1 16 16V4C16 2.9 15.1 2 14 2Z" stroke="currentColor" stroke-width="2"/>
+                                    <path d="M8 6H12M8 10H12M8 14H10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                                Export Report
+                            </a>
+                            
+                            <a href="/cases/templates" class="sp-quick-action">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <path d="M4 4H16V6H4V4ZM4 8H16V10H4V8ZM4 12H16V14H4V12Z" fill="currentColor"/>
+                                </svg>
+                                Case Templates
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Case Categories -->
+                <div class="sp-case-widget sp-card">
+                    <div class="sp-card-header">
+                        <h3 data-lfr-editable-id="categories-title" data-lfr-editable-type="text">Case Categories</h3>
+                    </div>
+                    <div class="sp-card-body">
+                        <div class="sp-category-stats">
+                            <div class="sp-category-item">
+                                <div class="sp-category-info">
+                                    <span class="sp-category-name">Prescription Issues</span>
+                                    <span class="sp-category-count" data-counter data-target="12">12</span>
+                                </div>
+                                <div class="sp-category-bar">
+                                    <div class="sp-category-fill" style="width: 60%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="sp-category-item">
+                                <div class="sp-category-info">
+                                    <span class="sp-category-name">Frame Fitting</span>
+                                    <span class="sp-category-count" data-counter data-target="8">8</span>
+                                </div>
+                                <div class="sp-category-bar">
+                                    <div class="sp-category-fill" style="width: 40%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="sp-category-item">
+                                <div class="sp-category-info">
+                                    <span class="sp-category-name">Contact Lens</span>
+                                    <span class="sp-category-count" data-counter data-target="6">6</span>
+                                </div>
+                                <div class="sp-category-bar">
+                                    <div class="sp-category-fill" style="width: 30%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="sp-category-item">
+                                <div class="sp-category-info">
+                                    <span class="sp-category-name">Warranty Claims</span>
+                                    <span class="sp-category-count" data-counter data-target="4">4</span>
+                                </div>
+                                <div class="sp-category-bar">
+                                    <div class="sp-category-fill" style="width: 20%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="sp-category-item">
+                                <div class="sp-category-info">
+                                    <span class="sp-category-name">General Inquiry</span>
+                                    <span class="sp-category-count" data-counter data-target="3">3</span>
+                                </div>
+                                <div class="sp-category-bar">
+                                    <div class="sp-category-fill" style="width: 15%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Recent Activity -->
+                <div class="sp-case-widget sp-card">
+                    <div class="sp-card-header">
+                        <h3 data-lfr-editable-id="recent-activity-title" data-lfr-editable-type="text">Recent Activity</h3>
+                    </div>
+                    <div class="sp-card-body">
+                        <div class="sp-activity-list">
+                            <div class="sp-activity-item">
+                                <div class="sp-activity-icon sp-activity-updated">
+                                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                                        <path d="M7 1V7L10 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                                <div class="sp-activity-content">
+                                    <p data-lfr-editable-id="activity-1-text" data-lfr-editable-type="text">Updated case #CS-2025-0847 status</p>
+                                    <small>2 hours ago</small>
+                                </div>
+                            </div>
+                            
+                            <div class="sp-activity-item">
+                                <div class="sp-activity-icon sp-activity-created">
+                                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                                        <path d="M7 1V13M1 7H13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                    </svg>
+                                </div>
+                                <div class="sp-activity-content">
+                                    <p data-lfr-editable-id="activity-2-text" data-lfr-editable-type="text">Created new case for Sarah Johnson</p>
+                                    <small>4 hours ago</small>
+                                </div>
+                            </div>
+                            
+                            <div class="sp-activity-item">
+                                <div class="sp-activity-icon sp-activity-resolved">
+                                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                                        <path d="M11 4L5 10L2 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                                <div class="sp-activity-content">
+                                    <p data-lfr-editable-id="activity-3-text" data-lfr-editable-type="text">Resolved warranty claim #CS-2025-0845</p>
+                                    <small>1 day ago</small>
+                                </div>
+                            </div>
+                            
+                            <div class="sp-activity-item">
+                                <div class="sp-activity-icon sp-activity-note">
+                                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                                        <path d="M10 1H2C1.4 1 1 1.4 1 2V12C1 12.6 1.4 13 2 13H12C12.6 13 13 12.6 13 12V4L10 1Z" stroke="currentColor" stroke-width="2"/>
+                                        <path d="M10 1V4H13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                                <div class="sp-activity-content">
+                                    <p data-lfr-editable-id="activity-4-text" data-lfr-editable-type="text">Added notes to case #CS-2025-0846</p>
+                                    <small>1 day ago</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

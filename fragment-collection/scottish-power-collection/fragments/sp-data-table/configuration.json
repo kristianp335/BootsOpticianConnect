@@ -1,0 +1,83 @@
+{
+    "fieldSets": [
+        {
+            "fields": [
+                {
+                    "name": "tableTitle",
+                    "label": "Table Title",
+                    "description": "The title displayed above the table",
+                    "type": "text",
+                    "typeOptions": {
+                        "placeholder": "Recent Cases"
+                    },
+                    "defaultValue": "Data Table"
+                },
+                {
+                    "name": "dataSource",
+                    "label": "Data Source",
+                    "description": "Source of table data",
+                    "type": "select",
+                    "typeOptions": {
+                        "validValues": [
+                            {"value": "sample", "label": "Sample Data"},
+                            {"value": "api", "label": "API Endpoint"},
+                            {"value": "manual", "label": "Manual Entry"}
+                        ]
+                    },
+                    "defaultValue": "sample"
+                },
+                {
+                    "name": "tableType",
+                    "label": "Table Type",
+                    "description": "Type of data table",
+                    "type": "select",
+                    "typeOptions": {
+                        "validValues": [
+                            {"value": "cases", "label": "Cases List"},
+                            {"value": "appointments", "label": "Appointments"},
+                            {"value": "training", "label": "Training Modules"},
+                            {"value": "performance", "label": "Performance Data"},
+                            {"value": "generic", "label": "Generic Table"}
+                        ]
+                    },
+                    "defaultValue": "cases"
+                },
+                {
+                    "name": "showActions",
+                    "label": "Show Action Buttons",
+                    "description": "Display action buttons for each row",
+                    "type": "checkbox",
+                    "defaultValue": true
+                },
+                {
+                    "name": "showPagination",
+                    "label": "Show Pagination",
+                    "description": "Enable pagination for the table",
+                    "type": "checkbox",
+                    "defaultValue": true
+                },
+                {
+                    "name": "rowsPerPage",
+                    "label": "Rows Per Page",
+                    "description": "Number of rows to display per page",
+                    "type": "select",
+                    "typeOptions": {
+                        "validValues": [
+                            {"value": "5", "label": "5 rows"},
+                            {"value": "10", "label": "10 rows"},
+                            {"value": "20", "label": "20 rows"}
+                        ]
+                    },
+                    "defaultValue": "10"
+                },
+                {
+                    "name": "enableSearch",
+                    "label": "Enable Search",
+                    "description": "Add search functionality to the table",
+                    "type": "checkbox",
+                    "defaultValue": true
+                }
+            ]
+        }
+    ]
+}

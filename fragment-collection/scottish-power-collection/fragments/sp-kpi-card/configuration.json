@@ -1,0 +1,79 @@
+{
+    "fieldSets": [
+        {
+            "fields": [
+                {
+                    "name": "cardTitle",
+                    "label": "Card Title",
+                    "description": "The title displayed on the KPI card",
+                    "type": "text",
+                    "typeOptions": {
+                        "placeholder": "Monthly Revenue"
+                    },
+                    "defaultValue": "KPI Metric"
+                },
+                {
+                    "name": "cardValue",
+                    "label": "KPI Value",
+                    "description": "The main value to display",
+                    "type": "text",
+                    "typeOptions": {
+                        "placeholder": "£15,750"
+                    },
+                    "defaultValue": "0"
+                },
+                {
+                    "name": "cardChange",
+                    "label": "Change Indicator",
+                    "description": "Percentage or change indicator",
+                    "type": "text",
+                    "typeOptions": {
+                        "placeholder": "+12.5%"
+                    },
+                    "defaultValue": ""
+                },
+                {
+                    "name": "cardDescription",
+                    "label": "Description",
+                    "description": "Brief description below the value",
+                    "type": "text",
+                    "typeOptions": {
+                        "placeholder": "Compared to last month"
+                    },
+                    "defaultValue": ""
+                },
+                {
+                    "name": "cardIcon",
+                    "label": "Icon Type",
+                    "description": "Choose an icon for the card",
+                    "type": "select",
+                    "typeOptions": {
+                        "validValues": [
+                            {"value": "revenue", "label": "Revenue"},
+                            {"value": "appointments", "label": "Appointments"},
+                            {"value": "satisfaction", "label": "Customer Satisfaction"},
+                            {"value": "training", "label": "Training Progress"},
+                            {"value": "cases", "label": "Cases"},
+                            {"value": "performance", "label": "Performance"}
+                        ]
+                    },
+                    "defaultValue": "revenue"
+                },
+                {
+                    "name": "changeType",
+                    "label": "Change Type",
+                    "description": "Whether the change is positive, negative, or neutral",
+                    "type": "select",
+                    "typeOptions": {
+                        "validValues": [
+                            {"value": "positive", "label": "Positive (Green)"},
+                            {"value": "negative", "label": "Negative (Red)"},
+                            {"value": "neutral", "label": "Neutral (Gray)"}
+                        ]
+                    },
+                    "defaultValue": "positive"
+                }
+            ]
+        }
+    ]
+}

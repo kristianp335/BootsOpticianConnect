@@ -1,0 +1,82 @@
+{
+    "fieldSets": [
+        {
+            "fields": [
+                {
+                    "name": "statTitle",
+                    "label": "Statistic Title",
+                    "description": "The title of the statistic",
+                    "type": "text",
+                    "typeOptions": {
+                        "placeholder": "Active Cases"
+                    },
+                    "defaultValue": "Statistic"
+                },
+                {
+                    "name": "statValue",
+                    "label": "Statistic Value",
+                    "description": "The main value to display",
+                    "type": "text",
+                    "typeOptions": {
+                        "placeholder": "23"
+                    },
+                    "defaultValue": "0"
+                },
+                {
+                    "name": "statChange",
+                    "label": "Change Indicator",
+                    "description": "Change or additional info",
+                    "type": "text",
+                    "typeOptions": {
+                        "placeholder": "+5 this week"
+                    },
+                    "defaultValue": ""
+                },
+                {
+                    "name": "statIcon",
+                    "label": "Icon Type",
+                    "description": "Choose an icon for the statistic",
+                    "type": "select",
+                    "typeOptions": {
+                        "validValues": [
+                            {"value": "active", "label": "Active/Clock"},
+                            {"value": "pending", "label": "Pending/Star"},
+                            {"value": "resolved", "label": "Resolved/Check"},
+                            {"value": "response", "label": "Response/Lightning"},
+                            {"value": "users", "label": "Users/People"},
+                            {"value": "revenue", "label": "Revenue/Money"}
+                        ]
+                    },
+                    "defaultValue": "active"
+                },
+                {
+                    "name": "changeType",
+                    "label": "Change Type",
+                    "description": "Whether the change is positive, negative, or neutral",
+                    "type": "select",
+                    "typeOptions": {
+                        "validValues": [
+                            {"value": "positive", "label": "Positive (Green)"},
+                            {"value": "negative", "label": "Negative (Red)"},
+                            {"value": "neutral", "label": "Neutral (Gray)"}
+                        ]
+                    },
+                    "defaultValue": "positive"
+                },
+                {
+                    "name": "cardLayout",
+                    "label": "Card Layout",
+                    "description": "Layout style for the statistics card",
+                    "type": "select",
+                    "typeOptions": {
+                        "validValues": [
+                            {"value": "horizontal", "label": "Horizontal (Icon + Content)"},
+                            {"value": "vertical", "label": "Vertical (Stacked)"}
+                        ]
+                    },
+                    "defaultValue": "horizontal"
+                }
+            ]
+        }
+    ]
+}

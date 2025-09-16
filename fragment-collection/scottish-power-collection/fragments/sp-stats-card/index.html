@@ -1,0 +1,44 @@
+<div class="sp-stats-card-fragment">
+    <div class="sp-stat-card sp-card sp-layout-${configuration.cardLayout!"horizontal"}">
+        <div class="sp-stat-icon sp-stat-${configuration.statIcon!"active"}">
+            [#if (configuration.statIcon!"active") == "active"]
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                <path d="M12 6V12L16 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            [#elseif (configuration.statIcon!"active") == "pending"]
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M12 2L15.5 8.5L22 9L17 14L18.5 21L12 17.5L5.5 21L7 14L2 9L8.5 8.5L12 2Z" stroke="currentColor" stroke-width="2"/>
+            </svg>
+            [#elseif (configuration.statIcon!"active") == "resolved"]
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M22 11.08V12C22 17.52 17.52 22 12 22S2 17.52 2 12S6.48 2 12 2C14.1 2 15.99 2.64 17.54 3.71" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M22 4L12 14.01L9 11.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            [#elseif (configuration.statIcon!"active") == "response"]
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            [#elseif (configuration.statIcon!"active") == "users"]
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M17 21V19C17 17.9 16.1 17 15 17H9C7.9 17 7 17.9 7 19V21" stroke="currentColor" stroke-width="2"/>
+                <circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="2"/>
+            </svg>
+            [#else]
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                <path d="M16 8L12 12L8 16M16 8V12M16 8H12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            [/#if]
+        </div>
+        <div class="sp-stat-content">
+            <div class="sp-stat-value">
+                <span data-counter data-target="${(configuration.statValue!"0")?replace('[^0-9]', '', 'r')}" data-lfr-editable-id="stat-value" data-lfr-editable-type="text">${configuration.statValue!"0"}</span>
+            </div>
+            <div class="sp-stat-label" data-lfr-editable-id="stat-title" data-lfr-editable-type="text">${configuration.statTitle!"Statistic"}</div>
+            [#if configuration.statChange?has_content]
+            <div class="sp-stat-change sp-${configuration.changeType!"positive"}">${configuration.statChange!""}</div>
+            [/#if]
+        </div>
+    </div>
+</div>

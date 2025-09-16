@@ -1,0 +1,246 @@
+#wrapper .sp-invoice-detail-fragment {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  margin-bottom: 2rem;
+}
+
+#wrapper .sp-invoice-card {
+  background: #ffffff;
+  border: 2px solid var(--brand-color-1, #003d82);
+  border-radius: 12px;
+  padding: 0;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 61, 130, 0.08);
+  transition: all 0.2s ease;
+  max-width: 480px;
+}
+
+#wrapper .sp-invoice-card:hover {
+  box-shadow: 0 4px 16px rgba(0, 61, 130, 0.12);
+  transform: translateY(-1px);
+}
+
+/* Header Section */
+#wrapper .sp-invoice-header {
+  background: linear-gradient(135deg, var(--brand-color-1, #003d82) 0%, var(--brand-color-2, #5a6c7d) 100%);
+  color: white;
+  padding: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+#wrapper .sp-invoice-icon {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 48px;
+  height: 48px;
+}
+
+#wrapper .sp-invoice-icon .sp-icon-invoice {
+  color: white;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
+}
+
+#wrapper .sp-invoice-header-content {
+  flex: 1;
+  min-width: 0;
+}
+
+#wrapper .sp-invoice-number {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0 0 0.25rem 0;
+  color: white;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+#wrapper .sp-customer-name {
+  font-size: 0.95rem;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+}
+
+/* Content Section */
+#wrapper .sp-invoice-content {
+  padding: 1.5rem;
+}
+
+#wrapper .sp-invoice-details {
+  margin-bottom: 1.5rem;
+}
+
+#wrapper .sp-detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.875rem 0;
+  border-bottom: 1px solid #e9ecef;
+}
+
+#wrapper .sp-detail-row:last-child {
+  border-bottom: none;
+}
+
+#wrapper .sp-detail-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #495057;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+#wrapper .sp-detail-icon {
+  color: var(--brand-color-1, #003d82);
+  flex-shrink: 0;
+}
+
+#wrapper .sp-detail-value {
+  font-weight: 700;
+  font-size: 1rem;
+  color: #212529;
+  text-align: right;
+}
+
+/* Special styling for amount */
+#wrapper .sp-amount-value {
+  font-size: 1.25rem;
+  color: var(--brand-color-1, #003d82);
+}
+
+#wrapper .sp-amount-row {
+  background: rgba(0, 61, 130, 0.02);
+  margin: -0.875rem -1.5rem 0.875rem -1.5rem;
+  padding: 1rem 1.5rem;
+}
+
+/* Due date styling */
+#wrapper .sp-due-date {
+  font-family: 'Courier New', Courier, monospace;
+  color: #6c757d;
+}
+
+/* Appointments styling */
+#wrapper .sp-appointments-count {
+  background: var(--brand-color-1, #003d82);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  min-width: 2rem;
+  text-align: center;
+}
+
+/* Action Button */
+#wrapper .sp-invoice-actions {
+  text-align: center;
+  padding-top: 0.5rem;
+  border-top: 1px solid #e9ecef;
+}
+
+#wrapper .sp-download-btn {
+  background: var(--brand-color-1, #003d82);
+  border: 2px solid var(--brand-color-1, #003d82);
+  color: white;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#wrapper .sp-download-btn:hover {
+  background: #002a5c;
+  border-color: #002a5c;
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 61, 130, 0.2);
+}
+
+#wrapper .sp-download-btn:active {
+  transform: translateY(0);
+}
+
+#wrapper .sp-download-icon {
+  flex-shrink: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  #wrapper .sp-invoice-detail-fragment {
+    margin-bottom: 1rem;
+  }
+  
+  #wrapper .sp-invoice-card {
+    max-width: 100%;
+  }
+  
+  #wrapper .sp-invoice-header {
+    padding: 1rem;
+  }
+  
+  #wrapper .sp-invoice-content {
+    padding: 1rem;
+  }
+  
+  #wrapper .sp-detail-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  #wrapper .sp-detail-value {
+    text-align: left;
+  }
+  
+  #wrapper .sp-amount-row {
+    margin: -0.875rem -1rem 0.875rem -1rem;
+    padding: 1rem;
+  }
+}
+
+/* Edit Mode Styling */
+.control-menu-active #wrapper .sp-invoice-card {
+  border-color: var(--brand-color-2, #5a6c7d);
+  box-shadow: 0 0 0 2px rgba(90, 108, 125, 0.1);
+}
+
+.control-menu-active #wrapper .sp-invoice-card:hover {
+  border-color: var(--brand-color-1, #003d82);
+  box-shadow: 0 0 0 3px rgba(0, 61, 130, 0.15);
+}
+
+/* Accessibility */
+#wrapper .sp-download-btn:focus {
+  outline: 3px solid rgba(0, 61, 130, 0.3);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #wrapper .sp-invoice-card,
+  #wrapper .sp-download-btn {
+    transition: none;
+  }
+}
+
+/* Print Styles */
+@media print {
+  #wrapper .sp-invoice-detail-fragment {
+    margin-bottom: 1rem;
+    break-inside: avoid;
+  }
+  
+  #wrapper .sp-invoice-actions {
+    display: none;
+  }
+}
