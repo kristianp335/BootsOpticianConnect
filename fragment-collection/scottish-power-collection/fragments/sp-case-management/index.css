@@ -94,6 +94,11 @@
     color: var(--brand-color-1, #0052cc);
 }
 
+/* Visited Link Override */
+#wrapper .sp-case-management-fragment a:visited {
+    color: var(--white, #ffffff) !important;
+}
+
 /* Case Statistics */
 #wrapper .sp-case-stats {
     margin-bottom: var(--boots-spacing-xl);
